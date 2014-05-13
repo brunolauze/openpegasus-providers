@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{464E8445-3A01-4696-A35D-41F7DEC97B93}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{F14E7FAC-1727-4813-BAE2-71854B9A9964}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{628FCFD8-381E-44D5-B2D5-AA89EC50CBC1}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="../MockResponseHandler.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UNIX_InstalledSoftwareIdentityFixture.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RunTestUNIX_InstalledSoftwareIdentity.sh">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_InstalledSoftwareIdentity.Tests.cproj">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_InstalledSoftwareIdentity.Tests.vcxproj">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_InstalledSoftwareIdentityFixture.h">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

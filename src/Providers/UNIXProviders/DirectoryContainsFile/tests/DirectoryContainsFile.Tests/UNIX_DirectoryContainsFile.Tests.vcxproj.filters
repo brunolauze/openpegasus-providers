@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5625BA41-D3C1-4792-98D7-14371890E466}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{14966B3B-C5E6-4F14-8930-D5EB6E4C9724}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{0D86DF33-67FF-4658-8C93-F08B6D4B1189}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="../MockResponseHandler.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UNIX_DirectoryContainsFileFixture.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RunTestUNIX_DirectoryContainsFile.sh">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_DirectoryContainsFile.Tests.cproj">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_DirectoryContainsFile.Tests.vcxproj">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_DirectoryContainsFileFixture.h">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

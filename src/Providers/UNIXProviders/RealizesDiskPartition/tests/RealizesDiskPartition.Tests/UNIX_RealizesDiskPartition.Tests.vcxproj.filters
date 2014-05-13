@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{59C8D826-52DC-4B90-A46E-7E31B59B740A}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{32DD51AF-50D8-4106-B792-E5B46F528071}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{BEA3FE8B-75AA-488E-84A9-48D0E11AFC02}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="../MockResponseHandler.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UNIX_RealizesDiskPartitionFixture.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RunTestUNIX_RealizesDiskPartition.sh">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_RealizesDiskPartition.Tests.cproj">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_RealizesDiskPartition.Tests.vcxproj">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_RealizesDiskPartitionFixture.h">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

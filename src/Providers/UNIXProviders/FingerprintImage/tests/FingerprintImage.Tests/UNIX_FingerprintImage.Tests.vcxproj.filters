@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2DE8B49C-CEF4-4DAA-8B56-4745F17F80C1}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{4EBBBBC0-C234-43BF-AF5B-A6D015148DC5}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{490C8814-65DC-495B-AD73-13C6CF0B1968}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="../MockResponseHandler.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UNIX_FingerprintImageFixture.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RunTestUNIX_FingerprintImage.sh">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_FingerprintImage.Tests.cproj">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_FingerprintImage.Tests.vcxproj">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_FingerprintImageFixture.h">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

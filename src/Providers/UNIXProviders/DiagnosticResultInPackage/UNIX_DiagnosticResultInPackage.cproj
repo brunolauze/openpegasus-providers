@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F37117D8-4E94-4CDE-9004-119A334E82D1}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_DiagnosticResultInPackageProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DiagnosticResultInPackageLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_DiagnosticResultInPackageLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_DiagnosticResultInPackageProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DiagnosticResultInPackageLib" -DPROVIDER_LIB_NS="namespace UNIX_DiagnosticResultInPackageLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_DiagnosticResultInPackage.cpp" />
+    <Compile Include="UNIX_DiagnosticResultInPackageMain.cpp" />
+    <Compile Include="UNIX_DiagnosticResultInPackageProvider.cpp" />
+    <Compile Include="UNIX_DiagnosticResultInPackage_AIX.cpp" />
+    <Compile Include="UNIX_DiagnosticResultInPackage_DARWIN.cpp" />
+    <Compile Include="UNIX_DiagnosticResultInPackage_FREEBSD.cpp" />
+    <Compile Include="UNIX_DiagnosticResultInPackage_HPUX.cpp" />
+    <Compile Include="UNIX_DiagnosticResultInPackage_LINUX.cpp" />
+    <Compile Include="UNIX_DiagnosticResultInPackage_SOLARIS.cpp" />
+    <Compile Include="UNIX_DiagnosticResultInPackage_STUB.cpp" />
+    <Compile Include="UNIX_DiagnosticResultInPackage_TRU64.cpp" />
+    <Compile Include="UNIX_DiagnosticResultInPackage_VMS.cpp" />
+    <Compile Include="UNIX_DiagnosticResultInPackage_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_DiagnosticResultInPackage.h" />
+    <Node Include="UNIX_DiagnosticResultInPackageDeps.h" />
+    <Node Include="UNIX_DiagnosticResultInPackageDeps_AIX.h" />
+    <Node Include="UNIX_DiagnosticResultInPackageDeps_DARWIN.h" />
+    <Node Include="UNIX_DiagnosticResultInPackageDeps_FREEBSD.h" />
+    <Node Include="UNIX_DiagnosticResultInPackageDeps_HPUX.h" />
+    <Node Include="UNIX_DiagnosticResultInPackageDeps_LINUX.h" />
+    <Node Include="UNIX_DiagnosticResultInPackageDeps_SOLARIS.h" />
+    <Node Include="UNIX_DiagnosticResultInPackageDeps_STUB.h" />
+    <Node Include="UNIX_DiagnosticResultInPackageDeps_TRU64.h" />
+    <Node Include="UNIX_DiagnosticResultInPackageDeps_VMS.h" />
+    <Node Include="UNIX_DiagnosticResultInPackageDeps_ZOS.h" />
+    <Node Include="UNIX_DiagnosticResultInPackagePrivate.h" />
+    <Node Include="UNIX_DiagnosticResultInPackagePrivate_AIX.h" />
+    <Node Include="UNIX_DiagnosticResultInPackagePrivate_DARWIN.h" />
+    <Node Include="UNIX_DiagnosticResultInPackagePrivate_FREEBSD.h" />
+    <Node Include="UNIX_DiagnosticResultInPackagePrivate_HPUX.h" />
+    <Node Include="UNIX_DiagnosticResultInPackagePrivate_LINUX.h" />
+    <Node Include="UNIX_DiagnosticResultInPackagePrivate_SOLARIS.h" />
+    <Node Include="UNIX_DiagnosticResultInPackagePrivate_STUB.h" />
+    <Node Include="UNIX_DiagnosticResultInPackagePrivate_TRU64.h" />
+    <Node Include="UNIX_DiagnosticResultInPackagePrivate_VMS.h" />
+    <Node Include="UNIX_DiagnosticResultInPackagePrivate_ZOS.h" />
+    <Node Include="UNIX_DiagnosticResultInPackageProvider.h" />
+    <Node Include="UNIX_DiagnosticResultInPackage_AIX.hpp" />
+    <Node Include="UNIX_DiagnosticResultInPackage_AIX.hxx" />
+    <Node Include="UNIX_DiagnosticResultInPackage_DARWIN.hpp" />
+    <Node Include="UNIX_DiagnosticResultInPackage_DARWIN.hxx" />
+    <Node Include="UNIX_DiagnosticResultInPackage_FREEBSD.hpp" />
+    <Node Include="UNIX_DiagnosticResultInPackage_FREEBSD.hxx" />
+    <Node Include="UNIX_DiagnosticResultInPackage_HPUX.hpp" />
+    <Node Include="UNIX_DiagnosticResultInPackage_HPUX.hxx" />
+    <Node Include="UNIX_DiagnosticResultInPackage_LINUX.hpp" />
+    <Node Include="UNIX_DiagnosticResultInPackage_LINUX.hxx" />
+    <Node Include="UNIX_DiagnosticResultInPackage_SOLARIS.hpp" />
+    <Node Include="UNIX_DiagnosticResultInPackage_SOLARIS.hxx" />
+    <Node Include="UNIX_DiagnosticResultInPackage_STUB.hpp" />
+    <Node Include="UNIX_DiagnosticResultInPackage_STUB.hxx" />
+    <Node Include="UNIX_DiagnosticResultInPackage_TRU64.hpp" />
+    <Node Include="UNIX_DiagnosticResultInPackage_TRU64.hxx" />
+    <Node Include="UNIX_DiagnosticResultInPackage_VMS.hpp" />
+    <Node Include="UNIX_DiagnosticResultInPackage_VMS.hxx" />
+    <Node Include="UNIX_DiagnosticResultInPackage_WIN32.hpp" />
+    <Node Include="UNIX_DiagnosticResultInPackage_ZOS.hpp" />
+    <Node Include="UNIX_DiagnosticResultInPackage_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

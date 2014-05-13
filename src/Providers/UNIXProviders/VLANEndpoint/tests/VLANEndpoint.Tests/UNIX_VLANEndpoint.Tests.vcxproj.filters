@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F5DE7B17-BD68-4E19-B73C-4EF37742CDCD}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{BA9D40E0-20CF-406C-BE0E-8BDEAA4DE328}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{1E09BCF5-D871-4555-8285-A4B95A630A78}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="../MockResponseHandler.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UNIX_VLANEndpointFixture.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RunTestUNIX_VLANEndpoint.sh">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_VLANEndpoint.Tests.cproj">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_VLANEndpoint.Tests.vcxproj">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIX_VLANEndpointFixture.h">
+        <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>d30b6ed7-64b9-40cd-a7ea-08b127c08a8e</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../../UNIX_EgressConditioningServiceOnEndpoint.md.pc" name="UNIX_EgressConditioningServiceOnEndpoint" IsProject="True" />
+        <Package file="../../../DHCPProtocolEndpoint/UNIX_DHCPProtocolEndpoint.md.pc" name="UNIX_DHCPProtocolEndpoint" IsProject="True" />
+        <Package file="../../../SSHProtocolEndpoint/UNIX_SSHProtocolEndpoint.md.pc" name="UNIX_SSHProtocolEndpoint" IsProject="True" />
+        <Package file="../../../SCSIProtocolEndpoint/UNIX_SCSIProtocolEndpoint.md.pc" name="UNIX_SCSIProtocolEndpoint" IsProject="True" />
+        <Package file="../../../iSCSIProtocolEndpoint/UNIX_iSCSIProtocolEndpoint.md.pc" name="UNIX_iSCSIProtocolEndpoint" IsProject="True" />
+        <Package file="../../../CLPProtocolEndpoint/UNIX_CLPProtocolEndpoint.md.pc" name="UNIX_CLPProtocolEndpoint" IsProject="True" />
+        <Package file="../../../IPXProtocolEndpoint/UNIX_IPXProtocolEndpoint.md.pc" name="UNIX_IPXProtocolEndpoint" IsProject="True" />
+        <Package file="../../../IPsecSAEndpoint/UNIX_IPsecSAEndpoint.md.pc" name="UNIX_IPsecSAEndpoint" IsProject="True" />
+        <Package file="../../../IKESAEndpoint/UNIX_IKESAEndpoint.md.pc" name="UNIX_IKESAEndpoint" IsProject="True" />
+        <Package file="../../../LANEndpoint/UNIX_LANEndpoint.md.pc" name="UNIX_LANEndpoint" IsProject="True" />
+        <Package file="../../../WiFiEndpoint/UNIX_WiFiEndpoint.md.pc" name="UNIX_WiFiEndpoint" IsProject="True" />
+        <Package file="../../../MPLSProtocolEndpoint/UNIX_MPLSProtocolEndpoint.md.pc" name="UNIX_MPLSProtocolEndpoint" IsProject="True" />
+        <Package file="../../../WirelessLANEndpoint/UNIX_WirelessLANEndpoint.md.pc" name="UNIX_WirelessLANEndpoint" IsProject="True" />
+        <Package file="../../../UDPProtocolEndpoint/UNIX_UDPProtocolEndpoint.md.pc" name="UNIX_UDPProtocolEndpoint" IsProject="True" />
+        <Package file="../../../TCPProtocolEndpoint/UNIX_TCPProtocolEndpoint.md.pc" name="UNIX_TCPProtocolEndpoint" IsProject="True" />
+        <Package file="../../../OSPFVirtualInterface/UNIX_OSPFVirtualInterface.md.pc" name="UNIX_OSPFVirtualInterface" IsProject="True" />
+        <Package file="../../../OSPFProtocolEndpoint/UNIX_OSPFProtocolEndpoint.md.pc" name="UNIX_OSPFProtocolEndpoint" IsProject="True" />
+        <Package file="../../../VLANEndpoint/UNIX_VLANEndpoint.md.pc" name="UNIX_VLANEndpoint" IsProject="True" />
+        <Package file="../../../LinkAggregator8023ad/UNIX_LinkAggregator8023ad.md.pc" name="UNIX_LinkAggregator8023ad" IsProject="True" />
+        <Package file="../../../ATAProtocolEndpoint/UNIX_ATAProtocolEndpoint.md.pc" name="UNIX_ATAProtocolEndpoint" IsProject="True" />
+        <Package file="../../../IPEncapsulationInterface/UNIX_IPEncapsulationInterface.md.pc" name="UNIX_IPEncapsulationInterface" IsProject="True" />
+        <Package file="../../../IPSubinterface/UNIX_IPSubinterface.md.pc" name="UNIX_IPSubinterface" IsProject="True" />
+        <Package file="../../../SwitchVirtualInterface/UNIX_SwitchVirtualInterface.md.pc" name="UNIX_SwitchVirtualInterface" IsProject="True" />
+        <Package file="../../../IPLoopback/UNIX_IPLoopback.md.pc" name="UNIX_IPLoopback" IsProject="True" />
+        <Package file="../../../BGPProtocolEndpoint/UNIX_BGPProtocolEndpoint.md.pc" name="UNIX_BGPProtocolEndpoint" IsProject="True" />
+        <Package file="../../../SwitchPort/UNIX_SwitchPort.md.pc" name="UNIX_SwitchPort" IsProject="True" />
+        <Package file="../../../DNSProtocolEndpoint/UNIX_DNSProtocolEndpoint.md.pc" name="UNIX_DNSProtocolEndpoint" IsProject="True" />
+        <Package file="../../../LAGPort8023ad/UNIX_LAGPort8023ad.md.pc" name="UNIX_LAGPort8023ad" IsProject="True" />
+        <Package file="../../../TokenBucketMeterService/UNIX_TokenBucketMeterService.md.pc" name="UNIX_TokenBucketMeterService" IsProject="True" />
+        <Package file="../../../EWMAMeterService/UNIX_EWMAMeterService.md.pc" name="UNIX_EWMAMeterService" IsProject="True" />
+        <Package file="../../../AverageRateMeterService/UNIX_AverageRateMeterService.md.pc" name="UNIX_AverageRateMeterService" IsProject="True" />
+        <Package file="../../../ToSMarkerService/UNIX_ToSMarkerService.md.pc" name="UNIX_ToSMarkerService" IsProject="True" />
+        <Package file="../../../Priority8021QMarkerService/UNIX_Priority8021QMarkerService.md.pc" name="UNIX_Priority8021QMarkerService" IsProject="True" />
+        <Package file="../../../DSCPMarkerService/UNIX_DSCPMarkerService.md.pc" name="UNIX_DSCPMarkerService" IsProject="True" />
+        <Package file="../../../PreambleMarkerService/UNIX_PreambleMarkerService.md.pc" name="UNIX_PreambleMarkerService" IsProject="True" />
+        <Package file="../../../ClassifierService/UNIX_ClassifierService.md.pc" name="UNIX_ClassifierService" IsProject="True" />
+        <Package file="../../../ClassifierElement/UNIX_ClassifierElement.md.pc" name="UNIX_ClassifierElement" IsProject="True" />
+        <Package file="../../../PacketSchedulingService/UNIX_PacketSchedulingService.md.pc" name="UNIX_PacketSchedulingService" IsProject="True" />
+        <Package file="../../../NonWorkConservingSchedulingService/UNIX_NonWorkConservingSchedulingService.md.pc" name="UNIX_NonWorkConservingSchedulingService" IsProject="True" />
+        <Package file="../../../REDDropperService/UNIX_REDDropperService.md.pc" name="UNIX_REDDropperService" IsProject="True" />
+        <Package file="../../../HeadTailDropper/UNIX_HeadTailDropper.md.pc" name="UNIX_HeadTailDropper" IsProject="True" />
+        <Package file="../../../WeightedREDDropperService/UNIX_WeightedREDDropperService.md.pc" name="UNIX_WeightedREDDropperService" IsProject="True" />
+        <Package file="../../../QueuingService/UNIX_QueuingService.md.pc" name="UNIX_QueuingService" IsProject="True" />
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>TestUNIX_EgressConditioningServiceOnEndpoint</OutputName>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/*</Include>
+        <Include>${ProjectDir}/../../..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_EgressConditioningServiceOnEndpointLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_EgressConditioningServiceOnEndpointLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_EgressConditioningServiceOnEndpointProvider -lUNIX_DHCPProtocolEndpointProvider -lUNIX_SSHProtocolEndpointProvider -lUNIX_SCSIProtocolEndpointProvider -lUNIX_iSCSIProtocolEndpointProvider -lUNIX_CLPProtocolEndpointProvider -lUNIX_IPXProtocolEndpointProvider -lUNIX_IPsecSAEndpointProvider -lUNIX_IKESAEndpointProvider -lUNIX_LANEndpointProvider -lUNIX_WiFiEndpointProvider -lUNIX_MPLSProtocolEndpointProvider -lUNIX_WirelessLANEndpointProvider -lUNIX_UDPProtocolEndpointProvider -lUNIX_TCPProtocolEndpointProvider -lUNIX_OSPFVirtualInterfaceProvider -lUNIX_OSPFProtocolEndpointProvider -lUNIX_VLANEndpointProvider -lUNIX_LinkAggregator8023adProvider -lUNIX_ATAProtocolEndpointProvider -lUNIX_IPEncapsulationInterfaceProvider -lUNIX_IPSubinterfaceProvider -lUNIX_SwitchVirtualInterfaceProvider -lUNIX_IPLoopbackProvider -lUNIX_BGPProtocolEndpointProvider -lUNIX_SwitchPortProvider -lUNIX_DNSProtocolEndpointProvider -lUNIX_LAGPort8023adProvider -lUNIX_TokenBucketMeterServiceProvider -lUNIX_EWMAMeterServiceProvider -lUNIX_AverageRateMeterServiceProvider -lUNIX_ToSMarkerServiceProvider -lUNIX_Priority8021QMarkerServiceProvider -lUNIX_DSCPMarkerServiceProvider -lUNIX_PreambleMarkerServiceProvider -lUNIX_ClassifierServiceProvider -lUNIX_ClassifierElementProvider -lUNIX_PacketSchedulingServiceProvider -lUNIX_NonWorkConservingSchedulingServiceProvider -lUNIX_REDDropperServiceProvider -lUNIX_HeadTailDropperProvider -lUNIX_WeightedREDDropperServiceProvider -lUNIX_QueuingServiceProvider</ExtraLinkerArguments>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="LD_LIBRARY_PATH" value="../../../../bin/Debug:../../../../../DHCPProtocolEndpoint/bin/Debug:../../../../../SSHProtocolEndpoint/bin/Debug:../../../../../SCSIProtocolEndpoint/bin/Debug:../../../../../iSCSIProtocolEndpoint/bin/Debug:../../../../../CLPProtocolEndpoint/bin/Debug:../../../../../IPXProtocolEndpoint/bin/Debug:../../../../../IPsecSAEndpoint/bin/Debug:../../../../../IKESAEndpoint/bin/Debug:../../../../../LANEndpoint/bin/Debug:../../../../../WiFiEndpoint/bin/Debug:../../../../../MPLSProtocolEndpoint/bin/Debug:../../../../../WirelessLANEndpoint/bin/Debug:../../../../../UDPProtocolEndpoint/bin/Debug:../../../../../TCPProtocolEndpoint/bin/Debug:../../../../../OSPFVirtualInterface/bin/Debug:../../../../../OSPFProtocolEndpoint/bin/Debug:../../../../../VLANEndpoint/bin/Debug:../../../../../LinkAggregator8023ad/bin/Debug:../../../../../ATAProtocolEndpoint/bin/Debug:../../../../../IPEncapsulationInterface/bin/Debug:../../../../../IPSubinterface/bin/Debug:../../../../../SwitchVirtualInterface/bin/Debug:../../../../../IPLoopback/bin/Debug:../../../../../BGPProtocolEndpoint/bin/Debug:../../../../../SwitchPort/bin/Debug:../../../../../DNSProtocolEndpoint/bin/Debug:../../../../../LAGPort8023ad/bin/Debug:../../../../../TokenBucketMeterService/bin/Debug:../../../../../EWMAMeterService/bin/Debug:../../../../../AverageRateMeterService/bin/Debug:../../../../../ToSMarkerService/bin/Debug:../../../../../Priority8021QMarkerService/bin/Debug:../../../../../DSCPMarkerService/bin/Debug:../../../../../PreambleMarkerService/bin/Debug:../../../../../ClassifierService/bin/Debug:../../../../../ClassifierElement/bin/Debug:../../../../../PacketSchedulingService/bin/Debug:../../../../../NonWorkConservingSchedulingService/bin/Debug:../../../../../REDDropperService/bin/Debug:../../../../../HeadTailDropper/bin/Debug:../../../../../WeightedREDDropperService/bin/Debug:../../../../../QueuingService/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
+    <Commandlineparameters></Commandlineparameters>
+    <ConsolePause>false</ConsolePause>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../../bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DHCPProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SSHProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SCSIProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../iSCSIProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../CLPProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPXProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPsecSAEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IKESAEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../LANEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../WiFiEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../MPLSProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../WirelessLANEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../UDPProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TCPProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../OSPFVirtualInterface/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../OSPFProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VLANEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../LinkAggregator8023ad/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ATAProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPEncapsulationInterface/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPSubinterface/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SwitchVirtualInterface/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPLoopback/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../BGPProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SwitchPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DNSProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../LAGPort8023ad/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TokenBucketMeterService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../EWMAMeterService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AverageRateMeterService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ToSMarkerService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../Priority8021QMarkerService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DSCPMarkerService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PreambleMarkerService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ClassifierService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ClassifierElement/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PacketSchedulingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NonWorkConservingSchedulingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../REDDropperService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../HeadTailDropper/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../WeightedREDDropperService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../QueuingService/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>TestUNIX_EgressConditioningServiceOnEndpoint</OutputName>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_EgressConditioningServiceOnEndpointLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_EgressConditioningServiceOnEndpointLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_EgressConditioningServiceOnEndpointProvider -lUNIX_DHCPProtocolEndpointProvider -lUNIX_SSHProtocolEndpointProvider -lUNIX_SCSIProtocolEndpointProvider -lUNIX_iSCSIProtocolEndpointProvider -lUNIX_CLPProtocolEndpointProvider -lUNIX_IPXProtocolEndpointProvider -lUNIX_IPsecSAEndpointProvider -lUNIX_IKESAEndpointProvider -lUNIX_LANEndpointProvider -lUNIX_WiFiEndpointProvider -lUNIX_MPLSProtocolEndpointProvider -lUNIX_WirelessLANEndpointProvider -lUNIX_UDPProtocolEndpointProvider -lUNIX_TCPProtocolEndpointProvider -lUNIX_OSPFVirtualInterfaceProvider -lUNIX_OSPFProtocolEndpointProvider -lUNIX_VLANEndpointProvider -lUNIX_LinkAggregator8023adProvider -lUNIX_ATAProtocolEndpointProvider -lUNIX_IPEncapsulationInterfaceProvider -lUNIX_IPSubinterfaceProvider -lUNIX_SwitchVirtualInterfaceProvider -lUNIX_IPLoopbackProvider -lUNIX_BGPProtocolEndpointProvider -lUNIX_SwitchPortProvider -lUNIX_DNSProtocolEndpointProvider -lUNIX_LAGPort8023adProvider -lUNIX_TokenBucketMeterServiceProvider -lUNIX_EWMAMeterServiceProvider -lUNIX_AverageRateMeterServiceProvider -lUNIX_ToSMarkerServiceProvider -lUNIX_Priority8021QMarkerServiceProvider -lUNIX_DSCPMarkerServiceProvider -lUNIX_PreambleMarkerServiceProvider -lUNIX_ClassifierServiceProvider -lUNIX_ClassifierElementProvider -lUNIX_PacketSchedulingServiceProvider -lUNIX_NonWorkConservingSchedulingServiceProvider -lUNIX_REDDropperServiceProvider -lUNIX_HeadTailDropperProvider -lUNIX_WeightedREDDropperServiceProvider -lUNIX_QueuingServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../MockResponseHandler.cpp">
+        <Link>MockResponseHandler.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_EgressConditioningServiceOnEndpointFixture.cpp" />
+    <Compile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="RunTestUNIX_EgressConditioningServiceOnEndpoint.sh" />
+    <Node Include="UNIX_EgressConditioningServiceOnEndpointFixture.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

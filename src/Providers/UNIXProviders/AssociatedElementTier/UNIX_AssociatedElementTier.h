@@ -1,0 +1,1706 @@
+//%LICENSE////////////////////////////////////////////////////////////////
+//
+// Licensed to The Open Group (TOG) under one or more contributor license
+// agreements.  Refer to the OpenPegasusNOTICE.txt file distributed with
+// this work for additional information regarding copyright ownership.
+// Each contributor licenses this file to you under the OpenPegasus Open
+// Source License; you may not use this file except in compliance with the
+// License.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//////////////////////////////////////////////////////////////////////////
+//
+//%/////////////////////////////////////////////////////////////////////////
+
+
+/* **** Association *** */
+/*
+TRUE
+*/
+
+
+/* **** Experimental *** */
+/*
+TRUE
+*/
+
+
+/* **** Aggregation *** */
+/*
+TRUE
+*/
+
+
+/* **** Version *** */
+/*
+2.29.0
+*/
+
+
+/* **** UMLPackagePath *** */
+/*
+CIM::Device::StorageServices
+*/
+
+
+/* **** Description *** */
+/*
+Define the association between an element and one or more storage tiers.
+*/
+
+
+/*
+			 *** Properties ***
+
+			CIM_AbstractComponent:
+				GroupComponent Reference
+				PartComponent Reference
+
+			CIM_Component:
+
+			UNIX_AssociatedElementTier:
+				Allocated UInt16
+
+
+*/
+
+
+/*
+			 *** Methods ***
+
+			CIM_AbstractComponent:
+
+			CIM_Component:
+
+			UNIX_AssociatedElementTier:
+
+
+*/
+
+#ifndef __UNIX_ASSOCIATEDELEMENTTIER_H
+#define __UNIX_ASSOCIATEDELEMENTTIER_H
+
+
+#include "CIM_Component.h"
+#include <StorageTier/UNIX_StorageTierProvider.h>
+#include <SqlSchema/UNIX_SqlSchemaProvider.h>
+#include <SqlTable/UNIX_SqlTableProvider.h>
+#include <SqlTrigger/UNIX_SqlTriggerProvider.h>
+#include <SqlDomain/UNIX_SqlDomainProvider.h>
+#include <SqlDomainConstraint/UNIX_SqlDomainConstraintProvider.h>
+#include <SqlUserDefinedType/UNIX_SqlUserDefinedTypeProvider.h>
+#include <Hdr8021Filter/UNIX_Hdr8021FilterProvider.h>
+#include <PreambleFilter/UNIX_PreambleFilterProvider.h>
+#include <X509CredentialFilterEntry/UNIX_X509CredentialFilterEntryProvider.h>
+#include <PeerIDPayloadFilterEntry/UNIX_PeerIDPayloadFilterEntryProvider.h>
+#include <FilterEntry/UNIX_FilterEntryProvider.h>
+#include <IPHeadersFilter/UNIX_IPHeadersFilterProvider.h>
+#include <IPSOFilterEntry/UNIX_IPSOFilterEntryProvider.h>
+#include <AuthenticationRequirement/UNIX_AuthenticationRequirementProvider.h>
+#include <DynamicForwardingEntry/UNIX_DynamicForwardingEntryProvider.h>
+#include <SqlCharacterSet/UNIX_SqlCharacterSetProvider.h>
+#include <MPLSInSegment/UNIX_MPLSInSegmentProvider.h>
+#include <MPLSOutSegment/UNIX_MPLSOutSegmentProvider.h>
+#include <NextHopRouting/UNIX_NextHopRoutingProvider.h>
+#include <IPRoute/UNIX_IPRouteProvider.h>
+#include <BGPIPRoute/UNIX_BGPIPRouteProvider.h>
+#include <MPLSLSP/UNIX_MPLSLSPProvider.h>
+#include <CommonDatabase/UNIX_CommonDatabaseProvider.h>
+#include <MPLSTunnel/UNIX_MPLSTunnelProvider.h>
+#include <ReplicationEntity/UNIX_ReplicationEntityProvider.h>
+#include <PrintQueue/UNIX_PrintQueueProvider.h>
+#include <JobQueue/UNIX_JobQueueProvider.h>
+#include <ReusablePolicyContainer/UNIX_ReusablePolicyContainerProvider.h>
+#include <PolicyRepository/UNIX_PolicyRepositoryProvider.h>
+#include <AutonomousSystem/UNIX_AutonomousSystemProvider.h>
+#include <RoutingProtocolDomain/UNIX_RoutingProtocolDomainProvider.h>
+#include <OSPFArea/UNIX_OSPFAreaProvider.h>
+#include <Network/UNIX_NetworkProvider.h>
+#include <VLANNetwork/UNIX_VLANNetworkProvider.h>
+#include <TierDomain/UNIX_TierDomainProvider.h>
+#include <ApplicationSystem/UNIX_ApplicationSystemProvider.h>
+#include <DatabaseSystem/UNIX_DatabaseSystemProvider.h>
+#include <StorageLibrary/UNIX_StorageLibraryProvider.h>
+#include <VirtualComputerSystem/UNIX_VirtualComputerSystemProvider.h>
+#include <Cluster/UNIX_ClusterProvider.h>
+#include <ComputerSystem/UNIX_ComputerSystemProvider.h>
+#include <SCSIArbitraryLogicalUnit/UNIX_SCSIArbitraryLogicalUnitProvider.h>
+#include <Button/UNIX_ButtonProvider.h>
+#include <PowerSupply/UNIX_PowerSupplyProvider.h>
+#include <UninterruptiblePowerSupply/UNIX_UninterruptiblePowerSupplyProvider.h>
+#include <Battery/UNIX_BatteryProvider.h>
+#include <TapeDrive/UNIX_TapeDriveProvider.h>
+#include <CDROMDrive/UNIX_CDROMDriveProvider.h>
+#include <WORMDrive/UNIX_WORMDriveProvider.h>
+#include <DiskDrive/UNIX_DiskDriveProvider.h>
+#include <DVDDrive/UNIX_DVDDriveProvider.h>
+#include <DisketteDrive/UNIX_DisketteDriveProvider.h>
+#include <MagnetoOpticalDrive/UNIX_MagnetoOpticalDriveProvider.h>
+#include <USBDevice/UNIX_USBDeviceProvider.h>
+#include <USBHub/UNIX_USBHubProvider.h>
+#include <PowerConnectionPoint/UNIX_PowerConnectionPointProvider.h>
+#include <LabelReader/UNIX_LabelReaderProvider.h>
+#include <LogicalDisk/UNIX_LogicalDiskProvider.h>
+#include <Snapshot/UNIX_SnapshotProvider.h>
+#include <VTOCDiskPartition/UNIX_VTOCDiskPartitionProvider.h>
+#include <GPTDiskPartition/UNIX_GPTDiskPartitionProvider.h>
+#include <DiskPartition/UNIX_DiskPartitionProvider.h>
+#include <TapePartition/UNIX_TapePartitionProvider.h>
+#include <CompositeExtent/UNIX_CompositeExtentProvider.h>
+#include <ProtectedSpaceExtent/UNIX_ProtectedSpaceExtentProvider.h>
+#include <PhysicalExtent/UNIX_PhysicalExtentProvider.h>
+#include <DatabaseSegment/UNIX_DatabaseSegmentProvider.h>
+#include <AggregatePExtent/UNIX_AggregatePExtentProvider.h>
+#include <VolumeSet/UNIX_VolumeSetProvider.h>
+#include <OpaqueManagementData/UNIX_OpaqueManagementDataProvider.h>
+#include <AggregatePSExtent/UNIX_AggregatePSExtentProvider.h>
+#include <CacheMemory/UNIX_CacheMemoryProvider.h>
+#include <VolatileStorage/UNIX_VolatileStorageProvider.h>
+#include <NonVolatileStorage/UNIX_NonVolatileStorageProvider.h>
+#include <Printer/UNIX_PrinterProvider.h>
+#include <CurrentSensor/UNIX_CurrentSensorProvider.h>
+#include <TemperatureSensor/UNIX_TemperatureSensorProvider.h>
+#include <VoltageSensor/UNIX_VoltageSensorProvider.h>
+#include <Tachometer/UNIX_TachometerProvider.h>
+#include <MultiStateSensor/UNIX_MultiStateSensorProvider.h>
+#include <BinarySensor/UNIX_BinarySensorProvider.h>
+#include <DiscreteSensor/UNIX_DiscreteSensorProvider.h>
+#include <CableModem/UNIX_CableModemProvider.h>
+#include <ADSLModem/UNIX_ADSLModemProvider.h>
+#include <VDSLModem/UNIX_VDSLModemProvider.h>
+#include <HDSLModem/UNIX_HDSLModemProvider.h>
+#include <SDSLModem/UNIX_SDSLModemProvider.h>
+#include <Unimodem/UNIX_UnimodemProvider.h>
+#include <ISDNModem/UNIX_ISDNModemProvider.h>
+#include <Keyboard/UNIX_KeyboardProvider.h>
+#include <PointingDevice/UNIX_PointingDeviceProvider.h>
+#include <DesktopMonitor/UNIX_DesktopMonitorProvider.h>
+#include <FlatPanel/UNIX_FlatPanelProvider.h>
+#include <Processor/UNIX_ProcessorProvider.h>
+#include <VideoHead/UNIX_VideoHeadProvider.h>
+#include <FingerprintReader/UNIX_FingerprintReaderProvider.h>
+#include <Door/UNIX_DoorProvider.h>
+#include <SmartCard/UNIX_SmartCardProvider.h>
+#include <NetworkPort/UNIX_NetworkPortProvider.h>
+#include <WiFiPort/UNIX_WiFiPortProvider.h>
+#include <EthernetPort/UNIX_EthernetPortProvider.h>
+#include <LLDPEthernetPort/UNIX_LLDPEthernetPortProvider.h>
+#include <DataCenterEthernetPort/UNIX_DataCenterEthernetPortProvider.h>
+#include <SASPort/UNIX_SASPortProvider.h>
+#include <IBPort/UNIX_IBPortProvider.h>
+#include <FCPort/UNIX_FCPortProvider.h>
+#include <WirelessPort/UNIX_WirelessPortProvider.h>
+#include <TokenRingPort/UNIX_TokenRingPortProvider.h>
+#include <DAPort/UNIX_DAPortProvider.h>
+#include <SerialPort/UNIX_SerialPortProvider.h>
+#include <ATAPort/UNIX_ATAPortProvider.h>
+#include <USBPort/UNIX_USBPortProvider.h>
+#include <PCIPort/UNIX_PCIPortProvider.h>
+#include <SPIPort/UNIX_SPIPortProvider.h>
+#include <ParallelPort/UNIX_ParallelPortProvider.h>
+#include <FibrePort/UNIX_FibrePortProvider.h>
+#include <Watchdog/UNIX_WatchdogProvider.h>
+#include <EthernetAdapter/UNIX_EthernetAdapterProvider.h>
+#include <TokenRingAdapter/UNIX_TokenRingAdapterProvider.h>
+#include <FibreChannelAdapter/UNIX_FibreChannelAdapterProvider.h>
+#include <IndicatorLED/UNIX_IndicatorLEDProvider.h>
+#include <ElectricalSwitch/UNIX_ElectricalSwitchProvider.h>
+#include <ProtocolController/UNIX_ProtocolControllerProvider.h>
+#include <SCSIProtocolController/UNIX_SCSIProtocolControllerProvider.h>
+#include <WiFiRadio/UNIX_WiFiRadioProvider.h>
+#include <InterLibraryPort/UNIX_InterLibraryPortProvider.h>
+#include <LimitedAccessPort/UNIX_LimitedAccessPortProvider.h>
+#include <SmartCardReader/UNIX_SmartCardReaderProvider.h>
+#include <PCIBridge/UNIX_PCIBridgeProvider.h>
+#include <PCIeSwitch/UNIX_PCIeSwitchProvider.h>
+#include <PortController/UNIX_PortControllerProvider.h>
+#include <IBPortController/UNIX_IBPortControllerProvider.h>
+#include <ParallelController/UNIX_ParallelControllerProvider.h>
+#include <InfraredController/UNIX_InfraredControllerProvider.h>
+#include <ManagementController/UNIX_ManagementControllerProvider.h>
+#include <SSAController/UNIX_SSAControllerProvider.h>
+#include <AGPVideoController/UNIX_AGPVideoControllerProvider.h>
+#include <PCVideoController/UNIX_PCVideoControllerProvider.h>
+#include <SerialController/UNIX_SerialControllerProvider.h>
+#include <DisplayController/UNIX_DisplayControllerProvider.h>
+#include <AGPVideoDisplayController/UNIX_AGPVideoDisplayControllerProvider.h>
+#include <USBController/UNIX_USBControllerProvider.h>
+#include <IDEController/UNIX_IDEControllerProvider.h>
+#include <PCMCIAController/UNIX_PCMCIAControllerProvider.h>
+#include <SCSIController/UNIX_SCSIControllerProvider.h>
+#include <ESCONController/UNIX_ESCONControllerProvider.h>
+#include <DeviceTray/UNIX_DeviceTrayProvider.h>
+#include <PassThroughModule/UNIX_PassThroughModuleProvider.h>
+#include <AlarmDevice/UNIX_AlarmDeviceProvider.h>
+#include <Fan/UNIX_FanProvider.h>
+#include <Refrigeration/UNIX_RefrigerationProvider.h>
+#include <HeatPipe/UNIX_HeatPipeProvider.h>
+#include <TPM/UNIX_TPMProvider.h>
+#include <Scanner/UNIX_ScannerProvider.h>
+#include <Provider/UNIX_ProviderProvider.h>
+#include <IRQ/UNIX_IRQProvider.h>
+#include <PortResource/UNIX_PortResourceProvider.h>
+#include <MemoryResource/UNIX_MemoryResourceProvider.h>
+#include <DMA/UNIX_DMAProvider.h>
+#include <NFSShare/UNIX_NFSShareProvider.h>
+#include <CIFSShare/UNIX_CIFSShareProvider.h>
+#include <MessageLog/UNIX_MessageLogProvider.h>
+#include <DiagnosticLog/UNIX_DiagnosticLogProvider.h>
+#include <DiagnosticsLog/UNIX_DiagnosticsLogProvider.h>
+#include <FibreProtocolService/UNIX_FibreProtocolServiceProvider.h>
+#include <WakeUpService/UNIX_WakeUpServiceProvider.h>
+#include <VirtualSystemSnapshotService/UNIX_VirtualSystemSnapshotServiceProvider.h>
+#include <ResourcePoolConfigurationService/UNIX_ResourcePoolConfigurationServiceProvider.h>
+#include <FileSystemConfigurationService/UNIX_FileSystemConfigurationServiceProvider.h>
+#include <HelpService/UNIX_HelpServiceProvider.h>
+#include <StorageRelocationService/UNIX_StorageRelocationServiceProvider.h>
+#include <MPLSService/UNIX_MPLSServiceProvider.h>
+#include <PolicyActivationService/UNIX_PolicyActivationServiceProvider.h>
+#include <SCSIPathConfigurationService/UNIX_SCSIPathConfigurationServiceProvider.h>
+#include <BIOSService/UNIX_BIOSServiceProvider.h>
+#include <PowerManagementService/UNIX_PowerManagementServiceProvider.h>
+#include <NetworkPortConfigurationService/UNIX_NetworkPortConfigurationServiceProvider.h>
+#include <WiFiPortConfigurationService/UNIX_WiFiPortConfigurationServiceProvider.h>
+#include <VRFConfigurationService/UNIX_VRFConfigurationServiceProvider.h>
+#include <ReplicationService/UNIX_ReplicationServiceProvider.h>
+#include <AccountManagementService/UNIX_AccountManagementServiceProvider.h>
+#include <VerificationService/UNIX_VerificationServiceProvider.h>
+#include <CertificateAuthority/UNIX_CertificateAuthorityProvider.h>
+#include <Notary/UNIX_NotaryProvider.h>
+#include <KeyBasedCredentialManagementService/UNIX_KeyBasedCredentialManagementServiceProvider.h>
+#include <CertificateManagementService/UNIX_CertificateManagementServiceProvider.h>
+#include <KerberosKeyDistributionCenter/UNIX_KerberosKeyDistributionCenterProvider.h>
+#include <PublicKeyManagementService/UNIX_PublicKeyManagementServiceProvider.h>
+#include <SharedSecretService/UNIX_SharedSecretServiceProvider.h>
+#include <IdentityManagementService/UNIX_IdentityManagementServiceProvider.h>
+#include <StorageHardwareIDManagementService/UNIX_StorageHardwareIDManagementServiceProvider.h>
+#include <AuthorizationService/UNIX_AuthorizationServiceProvider.h>
+#include <PrivilegeManagementService/UNIX_PrivilegeManagementServiceProvider.h>
+#include <RoleBasedAuthorizationService/UNIX_RoleBasedAuthorizationServiceProvider.h>
+#include <AccessControlService/UNIX_AccessControlServiceProvider.h>
+#include <WBEMServer/UNIX_WBEMServerProvider.h>
+#include <LaunchInContextService/UNIX_LaunchInContextServiceProvider.h>
+#include <VirtualSystemManagementService/UNIX_VirtualSystemManagementServiceProvider.h>
+#include <MetricService/UNIX_MetricServiceProvider.h>
+#include <StorageNameBindingService/UNIX_StorageNameBindingServiceProvider.h>
+#include <ZoneService/UNIX_ZoneServiceProvider.h>
+#include <ControllerConfigurationService/UNIX_ControllerConfigurationServiceProvider.h>
+#include <GroupMaskingMappingService/UNIX_GroupMaskingMappingServiceProvider.h>
+#include <DatabaseService/UNIX_DatabaseServiceProvider.h>
+#include <DiskPartitionConfigurationService/UNIX_DiskPartitionConfigurationServiceProvider.h>
+#include <ConfigurationReportingService/UNIX_ConfigurationReportingServiceProvider.h>
+#include <PowerTopologyService/UNIX_PowerTopologyServiceProvider.h>
+#include <NetworkPolicyService/UNIX_NetworkPolicyServiceProvider.h>
+#include <BasicExecutionService/UNIX_BasicExecutionServiceProvider.h>
+#include <SpareConfigurationService/UNIX_SpareConfigurationServiceProvider.h>
+#include <StorageElementCompositionService/UNIX_StorageElementCompositionServiceProvider.h>
+#include <OpaqueManagementDataService/UNIX_OpaqueManagementDataServiceProvider.h>
+#include <FingerprintMatchingService/UNIX_FingerprintMatchingServiceProvider.h>
+#include <ProtocolService/UNIX_ProtocolServiceProvider.h>
+#include <WBEMProtocolService/UNIX_WBEMProtocolServiceProvider.h>
+#include <TierService/UNIX_TierServiceProvider.h>
+#include <TierPolicyService/UNIX_TierPolicyServiceProvider.h>
+#include <IndicationService/UNIX_IndicationServiceProvider.h>
+#include <FileImportService/UNIX_FileImportServiceProvider.h>
+#include <VTLStatisticalDataService/UNIX_VTLStatisticalDataServiceProvider.h>
+#include <DropThresholdCalculationService/UNIX_DropThresholdCalculationServiceProvider.h>
+#include <TokenBucketMeterService/UNIX_TokenBucketMeterServiceProvider.h>
+#include <EWMAMeterService/UNIX_EWMAMeterServiceProvider.h>
+#include <AverageRateMeterService/UNIX_AverageRateMeterServiceProvider.h>
+#include <ToSMarkerService/UNIX_ToSMarkerServiceProvider.h>
+#include <Priority8021QMarkerService/UNIX_Priority8021QMarkerServiceProvider.h>
+#include <DSCPMarkerService/UNIX_DSCPMarkerServiceProvider.h>
+#include <PreambleMarkerService/UNIX_PreambleMarkerServiceProvider.h>
+#include <ClassifierService/UNIX_ClassifierServiceProvider.h>
+#include <ClassifierElement/UNIX_ClassifierElementProvider.h>
+#include <PacketSchedulingService/UNIX_PacketSchedulingServiceProvider.h>
+#include <NonWorkConservingSchedulingService/UNIX_NonWorkConservingSchedulingServiceProvider.h>
+#include <REDDropperService/UNIX_REDDropperServiceProvider.h>
+#include <HeadTailDropper/UNIX_HeadTailDropperProvider.h>
+#include <WeightedREDDropperService/UNIX_WeightedREDDropperServiceProvider.h>
+#include <QueuingService/UNIX_QueuingServiceProvider.h>
+#include <BootService/UNIX_BootServiceProvider.h>
+#include <AFService/UNIX_AFServiceProvider.h>
+#include <EFService/UNIX_EFServiceProvider.h>
+#include <FlowService/UNIX_FlowServiceProvider.h>
+#include <Hdr8021PService/UNIX_Hdr8021PServiceProvider.h>
+#include <PrecedenceService/UNIX_PrecedenceServiceProvider.h>
+#include <PrintService/UNIX_PrintServiceProvider.h>
+#include <TimeService/UNIX_TimeServiceProvider.h>
+#include <SoftwareInstallationService/UNIX_SoftwareInstallationServiceProvider.h>
+#include <VLANService/UNIX_VLANServiceProvider.h>
+#include <Specific802dot1QVLANService/UNIX_Specific802dot1QVLANServiceProvider.h>
+#include <PowerUtilizationManagementService/UNIX_PowerUtilizationManagementServiceProvider.h>
+#include <ClusteringService/UNIX_ClusteringServiceProvider.h>
+#include <SharedDeviceManagementService/UNIX_SharedDeviceManagementServiceProvider.h>
+#include <BatchService/UNIX_BatchServiceProvider.h>
+#include <iSCSIConfigurationService/UNIX_iSCSIConfigurationServiceProvider.h>
+#include <OOBAlertService/UNIX_OOBAlertServiceProvider.h>
+#include <StorageConfigurationService/UNIX_StorageConfigurationServiceProvider.h>
+#include <IPConfigurationService/UNIX_IPConfigurationServiceProvider.h>
+#include <VirtualSystemMigrationService/UNIX_VirtualSystemMigrationServiceProvider.h>
+#include <MPLSCrossConnect/UNIX_MPLSCrossConnectProvider.h>
+#include <PlatformWatchdogService/UNIX_PlatformWatchdogServiceProvider.h>
+#include <FCHBADiagnosticTest/UNIX_FCHBADiagnosticTestProvider.h>
+#include <RAIDDiagnosticTest/UNIX_RAIDDiagnosticTestProvider.h>
+#include <CPUDiagnosticTest/UNIX_CPUDiagnosticTestProvider.h>
+#include <EthernetNICDiagnosticTest/UNIX_EthernetNICDiagnosticTestProvider.h>
+#include <OpticalDriveDiagnosticTest/UNIX_OpticalDriveDiagnosticTestProvider.h>
+#include <OpticalDriveDiagnosticSettingData/UNIX_OpticalDriveDiagnosticSettingDataProvider.h>
+#include <DiskDriveDiagnosticTest/UNIX_DiskDriveDiagnosticTestProvider.h>
+#include <IBSubnetManager/UNIX_IBSubnetManagerProvider.h>
+#include <ObjectManager/UNIX_ObjectManagerProvider.h>
+#include <ObjectManagerAdapter/UNIX_ObjectManagerAdapterProvider.h>
+#include <ProviderObjectManagerAdapter/UNIX_ProviderObjectManagerAdapterProvider.h>
+#include <ProtocolAdapter/UNIX_ProtocolAdapterProvider.h>
+#include <FileSystemStatisticsService/UNIX_FileSystemStatisticsServiceProvider.h>
+#include <BlockStatisticsService/UNIX_BlockStatisticsServiceProvider.h>
+#include <USBRedirectionService/UNIX_USBRedirectionServiceProvider.h>
+#include <TextRedirectionService/UNIX_TextRedirectionServiceProvider.h>
+#include <BGPService/UNIX_BGPServiceProvider.h>
+#include <OSPFService/UNIX_OSPFServiceProvider.h>
+#include <NATService/UNIX_NATServiceProvider.h>
+#include <TransparentBridgingService/UNIX_TransparentBridgingServiceProvider.h>
+#include <SourceRoutingService/UNIX_SourceRoutingServiceProvider.h>
+#include <SpanningTreeService/UNIX_SpanningTreeServiceProvider.h>
+#include <SwitchService/UNIX_SwitchServiceProvider.h>
+#include <FileExportService/UNIX_FileExportServiceProvider.h>
+#include <OperatingSystem/UNIX_OperatingSystemProvider.h>
+#include <SWRFile/UNIX_SWRFileProvider.h>
+#include <SWRPEP/UNIX_SWRPEPProvider.h>
+#include <SWRDatabase/UNIX_SWRDatabaseProvider.h>
+#include <ProviderLibrary/UNIX_ProviderLibraryProvider.h>
+#include <ClusteringSAP/UNIX_ClusteringSAPProvider.h>
+#include <CredentialManagementSAP/UNIX_CredentialManagementSAPProvider.h>
+#include <USBRedirectionSAP/UNIX_USBRedirectionSAPProvider.h>
+#include <IPNetworkConnection/UNIX_IPNetworkConnectionProvider.h>
+#include <PolicyTransferServiceAccessPoint/UNIX_PolicyTransferServiceAccessPointProvider.h>
+#include <LaunchInContextSAP/UNIX_LaunchInContextSAPProvider.h>
+#include <RemotePort/UNIX_RemotePortProvider.h>
+#include <MPLSTunnelHop/UNIX_MPLSTunnelHopProvider.h>
+#include <SoftwareIdentityResource/UNIX_SoftwareIdentityResourceProvider.h>
+#include <KVMRedirectionSAP/UNIX_KVMRedirectionSAPProvider.h>
+#include <DHCPProtocolEndpoint/UNIX_DHCPProtocolEndpointProvider.h>
+#include <SSHProtocolEndpoint/UNIX_SSHProtocolEndpointProvider.h>
+#include <SCSIProtocolEndpoint/UNIX_SCSIProtocolEndpointProvider.h>
+#include <iSCSIProtocolEndpoint/UNIX_iSCSIProtocolEndpointProvider.h>
+#include <CLPProtocolEndpoint/UNIX_CLPProtocolEndpointProvider.h>
+#include <IPXProtocolEndpoint/UNIX_IPXProtocolEndpointProvider.h>
+#include <IPsecSAEndpoint/UNIX_IPsecSAEndpointProvider.h>
+#include <IKESAEndpoint/UNIX_IKESAEndpointProvider.h>
+#include <LANEndpoint/UNIX_LANEndpointProvider.h>
+#include <WiFiEndpoint/UNIX_WiFiEndpointProvider.h>
+#include <MPLSProtocolEndpoint/UNIX_MPLSProtocolEndpointProvider.h>
+#include <WirelessLANEndpoint/UNIX_WirelessLANEndpointProvider.h>
+#include <UDPProtocolEndpoint/UNIX_UDPProtocolEndpointProvider.h>
+#include <TCPProtocolEndpoint/UNIX_TCPProtocolEndpointProvider.h>
+#include <OSPFVirtualInterface/UNIX_OSPFVirtualInterfaceProvider.h>
+#include <OSPFProtocolEndpoint/UNIX_OSPFProtocolEndpointProvider.h>
+#include <VLANEndpoint/UNIX_VLANEndpointProvider.h>
+#include <LinkAggregator8023ad/UNIX_LinkAggregator8023adProvider.h>
+#include <ATAProtocolEndpoint/UNIX_ATAProtocolEndpointProvider.h>
+#include <IPEncapsulationInterface/UNIX_IPEncapsulationInterfaceProvider.h>
+#include <IPSubinterface/UNIX_IPSubinterfaceProvider.h>
+#include <SwitchVirtualInterface/UNIX_SwitchVirtualInterfaceProvider.h>
+#include <IPLoopback/UNIX_IPLoopbackProvider.h>
+#include <BGPProtocolEndpoint/UNIX_BGPProtocolEndpointProvider.h>
+#include <SwitchPort/UNIX_SwitchPortProvider.h>
+#include <DNSProtocolEndpoint/UNIX_DNSProtocolEndpointProvider.h>
+#include <LAGPort8023ad/UNIX_LAGPort8023adProvider.h>
+#include <BatchSAP/UNIX_BatchSAPProvider.h>
+#include <TextRedirectionSAP/UNIX_TextRedirectionSAPProvider.h>
+#include <MediaRedirectionSAP/UNIX_MediaRedirectionSAPProvider.h>
+#include <PrintSAP/UNIX_PrintSAPProvider.h>
+#include <ServiceAccessURI/UNIX_ServiceAccessURIProvider.h>
+#include <ObjectManagerCommunicationMechanism/UNIX_ObjectManagerCommunicationMechanismProvider.h>
+#include <CIMXMLCommunicationMechanism/UNIX_CIMXMLCommunicationMechanismProvider.h>
+#include <VLAN/UNIX_VLANProvider.h>
+#include <BootSAP/UNIX_BootSAPProvider.h>
+#include <Process/UNIX_ProcessProvider.h>
+#include <ProcessorCore/UNIX_ProcessorCoreProvider.h>
+#include <iSCSISession/UNIX_iSCSISessionProvider.h>
+#include <iSCSIConnection/UNIX_iSCSIConnectionProvider.h>
+#include <HardwareThread/UNIX_HardwareThreadProvider.h>
+#include <FileSystem/UNIX_FileSystemProvider.h>
+#include <DatabaseStorageArea/UNIX_DatabaseStorageAreaProvider.h>
+#include <LocalFileSystem/UNIX_LocalFileSystemProvider.h>
+#include <RemoteFileSystem/UNIX_RemoteFileSystemProvider.h>
+#include <NFS/UNIX_NFSProvider.h>
+#include <Thread/UNIX_ThreadProvider.h>
+#include <Account/UNIX_AccountProvider.h>
+#include <BGPAttributes/UNIX_BGPAttributesProvider.h>
+#include <ResourcePool/UNIX_ResourcePoolProvider.h>
+#include <StoragePool/UNIX_StoragePoolProvider.h>
+#include <AdministrativeDistance/UNIX_AdministrativeDistanceProvider.h>
+#include <SoftwareFeature/UNIX_SoftwareFeatureProvider.h>
+#include <VideoBIOSFeature/UNIX_VideoBIOSFeatureProvider.h>
+#include <BIOSFeature/UNIX_BIOSFeatureProvider.h>
+#include <AGPSoftwareFeature/UNIX_AGPSoftwareFeatureProvider.h>
+#include <BGPRouteMap/UNIX_BGPRouteMapProvider.h>
+#include <OSPFAreaConfiguration/UNIX_OSPFAreaConfigurationProvider.h>
+#include <FIFOPipeFile/UNIX_FIFOPipeFileProvider.h>
+#include <Directory/UNIX_DirectoryProvider.h>
+#include <DataFile/UNIX_DataFileProvider.h>
+#include <SymbolicLink/UNIX_SymbolicLinkProvider.h>
+#include <DeviceFile/UNIX_DeviceFileProvider.h>
+#include <SpareGroup/UNIX_SpareGroupProvider.h>
+#include <ExtraCapacityGroup/UNIX_ExtraCapacityGroupProvider.h>
+#include <StorageRedundancyGroup/UNIX_StorageRedundancyGroupProvider.h>
+#include <AccessControlInformation/UNIX_AccessControlInformationProvider.h>
+#include <PrintFinisher/UNIX_PrintFinisherProvider.h>
+#include <PrintMarker/UNIX_PrintMarkerProvider.h>
+#include <PrintSupply/UNIX_PrintSupplyProvider.h>
+#include <PrintInterlock/UNIX_PrintInterlockProvider.h>
+#include <PrintChannel/UNIX_PrintChannelProvider.h>
+#include <PrintInputTray/UNIX_PrintInputTrayProvider.h>
+#include <PrintOutputTray/UNIX_PrintOutputTrayProvider.h>
+#include <PrintInterpreter/UNIX_PrintInterpreterProvider.h>
+#include <PrintMediaPath/UNIX_PrintMediaPathProvider.h>
+#include <SoftwareIdentity/UNIX_SoftwareIdentityProvider.h>
+#include <SoftwareElement/UNIX_SoftwareElementProvider.h>
+#include <BIOSElement/UNIX_BIOSElementProvider.h>
+#include <VideoBIOSElement/UNIX_VideoBIOSElementProvider.h>
+#include <ConcreteJob/UNIX_ConcreteJobProvider.h>
+#include <BatchJob/UNIX_BatchJobProvider.h>
+#include <PrintJob/UNIX_PrintJobProvider.h>
+#include <FilterList/UNIX_FilterListProvider.h>
+#include <RoutingPolicy/UNIX_RoutingPolicyProvider.h>
+#include <StaticForwardingEntry/UNIX_StaticForwardingEntryProvider.h>
+#include <File/UNIX_FileProvider.h>
+#include <BGPPathAttributes/UNIX_BGPPathAttributesProvider.h>
+
+#include "UNIX_AssociatedElementTierDeps.h"
+
+
+#ifndef PROPERTY_ALLOCATED
+#define PROPERTY_ALLOCATED \
+					"Allocated"
+#endif
+
+
+
+class UNIX_AssociatedElementTier :
+	public CIM_Component
+{
+public:
+
+	UNIX_AssociatedElementTier();
+	~UNIX_AssociatedElementTier();
+
+	virtual Boolean initialize();
+	virtual Boolean load(int&);
+	virtual Boolean finalize();
+	virtual Boolean find(const Array<CIMKeyBinding>&);
+	virtual Boolean validateKey(CIMKeyBinding&) const;
+	virtual void setScope(CIMName);
+	virtual void setCIMOMHandle(CIMOMHandle&);
+	virtual void clearInstance();
+	virtual Boolean loadInstance(const CIMInstance&);
+	virtual Boolean createInstance(const OperationContext&);
+	virtual Boolean modifyInstance(const OperationContext&);
+	virtual Boolean deleteInstance(const OperationContext&);
+	virtual Boolean validateInstance();
+
+	virtual Boolean getGroupComponent(CIMProperty&) const;
+	virtual CIMInstance getGroupComponent() const;
+	virtual void setGroupComponent(CIMInstance&);
+	virtual Boolean getPartComponent(CIMProperty&) const;
+	virtual CIMInstance getPartComponent() const;
+	virtual void setPartComponent(CIMInstance&);
+	virtual Boolean getAllocated(CIMProperty&) const;
+	virtual Uint16 getAllocated() const;
+	virtual void setAllocated(Uint16&);
+
+
+private:
+	CIMName currentScope;
+	CIMOMHandle _cimomHandle;
+	CIMInstance _groupComponent;
+	CIMInstance _partComponent;
+	Uint16 _allocated;
+
+	int groupIndex;
+	int partIndex;
+	UNIX_StorageTier group_UNIX_StorageTier_Component;
+	int group_UNIX_StorageTier_Index;
+	bool endOf_UNIX_StorageTier_Group;
+
+	UNIX_SqlSchema part_UNIX_SqlSchema_Component;
+	int part_UNIX_SqlSchema_Index;
+	bool endOf_UNIX_SqlSchema_Part;
+	UNIX_SqlTable part_UNIX_SqlTable_Component;
+	int part_UNIX_SqlTable_Index;
+	bool endOf_UNIX_SqlTable_Part;
+	UNIX_SqlTrigger part_UNIX_SqlTrigger_Component;
+	int part_UNIX_SqlTrigger_Index;
+	bool endOf_UNIX_SqlTrigger_Part;
+	UNIX_SqlDomain part_UNIX_SqlDomain_Component;
+	int part_UNIX_SqlDomain_Index;
+	bool endOf_UNIX_SqlDomain_Part;
+	UNIX_SqlDomainConstraint part_UNIX_SqlDomainConstraint_Component;
+	int part_UNIX_SqlDomainConstraint_Index;
+	bool endOf_UNIX_SqlDomainConstraint_Part;
+	UNIX_SqlUserDefinedType part_UNIX_SqlUserDefinedType_Component;
+	int part_UNIX_SqlUserDefinedType_Index;
+	bool endOf_UNIX_SqlUserDefinedType_Part;
+	UNIX_Hdr8021Filter part_UNIX_Hdr8021Filter_Component;
+	int part_UNIX_Hdr8021Filter_Index;
+	bool endOf_UNIX_Hdr8021Filter_Part;
+	UNIX_PreambleFilter part_UNIX_PreambleFilter_Component;
+	int part_UNIX_PreambleFilter_Index;
+	bool endOf_UNIX_PreambleFilter_Part;
+	UNIX_X509CredentialFilterEntry part_UNIX_X509CredentialFilterEntry_Component;
+	int part_UNIX_X509CredentialFilterEntry_Index;
+	bool endOf_UNIX_X509CredentialFilterEntry_Part;
+	UNIX_PeerIDPayloadFilterEntry part_UNIX_PeerIDPayloadFilterEntry_Component;
+	int part_UNIX_PeerIDPayloadFilterEntry_Index;
+	bool endOf_UNIX_PeerIDPayloadFilterEntry_Part;
+	UNIX_FilterEntry part_UNIX_FilterEntry_Component;
+	int part_UNIX_FilterEntry_Index;
+	bool endOf_UNIX_FilterEntry_Part;
+	UNIX_IPHeadersFilter part_UNIX_IPHeadersFilter_Component;
+	int part_UNIX_IPHeadersFilter_Index;
+	bool endOf_UNIX_IPHeadersFilter_Part;
+	UNIX_IPSOFilterEntry part_UNIX_IPSOFilterEntry_Component;
+	int part_UNIX_IPSOFilterEntry_Index;
+	bool endOf_UNIX_IPSOFilterEntry_Part;
+	UNIX_AuthenticationRequirement part_UNIX_AuthenticationRequirement_Component;
+	int part_UNIX_AuthenticationRequirement_Index;
+	bool endOf_UNIX_AuthenticationRequirement_Part;
+	UNIX_DynamicForwardingEntry part_UNIX_DynamicForwardingEntry_Component;
+	int part_UNIX_DynamicForwardingEntry_Index;
+	bool endOf_UNIX_DynamicForwardingEntry_Part;
+	UNIX_SqlCharacterSet part_UNIX_SqlCharacterSet_Component;
+	int part_UNIX_SqlCharacterSet_Index;
+	bool endOf_UNIX_SqlCharacterSet_Part;
+	UNIX_MPLSInSegment part_UNIX_MPLSInSegment_Component;
+	int part_UNIX_MPLSInSegment_Index;
+	bool endOf_UNIX_MPLSInSegment_Part;
+	UNIX_MPLSOutSegment part_UNIX_MPLSOutSegment_Component;
+	int part_UNIX_MPLSOutSegment_Index;
+	bool endOf_UNIX_MPLSOutSegment_Part;
+	UNIX_NextHopRouting part_UNIX_NextHopRouting_Component;
+	int part_UNIX_NextHopRouting_Index;
+	bool endOf_UNIX_NextHopRouting_Part;
+	UNIX_IPRoute part_UNIX_IPRoute_Component;
+	int part_UNIX_IPRoute_Index;
+	bool endOf_UNIX_IPRoute_Part;
+	UNIX_BGPIPRoute part_UNIX_BGPIPRoute_Component;
+	int part_UNIX_BGPIPRoute_Index;
+	bool endOf_UNIX_BGPIPRoute_Part;
+	UNIX_MPLSLSP part_UNIX_MPLSLSP_Component;
+	int part_UNIX_MPLSLSP_Index;
+	bool endOf_UNIX_MPLSLSP_Part;
+	UNIX_CommonDatabase part_UNIX_CommonDatabase_Component;
+	int part_UNIX_CommonDatabase_Index;
+	bool endOf_UNIX_CommonDatabase_Part;
+	UNIX_MPLSTunnel part_UNIX_MPLSTunnel_Component;
+	int part_UNIX_MPLSTunnel_Index;
+	bool endOf_UNIX_MPLSTunnel_Part;
+	UNIX_ReplicationEntity part_UNIX_ReplicationEntity_Component;
+	int part_UNIX_ReplicationEntity_Index;
+	bool endOf_UNIX_ReplicationEntity_Part;
+	UNIX_PrintQueue part_UNIX_PrintQueue_Component;
+	int part_UNIX_PrintQueue_Index;
+	bool endOf_UNIX_PrintQueue_Part;
+	UNIX_JobQueue part_UNIX_JobQueue_Component;
+	int part_UNIX_JobQueue_Index;
+	bool endOf_UNIX_JobQueue_Part;
+	UNIX_ReusablePolicyContainer part_UNIX_ReusablePolicyContainer_Component;
+	int part_UNIX_ReusablePolicyContainer_Index;
+	bool endOf_UNIX_ReusablePolicyContainer_Part;
+	UNIX_PolicyRepository part_UNIX_PolicyRepository_Component;
+	int part_UNIX_PolicyRepository_Index;
+	bool endOf_UNIX_PolicyRepository_Part;
+	UNIX_AutonomousSystem part_UNIX_AutonomousSystem_Component;
+	int part_UNIX_AutonomousSystem_Index;
+	bool endOf_UNIX_AutonomousSystem_Part;
+	UNIX_RoutingProtocolDomain part_UNIX_RoutingProtocolDomain_Component;
+	int part_UNIX_RoutingProtocolDomain_Index;
+	bool endOf_UNIX_RoutingProtocolDomain_Part;
+	UNIX_OSPFArea part_UNIX_OSPFArea_Component;
+	int part_UNIX_OSPFArea_Index;
+	bool endOf_UNIX_OSPFArea_Part;
+	UNIX_Network part_UNIX_Network_Component;
+	int part_UNIX_Network_Index;
+	bool endOf_UNIX_Network_Part;
+	UNIX_VLANNetwork part_UNIX_VLANNetwork_Component;
+	int part_UNIX_VLANNetwork_Index;
+	bool endOf_UNIX_VLANNetwork_Part;
+	UNIX_TierDomain part_UNIX_TierDomain_Component;
+	int part_UNIX_TierDomain_Index;
+	bool endOf_UNIX_TierDomain_Part;
+	UNIX_ApplicationSystem part_UNIX_ApplicationSystem_Component;
+	int part_UNIX_ApplicationSystem_Index;
+	bool endOf_UNIX_ApplicationSystem_Part;
+	UNIX_DatabaseSystem part_UNIX_DatabaseSystem_Component;
+	int part_UNIX_DatabaseSystem_Index;
+	bool endOf_UNIX_DatabaseSystem_Part;
+	UNIX_StorageLibrary part_UNIX_StorageLibrary_Component;
+	int part_UNIX_StorageLibrary_Index;
+	bool endOf_UNIX_StorageLibrary_Part;
+	UNIX_VirtualComputerSystem part_UNIX_VirtualComputerSystem_Component;
+	int part_UNIX_VirtualComputerSystem_Index;
+	bool endOf_UNIX_VirtualComputerSystem_Part;
+	UNIX_Cluster part_UNIX_Cluster_Component;
+	int part_UNIX_Cluster_Index;
+	bool endOf_UNIX_Cluster_Part;
+	UNIX_ComputerSystem part_UNIX_ComputerSystem_Component;
+	int part_UNIX_ComputerSystem_Index;
+	bool endOf_UNIX_ComputerSystem_Part;
+	UNIX_SCSIArbitraryLogicalUnit part_UNIX_SCSIArbitraryLogicalUnit_Component;
+	int part_UNIX_SCSIArbitraryLogicalUnit_Index;
+	bool endOf_UNIX_SCSIArbitraryLogicalUnit_Part;
+	UNIX_Button part_UNIX_Button_Component;
+	int part_UNIX_Button_Index;
+	bool endOf_UNIX_Button_Part;
+	UNIX_PowerSupply part_UNIX_PowerSupply_Component;
+	int part_UNIX_PowerSupply_Index;
+	bool endOf_UNIX_PowerSupply_Part;
+	UNIX_UninterruptiblePowerSupply part_UNIX_UninterruptiblePowerSupply_Component;
+	int part_UNIX_UninterruptiblePowerSupply_Index;
+	bool endOf_UNIX_UninterruptiblePowerSupply_Part;
+	UNIX_Battery part_UNIX_Battery_Component;
+	int part_UNIX_Battery_Index;
+	bool endOf_UNIX_Battery_Part;
+	UNIX_TapeDrive part_UNIX_TapeDrive_Component;
+	int part_UNIX_TapeDrive_Index;
+	bool endOf_UNIX_TapeDrive_Part;
+	UNIX_CDROMDrive part_UNIX_CDROMDrive_Component;
+	int part_UNIX_CDROMDrive_Index;
+	bool endOf_UNIX_CDROMDrive_Part;
+	UNIX_WORMDrive part_UNIX_WORMDrive_Component;
+	int part_UNIX_WORMDrive_Index;
+	bool endOf_UNIX_WORMDrive_Part;
+	UNIX_DiskDrive part_UNIX_DiskDrive_Component;
+	int part_UNIX_DiskDrive_Index;
+	bool endOf_UNIX_DiskDrive_Part;
+	UNIX_DVDDrive part_UNIX_DVDDrive_Component;
+	int part_UNIX_DVDDrive_Index;
+	bool endOf_UNIX_DVDDrive_Part;
+	UNIX_DisketteDrive part_UNIX_DisketteDrive_Component;
+	int part_UNIX_DisketteDrive_Index;
+	bool endOf_UNIX_DisketteDrive_Part;
+	UNIX_MagnetoOpticalDrive part_UNIX_MagnetoOpticalDrive_Component;
+	int part_UNIX_MagnetoOpticalDrive_Index;
+	bool endOf_UNIX_MagnetoOpticalDrive_Part;
+	UNIX_USBDevice part_UNIX_USBDevice_Component;
+	int part_UNIX_USBDevice_Index;
+	bool endOf_UNIX_USBDevice_Part;
+	UNIX_USBHub part_UNIX_USBHub_Component;
+	int part_UNIX_USBHub_Index;
+	bool endOf_UNIX_USBHub_Part;
+	UNIX_PowerConnectionPoint part_UNIX_PowerConnectionPoint_Component;
+	int part_UNIX_PowerConnectionPoint_Index;
+	bool endOf_UNIX_PowerConnectionPoint_Part;
+	UNIX_LabelReader part_UNIX_LabelReader_Component;
+	int part_UNIX_LabelReader_Index;
+	bool endOf_UNIX_LabelReader_Part;
+	UNIX_LogicalDisk part_UNIX_LogicalDisk_Component;
+	int part_UNIX_LogicalDisk_Index;
+	bool endOf_UNIX_LogicalDisk_Part;
+	UNIX_Snapshot part_UNIX_Snapshot_Component;
+	int part_UNIX_Snapshot_Index;
+	bool endOf_UNIX_Snapshot_Part;
+	UNIX_VTOCDiskPartition part_UNIX_VTOCDiskPartition_Component;
+	int part_UNIX_VTOCDiskPartition_Index;
+	bool endOf_UNIX_VTOCDiskPartition_Part;
+	UNIX_GPTDiskPartition part_UNIX_GPTDiskPartition_Component;
+	int part_UNIX_GPTDiskPartition_Index;
+	bool endOf_UNIX_GPTDiskPartition_Part;
+	UNIX_DiskPartition part_UNIX_DiskPartition_Component;
+	int part_UNIX_DiskPartition_Index;
+	bool endOf_UNIX_DiskPartition_Part;
+	UNIX_TapePartition part_UNIX_TapePartition_Component;
+	int part_UNIX_TapePartition_Index;
+	bool endOf_UNIX_TapePartition_Part;
+	UNIX_CompositeExtent part_UNIX_CompositeExtent_Component;
+	int part_UNIX_CompositeExtent_Index;
+	bool endOf_UNIX_CompositeExtent_Part;
+	UNIX_ProtectedSpaceExtent part_UNIX_ProtectedSpaceExtent_Component;
+	int part_UNIX_ProtectedSpaceExtent_Index;
+	bool endOf_UNIX_ProtectedSpaceExtent_Part;
+	UNIX_PhysicalExtent part_UNIX_PhysicalExtent_Component;
+	int part_UNIX_PhysicalExtent_Index;
+	bool endOf_UNIX_PhysicalExtent_Part;
+	UNIX_DatabaseSegment part_UNIX_DatabaseSegment_Component;
+	int part_UNIX_DatabaseSegment_Index;
+	bool endOf_UNIX_DatabaseSegment_Part;
+	UNIX_AggregatePExtent part_UNIX_AggregatePExtent_Component;
+	int part_UNIX_AggregatePExtent_Index;
+	bool endOf_UNIX_AggregatePExtent_Part;
+	UNIX_VolumeSet part_UNIX_VolumeSet_Component;
+	int part_UNIX_VolumeSet_Index;
+	bool endOf_UNIX_VolumeSet_Part;
+	UNIX_OpaqueManagementData part_UNIX_OpaqueManagementData_Component;
+	int part_UNIX_OpaqueManagementData_Index;
+	bool endOf_UNIX_OpaqueManagementData_Part;
+	UNIX_AggregatePSExtent part_UNIX_AggregatePSExtent_Component;
+	int part_UNIX_AggregatePSExtent_Index;
+	bool endOf_UNIX_AggregatePSExtent_Part;
+	UNIX_CacheMemory part_UNIX_CacheMemory_Component;
+	int part_UNIX_CacheMemory_Index;
+	bool endOf_UNIX_CacheMemory_Part;
+	UNIX_VolatileStorage part_UNIX_VolatileStorage_Component;
+	int part_UNIX_VolatileStorage_Index;
+	bool endOf_UNIX_VolatileStorage_Part;
+	UNIX_NonVolatileStorage part_UNIX_NonVolatileStorage_Component;
+	int part_UNIX_NonVolatileStorage_Index;
+	bool endOf_UNIX_NonVolatileStorage_Part;
+	UNIX_Printer part_UNIX_Printer_Component;
+	int part_UNIX_Printer_Index;
+	bool endOf_UNIX_Printer_Part;
+	UNIX_CurrentSensor part_UNIX_CurrentSensor_Component;
+	int part_UNIX_CurrentSensor_Index;
+	bool endOf_UNIX_CurrentSensor_Part;
+	UNIX_TemperatureSensor part_UNIX_TemperatureSensor_Component;
+	int part_UNIX_TemperatureSensor_Index;
+	bool endOf_UNIX_TemperatureSensor_Part;
+	UNIX_VoltageSensor part_UNIX_VoltageSensor_Component;
+	int part_UNIX_VoltageSensor_Index;
+	bool endOf_UNIX_VoltageSensor_Part;
+	UNIX_Tachometer part_UNIX_Tachometer_Component;
+	int part_UNIX_Tachometer_Index;
+	bool endOf_UNIX_Tachometer_Part;
+	UNIX_MultiStateSensor part_UNIX_MultiStateSensor_Component;
+	int part_UNIX_MultiStateSensor_Index;
+	bool endOf_UNIX_MultiStateSensor_Part;
+	UNIX_BinarySensor part_UNIX_BinarySensor_Component;
+	int part_UNIX_BinarySensor_Index;
+	bool endOf_UNIX_BinarySensor_Part;
+	UNIX_DiscreteSensor part_UNIX_DiscreteSensor_Component;
+	int part_UNIX_DiscreteSensor_Index;
+	bool endOf_UNIX_DiscreteSensor_Part;
+	UNIX_CableModem part_UNIX_CableModem_Component;
+	int part_UNIX_CableModem_Index;
+	bool endOf_UNIX_CableModem_Part;
+	UNIX_ADSLModem part_UNIX_ADSLModem_Component;
+	int part_UNIX_ADSLModem_Index;
+	bool endOf_UNIX_ADSLModem_Part;
+	UNIX_VDSLModem part_UNIX_VDSLModem_Component;
+	int part_UNIX_VDSLModem_Index;
+	bool endOf_UNIX_VDSLModem_Part;
+	UNIX_HDSLModem part_UNIX_HDSLModem_Component;
+	int part_UNIX_HDSLModem_Index;
+	bool endOf_UNIX_HDSLModem_Part;
+	UNIX_SDSLModem part_UNIX_SDSLModem_Component;
+	int part_UNIX_SDSLModem_Index;
+	bool endOf_UNIX_SDSLModem_Part;
+	UNIX_Unimodem part_UNIX_Unimodem_Component;
+	int part_UNIX_Unimodem_Index;
+	bool endOf_UNIX_Unimodem_Part;
+	UNIX_ISDNModem part_UNIX_ISDNModem_Component;
+	int part_UNIX_ISDNModem_Index;
+	bool endOf_UNIX_ISDNModem_Part;
+	UNIX_Keyboard part_UNIX_Keyboard_Component;
+	int part_UNIX_Keyboard_Index;
+	bool endOf_UNIX_Keyboard_Part;
+	UNIX_PointingDevice part_UNIX_PointingDevice_Component;
+	int part_UNIX_PointingDevice_Index;
+	bool endOf_UNIX_PointingDevice_Part;
+	UNIX_DesktopMonitor part_UNIX_DesktopMonitor_Component;
+	int part_UNIX_DesktopMonitor_Index;
+	bool endOf_UNIX_DesktopMonitor_Part;
+	UNIX_FlatPanel part_UNIX_FlatPanel_Component;
+	int part_UNIX_FlatPanel_Index;
+	bool endOf_UNIX_FlatPanel_Part;
+	UNIX_Processor part_UNIX_Processor_Component;
+	int part_UNIX_Processor_Index;
+	bool endOf_UNIX_Processor_Part;
+	UNIX_VideoHead part_UNIX_VideoHead_Component;
+	int part_UNIX_VideoHead_Index;
+	bool endOf_UNIX_VideoHead_Part;
+	UNIX_FingerprintReader part_UNIX_FingerprintReader_Component;
+	int part_UNIX_FingerprintReader_Index;
+	bool endOf_UNIX_FingerprintReader_Part;
+	UNIX_Door part_UNIX_Door_Component;
+	int part_UNIX_Door_Index;
+	bool endOf_UNIX_Door_Part;
+	UNIX_SmartCard part_UNIX_SmartCard_Component;
+	int part_UNIX_SmartCard_Index;
+	bool endOf_UNIX_SmartCard_Part;
+	UNIX_NetworkPort part_UNIX_NetworkPort_Component;
+	int part_UNIX_NetworkPort_Index;
+	bool endOf_UNIX_NetworkPort_Part;
+	UNIX_WiFiPort part_UNIX_WiFiPort_Component;
+	int part_UNIX_WiFiPort_Index;
+	bool endOf_UNIX_WiFiPort_Part;
+	UNIX_EthernetPort part_UNIX_EthernetPort_Component;
+	int part_UNIX_EthernetPort_Index;
+	bool endOf_UNIX_EthernetPort_Part;
+	UNIX_LLDPEthernetPort part_UNIX_LLDPEthernetPort_Component;
+	int part_UNIX_LLDPEthernetPort_Index;
+	bool endOf_UNIX_LLDPEthernetPort_Part;
+	UNIX_DataCenterEthernetPort part_UNIX_DataCenterEthernetPort_Component;
+	int part_UNIX_DataCenterEthernetPort_Index;
+	bool endOf_UNIX_DataCenterEthernetPort_Part;
+	UNIX_SASPort part_UNIX_SASPort_Component;
+	int part_UNIX_SASPort_Index;
+	bool endOf_UNIX_SASPort_Part;
+	UNIX_IBPort part_UNIX_IBPort_Component;
+	int part_UNIX_IBPort_Index;
+	bool endOf_UNIX_IBPort_Part;
+	UNIX_FCPort part_UNIX_FCPort_Component;
+	int part_UNIX_FCPort_Index;
+	bool endOf_UNIX_FCPort_Part;
+	UNIX_WirelessPort part_UNIX_WirelessPort_Component;
+	int part_UNIX_WirelessPort_Index;
+	bool endOf_UNIX_WirelessPort_Part;
+	UNIX_TokenRingPort part_UNIX_TokenRingPort_Component;
+	int part_UNIX_TokenRingPort_Index;
+	bool endOf_UNIX_TokenRingPort_Part;
+	UNIX_DAPort part_UNIX_DAPort_Component;
+	int part_UNIX_DAPort_Index;
+	bool endOf_UNIX_DAPort_Part;
+	UNIX_SerialPort part_UNIX_SerialPort_Component;
+	int part_UNIX_SerialPort_Index;
+	bool endOf_UNIX_SerialPort_Part;
+	UNIX_ATAPort part_UNIX_ATAPort_Component;
+	int part_UNIX_ATAPort_Index;
+	bool endOf_UNIX_ATAPort_Part;
+	UNIX_USBPort part_UNIX_USBPort_Component;
+	int part_UNIX_USBPort_Index;
+	bool endOf_UNIX_USBPort_Part;
+	UNIX_PCIPort part_UNIX_PCIPort_Component;
+	int part_UNIX_PCIPort_Index;
+	bool endOf_UNIX_PCIPort_Part;
+	UNIX_SPIPort part_UNIX_SPIPort_Component;
+	int part_UNIX_SPIPort_Index;
+	bool endOf_UNIX_SPIPort_Part;
+	UNIX_ParallelPort part_UNIX_ParallelPort_Component;
+	int part_UNIX_ParallelPort_Index;
+	bool endOf_UNIX_ParallelPort_Part;
+	UNIX_FibrePort part_UNIX_FibrePort_Component;
+	int part_UNIX_FibrePort_Index;
+	bool endOf_UNIX_FibrePort_Part;
+	UNIX_Watchdog part_UNIX_Watchdog_Component;
+	int part_UNIX_Watchdog_Index;
+	bool endOf_UNIX_Watchdog_Part;
+	UNIX_EthernetAdapter part_UNIX_EthernetAdapter_Component;
+	int part_UNIX_EthernetAdapter_Index;
+	bool endOf_UNIX_EthernetAdapter_Part;
+	UNIX_TokenRingAdapter part_UNIX_TokenRingAdapter_Component;
+	int part_UNIX_TokenRingAdapter_Index;
+	bool endOf_UNIX_TokenRingAdapter_Part;
+	UNIX_FibreChannelAdapter part_UNIX_FibreChannelAdapter_Component;
+	int part_UNIX_FibreChannelAdapter_Index;
+	bool endOf_UNIX_FibreChannelAdapter_Part;
+	UNIX_IndicatorLED part_UNIX_IndicatorLED_Component;
+	int part_UNIX_IndicatorLED_Index;
+	bool endOf_UNIX_IndicatorLED_Part;
+	UNIX_ElectricalSwitch part_UNIX_ElectricalSwitch_Component;
+	int part_UNIX_ElectricalSwitch_Index;
+	bool endOf_UNIX_ElectricalSwitch_Part;
+	UNIX_ProtocolController part_UNIX_ProtocolController_Component;
+	int part_UNIX_ProtocolController_Index;
+	bool endOf_UNIX_ProtocolController_Part;
+	UNIX_SCSIProtocolController part_UNIX_SCSIProtocolController_Component;
+	int part_UNIX_SCSIProtocolController_Index;
+	bool endOf_UNIX_SCSIProtocolController_Part;
+	UNIX_WiFiRadio part_UNIX_WiFiRadio_Component;
+	int part_UNIX_WiFiRadio_Index;
+	bool endOf_UNIX_WiFiRadio_Part;
+	UNIX_InterLibraryPort part_UNIX_InterLibraryPort_Component;
+	int part_UNIX_InterLibraryPort_Index;
+	bool endOf_UNIX_InterLibraryPort_Part;
+	UNIX_LimitedAccessPort part_UNIX_LimitedAccessPort_Component;
+	int part_UNIX_LimitedAccessPort_Index;
+	bool endOf_UNIX_LimitedAccessPort_Part;
+	UNIX_SmartCardReader part_UNIX_SmartCardReader_Component;
+	int part_UNIX_SmartCardReader_Index;
+	bool endOf_UNIX_SmartCardReader_Part;
+	UNIX_PCIBridge part_UNIX_PCIBridge_Component;
+	int part_UNIX_PCIBridge_Index;
+	bool endOf_UNIX_PCIBridge_Part;
+	UNIX_PCIeSwitch part_UNIX_PCIeSwitch_Component;
+	int part_UNIX_PCIeSwitch_Index;
+	bool endOf_UNIX_PCIeSwitch_Part;
+	UNIX_PortController part_UNIX_PortController_Component;
+	int part_UNIX_PortController_Index;
+	bool endOf_UNIX_PortController_Part;
+	UNIX_IBPortController part_UNIX_IBPortController_Component;
+	int part_UNIX_IBPortController_Index;
+	bool endOf_UNIX_IBPortController_Part;
+	UNIX_ParallelController part_UNIX_ParallelController_Component;
+	int part_UNIX_ParallelController_Index;
+	bool endOf_UNIX_ParallelController_Part;
+	UNIX_InfraredController part_UNIX_InfraredController_Component;
+	int part_UNIX_InfraredController_Index;
+	bool endOf_UNIX_InfraredController_Part;
+	UNIX_ManagementController part_UNIX_ManagementController_Component;
+	int part_UNIX_ManagementController_Index;
+	bool endOf_UNIX_ManagementController_Part;
+	UNIX_SSAController part_UNIX_SSAController_Component;
+	int part_UNIX_SSAController_Index;
+	bool endOf_UNIX_SSAController_Part;
+	UNIX_AGPVideoController part_UNIX_AGPVideoController_Component;
+	int part_UNIX_AGPVideoController_Index;
+	bool endOf_UNIX_AGPVideoController_Part;
+	UNIX_PCVideoController part_UNIX_PCVideoController_Component;
+	int part_UNIX_PCVideoController_Index;
+	bool endOf_UNIX_PCVideoController_Part;
+	UNIX_SerialController part_UNIX_SerialController_Component;
+	int part_UNIX_SerialController_Index;
+	bool endOf_UNIX_SerialController_Part;
+	UNIX_DisplayController part_UNIX_DisplayController_Component;
+	int part_UNIX_DisplayController_Index;
+	bool endOf_UNIX_DisplayController_Part;
+	UNIX_AGPVideoDisplayController part_UNIX_AGPVideoDisplayController_Component;
+	int part_UNIX_AGPVideoDisplayController_Index;
+	bool endOf_UNIX_AGPVideoDisplayController_Part;
+	UNIX_USBController part_UNIX_USBController_Component;
+	int part_UNIX_USBController_Index;
+	bool endOf_UNIX_USBController_Part;
+	UNIX_IDEController part_UNIX_IDEController_Component;
+	int part_UNIX_IDEController_Index;
+	bool endOf_UNIX_IDEController_Part;
+	UNIX_PCMCIAController part_UNIX_PCMCIAController_Component;
+	int part_UNIX_PCMCIAController_Index;
+	bool endOf_UNIX_PCMCIAController_Part;
+	UNIX_SCSIController part_UNIX_SCSIController_Component;
+	int part_UNIX_SCSIController_Index;
+	bool endOf_UNIX_SCSIController_Part;
+	UNIX_ESCONController part_UNIX_ESCONController_Component;
+	int part_UNIX_ESCONController_Index;
+	bool endOf_UNIX_ESCONController_Part;
+	UNIX_DeviceTray part_UNIX_DeviceTray_Component;
+	int part_UNIX_DeviceTray_Index;
+	bool endOf_UNIX_DeviceTray_Part;
+	UNIX_PassThroughModule part_UNIX_PassThroughModule_Component;
+	int part_UNIX_PassThroughModule_Index;
+	bool endOf_UNIX_PassThroughModule_Part;
+	UNIX_AlarmDevice part_UNIX_AlarmDevice_Component;
+	int part_UNIX_AlarmDevice_Index;
+	bool endOf_UNIX_AlarmDevice_Part;
+	UNIX_Fan part_UNIX_Fan_Component;
+	int part_UNIX_Fan_Index;
+	bool endOf_UNIX_Fan_Part;
+	UNIX_Refrigeration part_UNIX_Refrigeration_Component;
+	int part_UNIX_Refrigeration_Index;
+	bool endOf_UNIX_Refrigeration_Part;
+	UNIX_HeatPipe part_UNIX_HeatPipe_Component;
+	int part_UNIX_HeatPipe_Index;
+	bool endOf_UNIX_HeatPipe_Part;
+	UNIX_TPM part_UNIX_TPM_Component;
+	int part_UNIX_TPM_Index;
+	bool endOf_UNIX_TPM_Part;
+	UNIX_Scanner part_UNIX_Scanner_Component;
+	int part_UNIX_Scanner_Index;
+	bool endOf_UNIX_Scanner_Part;
+	UNIX_Provider part_UNIX_Provider_Component;
+	int part_UNIX_Provider_Index;
+	bool endOf_UNIX_Provider_Part;
+	UNIX_IRQ part_UNIX_IRQ_Component;
+	int part_UNIX_IRQ_Index;
+	bool endOf_UNIX_IRQ_Part;
+	UNIX_PortResource part_UNIX_PortResource_Component;
+	int part_UNIX_PortResource_Index;
+	bool endOf_UNIX_PortResource_Part;
+	UNIX_MemoryResource part_UNIX_MemoryResource_Component;
+	int part_UNIX_MemoryResource_Index;
+	bool endOf_UNIX_MemoryResource_Part;
+	UNIX_DMA part_UNIX_DMA_Component;
+	int part_UNIX_DMA_Index;
+	bool endOf_UNIX_DMA_Part;
+	UNIX_NFSShare part_UNIX_NFSShare_Component;
+	int part_UNIX_NFSShare_Index;
+	bool endOf_UNIX_NFSShare_Part;
+	UNIX_CIFSShare part_UNIX_CIFSShare_Component;
+	int part_UNIX_CIFSShare_Index;
+	bool endOf_UNIX_CIFSShare_Part;
+	UNIX_MessageLog part_UNIX_MessageLog_Component;
+	int part_UNIX_MessageLog_Index;
+	bool endOf_UNIX_MessageLog_Part;
+	UNIX_DiagnosticLog part_UNIX_DiagnosticLog_Component;
+	int part_UNIX_DiagnosticLog_Index;
+	bool endOf_UNIX_DiagnosticLog_Part;
+	UNIX_DiagnosticsLog part_UNIX_DiagnosticsLog_Component;
+	int part_UNIX_DiagnosticsLog_Index;
+	bool endOf_UNIX_DiagnosticsLog_Part;
+	UNIX_FibreProtocolService part_UNIX_FibreProtocolService_Component;
+	int part_UNIX_FibreProtocolService_Index;
+	bool endOf_UNIX_FibreProtocolService_Part;
+	UNIX_WakeUpService part_UNIX_WakeUpService_Component;
+	int part_UNIX_WakeUpService_Index;
+	bool endOf_UNIX_WakeUpService_Part;
+	UNIX_VirtualSystemSnapshotService part_UNIX_VirtualSystemSnapshotService_Component;
+	int part_UNIX_VirtualSystemSnapshotService_Index;
+	bool endOf_UNIX_VirtualSystemSnapshotService_Part;
+	UNIX_ResourcePoolConfigurationService part_UNIX_ResourcePoolConfigurationService_Component;
+	int part_UNIX_ResourcePoolConfigurationService_Index;
+	bool endOf_UNIX_ResourcePoolConfigurationService_Part;
+	UNIX_FileSystemConfigurationService part_UNIX_FileSystemConfigurationService_Component;
+	int part_UNIX_FileSystemConfigurationService_Index;
+	bool endOf_UNIX_FileSystemConfigurationService_Part;
+	UNIX_HelpService part_UNIX_HelpService_Component;
+	int part_UNIX_HelpService_Index;
+	bool endOf_UNIX_HelpService_Part;
+	UNIX_StorageRelocationService part_UNIX_StorageRelocationService_Component;
+	int part_UNIX_StorageRelocationService_Index;
+	bool endOf_UNIX_StorageRelocationService_Part;
+	UNIX_MPLSService part_UNIX_MPLSService_Component;
+	int part_UNIX_MPLSService_Index;
+	bool endOf_UNIX_MPLSService_Part;
+	UNIX_PolicyActivationService part_UNIX_PolicyActivationService_Component;
+	int part_UNIX_PolicyActivationService_Index;
+	bool endOf_UNIX_PolicyActivationService_Part;
+	UNIX_SCSIPathConfigurationService part_UNIX_SCSIPathConfigurationService_Component;
+	int part_UNIX_SCSIPathConfigurationService_Index;
+	bool endOf_UNIX_SCSIPathConfigurationService_Part;
+	UNIX_BIOSService part_UNIX_BIOSService_Component;
+	int part_UNIX_BIOSService_Index;
+	bool endOf_UNIX_BIOSService_Part;
+	UNIX_PowerManagementService part_UNIX_PowerManagementService_Component;
+	int part_UNIX_PowerManagementService_Index;
+	bool endOf_UNIX_PowerManagementService_Part;
+	UNIX_NetworkPortConfigurationService part_UNIX_NetworkPortConfigurationService_Component;
+	int part_UNIX_NetworkPortConfigurationService_Index;
+	bool endOf_UNIX_NetworkPortConfigurationService_Part;
+	UNIX_WiFiPortConfigurationService part_UNIX_WiFiPortConfigurationService_Component;
+	int part_UNIX_WiFiPortConfigurationService_Index;
+	bool endOf_UNIX_WiFiPortConfigurationService_Part;
+	UNIX_VRFConfigurationService part_UNIX_VRFConfigurationService_Component;
+	int part_UNIX_VRFConfigurationService_Index;
+	bool endOf_UNIX_VRFConfigurationService_Part;
+	UNIX_ReplicationService part_UNIX_ReplicationService_Component;
+	int part_UNIX_ReplicationService_Index;
+	bool endOf_UNIX_ReplicationService_Part;
+	UNIX_AccountManagementService part_UNIX_AccountManagementService_Component;
+	int part_UNIX_AccountManagementService_Index;
+	bool endOf_UNIX_AccountManagementService_Part;
+	UNIX_VerificationService part_UNIX_VerificationService_Component;
+	int part_UNIX_VerificationService_Index;
+	bool endOf_UNIX_VerificationService_Part;
+	UNIX_CertificateAuthority part_UNIX_CertificateAuthority_Component;
+	int part_UNIX_CertificateAuthority_Index;
+	bool endOf_UNIX_CertificateAuthority_Part;
+	UNIX_Notary part_UNIX_Notary_Component;
+	int part_UNIX_Notary_Index;
+	bool endOf_UNIX_Notary_Part;
+	UNIX_KeyBasedCredentialManagementService part_UNIX_KeyBasedCredentialManagementService_Component;
+	int part_UNIX_KeyBasedCredentialManagementService_Index;
+	bool endOf_UNIX_KeyBasedCredentialManagementService_Part;
+	UNIX_CertificateManagementService part_UNIX_CertificateManagementService_Component;
+	int part_UNIX_CertificateManagementService_Index;
+	bool endOf_UNIX_CertificateManagementService_Part;
+	UNIX_KerberosKeyDistributionCenter part_UNIX_KerberosKeyDistributionCenter_Component;
+	int part_UNIX_KerberosKeyDistributionCenter_Index;
+	bool endOf_UNIX_KerberosKeyDistributionCenter_Part;
+	UNIX_PublicKeyManagementService part_UNIX_PublicKeyManagementService_Component;
+	int part_UNIX_PublicKeyManagementService_Index;
+	bool endOf_UNIX_PublicKeyManagementService_Part;
+	UNIX_SharedSecretService part_UNIX_SharedSecretService_Component;
+	int part_UNIX_SharedSecretService_Index;
+	bool endOf_UNIX_SharedSecretService_Part;
+	UNIX_IdentityManagementService part_UNIX_IdentityManagementService_Component;
+	int part_UNIX_IdentityManagementService_Index;
+	bool endOf_UNIX_IdentityManagementService_Part;
+	UNIX_StorageHardwareIDManagementService part_UNIX_StorageHardwareIDManagementService_Component;
+	int part_UNIX_StorageHardwareIDManagementService_Index;
+	bool endOf_UNIX_StorageHardwareIDManagementService_Part;
+	UNIX_AuthorizationService part_UNIX_AuthorizationService_Component;
+	int part_UNIX_AuthorizationService_Index;
+	bool endOf_UNIX_AuthorizationService_Part;
+	UNIX_PrivilegeManagementService part_UNIX_PrivilegeManagementService_Component;
+	int part_UNIX_PrivilegeManagementService_Index;
+	bool endOf_UNIX_PrivilegeManagementService_Part;
+	UNIX_RoleBasedAuthorizationService part_UNIX_RoleBasedAuthorizationService_Component;
+	int part_UNIX_RoleBasedAuthorizationService_Index;
+	bool endOf_UNIX_RoleBasedAuthorizationService_Part;
+	UNIX_AccessControlService part_UNIX_AccessControlService_Component;
+	int part_UNIX_AccessControlService_Index;
+	bool endOf_UNIX_AccessControlService_Part;
+	UNIX_WBEMServer part_UNIX_WBEMServer_Component;
+	int part_UNIX_WBEMServer_Index;
+	bool endOf_UNIX_WBEMServer_Part;
+	UNIX_LaunchInContextService part_UNIX_LaunchInContextService_Component;
+	int part_UNIX_LaunchInContextService_Index;
+	bool endOf_UNIX_LaunchInContextService_Part;
+	UNIX_VirtualSystemManagementService part_UNIX_VirtualSystemManagementService_Component;
+	int part_UNIX_VirtualSystemManagementService_Index;
+	bool endOf_UNIX_VirtualSystemManagementService_Part;
+	UNIX_MetricService part_UNIX_MetricService_Component;
+	int part_UNIX_MetricService_Index;
+	bool endOf_UNIX_MetricService_Part;
+	UNIX_StorageNameBindingService part_UNIX_StorageNameBindingService_Component;
+	int part_UNIX_StorageNameBindingService_Index;
+	bool endOf_UNIX_StorageNameBindingService_Part;
+	UNIX_ZoneService part_UNIX_ZoneService_Component;
+	int part_UNIX_ZoneService_Index;
+	bool endOf_UNIX_ZoneService_Part;
+	UNIX_ControllerConfigurationService part_UNIX_ControllerConfigurationService_Component;
+	int part_UNIX_ControllerConfigurationService_Index;
+	bool endOf_UNIX_ControllerConfigurationService_Part;
+	UNIX_GroupMaskingMappingService part_UNIX_GroupMaskingMappingService_Component;
+	int part_UNIX_GroupMaskingMappingService_Index;
+	bool endOf_UNIX_GroupMaskingMappingService_Part;
+	UNIX_DatabaseService part_UNIX_DatabaseService_Component;
+	int part_UNIX_DatabaseService_Index;
+	bool endOf_UNIX_DatabaseService_Part;
+	UNIX_DiskPartitionConfigurationService part_UNIX_DiskPartitionConfigurationService_Component;
+	int part_UNIX_DiskPartitionConfigurationService_Index;
+	bool endOf_UNIX_DiskPartitionConfigurationService_Part;
+	UNIX_ConfigurationReportingService part_UNIX_ConfigurationReportingService_Component;
+	int part_UNIX_ConfigurationReportingService_Index;
+	bool endOf_UNIX_ConfigurationReportingService_Part;
+	UNIX_PowerTopologyService part_UNIX_PowerTopologyService_Component;
+	int part_UNIX_PowerTopologyService_Index;
+	bool endOf_UNIX_PowerTopologyService_Part;
+	UNIX_NetworkPolicyService part_UNIX_NetworkPolicyService_Component;
+	int part_UNIX_NetworkPolicyService_Index;
+	bool endOf_UNIX_NetworkPolicyService_Part;
+	UNIX_BasicExecutionService part_UNIX_BasicExecutionService_Component;
+	int part_UNIX_BasicExecutionService_Index;
+	bool endOf_UNIX_BasicExecutionService_Part;
+	UNIX_SpareConfigurationService part_UNIX_SpareConfigurationService_Component;
+	int part_UNIX_SpareConfigurationService_Index;
+	bool endOf_UNIX_SpareConfigurationService_Part;
+	UNIX_StorageElementCompositionService part_UNIX_StorageElementCompositionService_Component;
+	int part_UNIX_StorageElementCompositionService_Index;
+	bool endOf_UNIX_StorageElementCompositionService_Part;
+	UNIX_OpaqueManagementDataService part_UNIX_OpaqueManagementDataService_Component;
+	int part_UNIX_OpaqueManagementDataService_Index;
+	bool endOf_UNIX_OpaqueManagementDataService_Part;
+	UNIX_FingerprintMatchingService part_UNIX_FingerprintMatchingService_Component;
+	int part_UNIX_FingerprintMatchingService_Index;
+	bool endOf_UNIX_FingerprintMatchingService_Part;
+	UNIX_ProtocolService part_UNIX_ProtocolService_Component;
+	int part_UNIX_ProtocolService_Index;
+	bool endOf_UNIX_ProtocolService_Part;
+	UNIX_WBEMProtocolService part_UNIX_WBEMProtocolService_Component;
+	int part_UNIX_WBEMProtocolService_Index;
+	bool endOf_UNIX_WBEMProtocolService_Part;
+	UNIX_TierService part_UNIX_TierService_Component;
+	int part_UNIX_TierService_Index;
+	bool endOf_UNIX_TierService_Part;
+	UNIX_TierPolicyService part_UNIX_TierPolicyService_Component;
+	int part_UNIX_TierPolicyService_Index;
+	bool endOf_UNIX_TierPolicyService_Part;
+	UNIX_IndicationService part_UNIX_IndicationService_Component;
+	int part_UNIX_IndicationService_Index;
+	bool endOf_UNIX_IndicationService_Part;
+	UNIX_FileImportService part_UNIX_FileImportService_Component;
+	int part_UNIX_FileImportService_Index;
+	bool endOf_UNIX_FileImportService_Part;
+	UNIX_VTLStatisticalDataService part_UNIX_VTLStatisticalDataService_Component;
+	int part_UNIX_VTLStatisticalDataService_Index;
+	bool endOf_UNIX_VTLStatisticalDataService_Part;
+	UNIX_DropThresholdCalculationService part_UNIX_DropThresholdCalculationService_Component;
+	int part_UNIX_DropThresholdCalculationService_Index;
+	bool endOf_UNIX_DropThresholdCalculationService_Part;
+	UNIX_TokenBucketMeterService part_UNIX_TokenBucketMeterService_Component;
+	int part_UNIX_TokenBucketMeterService_Index;
+	bool endOf_UNIX_TokenBucketMeterService_Part;
+	UNIX_EWMAMeterService part_UNIX_EWMAMeterService_Component;
+	int part_UNIX_EWMAMeterService_Index;
+	bool endOf_UNIX_EWMAMeterService_Part;
+	UNIX_AverageRateMeterService part_UNIX_AverageRateMeterService_Component;
+	int part_UNIX_AverageRateMeterService_Index;
+	bool endOf_UNIX_AverageRateMeterService_Part;
+	UNIX_ToSMarkerService part_UNIX_ToSMarkerService_Component;
+	int part_UNIX_ToSMarkerService_Index;
+	bool endOf_UNIX_ToSMarkerService_Part;
+	UNIX_Priority8021QMarkerService part_UNIX_Priority8021QMarkerService_Component;
+	int part_UNIX_Priority8021QMarkerService_Index;
+	bool endOf_UNIX_Priority8021QMarkerService_Part;
+	UNIX_DSCPMarkerService part_UNIX_DSCPMarkerService_Component;
+	int part_UNIX_DSCPMarkerService_Index;
+	bool endOf_UNIX_DSCPMarkerService_Part;
+	UNIX_PreambleMarkerService part_UNIX_PreambleMarkerService_Component;
+	int part_UNIX_PreambleMarkerService_Index;
+	bool endOf_UNIX_PreambleMarkerService_Part;
+	UNIX_ClassifierService part_UNIX_ClassifierService_Component;
+	int part_UNIX_ClassifierService_Index;
+	bool endOf_UNIX_ClassifierService_Part;
+	UNIX_ClassifierElement part_UNIX_ClassifierElement_Component;
+	int part_UNIX_ClassifierElement_Index;
+	bool endOf_UNIX_ClassifierElement_Part;
+	UNIX_PacketSchedulingService part_UNIX_PacketSchedulingService_Component;
+	int part_UNIX_PacketSchedulingService_Index;
+	bool endOf_UNIX_PacketSchedulingService_Part;
+	UNIX_NonWorkConservingSchedulingService part_UNIX_NonWorkConservingSchedulingService_Component;
+	int part_UNIX_NonWorkConservingSchedulingService_Index;
+	bool endOf_UNIX_NonWorkConservingSchedulingService_Part;
+	UNIX_REDDropperService part_UNIX_REDDropperService_Component;
+	int part_UNIX_REDDropperService_Index;
+	bool endOf_UNIX_REDDropperService_Part;
+	UNIX_HeadTailDropper part_UNIX_HeadTailDropper_Component;
+	int part_UNIX_HeadTailDropper_Index;
+	bool endOf_UNIX_HeadTailDropper_Part;
+	UNIX_WeightedREDDropperService part_UNIX_WeightedREDDropperService_Component;
+	int part_UNIX_WeightedREDDropperService_Index;
+	bool endOf_UNIX_WeightedREDDropperService_Part;
+	UNIX_QueuingService part_UNIX_QueuingService_Component;
+	int part_UNIX_QueuingService_Index;
+	bool endOf_UNIX_QueuingService_Part;
+	UNIX_BootService part_UNIX_BootService_Component;
+	int part_UNIX_BootService_Index;
+	bool endOf_UNIX_BootService_Part;
+	UNIX_AFService part_UNIX_AFService_Component;
+	int part_UNIX_AFService_Index;
+	bool endOf_UNIX_AFService_Part;
+	UNIX_EFService part_UNIX_EFService_Component;
+	int part_UNIX_EFService_Index;
+	bool endOf_UNIX_EFService_Part;
+	UNIX_FlowService part_UNIX_FlowService_Component;
+	int part_UNIX_FlowService_Index;
+	bool endOf_UNIX_FlowService_Part;
+	UNIX_Hdr8021PService part_UNIX_Hdr8021PService_Component;
+	int part_UNIX_Hdr8021PService_Index;
+	bool endOf_UNIX_Hdr8021PService_Part;
+	UNIX_PrecedenceService part_UNIX_PrecedenceService_Component;
+	int part_UNIX_PrecedenceService_Index;
+	bool endOf_UNIX_PrecedenceService_Part;
+	UNIX_PrintService part_UNIX_PrintService_Component;
+	int part_UNIX_PrintService_Index;
+	bool endOf_UNIX_PrintService_Part;
+	UNIX_TimeService part_UNIX_TimeService_Component;
+	int part_UNIX_TimeService_Index;
+	bool endOf_UNIX_TimeService_Part;
+	UNIX_SoftwareInstallationService part_UNIX_SoftwareInstallationService_Component;
+	int part_UNIX_SoftwareInstallationService_Index;
+	bool endOf_UNIX_SoftwareInstallationService_Part;
+	UNIX_VLANService part_UNIX_VLANService_Component;
+	int part_UNIX_VLANService_Index;
+	bool endOf_UNIX_VLANService_Part;
+	UNIX_Specific802dot1QVLANService part_UNIX_Specific802dot1QVLANService_Component;
+	int part_UNIX_Specific802dot1QVLANService_Index;
+	bool endOf_UNIX_Specific802dot1QVLANService_Part;
+	UNIX_PowerUtilizationManagementService part_UNIX_PowerUtilizationManagementService_Component;
+	int part_UNIX_PowerUtilizationManagementService_Index;
+	bool endOf_UNIX_PowerUtilizationManagementService_Part;
+	UNIX_ClusteringService part_UNIX_ClusteringService_Component;
+	int part_UNIX_ClusteringService_Index;
+	bool endOf_UNIX_ClusteringService_Part;
+	UNIX_SharedDeviceManagementService part_UNIX_SharedDeviceManagementService_Component;
+	int part_UNIX_SharedDeviceManagementService_Index;
+	bool endOf_UNIX_SharedDeviceManagementService_Part;
+	UNIX_BatchService part_UNIX_BatchService_Component;
+	int part_UNIX_BatchService_Index;
+	bool endOf_UNIX_BatchService_Part;
+	UNIX_iSCSIConfigurationService part_UNIX_iSCSIConfigurationService_Component;
+	int part_UNIX_iSCSIConfigurationService_Index;
+	bool endOf_UNIX_iSCSIConfigurationService_Part;
+	UNIX_OOBAlertService part_UNIX_OOBAlertService_Component;
+	int part_UNIX_OOBAlertService_Index;
+	bool endOf_UNIX_OOBAlertService_Part;
+	UNIX_StorageConfigurationService part_UNIX_StorageConfigurationService_Component;
+	int part_UNIX_StorageConfigurationService_Index;
+	bool endOf_UNIX_StorageConfigurationService_Part;
+	UNIX_IPConfigurationService part_UNIX_IPConfigurationService_Component;
+	int part_UNIX_IPConfigurationService_Index;
+	bool endOf_UNIX_IPConfigurationService_Part;
+	UNIX_VirtualSystemMigrationService part_UNIX_VirtualSystemMigrationService_Component;
+	int part_UNIX_VirtualSystemMigrationService_Index;
+	bool endOf_UNIX_VirtualSystemMigrationService_Part;
+	UNIX_MPLSCrossConnect part_UNIX_MPLSCrossConnect_Component;
+	int part_UNIX_MPLSCrossConnect_Index;
+	bool endOf_UNIX_MPLSCrossConnect_Part;
+	UNIX_PlatformWatchdogService part_UNIX_PlatformWatchdogService_Component;
+	int part_UNIX_PlatformWatchdogService_Index;
+	bool endOf_UNIX_PlatformWatchdogService_Part;
+	UNIX_FCHBADiagnosticTest part_UNIX_FCHBADiagnosticTest_Component;
+	int part_UNIX_FCHBADiagnosticTest_Index;
+	bool endOf_UNIX_FCHBADiagnosticTest_Part;
+	UNIX_RAIDDiagnosticTest part_UNIX_RAIDDiagnosticTest_Component;
+	int part_UNIX_RAIDDiagnosticTest_Index;
+	bool endOf_UNIX_RAIDDiagnosticTest_Part;
+	UNIX_CPUDiagnosticTest part_UNIX_CPUDiagnosticTest_Component;
+	int part_UNIX_CPUDiagnosticTest_Index;
+	bool endOf_UNIX_CPUDiagnosticTest_Part;
+	UNIX_EthernetNICDiagnosticTest part_UNIX_EthernetNICDiagnosticTest_Component;
+	int part_UNIX_EthernetNICDiagnosticTest_Index;
+	bool endOf_UNIX_EthernetNICDiagnosticTest_Part;
+	UNIX_OpticalDriveDiagnosticTest part_UNIX_OpticalDriveDiagnosticTest_Component;
+	int part_UNIX_OpticalDriveDiagnosticTest_Index;
+	bool endOf_UNIX_OpticalDriveDiagnosticTest_Part;
+	UNIX_OpticalDriveDiagnosticSettingData part_UNIX_OpticalDriveDiagnosticSettingData_Component;
+	int part_UNIX_OpticalDriveDiagnosticSettingData_Index;
+	bool endOf_UNIX_OpticalDriveDiagnosticSettingData_Part;
+	UNIX_DiskDriveDiagnosticTest part_UNIX_DiskDriveDiagnosticTest_Component;
+	int part_UNIX_DiskDriveDiagnosticTest_Index;
+	bool endOf_UNIX_DiskDriveDiagnosticTest_Part;
+	UNIX_IBSubnetManager part_UNIX_IBSubnetManager_Component;
+	int part_UNIX_IBSubnetManager_Index;
+	bool endOf_UNIX_IBSubnetManager_Part;
+	UNIX_ObjectManager part_UNIX_ObjectManager_Component;
+	int part_UNIX_ObjectManager_Index;
+	bool endOf_UNIX_ObjectManager_Part;
+	UNIX_ObjectManagerAdapter part_UNIX_ObjectManagerAdapter_Component;
+	int part_UNIX_ObjectManagerAdapter_Index;
+	bool endOf_UNIX_ObjectManagerAdapter_Part;
+	UNIX_ProviderObjectManagerAdapter part_UNIX_ProviderObjectManagerAdapter_Component;
+	int part_UNIX_ProviderObjectManagerAdapter_Index;
+	bool endOf_UNIX_ProviderObjectManagerAdapter_Part;
+	UNIX_ProtocolAdapter part_UNIX_ProtocolAdapter_Component;
+	int part_UNIX_ProtocolAdapter_Index;
+	bool endOf_UNIX_ProtocolAdapter_Part;
+	UNIX_FileSystemStatisticsService part_UNIX_FileSystemStatisticsService_Component;
+	int part_UNIX_FileSystemStatisticsService_Index;
+	bool endOf_UNIX_FileSystemStatisticsService_Part;
+	UNIX_BlockStatisticsService part_UNIX_BlockStatisticsService_Component;
+	int part_UNIX_BlockStatisticsService_Index;
+	bool endOf_UNIX_BlockStatisticsService_Part;
+	UNIX_USBRedirectionService part_UNIX_USBRedirectionService_Component;
+	int part_UNIX_USBRedirectionService_Index;
+	bool endOf_UNIX_USBRedirectionService_Part;
+	UNIX_TextRedirectionService part_UNIX_TextRedirectionService_Component;
+	int part_UNIX_TextRedirectionService_Index;
+	bool endOf_UNIX_TextRedirectionService_Part;
+	UNIX_BGPService part_UNIX_BGPService_Component;
+	int part_UNIX_BGPService_Index;
+	bool endOf_UNIX_BGPService_Part;
+	UNIX_OSPFService part_UNIX_OSPFService_Component;
+	int part_UNIX_OSPFService_Index;
+	bool endOf_UNIX_OSPFService_Part;
+	UNIX_NATService part_UNIX_NATService_Component;
+	int part_UNIX_NATService_Index;
+	bool endOf_UNIX_NATService_Part;
+	UNIX_TransparentBridgingService part_UNIX_TransparentBridgingService_Component;
+	int part_UNIX_TransparentBridgingService_Index;
+	bool endOf_UNIX_TransparentBridgingService_Part;
+	UNIX_SourceRoutingService part_UNIX_SourceRoutingService_Component;
+	int part_UNIX_SourceRoutingService_Index;
+	bool endOf_UNIX_SourceRoutingService_Part;
+	UNIX_SpanningTreeService part_UNIX_SpanningTreeService_Component;
+	int part_UNIX_SpanningTreeService_Index;
+	bool endOf_UNIX_SpanningTreeService_Part;
+	UNIX_SwitchService part_UNIX_SwitchService_Component;
+	int part_UNIX_SwitchService_Index;
+	bool endOf_UNIX_SwitchService_Part;
+	UNIX_FileExportService part_UNIX_FileExportService_Component;
+	int part_UNIX_FileExportService_Index;
+	bool endOf_UNIX_FileExportService_Part;
+	UNIX_OperatingSystem part_UNIX_OperatingSystem_Component;
+	int part_UNIX_OperatingSystem_Index;
+	bool endOf_UNIX_OperatingSystem_Part;
+	UNIX_SWRFile part_UNIX_SWRFile_Component;
+	int part_UNIX_SWRFile_Index;
+	bool endOf_UNIX_SWRFile_Part;
+	UNIX_SWRPEP part_UNIX_SWRPEP_Component;
+	int part_UNIX_SWRPEP_Index;
+	bool endOf_UNIX_SWRPEP_Part;
+	UNIX_SWRDatabase part_UNIX_SWRDatabase_Component;
+	int part_UNIX_SWRDatabase_Index;
+	bool endOf_UNIX_SWRDatabase_Part;
+	UNIX_ProviderLibrary part_UNIX_ProviderLibrary_Component;
+	int part_UNIX_ProviderLibrary_Index;
+	bool endOf_UNIX_ProviderLibrary_Part;
+	UNIX_ClusteringSAP part_UNIX_ClusteringSAP_Component;
+	int part_UNIX_ClusteringSAP_Index;
+	bool endOf_UNIX_ClusteringSAP_Part;
+	UNIX_CredentialManagementSAP part_UNIX_CredentialManagementSAP_Component;
+	int part_UNIX_CredentialManagementSAP_Index;
+	bool endOf_UNIX_CredentialManagementSAP_Part;
+	UNIX_USBRedirectionSAP part_UNIX_USBRedirectionSAP_Component;
+	int part_UNIX_USBRedirectionSAP_Index;
+	bool endOf_UNIX_USBRedirectionSAP_Part;
+	UNIX_IPNetworkConnection part_UNIX_IPNetworkConnection_Component;
+	int part_UNIX_IPNetworkConnection_Index;
+	bool endOf_UNIX_IPNetworkConnection_Part;
+	UNIX_PolicyTransferServiceAccessPoint part_UNIX_PolicyTransferServiceAccessPoint_Component;
+	int part_UNIX_PolicyTransferServiceAccessPoint_Index;
+	bool endOf_UNIX_PolicyTransferServiceAccessPoint_Part;
+	UNIX_LaunchInContextSAP part_UNIX_LaunchInContextSAP_Component;
+	int part_UNIX_LaunchInContextSAP_Index;
+	bool endOf_UNIX_LaunchInContextSAP_Part;
+	UNIX_RemotePort part_UNIX_RemotePort_Component;
+	int part_UNIX_RemotePort_Index;
+	bool endOf_UNIX_RemotePort_Part;
+	UNIX_MPLSTunnelHop part_UNIX_MPLSTunnelHop_Component;
+	int part_UNIX_MPLSTunnelHop_Index;
+	bool endOf_UNIX_MPLSTunnelHop_Part;
+	UNIX_SoftwareIdentityResource part_UNIX_SoftwareIdentityResource_Component;
+	int part_UNIX_SoftwareIdentityResource_Index;
+	bool endOf_UNIX_SoftwareIdentityResource_Part;
+	UNIX_KVMRedirectionSAP part_UNIX_KVMRedirectionSAP_Component;
+	int part_UNIX_KVMRedirectionSAP_Index;
+	bool endOf_UNIX_KVMRedirectionSAP_Part;
+	UNIX_DHCPProtocolEndpoint part_UNIX_DHCPProtocolEndpoint_Component;
+	int part_UNIX_DHCPProtocolEndpoint_Index;
+	bool endOf_UNIX_DHCPProtocolEndpoint_Part;
+	UNIX_SSHProtocolEndpoint part_UNIX_SSHProtocolEndpoint_Component;
+	int part_UNIX_SSHProtocolEndpoint_Index;
+	bool endOf_UNIX_SSHProtocolEndpoint_Part;
+	UNIX_SCSIProtocolEndpoint part_UNIX_SCSIProtocolEndpoint_Component;
+	int part_UNIX_SCSIProtocolEndpoint_Index;
+	bool endOf_UNIX_SCSIProtocolEndpoint_Part;
+	UNIX_iSCSIProtocolEndpoint part_UNIX_iSCSIProtocolEndpoint_Component;
+	int part_UNIX_iSCSIProtocolEndpoint_Index;
+	bool endOf_UNIX_iSCSIProtocolEndpoint_Part;
+	UNIX_CLPProtocolEndpoint part_UNIX_CLPProtocolEndpoint_Component;
+	int part_UNIX_CLPProtocolEndpoint_Index;
+	bool endOf_UNIX_CLPProtocolEndpoint_Part;
+	UNIX_IPXProtocolEndpoint part_UNIX_IPXProtocolEndpoint_Component;
+	int part_UNIX_IPXProtocolEndpoint_Index;
+	bool endOf_UNIX_IPXProtocolEndpoint_Part;
+	UNIX_IPsecSAEndpoint part_UNIX_IPsecSAEndpoint_Component;
+	int part_UNIX_IPsecSAEndpoint_Index;
+	bool endOf_UNIX_IPsecSAEndpoint_Part;
+	UNIX_IKESAEndpoint part_UNIX_IKESAEndpoint_Component;
+	int part_UNIX_IKESAEndpoint_Index;
+	bool endOf_UNIX_IKESAEndpoint_Part;
+	UNIX_LANEndpoint part_UNIX_LANEndpoint_Component;
+	int part_UNIX_LANEndpoint_Index;
+	bool endOf_UNIX_LANEndpoint_Part;
+	UNIX_WiFiEndpoint part_UNIX_WiFiEndpoint_Component;
+	int part_UNIX_WiFiEndpoint_Index;
+	bool endOf_UNIX_WiFiEndpoint_Part;
+	UNIX_MPLSProtocolEndpoint part_UNIX_MPLSProtocolEndpoint_Component;
+	int part_UNIX_MPLSProtocolEndpoint_Index;
+	bool endOf_UNIX_MPLSProtocolEndpoint_Part;
+	UNIX_WirelessLANEndpoint part_UNIX_WirelessLANEndpoint_Component;
+	int part_UNIX_WirelessLANEndpoint_Index;
+	bool endOf_UNIX_WirelessLANEndpoint_Part;
+	UNIX_UDPProtocolEndpoint part_UNIX_UDPProtocolEndpoint_Component;
+	int part_UNIX_UDPProtocolEndpoint_Index;
+	bool endOf_UNIX_UDPProtocolEndpoint_Part;
+	UNIX_TCPProtocolEndpoint part_UNIX_TCPProtocolEndpoint_Component;
+	int part_UNIX_TCPProtocolEndpoint_Index;
+	bool endOf_UNIX_TCPProtocolEndpoint_Part;
+	UNIX_OSPFVirtualInterface part_UNIX_OSPFVirtualInterface_Component;
+	int part_UNIX_OSPFVirtualInterface_Index;
+	bool endOf_UNIX_OSPFVirtualInterface_Part;
+	UNIX_OSPFProtocolEndpoint part_UNIX_OSPFProtocolEndpoint_Component;
+	int part_UNIX_OSPFProtocolEndpoint_Index;
+	bool endOf_UNIX_OSPFProtocolEndpoint_Part;
+	UNIX_VLANEndpoint part_UNIX_VLANEndpoint_Component;
+	int part_UNIX_VLANEndpoint_Index;
+	bool endOf_UNIX_VLANEndpoint_Part;
+	UNIX_LinkAggregator8023ad part_UNIX_LinkAggregator8023ad_Component;
+	int part_UNIX_LinkAggregator8023ad_Index;
+	bool endOf_UNIX_LinkAggregator8023ad_Part;
+	UNIX_ATAProtocolEndpoint part_UNIX_ATAProtocolEndpoint_Component;
+	int part_UNIX_ATAProtocolEndpoint_Index;
+	bool endOf_UNIX_ATAProtocolEndpoint_Part;
+	UNIX_IPEncapsulationInterface part_UNIX_IPEncapsulationInterface_Component;
+	int part_UNIX_IPEncapsulationInterface_Index;
+	bool endOf_UNIX_IPEncapsulationInterface_Part;
+	UNIX_IPSubinterface part_UNIX_IPSubinterface_Component;
+	int part_UNIX_IPSubinterface_Index;
+	bool endOf_UNIX_IPSubinterface_Part;
+	UNIX_SwitchVirtualInterface part_UNIX_SwitchVirtualInterface_Component;
+	int part_UNIX_SwitchVirtualInterface_Index;
+	bool endOf_UNIX_SwitchVirtualInterface_Part;
+	UNIX_IPLoopback part_UNIX_IPLoopback_Component;
+	int part_UNIX_IPLoopback_Index;
+	bool endOf_UNIX_IPLoopback_Part;
+	UNIX_BGPProtocolEndpoint part_UNIX_BGPProtocolEndpoint_Component;
+	int part_UNIX_BGPProtocolEndpoint_Index;
+	bool endOf_UNIX_BGPProtocolEndpoint_Part;
+	UNIX_SwitchPort part_UNIX_SwitchPort_Component;
+	int part_UNIX_SwitchPort_Index;
+	bool endOf_UNIX_SwitchPort_Part;
+	UNIX_DNSProtocolEndpoint part_UNIX_DNSProtocolEndpoint_Component;
+	int part_UNIX_DNSProtocolEndpoint_Index;
+	bool endOf_UNIX_DNSProtocolEndpoint_Part;
+	UNIX_LAGPort8023ad part_UNIX_LAGPort8023ad_Component;
+	int part_UNIX_LAGPort8023ad_Index;
+	bool endOf_UNIX_LAGPort8023ad_Part;
+	UNIX_BatchSAP part_UNIX_BatchSAP_Component;
+	int part_UNIX_BatchSAP_Index;
+	bool endOf_UNIX_BatchSAP_Part;
+	UNIX_TextRedirectionSAP part_UNIX_TextRedirectionSAP_Component;
+	int part_UNIX_TextRedirectionSAP_Index;
+	bool endOf_UNIX_TextRedirectionSAP_Part;
+	UNIX_MediaRedirectionSAP part_UNIX_MediaRedirectionSAP_Component;
+	int part_UNIX_MediaRedirectionSAP_Index;
+	bool endOf_UNIX_MediaRedirectionSAP_Part;
+	UNIX_PrintSAP part_UNIX_PrintSAP_Component;
+	int part_UNIX_PrintSAP_Index;
+	bool endOf_UNIX_PrintSAP_Part;
+	UNIX_ServiceAccessURI part_UNIX_ServiceAccessURI_Component;
+	int part_UNIX_ServiceAccessURI_Index;
+	bool endOf_UNIX_ServiceAccessURI_Part;
+	UNIX_ObjectManagerCommunicationMechanism part_UNIX_ObjectManagerCommunicationMechanism_Component;
+	int part_UNIX_ObjectManagerCommunicationMechanism_Index;
+	bool endOf_UNIX_ObjectManagerCommunicationMechanism_Part;
+	UNIX_CIMXMLCommunicationMechanism part_UNIX_CIMXMLCommunicationMechanism_Component;
+	int part_UNIX_CIMXMLCommunicationMechanism_Index;
+	bool endOf_UNIX_CIMXMLCommunicationMechanism_Part;
+	UNIX_VLAN part_UNIX_VLAN_Component;
+	int part_UNIX_VLAN_Index;
+	bool endOf_UNIX_VLAN_Part;
+	UNIX_BootSAP part_UNIX_BootSAP_Component;
+	int part_UNIX_BootSAP_Index;
+	bool endOf_UNIX_BootSAP_Part;
+	UNIX_Process part_UNIX_Process_Component;
+	int part_UNIX_Process_Index;
+	bool endOf_UNIX_Process_Part;
+	UNIX_ProcessorCore part_UNIX_ProcessorCore_Component;
+	int part_UNIX_ProcessorCore_Index;
+	bool endOf_UNIX_ProcessorCore_Part;
+	UNIX_iSCSISession part_UNIX_iSCSISession_Component;
+	int part_UNIX_iSCSISession_Index;
+	bool endOf_UNIX_iSCSISession_Part;
+	UNIX_iSCSIConnection part_UNIX_iSCSIConnection_Component;
+	int part_UNIX_iSCSIConnection_Index;
+	bool endOf_UNIX_iSCSIConnection_Part;
+	UNIX_HardwareThread part_UNIX_HardwareThread_Component;
+	int part_UNIX_HardwareThread_Index;
+	bool endOf_UNIX_HardwareThread_Part;
+	UNIX_FileSystem part_UNIX_FileSystem_Component;
+	int part_UNIX_FileSystem_Index;
+	bool endOf_UNIX_FileSystem_Part;
+	UNIX_DatabaseStorageArea part_UNIX_DatabaseStorageArea_Component;
+	int part_UNIX_DatabaseStorageArea_Index;
+	bool endOf_UNIX_DatabaseStorageArea_Part;
+	UNIX_LocalFileSystem part_UNIX_LocalFileSystem_Component;
+	int part_UNIX_LocalFileSystem_Index;
+	bool endOf_UNIX_LocalFileSystem_Part;
+	UNIX_RemoteFileSystem part_UNIX_RemoteFileSystem_Component;
+	int part_UNIX_RemoteFileSystem_Index;
+	bool endOf_UNIX_RemoteFileSystem_Part;
+	UNIX_NFS part_UNIX_NFS_Component;
+	int part_UNIX_NFS_Index;
+	bool endOf_UNIX_NFS_Part;
+	UNIX_Thread part_UNIX_Thread_Component;
+	int part_UNIX_Thread_Index;
+	bool endOf_UNIX_Thread_Part;
+	UNIX_Account part_UNIX_Account_Component;
+	int part_UNIX_Account_Index;
+	bool endOf_UNIX_Account_Part;
+	UNIX_BGPAttributes part_UNIX_BGPAttributes_Component;
+	int part_UNIX_BGPAttributes_Index;
+	bool endOf_UNIX_BGPAttributes_Part;
+	UNIX_ResourcePool part_UNIX_ResourcePool_Component;
+	int part_UNIX_ResourcePool_Index;
+	bool endOf_UNIX_ResourcePool_Part;
+	UNIX_StoragePool part_UNIX_StoragePool_Component;
+	int part_UNIX_StoragePool_Index;
+	bool endOf_UNIX_StoragePool_Part;
+	UNIX_AdministrativeDistance part_UNIX_AdministrativeDistance_Component;
+	int part_UNIX_AdministrativeDistance_Index;
+	bool endOf_UNIX_AdministrativeDistance_Part;
+	UNIX_SoftwareFeature part_UNIX_SoftwareFeature_Component;
+	int part_UNIX_SoftwareFeature_Index;
+	bool endOf_UNIX_SoftwareFeature_Part;
+	UNIX_VideoBIOSFeature part_UNIX_VideoBIOSFeature_Component;
+	int part_UNIX_VideoBIOSFeature_Index;
+	bool endOf_UNIX_VideoBIOSFeature_Part;
+	UNIX_BIOSFeature part_UNIX_BIOSFeature_Component;
+	int part_UNIX_BIOSFeature_Index;
+	bool endOf_UNIX_BIOSFeature_Part;
+	UNIX_AGPSoftwareFeature part_UNIX_AGPSoftwareFeature_Component;
+	int part_UNIX_AGPSoftwareFeature_Index;
+	bool endOf_UNIX_AGPSoftwareFeature_Part;
+	UNIX_BGPRouteMap part_UNIX_BGPRouteMap_Component;
+	int part_UNIX_BGPRouteMap_Index;
+	bool endOf_UNIX_BGPRouteMap_Part;
+	UNIX_OSPFAreaConfiguration part_UNIX_OSPFAreaConfiguration_Component;
+	int part_UNIX_OSPFAreaConfiguration_Index;
+	bool endOf_UNIX_OSPFAreaConfiguration_Part;
+	UNIX_FIFOPipeFile part_UNIX_FIFOPipeFile_Component;
+	int part_UNIX_FIFOPipeFile_Index;
+	bool endOf_UNIX_FIFOPipeFile_Part;
+	UNIX_Directory part_UNIX_Directory_Component;
+	int part_UNIX_Directory_Index;
+	bool endOf_UNIX_Directory_Part;
+	UNIX_DataFile part_UNIX_DataFile_Component;
+	int part_UNIX_DataFile_Index;
+	bool endOf_UNIX_DataFile_Part;
+	UNIX_SymbolicLink part_UNIX_SymbolicLink_Component;
+	int part_UNIX_SymbolicLink_Index;
+	bool endOf_UNIX_SymbolicLink_Part;
+	UNIX_DeviceFile part_UNIX_DeviceFile_Component;
+	int part_UNIX_DeviceFile_Index;
+	bool endOf_UNIX_DeviceFile_Part;
+	UNIX_SpareGroup part_UNIX_SpareGroup_Component;
+	int part_UNIX_SpareGroup_Index;
+	bool endOf_UNIX_SpareGroup_Part;
+	UNIX_ExtraCapacityGroup part_UNIX_ExtraCapacityGroup_Component;
+	int part_UNIX_ExtraCapacityGroup_Index;
+	bool endOf_UNIX_ExtraCapacityGroup_Part;
+	UNIX_StorageRedundancyGroup part_UNIX_StorageRedundancyGroup_Component;
+	int part_UNIX_StorageRedundancyGroup_Index;
+	bool endOf_UNIX_StorageRedundancyGroup_Part;
+	UNIX_AccessControlInformation part_UNIX_AccessControlInformation_Component;
+	int part_UNIX_AccessControlInformation_Index;
+	bool endOf_UNIX_AccessControlInformation_Part;
+	UNIX_PrintFinisher part_UNIX_PrintFinisher_Component;
+	int part_UNIX_PrintFinisher_Index;
+	bool endOf_UNIX_PrintFinisher_Part;
+	UNIX_PrintMarker part_UNIX_PrintMarker_Component;
+	int part_UNIX_PrintMarker_Index;
+	bool endOf_UNIX_PrintMarker_Part;
+	UNIX_PrintSupply part_UNIX_PrintSupply_Component;
+	int part_UNIX_PrintSupply_Index;
+	bool endOf_UNIX_PrintSupply_Part;
+	UNIX_PrintInterlock part_UNIX_PrintInterlock_Component;
+	int part_UNIX_PrintInterlock_Index;
+	bool endOf_UNIX_PrintInterlock_Part;
+	UNIX_PrintChannel part_UNIX_PrintChannel_Component;
+	int part_UNIX_PrintChannel_Index;
+	bool endOf_UNIX_PrintChannel_Part;
+	UNIX_PrintInputTray part_UNIX_PrintInputTray_Component;
+	int part_UNIX_PrintInputTray_Index;
+	bool endOf_UNIX_PrintInputTray_Part;
+	UNIX_PrintOutputTray part_UNIX_PrintOutputTray_Component;
+	int part_UNIX_PrintOutputTray_Index;
+	bool endOf_UNIX_PrintOutputTray_Part;
+	UNIX_PrintInterpreter part_UNIX_PrintInterpreter_Component;
+	int part_UNIX_PrintInterpreter_Index;
+	bool endOf_UNIX_PrintInterpreter_Part;
+	UNIX_PrintMediaPath part_UNIX_PrintMediaPath_Component;
+	int part_UNIX_PrintMediaPath_Index;
+	bool endOf_UNIX_PrintMediaPath_Part;
+	UNIX_SoftwareIdentity part_UNIX_SoftwareIdentity_Component;
+	int part_UNIX_SoftwareIdentity_Index;
+	bool endOf_UNIX_SoftwareIdentity_Part;
+	UNIX_SoftwareElement part_UNIX_SoftwareElement_Component;
+	int part_UNIX_SoftwareElement_Index;
+	bool endOf_UNIX_SoftwareElement_Part;
+	UNIX_BIOSElement part_UNIX_BIOSElement_Component;
+	int part_UNIX_BIOSElement_Index;
+	bool endOf_UNIX_BIOSElement_Part;
+	UNIX_VideoBIOSElement part_UNIX_VideoBIOSElement_Component;
+	int part_UNIX_VideoBIOSElement_Index;
+	bool endOf_UNIX_VideoBIOSElement_Part;
+	UNIX_ConcreteJob part_UNIX_ConcreteJob_Component;
+	int part_UNIX_ConcreteJob_Index;
+	bool endOf_UNIX_ConcreteJob_Part;
+	UNIX_BatchJob part_UNIX_BatchJob_Component;
+	int part_UNIX_BatchJob_Index;
+	bool endOf_UNIX_BatchJob_Part;
+	UNIX_PrintJob part_UNIX_PrintJob_Component;
+	int part_UNIX_PrintJob_Index;
+	bool endOf_UNIX_PrintJob_Part;
+	UNIX_FilterList part_UNIX_FilterList_Component;
+	int part_UNIX_FilterList_Index;
+	bool endOf_UNIX_FilterList_Part;
+	UNIX_RoutingPolicy part_UNIX_RoutingPolicy_Component;
+	int part_UNIX_RoutingPolicy_Index;
+	bool endOf_UNIX_RoutingPolicy_Part;
+	UNIX_StaticForwardingEntry part_UNIX_StaticForwardingEntry_Component;
+	int part_UNIX_StaticForwardingEntry_Index;
+	bool endOf_UNIX_StaticForwardingEntry_Part;
+	UNIX_File part_UNIX_File_Component;
+	int part_UNIX_File_Index;
+	bool endOf_UNIX_File_Part;
+	UNIX_BGPPathAttributes part_UNIX_BGPPathAttributes_Component;
+	int part_UNIX_BGPPathAttributes_Index;
+	bool endOf_UNIX_BGPPathAttributes_Part;
+
+#	include "UNIX_AssociatedElementTierPrivate.h"
+
+
+};
+
+#endif /* UNIX_ASSOCIATEDELEMENTTIER */

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9F85F6B5-7ADC-4063-8758-98DDE32E0E76}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../DataFile/UNIX_DataFile.md.pc" name="UNIX_DataFile" IsProject="True" />
+        <Package file="../MessageLog/UNIX_MessageLog.md.pc" name="UNIX_MessageLog" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../DataFile/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MessageLog/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_LogInDataFileProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LogInDataFileLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_LogInDataFileLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_DataFileProvider -lUNIX_MessageLogProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_LogInDataFileProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LogInDataFileLib" -DPROVIDER_LIB_NS="namespace UNIX_LogInDataFileLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_DataFileProvider -lUNIX_MessageLogProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_LogInDataFile.cpp" />
+    <Compile Include="UNIX_LogInDataFileMain.cpp" />
+    <Compile Include="UNIX_LogInDataFileProvider.cpp" />
+    <Compile Include="UNIX_LogInDataFile_AIX.cpp" />
+    <Compile Include="UNIX_LogInDataFile_DARWIN.cpp" />
+    <Compile Include="UNIX_LogInDataFile_FREEBSD.cpp" />
+    <Compile Include="UNIX_LogInDataFile_HPUX.cpp" />
+    <Compile Include="UNIX_LogInDataFile_LINUX.cpp" />
+    <Compile Include="UNIX_LogInDataFile_SOLARIS.cpp" />
+    <Compile Include="UNIX_LogInDataFile_STUB.cpp" />
+    <Compile Include="UNIX_LogInDataFile_TRU64.cpp" />
+    <Compile Include="UNIX_LogInDataFile_VMS.cpp" />
+    <Compile Include="UNIX_LogInDataFile_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_LogInDataFile.h" />
+    <Node Include="UNIX_LogInDataFileDeps.h" />
+    <Node Include="UNIX_LogInDataFileDeps_AIX.h" />
+    <Node Include="UNIX_LogInDataFileDeps_DARWIN.h" />
+    <Node Include="UNIX_LogInDataFileDeps_FREEBSD.h" />
+    <Node Include="UNIX_LogInDataFileDeps_HPUX.h" />
+    <Node Include="UNIX_LogInDataFileDeps_LINUX.h" />
+    <Node Include="UNIX_LogInDataFileDeps_SOLARIS.h" />
+    <Node Include="UNIX_LogInDataFileDeps_STUB.h" />
+    <Node Include="UNIX_LogInDataFileDeps_TRU64.h" />
+    <Node Include="UNIX_LogInDataFileDeps_VMS.h" />
+    <Node Include="UNIX_LogInDataFileDeps_ZOS.h" />
+    <Node Include="UNIX_LogInDataFilePrivate.h" />
+    <Node Include="UNIX_LogInDataFilePrivate_AIX.h" />
+    <Node Include="UNIX_LogInDataFilePrivate_DARWIN.h" />
+    <Node Include="UNIX_LogInDataFilePrivate_FREEBSD.h" />
+    <Node Include="UNIX_LogInDataFilePrivate_HPUX.h" />
+    <Node Include="UNIX_LogInDataFilePrivate_LINUX.h" />
+    <Node Include="UNIX_LogInDataFilePrivate_SOLARIS.h" />
+    <Node Include="UNIX_LogInDataFilePrivate_STUB.h" />
+    <Node Include="UNIX_LogInDataFilePrivate_TRU64.h" />
+    <Node Include="UNIX_LogInDataFilePrivate_VMS.h" />
+    <Node Include="UNIX_LogInDataFilePrivate_ZOS.h" />
+    <Node Include="UNIX_LogInDataFileProvider.h" />
+    <Node Include="UNIX_LogInDataFile_AIX.hpp" />
+    <Node Include="UNIX_LogInDataFile_AIX.hxx" />
+    <Node Include="UNIX_LogInDataFile_DARWIN.hpp" />
+    <Node Include="UNIX_LogInDataFile_DARWIN.hxx" />
+    <Node Include="UNIX_LogInDataFile_FREEBSD.hpp" />
+    <Node Include="UNIX_LogInDataFile_FREEBSD.hxx" />
+    <Node Include="UNIX_LogInDataFile_HPUX.hpp" />
+    <Node Include="UNIX_LogInDataFile_HPUX.hxx" />
+    <Node Include="UNIX_LogInDataFile_LINUX.hpp" />
+    <Node Include="UNIX_LogInDataFile_LINUX.hxx" />
+    <Node Include="UNIX_LogInDataFile_SOLARIS.hpp" />
+    <Node Include="UNIX_LogInDataFile_SOLARIS.hxx" />
+    <Node Include="UNIX_LogInDataFile_STUB.hpp" />
+    <Node Include="UNIX_LogInDataFile_STUB.hxx" />
+    <Node Include="UNIX_LogInDataFile_TRU64.hpp" />
+    <Node Include="UNIX_LogInDataFile_TRU64.hxx" />
+    <Node Include="UNIX_LogInDataFile_VMS.hpp" />
+    <Node Include="UNIX_LogInDataFile_VMS.hxx" />
+    <Node Include="UNIX_LogInDataFile_WIN32.hpp" />
+    <Node Include="UNIX_LogInDataFile_ZOS.hpp" />
+    <Node Include="UNIX_LogInDataFile_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

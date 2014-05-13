@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5F0B7BDB-8738-4066-9622-BFC8031E60B2}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../NATService/UNIX_NATService.md.pc" name="UNIX_NATService" IsProject="True" />
+        <Package file="../TransparentBridgingService/UNIX_TransparentBridgingService.md.pc" name="UNIX_TransparentBridgingService" IsProject="True" />
+        <Package file="../SourceRoutingService/UNIX_SourceRoutingService.md.pc" name="UNIX_SourceRoutingService" IsProject="True" />
+        <Package file="../SpanningTreeService/UNIX_SpanningTreeService.md.pc" name="UNIX_SpanningTreeService" IsProject="True" />
+        <Package file="../SwitchService/UNIX_SwitchService.md.pc" name="UNIX_SwitchService" IsProject="True" />
+        <Package file="../NextHopRouting/UNIX_NextHopRouting.md.pc" name="UNIX_NextHopRouting" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../NATService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TransparentBridgingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SourceRoutingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SpanningTreeService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SwitchService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NextHopRouting/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_RouteForwardedByServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RouteForwardedByServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_RouteForwardedByServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_NATServiceProvider -lUNIX_TransparentBridgingServiceProvider -lUNIX_SourceRoutingServiceProvider -lUNIX_SpanningTreeServiceProvider -lUNIX_SwitchServiceProvider -lUNIX_NextHopRoutingProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_RouteForwardedByServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RouteForwardedByServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_RouteForwardedByServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_NATServiceProvider -lUNIX_TransparentBridgingServiceProvider -lUNIX_SourceRoutingServiceProvider -lUNIX_SpanningTreeServiceProvider -lUNIX_SwitchServiceProvider -lUNIX_NextHopRoutingProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_RouteForwardedByService.cpp" />
+    <Compile Include="UNIX_RouteForwardedByServiceMain.cpp" />
+    <Compile Include="UNIX_RouteForwardedByServiceProvider.cpp" />
+    <Compile Include="UNIX_RouteForwardedByService_AIX.cpp" />
+    <Compile Include="UNIX_RouteForwardedByService_DARWIN.cpp" />
+    <Compile Include="UNIX_RouteForwardedByService_FREEBSD.cpp" />
+    <Compile Include="UNIX_RouteForwardedByService_HPUX.cpp" />
+    <Compile Include="UNIX_RouteForwardedByService_LINUX.cpp" />
+    <Compile Include="UNIX_RouteForwardedByService_SOLARIS.cpp" />
+    <Compile Include="UNIX_RouteForwardedByService_STUB.cpp" />
+    <Compile Include="UNIX_RouteForwardedByService_TRU64.cpp" />
+    <Compile Include="UNIX_RouteForwardedByService_VMS.cpp" />
+    <Compile Include="UNIX_RouteForwardedByService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_RouteForwardedByService.h" />
+    <Node Include="UNIX_RouteForwardedByServiceDeps.h" />
+    <Node Include="UNIX_RouteForwardedByServiceDeps_AIX.h" />
+    <Node Include="UNIX_RouteForwardedByServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_RouteForwardedByServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_RouteForwardedByServiceDeps_HPUX.h" />
+    <Node Include="UNIX_RouteForwardedByServiceDeps_LINUX.h" />
+    <Node Include="UNIX_RouteForwardedByServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_RouteForwardedByServiceDeps_STUB.h" />
+    <Node Include="UNIX_RouteForwardedByServiceDeps_TRU64.h" />
+    <Node Include="UNIX_RouteForwardedByServiceDeps_VMS.h" />
+    <Node Include="UNIX_RouteForwardedByServiceDeps_ZOS.h" />
+    <Node Include="UNIX_RouteForwardedByServicePrivate.h" />
+    <Node Include="UNIX_RouteForwardedByServicePrivate_AIX.h" />
+    <Node Include="UNIX_RouteForwardedByServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_RouteForwardedByServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_RouteForwardedByServicePrivate_HPUX.h" />
+    <Node Include="UNIX_RouteForwardedByServicePrivate_LINUX.h" />
+    <Node Include="UNIX_RouteForwardedByServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_RouteForwardedByServicePrivate_STUB.h" />
+    <Node Include="UNIX_RouteForwardedByServicePrivate_TRU64.h" />
+    <Node Include="UNIX_RouteForwardedByServicePrivate_VMS.h" />
+    <Node Include="UNIX_RouteForwardedByServicePrivate_ZOS.h" />
+    <Node Include="UNIX_RouteForwardedByServiceProvider.h" />
+    <Node Include="UNIX_RouteForwardedByService_AIX.hpp" />
+    <Node Include="UNIX_RouteForwardedByService_AIX.hxx" />
+    <Node Include="UNIX_RouteForwardedByService_DARWIN.hpp" />
+    <Node Include="UNIX_RouteForwardedByService_DARWIN.hxx" />
+    <Node Include="UNIX_RouteForwardedByService_FREEBSD.hpp" />
+    <Node Include="UNIX_RouteForwardedByService_FREEBSD.hxx" />
+    <Node Include="UNIX_RouteForwardedByService_HPUX.hpp" />
+    <Node Include="UNIX_RouteForwardedByService_HPUX.hxx" />
+    <Node Include="UNIX_RouteForwardedByService_LINUX.hpp" />
+    <Node Include="UNIX_RouteForwardedByService_LINUX.hxx" />
+    <Node Include="UNIX_RouteForwardedByService_SOLARIS.hpp" />
+    <Node Include="UNIX_RouteForwardedByService_SOLARIS.hxx" />
+    <Node Include="UNIX_RouteForwardedByService_STUB.hpp" />
+    <Node Include="UNIX_RouteForwardedByService_STUB.hxx" />
+    <Node Include="UNIX_RouteForwardedByService_TRU64.hpp" />
+    <Node Include="UNIX_RouteForwardedByService_TRU64.hxx" />
+    <Node Include="UNIX_RouteForwardedByService_VMS.hpp" />
+    <Node Include="UNIX_RouteForwardedByService_VMS.hxx" />
+    <Node Include="UNIX_RouteForwardedByService_WIN32.hpp" />
+    <Node Include="UNIX_RouteForwardedByService_ZOS.hpp" />
+    <Node Include="UNIX_RouteForwardedByService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

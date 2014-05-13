@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>1d969780-141f-4440-9c8d-4fd1b3e686ae</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../../UNIX_SettingsAffectSettings.md.pc" name="UNIX_SettingsAffectSettings" IsProject="True" />
+        <Package file="../../../FirewallRuleSettingData/UNIX_FirewallRuleSettingData.md.pc" name="UNIX_FirewallRuleSettingData" IsProject="True" />
+        <Package file="../../../LoadBalancingRuleSettingData/UNIX_LoadBalancingRuleSettingData.md.pc" name="UNIX_LoadBalancingRuleSettingData" IsProject="True" />
+        <Package file="../../../QoSPolicyRuleSettingData/UNIX_QoSPolicyRuleSettingData.md.pc" name="UNIX_QoSPolicyRuleSettingData" IsProject="True" />
+        <Package file="../../../VLANEndpointSettingData/UNIX_VLANEndpointSettingData.md.pc" name="UNIX_VLANEndpointSettingData" IsProject="True" />
+        <Package file="../../../CLPSettingData/UNIX_CLPSettingData.md.pc" name="UNIX_CLPSettingData" IsProject="True" />
+        <Package file="../../../StorageClientSettingData/UNIX_StorageClientSettingData.md.pc" name="UNIX_StorageClientSettingData" IsProject="True" />
+        <Package file="../../../CPUDiagnosticSettingData/UNIX_CPUDiagnosticSettingData.md.pc" name="UNIX_CPUDiagnosticSettingData" IsProject="True" />
+        <Package file="../../../RAIDDiagnosticSettingData/UNIX_RAIDDiagnosticSettingData.md.pc" name="UNIX_RAIDDiagnosticSettingData" IsProject="True" />
+        <Package file="../../../DiskDriveDiagnosticSettingData/UNIX_DiskDriveDiagnosticSettingData.md.pc" name="UNIX_DiskDriveDiagnosticSettingData" IsProject="True" />
+        <Package file="../../../FCHBADiagnosticSettingData/UNIX_FCHBADiagnosticSettingData.md.pc" name="UNIX_FCHBADiagnosticSettingData" IsProject="True" />
+        <Package file="../../../EthernetNICDiagnosticSettingData/UNIX_EthernetNICDiagnosticSettingData.md.pc" name="UNIX_EthernetNICDiagnosticSettingData" IsProject="True" />
+        <Package file="../../../SAEndpointRefreshSettings/UNIX_SAEndpointRefreshSettings.md.pc" name="UNIX_SAEndpointRefreshSettings" IsProject="True" />
+        <Package file="../../../WiFiEndpointSettings/UNIX_WiFiEndpointSettings.md.pc" name="UNIX_WiFiEndpointSettings" IsProject="True" />
+        <Package file="../../../LogicalPortSettings/UNIX_LogicalPortSettings.md.pc" name="UNIX_LogicalPortSettings" IsProject="True" />
+        <Package file="../../../NetworkPortSettings/UNIX_NetworkPortSettings.md.pc" name="UNIX_NetworkPortSettings" IsProject="True" />
+        <Package file="../../../FCPortSettings/UNIX_FCPortSettings.md.pc" name="UNIX_FCPortSettings" IsProject="True" />
+        <Package file="../../../ReplicationSettingData/UNIX_ReplicationSettingData.md.pc" name="UNIX_ReplicationSettingData" IsProject="True" />
+        <Package file="../../../AccessControlServiceSettingData/UNIX_AccessControlServiceSettingData.md.pc" name="UNIX_AccessControlServiceSettingData" IsProject="True" />
+        <Package file="../../../TimeZoneSettingData/UNIX_TimeZoneSettingData.md.pc" name="UNIX_TimeZoneSettingData" IsProject="True" />
+        <Package file="../../../VirtualSystemSettingData/UNIX_VirtualSystemSettingData.md.pc" name="UNIX_VirtualSystemSettingData" IsProject="True" />
+        <Package file="../../../VirtualEthernetSwitchSettingData/UNIX_VirtualEthernetSwitchSettingData.md.pc" name="UNIX_VirtualEthernetSwitchSettingData" IsProject="True" />
+        <Package file="../../../FCIPSettings/UNIX_FCIPSettings.md.pc" name="UNIX_FCIPSettings" IsProject="True" />
+        <Package file="../../../IndicationServiceSettingData/UNIX_IndicationServiceSettingData.md.pc" name="UNIX_IndicationServiceSettingData" IsProject="True" />
+        <Package file="../../../BootSourceSetting/UNIX_BootSourceSetting.md.pc" name="UNIX_BootSourceSetting" IsProject="True" />
+        <Package file="../../../CommonDatabaseSettingData/UNIX_CommonDatabaseSettingData.md.pc" name="UNIX_CommonDatabaseSettingData" IsProject="True" />
+        <Package file="../../../BootSettingData/UNIX_BootSettingData.md.pc" name="UNIX_BootSettingData" IsProject="True" />
+        <Package file="../../../ExportedFileShareSetting/UNIX_ExportedFileShareSetting.md.pc" name="UNIX_ExportedFileShareSetting" IsProject="True" />
+        <Package file="../../../PrintServiceSettings/UNIX_PrintServiceSettings.md.pc" name="UNIX_PrintServiceSettings" IsProject="True" />
+        <Package file="../../../StatisticalSetting/UNIX_StatisticalSetting.md.pc" name="UNIX_StatisticalSetting" IsProject="True" />
+        <Package file="../../../CIFSSettingData/UNIX_CIFSSettingData.md.pc" name="UNIX_CIFSSettingData" IsProject="True" />
+        <Package file="../../../IPVersionSettingData/UNIX_IPVersionSettingData.md.pc" name="UNIX_IPVersionSettingData" IsProject="True" />
+        <Package file="../../../IPSettings/UNIX_IPSettings.md.pc" name="UNIX_IPSettings" IsProject="True" />
+        <Package file="../../../StorageAllocationSettingData/UNIX_StorageAllocationSettingData.md.pc" name="UNIX_StorageAllocationSettingData" IsProject="True" />
+        <Package file="../../../ProcessorAllocationSettingData/UNIX_ProcessorAllocationSettingData.md.pc" name="UNIX_ProcessorAllocationSettingData" IsProject="True" />
+        <Package file="../../../EthernetPortAllocationSettingData/UNIX_EthernetPortAllocationSettingData.md.pc" name="UNIX_EthernetPortAllocationSettingData" IsProject="True" />
+        <Package file="../../../PowerAllocationSettingData/UNIX_PowerAllocationSettingData.md.pc" name="UNIX_PowerAllocationSettingData" IsProject="True" />
+        <Package file="../../../TCPSettings/UNIX_TCPSettings.md.pc" name="UNIX_TCPSettings" IsProject="True" />
+        <Package file="../../../FileSystemSetting/UNIX_FileSystemSetting.md.pc" name="UNIX_FileSystemSetting" IsProject="True" />
+        <Package file="../../../JobSettingData/UNIX_JobSettingData.md.pc" name="UNIX_JobSettingData" IsProject="True" />
+        <Package file="../../../DHCPSettingData/UNIX_DHCPSettingData.md.pc" name="UNIX_DHCPSettingData" IsProject="True" />
+        <Package file="../../../StaticIPAssignmentSettingData/UNIX_StaticIPAssignmentSettingData.md.pc" name="UNIX_StaticIPAssignmentSettingData" IsProject="True" />
+        <Package file="../../../ExtendedStaticIPAssignmentSettingData/UNIX_ExtendedStaticIPAssignmentSettingData.md.pc" name="UNIX_ExtendedStaticIPAssignmentSettingData" IsProject="True" />
+        <Package file="../../../DNSGeneralSettingData/UNIX_DNSGeneralSettingData.md.pc" name="UNIX_DNSGeneralSettingData" IsProject="True" />
+        <Package file="../../../DNSSettingData/UNIX_DNSSettingData.md.pc" name="UNIX_DNSSettingData" IsProject="True" />
+        <Package file="../../../FCSwitchSettings/UNIX_FCSwitchSettings.md.pc" name="UNIX_FCSwitchSettings" IsProject="True" />
+        <Package file="../../../ConfigurationData/UNIX_ConfigurationData.md.pc" name="UNIX_ConfigurationData" IsProject="True" />
+        <Package file="../../../WiFiNetworkDetectionSettings/UNIX_WiFiNetworkDetectionSettings.md.pc" name="UNIX_WiFiNetworkDetectionSettings" IsProject="True" />
+        <Package file="../../../VirtualSystemMigrationSettingData/UNIX_VirtualSystemMigrationSettingData.md.pc" name="UNIX_VirtualSystemMigrationSettingData" IsProject="True" />
+        <Package file="../../../SCSIMultipathSettings/UNIX_SCSIMultipathSettings.md.pc" name="UNIX_SCSIMultipathSettings" IsProject="True" />
+        <Package file="../../../NATStaticSettings/UNIX_NATStaticSettings.md.pc" name="UNIX_NATStaticSettings" IsProject="True" />
+        <Package file="../../../NATListBasedSettings/UNIX_NATListBasedSettings.md.pc" name="UNIX_NATListBasedSettings" IsProject="True" />
+        <Package file="../../../FileSystemSettingData/UNIX_FileSystemSettingData.md.pc" name="UNIX_FileSystemSettingData" IsProject="True" />
+        <Package file="../../../DatabaseSegmentSettingData/UNIX_DatabaseSegmentSettingData.md.pc" name="UNIX_DatabaseSegmentSettingData" IsProject="True" />
+        <Package file="../../../AHTransform/UNIX_AHTransform.md.pc" name="UNIX_AHTransform" IsProject="True" />
+        <Package file="../../../ESPTransform/UNIX_ESPTransform.md.pc" name="UNIX_ESPTransform" IsProject="True" />
+        <Package file="../../../IPCOMPTransform/UNIX_IPCOMPTransform.md.pc" name="UNIX_IPCOMPTransform" IsProject="True" />
+        <Package file="../../../IPsecProposal/UNIX_IPsecProposal.md.pc" name="UNIX_IPsecProposal" IsProject="True" />
+        <Package file="../../../IKEProposal/UNIX_IKEProposal.md.pc" name="UNIX_IKEProposal" IsProject="True" />
+        <Package file="../../../TimeoutsForNATTranslation/UNIX_TimeoutsForNATTranslation.md.pc" name="UNIX_TimeoutsForNATTranslation" IsProject="True" />
+        <Package file="../../../DatabaseParameter/UNIX_DatabaseParameter.md.pc" name="UNIX_DatabaseParameter" IsProject="True" />
+        <Package file="../../../BootConfigSetting/UNIX_BootConfigSetting.md.pc" name="UNIX_BootConfigSetting" IsProject="True" />
+        <Package file="../../../iSCSISessionSettings/UNIX_iSCSISessionSettings.md.pc" name="UNIX_iSCSISessionSettings" IsProject="True" />
+        <Package file="../../../SWRLimitSetting/UNIX_SWRLimitSetting.md.pc" name="UNIX_SWRLimitSetting" IsProject="True" />
+        <Package file="../../../MPLSQosPRTrfcProf/UNIX_MPLSQosPRTrfcProf.md.pc" name="UNIX_MPLSQosPRTrfcProf" IsProject="True" />
+        <Package file="../../../MPLSCRLSPTrfcProf/UNIX_MPLSCRLSPTrfcProf.md.pc" name="UNIX_MPLSCRLSPTrfcProf" IsProject="True" />
+        <Package file="../../../SSHSettingData/UNIX_SSHSettingData.md.pc" name="UNIX_SSHSettingData" IsProject="True" />
+        <Package file="../../../OSStorageNameBinding/UNIX_OSStorageNameBinding.md.pc" name="UNIX_OSStorageNameBinding" IsProject="True" />
+        <Package file="../../../StorageBridgeNameBinding/UNIX_StorageBridgeNameBinding.md.pc" name="UNIX_StorageBridgeNameBinding" IsProject="True" />
+        <Package file="../../../SynchronizationAspect/UNIX_SynchronizationAspect.md.pc" name="UNIX_SynchronizationAspect" IsProject="True" />
+        <Package file="../../../AccountSettingData/UNIX_AccountSettingData.md.pc" name="UNIX_AccountSettingData" IsProject="True" />
+        <Package file="../../../LAGPortPartnerSettings/UNIX_LAGPortPartnerSettings.md.pc" name="UNIX_LAGPortPartnerSettings" IsProject="True" />
+        <Package file="../../../StorageSetting/UNIX_StorageSetting.md.pc" name="UNIX_StorageSetting" IsProject="True" />
+        <Package file="../../../AdvancedStorageSetting/UNIX_AdvancedStorageSetting.md.pc" name="UNIX_AdvancedStorageSetting" IsProject="True" />
+        <Package file="../../../StorageSettingWithHints/UNIX_StorageSettingWithHints.md.pc" name="UNIX_StorageSettingWithHints" IsProject="True" />
+        <Package file="../../../NetworkPolicyActionSettingData/UNIX_NetworkPolicyActionSettingData.md.pc" name="UNIX_NetworkPolicyActionSettingData" IsProject="True" />
+        <Package file="../../../LoadBalancingActionSettingData/UNIX_LoadBalancingActionSettingData.md.pc" name="UNIX_LoadBalancingActionSettingData" IsProject="True" />
+        <Package file="../../../VideoHeadResolution/UNIX_VideoHeadResolution.md.pc" name="UNIX_VideoHeadResolution" IsProject="True" />
+        <Package file="../../../ImportedFileShareSetting/UNIX_ImportedFileShareSetting.md.pc" name="UNIX_ImportedFileShareSetting" IsProject="True" />
+        <Package file="../../../iSCSIConnectionSettings/UNIX_iSCSIConnectionSettings.md.pc" name="UNIX_iSCSIConnectionSettings" IsProject="True" />
+        <Package file="../../../TierSettingData/UNIX_TierSettingData.md.pc" name="UNIX_TierSettingData" IsProject="True" />
+        <Package file="../../../TierPolicySettingData/UNIX_TierPolicySettingData.md.pc" name="UNIX_TierPolicySettingData" IsProject="True" />
+        <Package file="../../../IEEE8021xSettings/UNIX_IEEE8021xSettings.md.pc" name="UNIX_IEEE8021xSettings" IsProject="True" />
+        <Package file="../../../ZoneMembershipSettingData/UNIX_ZoneMembershipSettingData.md.pc" name="UNIX_ZoneMembershipSettingData" IsProject="True" />
+        <Package file="../../../GARPMembershipSettingData/UNIX_GARPMembershipSettingData.md.pc" name="UNIX_GARPMembershipSettingData" IsProject="True" />
+        <Package file="../../../VLANMembershipSettingData/UNIX_VLANMembershipSettingData.md.pc" name="UNIX_VLANMembershipSettingData" IsProject="True" />
+        <Package file="../../../EnabledLogicalElementSettingData/UNIX_EnabledLogicalElementSettingData.md.pc" name="UNIX_EnabledLogicalElementSettingData" IsProject="True" />
+        <Package file="../../../VLANSystemSettingData/UNIX_VLANSystemSettingData.md.pc" name="UNIX_VLANSystemSettingData" IsProject="True" />
+        <Package file="../../../RedundancySetSettingData/UNIX_RedundancySetSettingData.md.pc" name="UNIX_RedundancySetSettingData" IsProject="True" />
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>TestUNIX_SettingsAffectSettings</OutputName>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/*</Include>
+        <Include>${ProjectDir}/../../..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SettingsAffectSettingsLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SettingsAffectSettingsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_SettingsAffectSettingsProvider -lUNIX_FirewallRuleSettingDataProvider -lUNIX_LoadBalancingRuleSettingDataProvider -lUNIX_QoSPolicyRuleSettingDataProvider -lUNIX_VLANEndpointSettingDataProvider -lUNIX_CLPSettingDataProvider -lUNIX_StorageClientSettingDataProvider -lUNIX_CPUDiagnosticSettingDataProvider -lUNIX_RAIDDiagnosticSettingDataProvider -lUNIX_DiskDriveDiagnosticSettingDataProvider -lUNIX_FCHBADiagnosticSettingDataProvider -lUNIX_EthernetNICDiagnosticSettingDataProvider -lUNIX_SAEndpointRefreshSettingsProvider -lUNIX_WiFiEndpointSettingsProvider -lUNIX_LogicalPortSettingsProvider -lUNIX_NetworkPortSettingsProvider -lUNIX_FCPortSettingsProvider -lUNIX_ReplicationSettingDataProvider -lUNIX_AccessControlServiceSettingDataProvider -lUNIX_TimeZoneSettingDataProvider -lUNIX_VirtualSystemSettingDataProvider -lUNIX_VirtualEthernetSwitchSettingDataProvider -lUNIX_FCIPSettingsProvider -lUNIX_IndicationServiceSettingDataProvider -lUNIX_BootSourceSettingProvider -lUNIX_CommonDatabaseSettingDataProvider -lUNIX_BootSettingDataProvider -lUNIX_ExportedFileShareSettingProvider -lUNIX_PrintServiceSettingsProvider -lUNIX_StatisticalSettingProvider -lUNIX_CIFSSettingDataProvider -lUNIX_IPVersionSettingDataProvider -lUNIX_IPSettingsProvider -lUNIX_StorageAllocationSettingDataProvider -lUNIX_ProcessorAllocationSettingDataProvider -lUNIX_EthernetPortAllocationSettingDataProvider -lUNIX_PowerAllocationSettingDataProvider -lUNIX_TCPSettingsProvider -lUNIX_FileSystemSettingProvider -lUNIX_JobSettingDataProvider -lUNIX_DHCPSettingDataProvider -lUNIX_StaticIPAssignmentSettingDataProvider -lUNIX_ExtendedStaticIPAssignmentSettingDataProvider -lUNIX_DNSGeneralSettingDataProvider -lUNIX_DNSSettingDataProvider -lUNIX_FCSwitchSettingsProvider -lUNIX_ConfigurationDataProvider -lUNIX_WiFiNetworkDetectionSettingsProvider -lUNIX_VirtualSystemMigrationSettingDataProvider -lUNIX_SCSIMultipathSettingsProvider -lUNIX_NATStaticSettingsProvider -lUNIX_NATListBasedSettingsProvider -lUNIX_FileSystemSettingDataProvider -lUNIX_DatabaseSegmentSettingDataProvider -lUNIX_AHTransformProvider -lUNIX_ESPTransformProvider -lUNIX_IPCOMPTransformProvider -lUNIX_IPsecProposalProvider -lUNIX_IKEProposalProvider -lUNIX_TimeoutsForNATTranslationProvider -lUNIX_DatabaseParameterProvider -lUNIX_BootConfigSettingProvider -lUNIX_iSCSISessionSettingsProvider -lUNIX_SWRLimitSettingProvider -lUNIX_MPLSQosPRTrfcProfProvider -lUNIX_MPLSCRLSPTrfcProfProvider -lUNIX_SSHSettingDataProvider -lUNIX_OSStorageNameBindingProvider -lUNIX_StorageBridgeNameBindingProvider -lUNIX_SynchronizationAspectProvider -lUNIX_AccountSettingDataProvider -lUNIX_LAGPortPartnerSettingsProvider -lUNIX_StorageSettingProvider -lUNIX_AdvancedStorageSettingProvider -lUNIX_StorageSettingWithHintsProvider -lUNIX_NetworkPolicyActionSettingDataProvider -lUNIX_LoadBalancingActionSettingDataProvider -lUNIX_VideoHeadResolutionProvider -lUNIX_ImportedFileShareSettingProvider -lUNIX_iSCSIConnectionSettingsProvider -lUNIX_TierSettingDataProvider -lUNIX_TierPolicySettingDataProvider -lUNIX_IEEE8021xSettingsProvider -lUNIX_ZoneMembershipSettingDataProvider -lUNIX_GARPMembershipSettingDataProvider -lUNIX_VLANMembershipSettingDataProvider -lUNIX_EnabledLogicalElementSettingDataProvider -lUNIX_VLANSystemSettingDataProvider -lUNIX_RedundancySetSettingDataProvider</ExtraLinkerArguments>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="LD_LIBRARY_PATH" value="../../../../bin/Debug:../../../../../FirewallRuleSettingData/bin/Debug:../../../../../LoadBalancingRuleSettingData/bin/Debug:../../../../../QoSPolicyRuleSettingData/bin/Debug:../../../../../VLANEndpointSettingData/bin/Debug:../../../../../CLPSettingData/bin/Debug:../../../../../StorageClientSettingData/bin/Debug:../../../../../CPUDiagnosticSettingData/bin/Debug:../../../../../RAIDDiagnosticSettingData/bin/Debug:../../../../../DiskDriveDiagnosticSettingData/bin/Debug:../../../../../FCHBADiagnosticSettingData/bin/Debug:../../../../../EthernetNICDiagnosticSettingData/bin/Debug:../../../../../SAEndpointRefreshSettings/bin/Debug:../../../../../WiFiEndpointSettings/bin/Debug:../../../../../LogicalPortSettings/bin/Debug:../../../../../NetworkPortSettings/bin/Debug:../../../../../FCPortSettings/bin/Debug:../../../../../ReplicationSettingData/bin/Debug:../../../../../AccessControlServiceSettingData/bin/Debug:../../../../../TimeZoneSettingData/bin/Debug:../../../../../VirtualSystemSettingData/bin/Debug:../../../../../VirtualEthernetSwitchSettingData/bin/Debug:../../../../../FCIPSettings/bin/Debug:../../../../../IndicationServiceSettingData/bin/Debug:../../../../../BootSourceSetting/bin/Debug:../../../../../CommonDatabaseSettingData/bin/Debug:../../../../../BootSettingData/bin/Debug:../../../../../ExportedFileShareSetting/bin/Debug:../../../../../PrintServiceSettings/bin/Debug:../../../../../StatisticalSetting/bin/Debug:../../../../../CIFSSettingData/bin/Debug:../../../../../IPVersionSettingData/bin/Debug:../../../../../IPSettings/bin/Debug:../../../../../StorageAllocationSettingData/bin/Debug:../../../../../ProcessorAllocationSettingData/bin/Debug:../../../../../EthernetPortAllocationSettingData/bin/Debug:../../../../../PowerAllocationSettingData/bin/Debug:../../../../../TCPSettings/bin/Debug:../../../../../FileSystemSetting/bin/Debug:../../../../../JobSettingData/bin/Debug:../../../../../DHCPSettingData/bin/Debug:../../../../../StaticIPAssignmentSettingData/bin/Debug:../../../../../ExtendedStaticIPAssignmentSettingData/bin/Debug:../../../../../DNSGeneralSettingData/bin/Debug:../../../../../DNSSettingData/bin/Debug:../../../../../FCSwitchSettings/bin/Debug:../../../../../ConfigurationData/bin/Debug:../../../../../WiFiNetworkDetectionSettings/bin/Debug:../../../../../VirtualSystemMigrationSettingData/bin/Debug:../../../../../SCSIMultipathSettings/bin/Debug:../../../../../NATStaticSettings/bin/Debug:../../../../../NATListBasedSettings/bin/Debug:../../../../../FileSystemSettingData/bin/Debug:../../../../../DatabaseSegmentSettingData/bin/Debug:../../../../../AHTransform/bin/Debug:../../../../../ESPTransform/bin/Debug:../../../../../IPCOMPTransform/bin/Debug:../../../../../IPsecProposal/bin/Debug:../../../../../IKEProposal/bin/Debug:../../../../../TimeoutsForNATTranslation/bin/Debug:../../../../../DatabaseParameter/bin/Debug:../../../../../BootConfigSetting/bin/Debug:../../../../../iSCSISessionSettings/bin/Debug:../../../../../SWRLimitSetting/bin/Debug:../../../../../MPLSQosPRTrfcProf/bin/Debug:../../../../../MPLSCRLSPTrfcProf/bin/Debug:../../../../../SSHSettingData/bin/Debug:../../../../../OSStorageNameBinding/bin/Debug:../../../../../StorageBridgeNameBinding/bin/Debug:../../../../../SynchronizationAspect/bin/Debug:../../../../../AccountSettingData/bin/Debug:../../../../../LAGPortPartnerSettings/bin/Debug:../../../../../StorageSetting/bin/Debug:../../../../../AdvancedStorageSetting/bin/Debug:../../../../../StorageSettingWithHints/bin/Debug:../../../../../NetworkPolicyActionSettingData/bin/Debug:../../../../../LoadBalancingActionSettingData/bin/Debug:../../../../../VideoHeadResolution/bin/Debug:../../../../../ImportedFileShareSetting/bin/Debug:../../../../../iSCSIConnectionSettings/bin/Debug:../../../../../TierSettingData/bin/Debug:../../../../../TierPolicySettingData/bin/Debug:../../../../../IEEE8021xSettings/bin/Debug:../../../../../ZoneMembershipSettingData/bin/Debug:../../../../../GARPMembershipSettingData/bin/Debug:../../../../../VLANMembershipSettingData/bin/Debug:../../../../../EnabledLogicalElementSettingData/bin/Debug:../../../../../VLANSystemSettingData/bin/Debug:../../../../../RedundancySetSettingData/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
+    <Commandlineparameters></Commandlineparameters>
+    <ConsolePause>false</ConsolePause>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../../bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../FirewallRuleSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../LoadBalancingRuleSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../QoSPolicyRuleSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VLANEndpointSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../CLPSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../StorageClientSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../CPUDiagnosticSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../RAIDDiagnosticSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DiskDriveDiagnosticSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../FCHBADiagnosticSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../EthernetNICDiagnosticSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SAEndpointRefreshSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../WiFiEndpointSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../LogicalPortSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NetworkPortSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../FCPortSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ReplicationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AccessControlServiceSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TimeZoneSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VirtualSystemSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VirtualEthernetSwitchSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../FCIPSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IndicationServiceSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../BootSourceSetting/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../CommonDatabaseSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../BootSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ExportedFileShareSetting/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PrintServiceSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../StatisticalSetting/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../CIFSSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPVersionSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../StorageAllocationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ProcessorAllocationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../EthernetPortAllocationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PowerAllocationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TCPSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../FileSystemSetting/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../JobSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DHCPSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../StaticIPAssignmentSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ExtendedStaticIPAssignmentSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DNSGeneralSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DNSSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../FCSwitchSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ConfigurationData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../WiFiNetworkDetectionSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VirtualSystemMigrationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SCSIMultipathSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NATStaticSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NATListBasedSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../FileSystemSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DatabaseSegmentSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AHTransform/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ESPTransform/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPCOMPTransform/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPsecProposal/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IKEProposal/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TimeoutsForNATTranslation/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DatabaseParameter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../BootConfigSetting/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../iSCSISessionSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SWRLimitSetting/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../MPLSQosPRTrfcProf/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../MPLSCRLSPTrfcProf/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SSHSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../OSStorageNameBinding/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../StorageBridgeNameBinding/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SynchronizationAspect/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AccountSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../LAGPortPartnerSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../StorageSetting/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AdvancedStorageSetting/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../StorageSettingWithHints/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NetworkPolicyActionSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../LoadBalancingActionSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VideoHeadResolution/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ImportedFileShareSetting/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../iSCSIConnectionSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TierSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TierPolicySettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IEEE8021xSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ZoneMembershipSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../GARPMembershipSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VLANMembershipSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../EnabledLogicalElementSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VLANSystemSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../RedundancySetSettingData/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>TestUNIX_SettingsAffectSettings</OutputName>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SettingsAffectSettingsLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SettingsAffectSettingsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_SettingsAffectSettingsProvider -lUNIX_FirewallRuleSettingDataProvider -lUNIX_LoadBalancingRuleSettingDataProvider -lUNIX_QoSPolicyRuleSettingDataProvider -lUNIX_VLANEndpointSettingDataProvider -lUNIX_CLPSettingDataProvider -lUNIX_StorageClientSettingDataProvider -lUNIX_CPUDiagnosticSettingDataProvider -lUNIX_RAIDDiagnosticSettingDataProvider -lUNIX_DiskDriveDiagnosticSettingDataProvider -lUNIX_FCHBADiagnosticSettingDataProvider -lUNIX_EthernetNICDiagnosticSettingDataProvider -lUNIX_SAEndpointRefreshSettingsProvider -lUNIX_WiFiEndpointSettingsProvider -lUNIX_LogicalPortSettingsProvider -lUNIX_NetworkPortSettingsProvider -lUNIX_FCPortSettingsProvider -lUNIX_ReplicationSettingDataProvider -lUNIX_AccessControlServiceSettingDataProvider -lUNIX_TimeZoneSettingDataProvider -lUNIX_VirtualSystemSettingDataProvider -lUNIX_VirtualEthernetSwitchSettingDataProvider -lUNIX_FCIPSettingsProvider -lUNIX_IndicationServiceSettingDataProvider -lUNIX_BootSourceSettingProvider -lUNIX_CommonDatabaseSettingDataProvider -lUNIX_BootSettingDataProvider -lUNIX_ExportedFileShareSettingProvider -lUNIX_PrintServiceSettingsProvider -lUNIX_StatisticalSettingProvider -lUNIX_CIFSSettingDataProvider -lUNIX_IPVersionSettingDataProvider -lUNIX_IPSettingsProvider -lUNIX_StorageAllocationSettingDataProvider -lUNIX_ProcessorAllocationSettingDataProvider -lUNIX_EthernetPortAllocationSettingDataProvider -lUNIX_PowerAllocationSettingDataProvider -lUNIX_TCPSettingsProvider -lUNIX_FileSystemSettingProvider -lUNIX_JobSettingDataProvider -lUNIX_DHCPSettingDataProvider -lUNIX_StaticIPAssignmentSettingDataProvider -lUNIX_ExtendedStaticIPAssignmentSettingDataProvider -lUNIX_DNSGeneralSettingDataProvider -lUNIX_DNSSettingDataProvider -lUNIX_FCSwitchSettingsProvider -lUNIX_ConfigurationDataProvider -lUNIX_WiFiNetworkDetectionSettingsProvider -lUNIX_VirtualSystemMigrationSettingDataProvider -lUNIX_SCSIMultipathSettingsProvider -lUNIX_NATStaticSettingsProvider -lUNIX_NATListBasedSettingsProvider -lUNIX_FileSystemSettingDataProvider -lUNIX_DatabaseSegmentSettingDataProvider -lUNIX_AHTransformProvider -lUNIX_ESPTransformProvider -lUNIX_IPCOMPTransformProvider -lUNIX_IPsecProposalProvider -lUNIX_IKEProposalProvider -lUNIX_TimeoutsForNATTranslationProvider -lUNIX_DatabaseParameterProvider -lUNIX_BootConfigSettingProvider -lUNIX_iSCSISessionSettingsProvider -lUNIX_SWRLimitSettingProvider -lUNIX_MPLSQosPRTrfcProfProvider -lUNIX_MPLSCRLSPTrfcProfProvider -lUNIX_SSHSettingDataProvider -lUNIX_OSStorageNameBindingProvider -lUNIX_StorageBridgeNameBindingProvider -lUNIX_SynchronizationAspectProvider -lUNIX_AccountSettingDataProvider -lUNIX_LAGPortPartnerSettingsProvider -lUNIX_StorageSettingProvider -lUNIX_AdvancedStorageSettingProvider -lUNIX_StorageSettingWithHintsProvider -lUNIX_NetworkPolicyActionSettingDataProvider -lUNIX_LoadBalancingActionSettingDataProvider -lUNIX_VideoHeadResolutionProvider -lUNIX_ImportedFileShareSettingProvider -lUNIX_iSCSIConnectionSettingsProvider -lUNIX_TierSettingDataProvider -lUNIX_TierPolicySettingDataProvider -lUNIX_IEEE8021xSettingsProvider -lUNIX_ZoneMembershipSettingDataProvider -lUNIX_GARPMembershipSettingDataProvider -lUNIX_VLANMembershipSettingDataProvider -lUNIX_EnabledLogicalElementSettingDataProvider -lUNIX_VLANSystemSettingDataProvider -lUNIX_RedundancySetSettingDataProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../MockResponseHandler.cpp">
+        <Link>MockResponseHandler.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SettingsAffectSettingsFixture.cpp" />
+    <Compile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="RunTestUNIX_SettingsAffectSettings.sh" />
+    <Node Include="UNIX_SettingsAffectSettingsFixture.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BAF1E7B0-F71A-42E2-A0BF-9BC0A26CB829}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ViewCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ViewCapabilitiesLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ViewCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ViewCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ViewCapabilitiesLib" -DPROVIDER_LIB_NS="namespace UNIX_ViewCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ViewCapabilities.cpp" />
+    <Compile Include="UNIX_ViewCapabilitiesMain.cpp" />
+    <Compile Include="UNIX_ViewCapabilitiesProvider.cpp" />
+    <Compile Include="UNIX_ViewCapabilities_AIX.cpp" />
+    <Compile Include="UNIX_ViewCapabilities_DARWIN.cpp" />
+    <Compile Include="UNIX_ViewCapabilities_FREEBSD.cpp" />
+    <Compile Include="UNIX_ViewCapabilities_HPUX.cpp" />
+    <Compile Include="UNIX_ViewCapabilities_LINUX.cpp" />
+    <Compile Include="UNIX_ViewCapabilities_SOLARIS.cpp" />
+    <Compile Include="UNIX_ViewCapabilities_STUB.cpp" />
+    <Compile Include="UNIX_ViewCapabilities_TRU64.cpp" />
+    <Compile Include="UNIX_ViewCapabilities_VMS.cpp" />
+    <Compile Include="UNIX_ViewCapabilities_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ViewCapabilities.h" />
+    <Node Include="UNIX_ViewCapabilitiesDeps.h" />
+    <Node Include="UNIX_ViewCapabilitiesDeps_AIX.h" />
+    <Node Include="UNIX_ViewCapabilitiesDeps_DARWIN.h" />
+    <Node Include="UNIX_ViewCapabilitiesDeps_FREEBSD.h" />
+    <Node Include="UNIX_ViewCapabilitiesDeps_HPUX.h" />
+    <Node Include="UNIX_ViewCapabilitiesDeps_LINUX.h" />
+    <Node Include="UNIX_ViewCapabilitiesDeps_SOLARIS.h" />
+    <Node Include="UNIX_ViewCapabilitiesDeps_STUB.h" />
+    <Node Include="UNIX_ViewCapabilitiesDeps_TRU64.h" />
+    <Node Include="UNIX_ViewCapabilitiesDeps_VMS.h" />
+    <Node Include="UNIX_ViewCapabilitiesDeps_ZOS.h" />
+    <Node Include="UNIX_ViewCapabilitiesPrivate.h" />
+    <Node Include="UNIX_ViewCapabilitiesPrivate_AIX.h" />
+    <Node Include="UNIX_ViewCapabilitiesPrivate_DARWIN.h" />
+    <Node Include="UNIX_ViewCapabilitiesPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ViewCapabilitiesPrivate_HPUX.h" />
+    <Node Include="UNIX_ViewCapabilitiesPrivate_LINUX.h" />
+    <Node Include="UNIX_ViewCapabilitiesPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ViewCapabilitiesPrivate_STUB.h" />
+    <Node Include="UNIX_ViewCapabilitiesPrivate_TRU64.h" />
+    <Node Include="UNIX_ViewCapabilitiesPrivate_VMS.h" />
+    <Node Include="UNIX_ViewCapabilitiesPrivate_ZOS.h" />
+    <Node Include="UNIX_ViewCapabilitiesProvider.h" />
+    <Node Include="UNIX_ViewCapabilities_AIX.hpp" />
+    <Node Include="UNIX_ViewCapabilities_AIX.hxx" />
+    <Node Include="UNIX_ViewCapabilities_DARWIN.hpp" />
+    <Node Include="UNIX_ViewCapabilities_DARWIN.hxx" />
+    <Node Include="UNIX_ViewCapabilities_FREEBSD.hpp" />
+    <Node Include="UNIX_ViewCapabilities_FREEBSD.hxx" />
+    <Node Include="UNIX_ViewCapabilities_HPUX.hpp" />
+    <Node Include="UNIX_ViewCapabilities_HPUX.hxx" />
+    <Node Include="UNIX_ViewCapabilities_LINUX.hpp" />
+    <Node Include="UNIX_ViewCapabilities_LINUX.hxx" />
+    <Node Include="UNIX_ViewCapabilities_SOLARIS.hpp" />
+    <Node Include="UNIX_ViewCapabilities_SOLARIS.hxx" />
+    <Node Include="UNIX_ViewCapabilities_STUB.hpp" />
+    <Node Include="UNIX_ViewCapabilities_STUB.hxx" />
+    <Node Include="UNIX_ViewCapabilities_TRU64.hpp" />
+    <Node Include="UNIX_ViewCapabilities_TRU64.hxx" />
+    <Node Include="UNIX_ViewCapabilities_VMS.hpp" />
+    <Node Include="UNIX_ViewCapabilities_VMS.hxx" />
+    <Node Include="UNIX_ViewCapabilities_WIN32.hpp" />
+    <Node Include="UNIX_ViewCapabilities_ZOS.hpp" />
+    <Node Include="UNIX_ViewCapabilities_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

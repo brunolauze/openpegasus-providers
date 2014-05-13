@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>8bd646e5-bed0-47ec-b7d7-d3f0c2b56132</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../../UNIX_PackagedComponent.md.pc" name="UNIX_PackagedComponent" IsProject="True" />
+        <Package file="../../../Card/UNIX_Card.md.pc" name="UNIX_Card" IsProject="True" />
+        <Package file="../../../SystemBusCard/UNIX_SystemBusCard.md.pc" name="UNIX_SystemBusCard" IsProject="True" />
+        <Package file="../../../Chassis/UNIX_Chassis.md.pc" name="UNIX_Chassis" IsProject="True" />
+        <Package file="../../../Rack/UNIX_Rack.md.pc" name="UNIX_Rack" IsProject="True" />
+        <Package file="../../../PackageLocation/UNIX_PackageLocation.md.pc" name="UNIX_PackageLocation" IsProject="True" />
+        <Package file="../../../StorageMediaLocation/UNIX_StorageMediaLocation.md.pc" name="UNIX_StorageMediaLocation" IsProject="True" />
+        <Package file="../../../Magazine/UNIX_Magazine.md.pc" name="UNIX_Magazine" IsProject="True" />
+        <Package file="../../../PhysicalMedia/UNIX_PhysicalMedia.md.pc" name="UNIX_PhysicalMedia" IsProject="True" />
+        <Package file="../../../PhysicalTape/UNIX_PhysicalTape.md.pc" name="UNIX_PhysicalTape" IsProject="True" />
+        <Package file="../../../Chip/UNIX_Chip.md.pc" name="UNIX_Chip" IsProject="True" />
+        <Package file="../../../PhysicalMemory/UNIX_PhysicalMemory.md.pc" name="UNIX_PhysicalMemory" IsProject="True" />
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>TestUNIX_PackagedComponent</OutputName>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/*</Include>
+        <Include>${ProjectDir}/../../..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PackagedComponentLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PackagedComponentLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PackagedComponentProvider -lUNIX_CardProvider -lUNIX_SystemBusCardProvider -lUNIX_ChassisProvider -lUNIX_RackProvider -lUNIX_PackageLocationProvider -lUNIX_StorageMediaLocationProvider -lUNIX_MagazineProvider -lUNIX_PhysicalMediaProvider -lUNIX_PhysicalTapeProvider -lUNIX_ChipProvider -lUNIX_PhysicalMemoryProvider</ExtraLinkerArguments>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="LD_LIBRARY_PATH" value="../../../../bin/Debug:../../../../../Card/bin/Debug:../../../../../SystemBusCard/bin/Debug:../../../../../Chassis/bin/Debug:../../../../../Rack/bin/Debug:../../../../../PackageLocation/bin/Debug:../../../../../StorageMediaLocation/bin/Debug:../../../../../Magazine/bin/Debug:../../../../../PhysicalMedia/bin/Debug:../../../../../PhysicalTape/bin/Debug:../../../../../Chip/bin/Debug:../../../../../PhysicalMemory/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
+    <Commandlineparameters></Commandlineparameters>
+    <ConsolePause>false</ConsolePause>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../../bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../Card/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SystemBusCard/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../Chassis/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../Rack/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PackageLocation/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../StorageMediaLocation/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../Magazine/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PhysicalMedia/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PhysicalTape/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../Chip/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PhysicalMemory/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>TestUNIX_PackagedComponent</OutputName>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PackagedComponentLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PackagedComponentLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PackagedComponentProvider -lUNIX_CardProvider -lUNIX_SystemBusCardProvider -lUNIX_ChassisProvider -lUNIX_RackProvider -lUNIX_PackageLocationProvider -lUNIX_StorageMediaLocationProvider -lUNIX_MagazineProvider -lUNIX_PhysicalMediaProvider -lUNIX_PhysicalTapeProvider -lUNIX_ChipProvider -lUNIX_PhysicalMemoryProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../MockResponseHandler.cpp">
+        <Link>MockResponseHandler.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_PackagedComponentFixture.cpp" />
+    <Compile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="RunTestUNIX_PackagedComponent.sh" />
+    <Node Include="UNIX_PackagedComponentFixture.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

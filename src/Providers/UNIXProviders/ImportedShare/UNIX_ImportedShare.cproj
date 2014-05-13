@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{27B0B436-7610-42E6-8758-10A229753562}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../MountedElement/UNIX_MountedElement.md.pc" name="UNIX_MountedElement" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../MountedElement/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ImportedShareProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ImportedShareLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ImportedShareLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_MountedElementProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ImportedShareProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ImportedShareLib" -DPROVIDER_LIB_NS="namespace UNIX_ImportedShareLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_MountedElementProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ImportedShare.cpp" />
+    <Compile Include="UNIX_ImportedShareMain.cpp" />
+    <Compile Include="UNIX_ImportedShareProvider.cpp" />
+    <Compile Include="UNIX_ImportedShare_AIX.cpp" />
+    <Compile Include="UNIX_ImportedShare_DARWIN.cpp" />
+    <Compile Include="UNIX_ImportedShare_FREEBSD.cpp" />
+    <Compile Include="UNIX_ImportedShare_HPUX.cpp" />
+    <Compile Include="UNIX_ImportedShare_LINUX.cpp" />
+    <Compile Include="UNIX_ImportedShare_SOLARIS.cpp" />
+    <Compile Include="UNIX_ImportedShare_STUB.cpp" />
+    <Compile Include="UNIX_ImportedShare_TRU64.cpp" />
+    <Compile Include="UNIX_ImportedShare_VMS.cpp" />
+    <Compile Include="UNIX_ImportedShare_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ImportedShare.h" />
+    <Node Include="UNIX_ImportedShareDeps.h" />
+    <Node Include="UNIX_ImportedShareDeps_AIX.h" />
+    <Node Include="UNIX_ImportedShareDeps_DARWIN.h" />
+    <Node Include="UNIX_ImportedShareDeps_FREEBSD.h" />
+    <Node Include="UNIX_ImportedShareDeps_HPUX.h" />
+    <Node Include="UNIX_ImportedShareDeps_LINUX.h" />
+    <Node Include="UNIX_ImportedShareDeps_SOLARIS.h" />
+    <Node Include="UNIX_ImportedShareDeps_STUB.h" />
+    <Node Include="UNIX_ImportedShareDeps_TRU64.h" />
+    <Node Include="UNIX_ImportedShareDeps_VMS.h" />
+    <Node Include="UNIX_ImportedShareDeps_ZOS.h" />
+    <Node Include="UNIX_ImportedSharePrivate.h" />
+    <Node Include="UNIX_ImportedSharePrivate_AIX.h" />
+    <Node Include="UNIX_ImportedSharePrivate_DARWIN.h" />
+    <Node Include="UNIX_ImportedSharePrivate_FREEBSD.h" />
+    <Node Include="UNIX_ImportedSharePrivate_HPUX.h" />
+    <Node Include="UNIX_ImportedSharePrivate_LINUX.h" />
+    <Node Include="UNIX_ImportedSharePrivate_SOLARIS.h" />
+    <Node Include="UNIX_ImportedSharePrivate_STUB.h" />
+    <Node Include="UNIX_ImportedSharePrivate_TRU64.h" />
+    <Node Include="UNIX_ImportedSharePrivate_VMS.h" />
+    <Node Include="UNIX_ImportedSharePrivate_ZOS.h" />
+    <Node Include="UNIX_ImportedShareProvider.h" />
+    <Node Include="UNIX_ImportedShare_AIX.hpp" />
+    <Node Include="UNIX_ImportedShare_AIX.hxx" />
+    <Node Include="UNIX_ImportedShare_DARWIN.hpp" />
+    <Node Include="UNIX_ImportedShare_DARWIN.hxx" />
+    <Node Include="UNIX_ImportedShare_FREEBSD.hpp" />
+    <Node Include="UNIX_ImportedShare_FREEBSD.hxx" />
+    <Node Include="UNIX_ImportedShare_HPUX.hpp" />
+    <Node Include="UNIX_ImportedShare_HPUX.hxx" />
+    <Node Include="UNIX_ImportedShare_LINUX.hpp" />
+    <Node Include="UNIX_ImportedShare_LINUX.hxx" />
+    <Node Include="UNIX_ImportedShare_SOLARIS.hpp" />
+    <Node Include="UNIX_ImportedShare_SOLARIS.hxx" />
+    <Node Include="UNIX_ImportedShare_STUB.hpp" />
+    <Node Include="UNIX_ImportedShare_STUB.hxx" />
+    <Node Include="UNIX_ImportedShare_TRU64.hpp" />
+    <Node Include="UNIX_ImportedShare_TRU64.hxx" />
+    <Node Include="UNIX_ImportedShare_VMS.hpp" />
+    <Node Include="UNIX_ImportedShare_VMS.hxx" />
+    <Node Include="UNIX_ImportedShare_WIN32.hpp" />
+    <Node Include="UNIX_ImportedShare_ZOS.hpp" />
+    <Node Include="UNIX_ImportedShare_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

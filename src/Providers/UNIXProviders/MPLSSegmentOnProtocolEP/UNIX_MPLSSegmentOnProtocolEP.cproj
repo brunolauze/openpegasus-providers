@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EF0D4B6F-02C8-482F-AFB1-CD69CD32CCB8}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../MPLSProtocolEndpoint/UNIX_MPLSProtocolEndpoint.md.pc" name="UNIX_MPLSProtocolEndpoint" IsProject="True" />
+        <Package file="../MPLSInSegment/UNIX_MPLSInSegment.md.pc" name="UNIX_MPLSInSegment" IsProject="True" />
+        <Package file="../MPLSOutSegment/UNIX_MPLSOutSegment.md.pc" name="UNIX_MPLSOutSegment" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../MPLSProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSInSegment/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSOutSegment/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_MPLSSegmentOnProtocolEPProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MPLSSegmentOnProtocolEPLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_MPLSSegmentOnProtocolEPLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_MPLSProtocolEndpointProvider -lUNIX_MPLSInSegmentProvider -lUNIX_MPLSOutSegmentProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_MPLSSegmentOnProtocolEPProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MPLSSegmentOnProtocolEPLib" -DPROVIDER_LIB_NS="namespace UNIX_MPLSSegmentOnProtocolEPLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_MPLSProtocolEndpointProvider -lUNIX_MPLSInSegmentProvider -lUNIX_MPLSOutSegmentProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_MPLSSegmentOnProtocolEP.cpp" />
+    <Compile Include="UNIX_MPLSSegmentOnProtocolEPMain.cpp" />
+    <Compile Include="UNIX_MPLSSegmentOnProtocolEPProvider.cpp" />
+    <Compile Include="UNIX_MPLSSegmentOnProtocolEP_AIX.cpp" />
+    <Compile Include="UNIX_MPLSSegmentOnProtocolEP_DARWIN.cpp" />
+    <Compile Include="UNIX_MPLSSegmentOnProtocolEP_FREEBSD.cpp" />
+    <Compile Include="UNIX_MPLSSegmentOnProtocolEP_HPUX.cpp" />
+    <Compile Include="UNIX_MPLSSegmentOnProtocolEP_LINUX.cpp" />
+    <Compile Include="UNIX_MPLSSegmentOnProtocolEP_SOLARIS.cpp" />
+    <Compile Include="UNIX_MPLSSegmentOnProtocolEP_STUB.cpp" />
+    <Compile Include="UNIX_MPLSSegmentOnProtocolEP_TRU64.cpp" />
+    <Compile Include="UNIX_MPLSSegmentOnProtocolEP_VMS.cpp" />
+    <Compile Include="UNIX_MPLSSegmentOnProtocolEP_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPDeps.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPDeps_AIX.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPDeps_DARWIN.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPDeps_FREEBSD.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPDeps_HPUX.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPDeps_LINUX.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPDeps_SOLARIS.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPDeps_STUB.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPDeps_TRU64.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPDeps_VMS.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPDeps_ZOS.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPPrivate.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPPrivate_AIX.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPPrivate_DARWIN.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPPrivate_FREEBSD.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPPrivate_HPUX.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPPrivate_LINUX.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPPrivate_SOLARIS.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPPrivate_STUB.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPPrivate_TRU64.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPPrivate_VMS.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPPrivate_ZOS.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEPProvider.h" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_AIX.hpp" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_AIX.hxx" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_DARWIN.hpp" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_DARWIN.hxx" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_FREEBSD.hpp" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_FREEBSD.hxx" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_HPUX.hpp" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_HPUX.hxx" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_LINUX.hpp" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_LINUX.hxx" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_SOLARIS.hpp" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_SOLARIS.hxx" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_STUB.hpp" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_STUB.hxx" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_TRU64.hpp" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_TRU64.hxx" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_VMS.hpp" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_VMS.hxx" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_WIN32.hpp" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_ZOS.hpp" />
+    <Node Include="UNIX_MPLSSegmentOnProtocolEP_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

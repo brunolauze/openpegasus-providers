@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D753C922-A1AC-4D6E-B5BD-447A28FBA3CF}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../VirtualSystemSettingData/UNIX_VirtualSystemSettingData.md.pc" name="UNIX_VirtualSystemSettingData" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../VirtualSystemSettingData/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_VirtualEthernetSwitchSettingDataProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_VirtualEthernetSwitchSettingDataLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_VirtualEthernetSwitchSettingDataLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualSystemSettingDataProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_VirtualEthernetSwitchSettingDataProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_VirtualEthernetSwitchSettingDataLib" -DPROVIDER_LIB_NS="namespace UNIX_VirtualEthernetSwitchSettingDataLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualSystemSettingDataProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_VirtualEthernetSwitchSettingData.cpp" />
+    <Compile Include="UNIX_VirtualEthernetSwitchSettingDataMain.cpp" />
+    <Compile Include="UNIX_VirtualEthernetSwitchSettingDataProvider.cpp" />
+    <Compile Include="UNIX_VirtualEthernetSwitchSettingData_AIX.cpp" />
+    <Compile Include="UNIX_VirtualEthernetSwitchSettingData_DARWIN.cpp" />
+    <Compile Include="UNIX_VirtualEthernetSwitchSettingData_FREEBSD.cpp" />
+    <Compile Include="UNIX_VirtualEthernetSwitchSettingData_HPUX.cpp" />
+    <Compile Include="UNIX_VirtualEthernetSwitchSettingData_LINUX.cpp" />
+    <Compile Include="UNIX_VirtualEthernetSwitchSettingData_SOLARIS.cpp" />
+    <Compile Include="UNIX_VirtualEthernetSwitchSettingData_STUB.cpp" />
+    <Compile Include="UNIX_VirtualEthernetSwitchSettingData_TRU64.cpp" />
+    <Compile Include="UNIX_VirtualEthernetSwitchSettingData_VMS.cpp" />
+    <Compile Include="UNIX_VirtualEthernetSwitchSettingData_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataDeps.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataDeps_AIX.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataDeps_DARWIN.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataDeps_FREEBSD.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataDeps_HPUX.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataDeps_LINUX.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataDeps_SOLARIS.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataDeps_STUB.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataDeps_TRU64.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataDeps_VMS.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataDeps_ZOS.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataPrivate.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataPrivate_AIX.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataPrivate_DARWIN.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataPrivate_FREEBSD.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataPrivate_HPUX.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataPrivate_LINUX.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataPrivate_SOLARIS.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataPrivate_STUB.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataPrivate_TRU64.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataPrivate_VMS.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataPrivate_ZOS.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingDataProvider.h" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_AIX.hpp" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_AIX.hxx" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_DARWIN.hpp" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_DARWIN.hxx" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_FREEBSD.hpp" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_FREEBSD.hxx" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_HPUX.hpp" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_HPUX.hxx" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_LINUX.hpp" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_LINUX.hxx" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_SOLARIS.hpp" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_SOLARIS.hxx" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_STUB.hpp" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_STUB.hxx" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_TRU64.hpp" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_TRU64.hxx" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_VMS.hpp" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_VMS.hxx" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_WIN32.hpp" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_ZOS.hpp" />
+    <Node Include="UNIX_VirtualEthernetSwitchSettingData_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

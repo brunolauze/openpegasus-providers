@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>5e10646f-ce7a-41d3-96ed-600b762efba7</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../../UNIX_PolicySetComponent.md.pc" name="UNIX_PolicySetComponent" IsProject="True" />
+        <Package file="../../../AccessControlPolicy/UNIX_AccessControlPolicy.md.pc" name="UNIX_AccessControlPolicy" IsProject="True" />
+        <Package file="../../../PolicyGroup/UNIX_PolicyGroup.md.pc" name="UNIX_PolicyGroup" IsProject="True" />
+        <Package file="../../../AccessControlPolicyGroup/UNIX_AccessControlPolicyGroup.md.pc" name="UNIX_AccessControlPolicyGroup" IsProject="True" />
+        <Package file="../../../AuthorizationRule/UNIX_AuthorizationRule.md.pc" name="UNIX_AuthorizationRule" IsProject="True" />
+        <Package file="../../../NetworkPolicyRule/UNIX_NetworkPolicyRule.md.pc" name="UNIX_NetworkPolicyRule" IsProject="True" />
+        <Package file="../../../IPsecRule/UNIX_IPsecRule.md.pc" name="UNIX_IPsecRule" IsProject="True" />
+        <Package file="../../../IKERule/UNIX_IKERule.md.pc" name="UNIX_IKERule" IsProject="True" />
+        <Package file="../../../AuthenticationRule/UNIX_AuthenticationRule.md.pc" name="UNIX_AuthenticationRule" IsProject="True" />
+        <Package file="../../../TierPolicyRule/UNIX_TierPolicyRule.md.pc" name="UNIX_TierPolicyRule" IsProject="True" />
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>TestUNIX_PolicySetComponent</OutputName>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/*</Include>
+        <Include>${ProjectDir}/../../..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PolicySetComponentLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PolicySetComponentLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PolicySetComponentProvider -lUNIX_AccessControlPolicyProvider -lUNIX_PolicyGroupProvider -lUNIX_AccessControlPolicyGroupProvider -lUNIX_AuthorizationRuleProvider -lUNIX_NetworkPolicyRuleProvider -lUNIX_IPsecRuleProvider -lUNIX_IKERuleProvider -lUNIX_AuthenticationRuleProvider -lUNIX_TierPolicyRuleProvider</ExtraLinkerArguments>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="LD_LIBRARY_PATH" value="../../../../bin/Debug:../../../../../AccessControlPolicy/bin/Debug:../../../../../PolicyGroup/bin/Debug:../../../../../AccessControlPolicyGroup/bin/Debug:../../../../../AuthorizationRule/bin/Debug:../../../../../NetworkPolicyRule/bin/Debug:../../../../../IPsecRule/bin/Debug:../../../../../IKERule/bin/Debug:../../../../../AuthenticationRule/bin/Debug:../../../../../TierPolicyRule/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
+    <Commandlineparameters></Commandlineparameters>
+    <ConsolePause>false</ConsolePause>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../../bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AccessControlPolicy/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PolicyGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AccessControlPolicyGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AuthorizationRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NetworkPolicyRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPsecRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IKERule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AuthenticationRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TierPolicyRule/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>TestUNIX_PolicySetComponent</OutputName>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PolicySetComponentLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PolicySetComponentLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PolicySetComponentProvider -lUNIX_AccessControlPolicyProvider -lUNIX_PolicyGroupProvider -lUNIX_AccessControlPolicyGroupProvider -lUNIX_AuthorizationRuleProvider -lUNIX_NetworkPolicyRuleProvider -lUNIX_IPsecRuleProvider -lUNIX_IKERuleProvider -lUNIX_AuthenticationRuleProvider -lUNIX_TierPolicyRuleProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../MockResponseHandler.cpp">
+        <Link>MockResponseHandler.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_PolicySetComponentFixture.cpp" />
+    <Compile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="RunTestUNIX_PolicySetComponent.sh" />
+    <Node Include="UNIX_PolicySetComponentFixture.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9CF42A7B-EE21-481C-8E58-A40672C4BA0B}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ResourcePool/UNIX_ResourcePool.md.pc" name="UNIX_ResourcePool" IsProject="True" />
+        <Package file="../StorageAllocationSettingData/UNIX_StorageAllocationSettingData.md.pc" name="UNIX_StorageAllocationSettingData" IsProject="True" />
+        <Package file="../ProcessorAllocationSettingData/UNIX_ProcessorAllocationSettingData.md.pc" name="UNIX_ProcessorAllocationSettingData" IsProject="True" />
+        <Package file="../EthernetPortAllocationSettingData/UNIX_EthernetPortAllocationSettingData.md.pc" name="UNIX_EthernetPortAllocationSettingData" IsProject="True" />
+        <Package file="../PowerAllocationSettingData/UNIX_PowerAllocationSettingData.md.pc" name="UNIX_PowerAllocationSettingData" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ResourcePool/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageAllocationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ProcessorAllocationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EthernetPortAllocationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PowerAllocationSettingData/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ResourceAllocationFromPoolProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ResourceAllocationFromPoolLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ResourceAllocationFromPoolLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ResourcePoolProvider -lUNIX_StorageAllocationSettingDataProvider -lUNIX_ProcessorAllocationSettingDataProvider -lUNIX_EthernetPortAllocationSettingDataProvider -lUNIX_PowerAllocationSettingDataProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ResourceAllocationFromPoolProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ResourceAllocationFromPoolLib" -DPROVIDER_LIB_NS="namespace UNIX_ResourceAllocationFromPoolLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ResourcePoolProvider -lUNIX_StorageAllocationSettingDataProvider -lUNIX_ProcessorAllocationSettingDataProvider -lUNIX_EthernetPortAllocationSettingDataProvider -lUNIX_PowerAllocationSettingDataProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ResourceAllocationFromPool.cpp" />
+    <Compile Include="UNIX_ResourceAllocationFromPoolMain.cpp" />
+    <Compile Include="UNIX_ResourceAllocationFromPoolProvider.cpp" />
+    <Compile Include="UNIX_ResourceAllocationFromPool_AIX.cpp" />
+    <Compile Include="UNIX_ResourceAllocationFromPool_DARWIN.cpp" />
+    <Compile Include="UNIX_ResourceAllocationFromPool_FREEBSD.cpp" />
+    <Compile Include="UNIX_ResourceAllocationFromPool_HPUX.cpp" />
+    <Compile Include="UNIX_ResourceAllocationFromPool_LINUX.cpp" />
+    <Compile Include="UNIX_ResourceAllocationFromPool_SOLARIS.cpp" />
+    <Compile Include="UNIX_ResourceAllocationFromPool_STUB.cpp" />
+    <Compile Include="UNIX_ResourceAllocationFromPool_TRU64.cpp" />
+    <Compile Include="UNIX_ResourceAllocationFromPool_VMS.cpp" />
+    <Compile Include="UNIX_ResourceAllocationFromPool_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ResourceAllocationFromPool.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolDeps.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolDeps_AIX.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolDeps_DARWIN.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolDeps_FREEBSD.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolDeps_HPUX.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolDeps_LINUX.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolDeps_SOLARIS.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolDeps_STUB.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolDeps_TRU64.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolDeps_VMS.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolDeps_ZOS.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolPrivate.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolPrivate_AIX.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolPrivate_DARWIN.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolPrivate_HPUX.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolPrivate_LINUX.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolPrivate_STUB.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolPrivate_TRU64.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolPrivate_VMS.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolPrivate_ZOS.h" />
+    <Node Include="UNIX_ResourceAllocationFromPoolProvider.h" />
+    <Node Include="UNIX_ResourceAllocationFromPool_AIX.hpp" />
+    <Node Include="UNIX_ResourceAllocationFromPool_AIX.hxx" />
+    <Node Include="UNIX_ResourceAllocationFromPool_DARWIN.hpp" />
+    <Node Include="UNIX_ResourceAllocationFromPool_DARWIN.hxx" />
+    <Node Include="UNIX_ResourceAllocationFromPool_FREEBSD.hpp" />
+    <Node Include="UNIX_ResourceAllocationFromPool_FREEBSD.hxx" />
+    <Node Include="UNIX_ResourceAllocationFromPool_HPUX.hpp" />
+    <Node Include="UNIX_ResourceAllocationFromPool_HPUX.hxx" />
+    <Node Include="UNIX_ResourceAllocationFromPool_LINUX.hpp" />
+    <Node Include="UNIX_ResourceAllocationFromPool_LINUX.hxx" />
+    <Node Include="UNIX_ResourceAllocationFromPool_SOLARIS.hpp" />
+    <Node Include="UNIX_ResourceAllocationFromPool_SOLARIS.hxx" />
+    <Node Include="UNIX_ResourceAllocationFromPool_STUB.hpp" />
+    <Node Include="UNIX_ResourceAllocationFromPool_STUB.hxx" />
+    <Node Include="UNIX_ResourceAllocationFromPool_TRU64.hpp" />
+    <Node Include="UNIX_ResourceAllocationFromPool_TRU64.hxx" />
+    <Node Include="UNIX_ResourceAllocationFromPool_VMS.hpp" />
+    <Node Include="UNIX_ResourceAllocationFromPool_VMS.hxx" />
+    <Node Include="UNIX_ResourceAllocationFromPool_WIN32.hpp" />
+    <Node Include="UNIX_ResourceAllocationFromPool_ZOS.hpp" />
+    <Node Include="UNIX_ResourceAllocationFromPool_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

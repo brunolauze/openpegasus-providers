@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5838C9C6-2DA3-46AC-846D-76648905F0AD}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ReusablePolicyContainer/UNIX_ReusablePolicyContainer.md.pc" name="UNIX_ReusablePolicyContainer" IsProject="True" />
+        <Package file="../PolicyRepository/UNIX_PolicyRepository.md.pc" name="UNIX_PolicyRepository" IsProject="True" />
+        <Package file="../AutonomousSystem/UNIX_AutonomousSystem.md.pc" name="UNIX_AutonomousSystem" IsProject="True" />
+        <Package file="../RoutingProtocolDomain/UNIX_RoutingProtocolDomain.md.pc" name="UNIX_RoutingProtocolDomain" IsProject="True" />
+        <Package file="../OSPFArea/UNIX_OSPFArea.md.pc" name="UNIX_OSPFArea" IsProject="True" />
+        <Package file="../Network/UNIX_Network.md.pc" name="UNIX_Network" IsProject="True" />
+        <Package file="../VLANNetwork/UNIX_VLANNetwork.md.pc" name="UNIX_VLANNetwork" IsProject="True" />
+        <Package file="../TierDomain/UNIX_TierDomain.md.pc" name="UNIX_TierDomain" IsProject="True" />
+        <Package file="../VirtualComputerSystem/UNIX_VirtualComputerSystem.md.pc" name="UNIX_VirtualComputerSystem" IsProject="True" />
+        <Package file="../Cluster/UNIX_Cluster.md.pc" name="UNIX_Cluster" IsProject="True" />
+        <Package file="../ComputerSystem/UNIX_ComputerSystem.md.pc" name="UNIX_ComputerSystem" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ReusablePolicyContainer/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PolicyRepository/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AutonomousSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RoutingProtocolDomain/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OSPFArea/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Network/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VLANNetwork/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TierDomain/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VirtualComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Cluster/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ComputerSystem/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_DomainMemberCSProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DomainMemberCSLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_DomainMemberCSLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ReusablePolicyContainerProvider -lUNIX_PolicyRepositoryProvider -lUNIX_AutonomousSystemProvider -lUNIX_RoutingProtocolDomainProvider -lUNIX_OSPFAreaProvider -lUNIX_NetworkProvider -lUNIX_VLANNetworkProvider -lUNIX_TierDomainProvider -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_DomainMemberCSProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DomainMemberCSLib" -DPROVIDER_LIB_NS="namespace UNIX_DomainMemberCSLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ReusablePolicyContainerProvider -lUNIX_PolicyRepositoryProvider -lUNIX_AutonomousSystemProvider -lUNIX_RoutingProtocolDomainProvider -lUNIX_OSPFAreaProvider -lUNIX_NetworkProvider -lUNIX_VLANNetworkProvider -lUNIX_TierDomainProvider -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_DomainMemberCS.cpp" />
+    <Compile Include="UNIX_DomainMemberCSMain.cpp" />
+    <Compile Include="UNIX_DomainMemberCSProvider.cpp" />
+    <Compile Include="UNIX_DomainMemberCS_AIX.cpp" />
+    <Compile Include="UNIX_DomainMemberCS_DARWIN.cpp" />
+    <Compile Include="UNIX_DomainMemberCS_FREEBSD.cpp" />
+    <Compile Include="UNIX_DomainMemberCS_HPUX.cpp" />
+    <Compile Include="UNIX_DomainMemberCS_LINUX.cpp" />
+    <Compile Include="UNIX_DomainMemberCS_SOLARIS.cpp" />
+    <Compile Include="UNIX_DomainMemberCS_STUB.cpp" />
+    <Compile Include="UNIX_DomainMemberCS_TRU64.cpp" />
+    <Compile Include="UNIX_DomainMemberCS_VMS.cpp" />
+    <Compile Include="UNIX_DomainMemberCS_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_DomainMemberCS.h" />
+    <Node Include="UNIX_DomainMemberCSDeps.h" />
+    <Node Include="UNIX_DomainMemberCSDeps_AIX.h" />
+    <Node Include="UNIX_DomainMemberCSDeps_DARWIN.h" />
+    <Node Include="UNIX_DomainMemberCSDeps_FREEBSD.h" />
+    <Node Include="UNIX_DomainMemberCSDeps_HPUX.h" />
+    <Node Include="UNIX_DomainMemberCSDeps_LINUX.h" />
+    <Node Include="UNIX_DomainMemberCSDeps_SOLARIS.h" />
+    <Node Include="UNIX_DomainMemberCSDeps_STUB.h" />
+    <Node Include="UNIX_DomainMemberCSDeps_TRU64.h" />
+    <Node Include="UNIX_DomainMemberCSDeps_VMS.h" />
+    <Node Include="UNIX_DomainMemberCSDeps_ZOS.h" />
+    <Node Include="UNIX_DomainMemberCSPrivate.h" />
+    <Node Include="UNIX_DomainMemberCSPrivate_AIX.h" />
+    <Node Include="UNIX_DomainMemberCSPrivate_DARWIN.h" />
+    <Node Include="UNIX_DomainMemberCSPrivate_FREEBSD.h" />
+    <Node Include="UNIX_DomainMemberCSPrivate_HPUX.h" />
+    <Node Include="UNIX_DomainMemberCSPrivate_LINUX.h" />
+    <Node Include="UNIX_DomainMemberCSPrivate_SOLARIS.h" />
+    <Node Include="UNIX_DomainMemberCSPrivate_STUB.h" />
+    <Node Include="UNIX_DomainMemberCSPrivate_TRU64.h" />
+    <Node Include="UNIX_DomainMemberCSPrivate_VMS.h" />
+    <Node Include="UNIX_DomainMemberCSPrivate_ZOS.h" />
+    <Node Include="UNIX_DomainMemberCSProvider.h" />
+    <Node Include="UNIX_DomainMemberCS_AIX.hpp" />
+    <Node Include="UNIX_DomainMemberCS_AIX.hxx" />
+    <Node Include="UNIX_DomainMemberCS_DARWIN.hpp" />
+    <Node Include="UNIX_DomainMemberCS_DARWIN.hxx" />
+    <Node Include="UNIX_DomainMemberCS_FREEBSD.hpp" />
+    <Node Include="UNIX_DomainMemberCS_FREEBSD.hxx" />
+    <Node Include="UNIX_DomainMemberCS_HPUX.hpp" />
+    <Node Include="UNIX_DomainMemberCS_HPUX.hxx" />
+    <Node Include="UNIX_DomainMemberCS_LINUX.hpp" />
+    <Node Include="UNIX_DomainMemberCS_LINUX.hxx" />
+    <Node Include="UNIX_DomainMemberCS_SOLARIS.hpp" />
+    <Node Include="UNIX_DomainMemberCS_SOLARIS.hxx" />
+    <Node Include="UNIX_DomainMemberCS_STUB.hpp" />
+    <Node Include="UNIX_DomainMemberCS_STUB.hxx" />
+    <Node Include="UNIX_DomainMemberCS_TRU64.hpp" />
+    <Node Include="UNIX_DomainMemberCS_TRU64.hxx" />
+    <Node Include="UNIX_DomainMemberCS_VMS.hpp" />
+    <Node Include="UNIX_DomainMemberCS_VMS.hxx" />
+    <Node Include="UNIX_DomainMemberCS_WIN32.hpp" />
+    <Node Include="UNIX_DomainMemberCS_ZOS.hpp" />
+    <Node Include="UNIX_DomainMemberCS_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

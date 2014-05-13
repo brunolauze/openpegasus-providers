@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>369bbc64-de69-40c4-ade2-4ebf9599a46b</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../../UNIX_RecordAppliesToElement.md.pc" name="UNIX_RecordAppliesToElement" IsProject="True" />
+        <Package file="../../../LogRecord/UNIX_LogRecord.md.pc" name="UNIX_LogRecord" IsProject="True" />
+        <Package file="../../../LogEntry/UNIX_LogEntry.md.pc" name="UNIX_LogEntry" IsProject="True" />
+        <Package file="../../../PrintAlertRecord/UNIX_PrintAlertRecord.md.pc" name="UNIX_PrintAlertRecord" IsProject="True" />
+        <Package file="../../../DiagnosticServiceRecord/UNIX_DiagnosticServiceRecord.md.pc" name="UNIX_DiagnosticServiceRecord" IsProject="True" />
+        <Package file="../../../DiagnosticCompletionRecord/UNIX_DiagnosticCompletionRecord.md.pc" name="UNIX_DiagnosticCompletionRecord" IsProject="True" />
+        <Package file="../../../DiagnosticSettingDataRecord/UNIX_DiagnosticSettingDataRecord.md.pc" name="UNIX_DiagnosticSettingDataRecord" IsProject="True" />
+        <Package file="../../../DiagnosticSettingRecord/UNIX_DiagnosticSettingRecord.md.pc" name="UNIX_DiagnosticSettingRecord" IsProject="True" />
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>TestUNIX_RecordAppliesToElement</OutputName>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/*</Include>
+        <Include>${ProjectDir}/../../..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RecordAppliesToElementLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_RecordAppliesToElementLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_RecordAppliesToElementProvider -lUNIX_LogRecordProvider -lUNIX_LogEntryProvider -lUNIX_PrintAlertRecordProvider -lUNIX_DiagnosticServiceRecordProvider -lUNIX_DiagnosticCompletionRecordProvider -lUNIX_DiagnosticSettingDataRecordProvider -lUNIX_DiagnosticSettingRecordProvider</ExtraLinkerArguments>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="LD_LIBRARY_PATH" value="../../../../bin/Debug:../../../../../LogRecord/bin/Debug:../../../../../LogEntry/bin/Debug:../../../../../PrintAlertRecord/bin/Debug:../../../../../DiagnosticServiceRecord/bin/Debug:../../../../../DiagnosticCompletionRecord/bin/Debug:../../../../../DiagnosticSettingDataRecord/bin/Debug:../../../../../DiagnosticSettingRecord/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
+    <Commandlineparameters></Commandlineparameters>
+    <ConsolePause>false</ConsolePause>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../../bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../LogRecord/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../LogEntry/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PrintAlertRecord/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DiagnosticServiceRecord/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DiagnosticCompletionRecord/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DiagnosticSettingDataRecord/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DiagnosticSettingRecord/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>TestUNIX_RecordAppliesToElement</OutputName>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RecordAppliesToElementLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_RecordAppliesToElementLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_RecordAppliesToElementProvider -lUNIX_LogRecordProvider -lUNIX_LogEntryProvider -lUNIX_PrintAlertRecordProvider -lUNIX_DiagnosticServiceRecordProvider -lUNIX_DiagnosticCompletionRecordProvider -lUNIX_DiagnosticSettingDataRecordProvider -lUNIX_DiagnosticSettingRecordProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../MockResponseHandler.cpp">
+        <Link>MockResponseHandler.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_RecordAppliesToElementFixture.cpp" />
+    <Compile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="RunTestUNIX_RecordAppliesToElement.sh" />
+    <Node Include="UNIX_RecordAppliesToElementFixture.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

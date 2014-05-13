@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8085239B-2F40-45C8-B118-1DF45F5C6CE3}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../MPLSTunnel/UNIX_MPLSTunnel.md.pc" name="UNIX_MPLSTunnel" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../MPLSTunnel/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_MPLSReverseDirectionTunnelProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MPLSReverseDirectionTunnelLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_MPLSReverseDirectionTunnelLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_MPLSTunnelProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_MPLSReverseDirectionTunnelProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MPLSReverseDirectionTunnelLib" -DPROVIDER_LIB_NS="namespace UNIX_MPLSReverseDirectionTunnelLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_MPLSTunnelProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_MPLSReverseDirectionTunnel.cpp" />
+    <Compile Include="UNIX_MPLSReverseDirectionTunnelMain.cpp" />
+    <Compile Include="UNIX_MPLSReverseDirectionTunnelProvider.cpp" />
+    <Compile Include="UNIX_MPLSReverseDirectionTunnel_AIX.cpp" />
+    <Compile Include="UNIX_MPLSReverseDirectionTunnel_DARWIN.cpp" />
+    <Compile Include="UNIX_MPLSReverseDirectionTunnel_FREEBSD.cpp" />
+    <Compile Include="UNIX_MPLSReverseDirectionTunnel_HPUX.cpp" />
+    <Compile Include="UNIX_MPLSReverseDirectionTunnel_LINUX.cpp" />
+    <Compile Include="UNIX_MPLSReverseDirectionTunnel_SOLARIS.cpp" />
+    <Compile Include="UNIX_MPLSReverseDirectionTunnel_STUB.cpp" />
+    <Compile Include="UNIX_MPLSReverseDirectionTunnel_TRU64.cpp" />
+    <Compile Include="UNIX_MPLSReverseDirectionTunnel_VMS.cpp" />
+    <Compile Include="UNIX_MPLSReverseDirectionTunnel_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelDeps.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelDeps_AIX.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelDeps_DARWIN.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelDeps_FREEBSD.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelDeps_HPUX.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelDeps_LINUX.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelDeps_SOLARIS.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelDeps_STUB.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelDeps_TRU64.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelDeps_VMS.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelDeps_ZOS.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelPrivate.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelPrivate_AIX.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelPrivate_DARWIN.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelPrivate_FREEBSD.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelPrivate_HPUX.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelPrivate_LINUX.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelPrivate_SOLARIS.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelPrivate_STUB.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelPrivate_TRU64.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelPrivate_VMS.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelPrivate_ZOS.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnelProvider.h" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_AIX.hpp" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_AIX.hxx" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_DARWIN.hpp" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_DARWIN.hxx" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_FREEBSD.hpp" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_FREEBSD.hxx" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_HPUX.hpp" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_HPUX.hxx" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_LINUX.hpp" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_LINUX.hxx" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_SOLARIS.hpp" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_SOLARIS.hxx" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_STUB.hpp" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_STUB.hxx" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_TRU64.hpp" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_TRU64.hxx" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_VMS.hpp" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_VMS.hxx" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_WIN32.hpp" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_ZOS.hpp" />
+    <Node Include="UNIX_MPLSReverseDirectionTunnel_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

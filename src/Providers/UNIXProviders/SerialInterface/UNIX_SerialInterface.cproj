@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C75BEC8F-4649-4D5F-A05D-8CBC325BECAA}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../SerialController/UNIX_SerialController.md.pc" name="UNIX_SerialController" IsProject="True" />
+        <Package file="../SCSIArbitraryLogicalUnit/UNIX_SCSIArbitraryLogicalUnit.md.pc" name="UNIX_SCSIArbitraryLogicalUnit" IsProject="True" />
+        <Package file="../Button/UNIX_Button.md.pc" name="UNIX_Button" IsProject="True" />
+        <Package file="../PowerSupply/UNIX_PowerSupply.md.pc" name="UNIX_PowerSupply" IsProject="True" />
+        <Package file="../UninterruptiblePowerSupply/UNIX_UninterruptiblePowerSupply.md.pc" name="UNIX_UninterruptiblePowerSupply" IsProject="True" />
+        <Package file="../Battery/UNIX_Battery.md.pc" name="UNIX_Battery" IsProject="True" />
+        <Package file="../TapeDrive/UNIX_TapeDrive.md.pc" name="UNIX_TapeDrive" IsProject="True" />
+        <Package file="../CDROMDrive/UNIX_CDROMDrive.md.pc" name="UNIX_CDROMDrive" IsProject="True" />
+        <Package file="../WORMDrive/UNIX_WORMDrive.md.pc" name="UNIX_WORMDrive" IsProject="True" />
+        <Package file="../DiskDrive/UNIX_DiskDrive.md.pc" name="UNIX_DiskDrive" IsProject="True" />
+        <Package file="../DVDDrive/UNIX_DVDDrive.md.pc" name="UNIX_DVDDrive" IsProject="True" />
+        <Package file="../DisketteDrive/UNIX_DisketteDrive.md.pc" name="UNIX_DisketteDrive" IsProject="True" />
+        <Package file="../MagnetoOpticalDrive/UNIX_MagnetoOpticalDrive.md.pc" name="UNIX_MagnetoOpticalDrive" IsProject="True" />
+        <Package file="../USBDevice/UNIX_USBDevice.md.pc" name="UNIX_USBDevice" IsProject="True" />
+        <Package file="../USBHub/UNIX_USBHub.md.pc" name="UNIX_USBHub" IsProject="True" />
+        <Package file="../PowerConnectionPoint/UNIX_PowerConnectionPoint.md.pc" name="UNIX_PowerConnectionPoint" IsProject="True" />
+        <Package file="../LabelReader/UNIX_LabelReader.md.pc" name="UNIX_LabelReader" IsProject="True" />
+        <Package file="../LogicalDisk/UNIX_LogicalDisk.md.pc" name="UNIX_LogicalDisk" IsProject="True" />
+        <Package file="../Snapshot/UNIX_Snapshot.md.pc" name="UNIX_Snapshot" IsProject="True" />
+        <Package file="../VTOCDiskPartition/UNIX_VTOCDiskPartition.md.pc" name="UNIX_VTOCDiskPartition" IsProject="True" />
+        <Package file="../GPTDiskPartition/UNIX_GPTDiskPartition.md.pc" name="UNIX_GPTDiskPartition" IsProject="True" />
+        <Package file="../DiskPartition/UNIX_DiskPartition.md.pc" name="UNIX_DiskPartition" IsProject="True" />
+        <Package file="../TapePartition/UNIX_TapePartition.md.pc" name="UNIX_TapePartition" IsProject="True" />
+        <Package file="../CompositeExtent/UNIX_CompositeExtent.md.pc" name="UNIX_CompositeExtent" IsProject="True" />
+        <Package file="../ProtectedSpaceExtent/UNIX_ProtectedSpaceExtent.md.pc" name="UNIX_ProtectedSpaceExtent" IsProject="True" />
+        <Package file="../PhysicalExtent/UNIX_PhysicalExtent.md.pc" name="UNIX_PhysicalExtent" IsProject="True" />
+        <Package file="../DatabaseSegment/UNIX_DatabaseSegment.md.pc" name="UNIX_DatabaseSegment" IsProject="True" />
+        <Package file="../AggregatePExtent/UNIX_AggregatePExtent.md.pc" name="UNIX_AggregatePExtent" IsProject="True" />
+        <Package file="../VolumeSet/UNIX_VolumeSet.md.pc" name="UNIX_VolumeSet" IsProject="True" />
+        <Package file="../OpaqueManagementData/UNIX_OpaqueManagementData.md.pc" name="UNIX_OpaqueManagementData" IsProject="True" />
+        <Package file="../AggregatePSExtent/UNIX_AggregatePSExtent.md.pc" name="UNIX_AggregatePSExtent" IsProject="True" />
+        <Package file="../CacheMemory/UNIX_CacheMemory.md.pc" name="UNIX_CacheMemory" IsProject="True" />
+        <Package file="../VolatileStorage/UNIX_VolatileStorage.md.pc" name="UNIX_VolatileStorage" IsProject="True" />
+        <Package file="../NonVolatileStorage/UNIX_NonVolatileStorage.md.pc" name="UNIX_NonVolatileStorage" IsProject="True" />
+        <Package file="../Printer/UNIX_Printer.md.pc" name="UNIX_Printer" IsProject="True" />
+        <Package file="../CurrentSensor/UNIX_CurrentSensor.md.pc" name="UNIX_CurrentSensor" IsProject="True" />
+        <Package file="../TemperatureSensor/UNIX_TemperatureSensor.md.pc" name="UNIX_TemperatureSensor" IsProject="True" />
+        <Package file="../VoltageSensor/UNIX_VoltageSensor.md.pc" name="UNIX_VoltageSensor" IsProject="True" />
+        <Package file="../Tachometer/UNIX_Tachometer.md.pc" name="UNIX_Tachometer" IsProject="True" />
+        <Package file="../MultiStateSensor/UNIX_MultiStateSensor.md.pc" name="UNIX_MultiStateSensor" IsProject="True" />
+        <Package file="../BinarySensor/UNIX_BinarySensor.md.pc" name="UNIX_BinarySensor" IsProject="True" />
+        <Package file="../DiscreteSensor/UNIX_DiscreteSensor.md.pc" name="UNIX_DiscreteSensor" IsProject="True" />
+        <Package file="../CableModem/UNIX_CableModem.md.pc" name="UNIX_CableModem" IsProject="True" />
+        <Package file="../ADSLModem/UNIX_ADSLModem.md.pc" name="UNIX_ADSLModem" IsProject="True" />
+        <Package file="../VDSLModem/UNIX_VDSLModem.md.pc" name="UNIX_VDSLModem" IsProject="True" />
+        <Package file="../HDSLModem/UNIX_HDSLModem.md.pc" name="UNIX_HDSLModem" IsProject="True" />
+        <Package file="../SDSLModem/UNIX_SDSLModem.md.pc" name="UNIX_SDSLModem" IsProject="True" />
+        <Package file="../Unimodem/UNIX_Unimodem.md.pc" name="UNIX_Unimodem" IsProject="True" />
+        <Package file="../ISDNModem/UNIX_ISDNModem.md.pc" name="UNIX_ISDNModem" IsProject="True" />
+        <Package file="../Keyboard/UNIX_Keyboard.md.pc" name="UNIX_Keyboard" IsProject="True" />
+        <Package file="../PointingDevice/UNIX_PointingDevice.md.pc" name="UNIX_PointingDevice" IsProject="True" />
+        <Package file="../DesktopMonitor/UNIX_DesktopMonitor.md.pc" name="UNIX_DesktopMonitor" IsProject="True" />
+        <Package file="../FlatPanel/UNIX_FlatPanel.md.pc" name="UNIX_FlatPanel" IsProject="True" />
+        <Package file="../Processor/UNIX_Processor.md.pc" name="UNIX_Processor" IsProject="True" />
+        <Package file="../VideoHead/UNIX_VideoHead.md.pc" name="UNIX_VideoHead" IsProject="True" />
+        <Package file="../FingerprintReader/UNIX_FingerprintReader.md.pc" name="UNIX_FingerprintReader" IsProject="True" />
+        <Package file="../Door/UNIX_Door.md.pc" name="UNIX_Door" IsProject="True" />
+        <Package file="../SmartCard/UNIX_SmartCard.md.pc" name="UNIX_SmartCard" IsProject="True" />
+        <Package file="../NetworkPort/UNIX_NetworkPort.md.pc" name="UNIX_NetworkPort" IsProject="True" />
+        <Package file="../WiFiPort/UNIX_WiFiPort.md.pc" name="UNIX_WiFiPort" IsProject="True" />
+        <Package file="../EthernetPort/UNIX_EthernetPort.md.pc" name="UNIX_EthernetPort" IsProject="True" />
+        <Package file="../LLDPEthernetPort/UNIX_LLDPEthernetPort.md.pc" name="UNIX_LLDPEthernetPort" IsProject="True" />
+        <Package file="../DataCenterEthernetPort/UNIX_DataCenterEthernetPort.md.pc" name="UNIX_DataCenterEthernetPort" IsProject="True" />
+        <Package file="../SASPort/UNIX_SASPort.md.pc" name="UNIX_SASPort" IsProject="True" />
+        <Package file="../IBPort/UNIX_IBPort.md.pc" name="UNIX_IBPort" IsProject="True" />
+        <Package file="../FCPort/UNIX_FCPort.md.pc" name="UNIX_FCPort" IsProject="True" />
+        <Package file="../WirelessPort/UNIX_WirelessPort.md.pc" name="UNIX_WirelessPort" IsProject="True" />
+        <Package file="../TokenRingPort/UNIX_TokenRingPort.md.pc" name="UNIX_TokenRingPort" IsProject="True" />
+        <Package file="../DAPort/UNIX_DAPort.md.pc" name="UNIX_DAPort" IsProject="True" />
+        <Package file="../SerialPort/UNIX_SerialPort.md.pc" name="UNIX_SerialPort" IsProject="True" />
+        <Package file="../ATAPort/UNIX_ATAPort.md.pc" name="UNIX_ATAPort" IsProject="True" />
+        <Package file="../USBPort/UNIX_USBPort.md.pc" name="UNIX_USBPort" IsProject="True" />
+        <Package file="../PCIPort/UNIX_PCIPort.md.pc" name="UNIX_PCIPort" IsProject="True" />
+        <Package file="../SPIPort/UNIX_SPIPort.md.pc" name="UNIX_SPIPort" IsProject="True" />
+        <Package file="../ParallelPort/UNIX_ParallelPort.md.pc" name="UNIX_ParallelPort" IsProject="True" />
+        <Package file="../FibrePort/UNIX_FibrePort.md.pc" name="UNIX_FibrePort" IsProject="True" />
+        <Package file="../Watchdog/UNIX_Watchdog.md.pc" name="UNIX_Watchdog" IsProject="True" />
+        <Package file="../EthernetAdapter/UNIX_EthernetAdapter.md.pc" name="UNIX_EthernetAdapter" IsProject="True" />
+        <Package file="../TokenRingAdapter/UNIX_TokenRingAdapter.md.pc" name="UNIX_TokenRingAdapter" IsProject="True" />
+        <Package file="../FibreChannelAdapter/UNIX_FibreChannelAdapter.md.pc" name="UNIX_FibreChannelAdapter" IsProject="True" />
+        <Package file="../IndicatorLED/UNIX_IndicatorLED.md.pc" name="UNIX_IndicatorLED" IsProject="True" />
+        <Package file="../ElectricalSwitch/UNIX_ElectricalSwitch.md.pc" name="UNIX_ElectricalSwitch" IsProject="True" />
+        <Package file="../ProtocolController/UNIX_ProtocolController.md.pc" name="UNIX_ProtocolController" IsProject="True" />
+        <Package file="../SCSIProtocolController/UNIX_SCSIProtocolController.md.pc" name="UNIX_SCSIProtocolController" IsProject="True" />
+        <Package file="../WiFiRadio/UNIX_WiFiRadio.md.pc" name="UNIX_WiFiRadio" IsProject="True" />
+        <Package file="../InterLibraryPort/UNIX_InterLibraryPort.md.pc" name="UNIX_InterLibraryPort" IsProject="True" />
+        <Package file="../LimitedAccessPort/UNIX_LimitedAccessPort.md.pc" name="UNIX_LimitedAccessPort" IsProject="True" />
+        <Package file="../SmartCardReader/UNIX_SmartCardReader.md.pc" name="UNIX_SmartCardReader" IsProject="True" />
+        <Package file="../PCIBridge/UNIX_PCIBridge.md.pc" name="UNIX_PCIBridge" IsProject="True" />
+        <Package file="../PCIeSwitch/UNIX_PCIeSwitch.md.pc" name="UNIX_PCIeSwitch" IsProject="True" />
+        <Package file="../PortController/UNIX_PortController.md.pc" name="UNIX_PortController" IsProject="True" />
+        <Package file="../IBPortController/UNIX_IBPortController.md.pc" name="UNIX_IBPortController" IsProject="True" />
+        <Package file="../ParallelController/UNIX_ParallelController.md.pc" name="UNIX_ParallelController" IsProject="True" />
+        <Package file="../InfraredController/UNIX_InfraredController.md.pc" name="UNIX_InfraredController" IsProject="True" />
+        <Package file="../ManagementController/UNIX_ManagementController.md.pc" name="UNIX_ManagementController" IsProject="True" />
+        <Package file="../SSAController/UNIX_SSAController.md.pc" name="UNIX_SSAController" IsProject="True" />
+        <Package file="../AGPVideoController/UNIX_AGPVideoController.md.pc" name="UNIX_AGPVideoController" IsProject="True" />
+        <Package file="../PCVideoController/UNIX_PCVideoController.md.pc" name="UNIX_PCVideoController" IsProject="True" />
+        <Package file="../DisplayController/UNIX_DisplayController.md.pc" name="UNIX_DisplayController" IsProject="True" />
+        <Package file="../AGPVideoDisplayController/UNIX_AGPVideoDisplayController.md.pc" name="UNIX_AGPVideoDisplayController" IsProject="True" />
+        <Package file="../USBController/UNIX_USBController.md.pc" name="UNIX_USBController" IsProject="True" />
+        <Package file="../IDEController/UNIX_IDEController.md.pc" name="UNIX_IDEController" IsProject="True" />
+        <Package file="../PCMCIAController/UNIX_PCMCIAController.md.pc" name="UNIX_PCMCIAController" IsProject="True" />
+        <Package file="../SCSIController/UNIX_SCSIController.md.pc" name="UNIX_SCSIController" IsProject="True" />
+        <Package file="../ESCONController/UNIX_ESCONController.md.pc" name="UNIX_ESCONController" IsProject="True" />
+        <Package file="../DeviceTray/UNIX_DeviceTray.md.pc" name="UNIX_DeviceTray" IsProject="True" />
+        <Package file="../PassThroughModule/UNIX_PassThroughModule.md.pc" name="UNIX_PassThroughModule" IsProject="True" />
+        <Package file="../AlarmDevice/UNIX_AlarmDevice.md.pc" name="UNIX_AlarmDevice" IsProject="True" />
+        <Package file="../Fan/UNIX_Fan.md.pc" name="UNIX_Fan" IsProject="True" />
+        <Package file="../Refrigeration/UNIX_Refrigeration.md.pc" name="UNIX_Refrigeration" IsProject="True" />
+        <Package file="../HeatPipe/UNIX_HeatPipe.md.pc" name="UNIX_HeatPipe" IsProject="True" />
+        <Package file="../TPM/UNIX_TPM.md.pc" name="UNIX_TPM" IsProject="True" />
+        <Package file="../Scanner/UNIX_Scanner.md.pc" name="UNIX_Scanner" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../SerialController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SCSIArbitraryLogicalUnit/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Button/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PowerSupply/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../UninterruptiblePowerSupply/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Battery/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TapeDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CDROMDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WORMDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiskDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DVDDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DisketteDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MagnetoOpticalDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../USBDevice/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../USBHub/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PowerConnectionPoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LabelReader/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LogicalDisk/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Snapshot/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VTOCDiskPartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../GPTDiskPartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiskPartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TapePartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CompositeExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ProtectedSpaceExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PhysicalExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DatabaseSegment/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AggregatePExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VolumeSet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OpaqueManagementData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AggregatePSExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CacheMemory/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VolatileStorage/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NonVolatileStorage/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Printer/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CurrentSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TemperatureSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VoltageSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Tachometer/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MultiStateSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BinarySensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiscreteSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CableModem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ADSLModem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VDSLModem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../HDSLModem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SDSLModem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Unimodem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ISDNModem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Keyboard/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PointingDevice/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DesktopMonitor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FlatPanel/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Processor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VideoHead/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FingerprintReader/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Door/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SmartCard/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WiFiPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EthernetPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LLDPEthernetPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DataCenterEthernetPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SASPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IBPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FCPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WirelessPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TokenRingPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DAPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SerialPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ATAPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../USBPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PCIPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SPIPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ParallelPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FibrePort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Watchdog/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EthernetAdapter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TokenRingAdapter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FibreChannelAdapter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IndicatorLED/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ElectricalSwitch/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ProtocolController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SCSIProtocolController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WiFiRadio/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../InterLibraryPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LimitedAccessPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SmartCardReader/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PCIBridge/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PCIeSwitch/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PortController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IBPortController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ParallelController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../InfraredController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ManagementController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SSAController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AGPVideoController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PCVideoController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DisplayController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AGPVideoDisplayController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../USBController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IDEController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PCMCIAController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SCSIController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ESCONController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DeviceTray/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PassThroughModule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AlarmDevice/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Fan/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Refrigeration/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../HeatPipe/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TPM/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Scanner/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_SerialInterfaceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SerialInterfaceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SerialInterfaceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_SerialControllerProvider -lUNIX_SCSIArbitraryLogicalUnitProvider -lUNIX_ButtonProvider -lUNIX_PowerSupplyProvider -lUNIX_UninterruptiblePowerSupplyProvider -lUNIX_BatteryProvider -lUNIX_TapeDriveProvider -lUNIX_CDROMDriveProvider -lUNIX_WORMDriveProvider -lUNIX_DiskDriveProvider -lUNIX_DVDDriveProvider -lUNIX_DisketteDriveProvider -lUNIX_MagnetoOpticalDriveProvider -lUNIX_USBDeviceProvider -lUNIX_USBHubProvider -lUNIX_PowerConnectionPointProvider -lUNIX_LabelReaderProvider -lUNIX_LogicalDiskProvider -lUNIX_SnapshotProvider -lUNIX_VTOCDiskPartitionProvider -lUNIX_GPTDiskPartitionProvider -lUNIX_DiskPartitionProvider -lUNIX_TapePartitionProvider -lUNIX_CompositeExtentProvider -lUNIX_ProtectedSpaceExtentProvider -lUNIX_PhysicalExtentProvider -lUNIX_DatabaseSegmentProvider -lUNIX_AggregatePExtentProvider -lUNIX_VolumeSetProvider -lUNIX_OpaqueManagementDataProvider -lUNIX_AggregatePSExtentProvider -lUNIX_CacheMemoryProvider -lUNIX_VolatileStorageProvider -lUNIX_NonVolatileStorageProvider -lUNIX_PrinterProvider -lUNIX_CurrentSensorProvider -lUNIX_TemperatureSensorProvider -lUNIX_VoltageSensorProvider -lUNIX_TachometerProvider -lUNIX_MultiStateSensorProvider -lUNIX_BinarySensorProvider -lUNIX_DiscreteSensorProvider -lUNIX_CableModemProvider -lUNIX_ADSLModemProvider -lUNIX_VDSLModemProvider -lUNIX_HDSLModemProvider -lUNIX_SDSLModemProvider -lUNIX_UnimodemProvider -lUNIX_ISDNModemProvider -lUNIX_KeyboardProvider -lUNIX_PointingDeviceProvider -lUNIX_DesktopMonitorProvider -lUNIX_FlatPanelProvider -lUNIX_ProcessorProvider -lUNIX_VideoHeadProvider -lUNIX_FingerprintReaderProvider -lUNIX_DoorProvider -lUNIX_SmartCardProvider -lUNIX_NetworkPortProvider -lUNIX_WiFiPortProvider -lUNIX_EthernetPortProvider -lUNIX_LLDPEthernetPortProvider -lUNIX_DataCenterEthernetPortProvider -lUNIX_SASPortProvider -lUNIX_IBPortProvider -lUNIX_FCPortProvider -lUNIX_WirelessPortProvider -lUNIX_TokenRingPortProvider -lUNIX_DAPortProvider -lUNIX_SerialPortProvider -lUNIX_ATAPortProvider -lUNIX_USBPortProvider -lUNIX_PCIPortProvider -lUNIX_SPIPortProvider -lUNIX_ParallelPortProvider -lUNIX_FibrePortProvider -lUNIX_WatchdogProvider -lUNIX_EthernetAdapterProvider -lUNIX_TokenRingAdapterProvider -lUNIX_FibreChannelAdapterProvider -lUNIX_IndicatorLEDProvider -lUNIX_ElectricalSwitchProvider -lUNIX_ProtocolControllerProvider -lUNIX_SCSIProtocolControllerProvider -lUNIX_WiFiRadioProvider -lUNIX_InterLibraryPortProvider -lUNIX_LimitedAccessPortProvider -lUNIX_SmartCardReaderProvider -lUNIX_PCIBridgeProvider -lUNIX_PCIeSwitchProvider -lUNIX_PortControllerProvider -lUNIX_IBPortControllerProvider -lUNIX_ParallelControllerProvider -lUNIX_InfraredControllerProvider -lUNIX_ManagementControllerProvider -lUNIX_SSAControllerProvider -lUNIX_AGPVideoControllerProvider -lUNIX_PCVideoControllerProvider -lUNIX_DisplayControllerProvider -lUNIX_AGPVideoDisplayControllerProvider -lUNIX_USBControllerProvider -lUNIX_IDEControllerProvider -lUNIX_PCMCIAControllerProvider -lUNIX_SCSIControllerProvider -lUNIX_ESCONControllerProvider -lUNIX_DeviceTrayProvider -lUNIX_PassThroughModuleProvider -lUNIX_AlarmDeviceProvider -lUNIX_FanProvider -lUNIX_RefrigerationProvider -lUNIX_HeatPipeProvider -lUNIX_TPMProvider -lUNIX_ScannerProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_SerialInterfaceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SerialInterfaceLib" -DPROVIDER_LIB_NS="namespace UNIX_SerialInterfaceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_SerialControllerProvider -lUNIX_SCSIArbitraryLogicalUnitProvider -lUNIX_ButtonProvider -lUNIX_PowerSupplyProvider -lUNIX_UninterruptiblePowerSupplyProvider -lUNIX_BatteryProvider -lUNIX_TapeDriveProvider -lUNIX_CDROMDriveProvider -lUNIX_WORMDriveProvider -lUNIX_DiskDriveProvider -lUNIX_DVDDriveProvider -lUNIX_DisketteDriveProvider -lUNIX_MagnetoOpticalDriveProvider -lUNIX_USBDeviceProvider -lUNIX_USBHubProvider -lUNIX_PowerConnectionPointProvider -lUNIX_LabelReaderProvider -lUNIX_LogicalDiskProvider -lUNIX_SnapshotProvider -lUNIX_VTOCDiskPartitionProvider -lUNIX_GPTDiskPartitionProvider -lUNIX_DiskPartitionProvider -lUNIX_TapePartitionProvider -lUNIX_CompositeExtentProvider -lUNIX_ProtectedSpaceExtentProvider -lUNIX_PhysicalExtentProvider -lUNIX_DatabaseSegmentProvider -lUNIX_AggregatePExtentProvider -lUNIX_VolumeSetProvider -lUNIX_OpaqueManagementDataProvider -lUNIX_AggregatePSExtentProvider -lUNIX_CacheMemoryProvider -lUNIX_VolatileStorageProvider -lUNIX_NonVolatileStorageProvider -lUNIX_PrinterProvider -lUNIX_CurrentSensorProvider -lUNIX_TemperatureSensorProvider -lUNIX_VoltageSensorProvider -lUNIX_TachometerProvider -lUNIX_MultiStateSensorProvider -lUNIX_BinarySensorProvider -lUNIX_DiscreteSensorProvider -lUNIX_CableModemProvider -lUNIX_ADSLModemProvider -lUNIX_VDSLModemProvider -lUNIX_HDSLModemProvider -lUNIX_SDSLModemProvider -lUNIX_UnimodemProvider -lUNIX_ISDNModemProvider -lUNIX_KeyboardProvider -lUNIX_PointingDeviceProvider -lUNIX_DesktopMonitorProvider -lUNIX_FlatPanelProvider -lUNIX_ProcessorProvider -lUNIX_VideoHeadProvider -lUNIX_FingerprintReaderProvider -lUNIX_DoorProvider -lUNIX_SmartCardProvider -lUNIX_NetworkPortProvider -lUNIX_WiFiPortProvider -lUNIX_EthernetPortProvider -lUNIX_LLDPEthernetPortProvider -lUNIX_DataCenterEthernetPortProvider -lUNIX_SASPortProvider -lUNIX_IBPortProvider -lUNIX_FCPortProvider -lUNIX_WirelessPortProvider -lUNIX_TokenRingPortProvider -lUNIX_DAPortProvider -lUNIX_SerialPortProvider -lUNIX_ATAPortProvider -lUNIX_USBPortProvider -lUNIX_PCIPortProvider -lUNIX_SPIPortProvider -lUNIX_ParallelPortProvider -lUNIX_FibrePortProvider -lUNIX_WatchdogProvider -lUNIX_EthernetAdapterProvider -lUNIX_TokenRingAdapterProvider -lUNIX_FibreChannelAdapterProvider -lUNIX_IndicatorLEDProvider -lUNIX_ElectricalSwitchProvider -lUNIX_ProtocolControllerProvider -lUNIX_SCSIProtocolControllerProvider -lUNIX_WiFiRadioProvider -lUNIX_InterLibraryPortProvider -lUNIX_LimitedAccessPortProvider -lUNIX_SmartCardReaderProvider -lUNIX_PCIBridgeProvider -lUNIX_PCIeSwitchProvider -lUNIX_PortControllerProvider -lUNIX_IBPortControllerProvider -lUNIX_ParallelControllerProvider -lUNIX_InfraredControllerProvider -lUNIX_ManagementControllerProvider -lUNIX_SSAControllerProvider -lUNIX_AGPVideoControllerProvider -lUNIX_PCVideoControllerProvider -lUNIX_DisplayControllerProvider -lUNIX_AGPVideoDisplayControllerProvider -lUNIX_USBControllerProvider -lUNIX_IDEControllerProvider -lUNIX_PCMCIAControllerProvider -lUNIX_SCSIControllerProvider -lUNIX_ESCONControllerProvider -lUNIX_DeviceTrayProvider -lUNIX_PassThroughModuleProvider -lUNIX_AlarmDeviceProvider -lUNIX_FanProvider -lUNIX_RefrigerationProvider -lUNIX_HeatPipeProvider -lUNIX_TPMProvider -lUNIX_ScannerProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SerialInterface.cpp" />
+    <Compile Include="UNIX_SerialInterfaceMain.cpp" />
+    <Compile Include="UNIX_SerialInterfaceProvider.cpp" />
+    <Compile Include="UNIX_SerialInterface_AIX.cpp" />
+    <Compile Include="UNIX_SerialInterface_DARWIN.cpp" />
+    <Compile Include="UNIX_SerialInterface_FREEBSD.cpp" />
+    <Compile Include="UNIX_SerialInterface_HPUX.cpp" />
+    <Compile Include="UNIX_SerialInterface_LINUX.cpp" />
+    <Compile Include="UNIX_SerialInterface_SOLARIS.cpp" />
+    <Compile Include="UNIX_SerialInterface_STUB.cpp" />
+    <Compile Include="UNIX_SerialInterface_TRU64.cpp" />
+    <Compile Include="UNIX_SerialInterface_VMS.cpp" />
+    <Compile Include="UNIX_SerialInterface_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_SerialInterface.h" />
+    <Node Include="UNIX_SerialInterfaceDeps.h" />
+    <Node Include="UNIX_SerialInterfaceDeps_AIX.h" />
+    <Node Include="UNIX_SerialInterfaceDeps_DARWIN.h" />
+    <Node Include="UNIX_SerialInterfaceDeps_FREEBSD.h" />
+    <Node Include="UNIX_SerialInterfaceDeps_HPUX.h" />
+    <Node Include="UNIX_SerialInterfaceDeps_LINUX.h" />
+    <Node Include="UNIX_SerialInterfaceDeps_SOLARIS.h" />
+    <Node Include="UNIX_SerialInterfaceDeps_STUB.h" />
+    <Node Include="UNIX_SerialInterfaceDeps_TRU64.h" />
+    <Node Include="UNIX_SerialInterfaceDeps_VMS.h" />
+    <Node Include="UNIX_SerialInterfaceDeps_ZOS.h" />
+    <Node Include="UNIX_SerialInterfacePrivate.h" />
+    <Node Include="UNIX_SerialInterfacePrivate_AIX.h" />
+    <Node Include="UNIX_SerialInterfacePrivate_DARWIN.h" />
+    <Node Include="UNIX_SerialInterfacePrivate_FREEBSD.h" />
+    <Node Include="UNIX_SerialInterfacePrivate_HPUX.h" />
+    <Node Include="UNIX_SerialInterfacePrivate_LINUX.h" />
+    <Node Include="UNIX_SerialInterfacePrivate_SOLARIS.h" />
+    <Node Include="UNIX_SerialInterfacePrivate_STUB.h" />
+    <Node Include="UNIX_SerialInterfacePrivate_TRU64.h" />
+    <Node Include="UNIX_SerialInterfacePrivate_VMS.h" />
+    <Node Include="UNIX_SerialInterfacePrivate_ZOS.h" />
+    <Node Include="UNIX_SerialInterfaceProvider.h" />
+    <Node Include="UNIX_SerialInterface_AIX.hpp" />
+    <Node Include="UNIX_SerialInterface_AIX.hxx" />
+    <Node Include="UNIX_SerialInterface_DARWIN.hpp" />
+    <Node Include="UNIX_SerialInterface_DARWIN.hxx" />
+    <Node Include="UNIX_SerialInterface_FREEBSD.hpp" />
+    <Node Include="UNIX_SerialInterface_FREEBSD.hxx" />
+    <Node Include="UNIX_SerialInterface_HPUX.hpp" />
+    <Node Include="UNIX_SerialInterface_HPUX.hxx" />
+    <Node Include="UNIX_SerialInterface_LINUX.hpp" />
+    <Node Include="UNIX_SerialInterface_LINUX.hxx" />
+    <Node Include="UNIX_SerialInterface_SOLARIS.hpp" />
+    <Node Include="UNIX_SerialInterface_SOLARIS.hxx" />
+    <Node Include="UNIX_SerialInterface_STUB.hpp" />
+    <Node Include="UNIX_SerialInterface_STUB.hxx" />
+    <Node Include="UNIX_SerialInterface_TRU64.hpp" />
+    <Node Include="UNIX_SerialInterface_TRU64.hxx" />
+    <Node Include="UNIX_SerialInterface_VMS.hpp" />
+    <Node Include="UNIX_SerialInterface_VMS.hxx" />
+    <Node Include="UNIX_SerialInterface_WIN32.hpp" />
+    <Node Include="UNIX_SerialInterface_ZOS.hpp" />
+    <Node Include="UNIX_SerialInterface_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

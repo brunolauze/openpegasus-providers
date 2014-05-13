@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C42D8FC-CD90-47BE-B63E-542983413F0F}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../PrivilegeManagementCapabilities/UNIX_PrivilegeManagementCapabilities.md.pc" name="UNIX_PrivilegeManagementCapabilities" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../PrivilegeManagementCapabilities/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_RoleBasedManagementCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RoleBasedManagementCapabilitiesLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_RoleBasedManagementCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PrivilegeManagementCapabilitiesProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_RoleBasedManagementCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RoleBasedManagementCapabilitiesLib" -DPROVIDER_LIB_NS="namespace UNIX_RoleBasedManagementCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PrivilegeManagementCapabilitiesProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_RoleBasedManagementCapabilities.cpp" />
+    <Compile Include="UNIX_RoleBasedManagementCapabilitiesMain.cpp" />
+    <Compile Include="UNIX_RoleBasedManagementCapabilitiesProvider.cpp" />
+    <Compile Include="UNIX_RoleBasedManagementCapabilities_AIX.cpp" />
+    <Compile Include="UNIX_RoleBasedManagementCapabilities_DARWIN.cpp" />
+    <Compile Include="UNIX_RoleBasedManagementCapabilities_FREEBSD.cpp" />
+    <Compile Include="UNIX_RoleBasedManagementCapabilities_HPUX.cpp" />
+    <Compile Include="UNIX_RoleBasedManagementCapabilities_LINUX.cpp" />
+    <Compile Include="UNIX_RoleBasedManagementCapabilities_SOLARIS.cpp" />
+    <Compile Include="UNIX_RoleBasedManagementCapabilities_STUB.cpp" />
+    <Compile Include="UNIX_RoleBasedManagementCapabilities_TRU64.cpp" />
+    <Compile Include="UNIX_RoleBasedManagementCapabilities_VMS.cpp" />
+    <Compile Include="UNIX_RoleBasedManagementCapabilities_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesDeps.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesDeps_AIX.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesDeps_DARWIN.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesDeps_FREEBSD.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesDeps_HPUX.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesDeps_LINUX.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesDeps_SOLARIS.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesDeps_STUB.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesDeps_TRU64.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesDeps_VMS.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesDeps_ZOS.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesPrivate.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesPrivate_AIX.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesPrivate_DARWIN.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesPrivate_FREEBSD.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesPrivate_HPUX.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesPrivate_LINUX.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesPrivate_SOLARIS.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesPrivate_STUB.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesPrivate_TRU64.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesPrivate_VMS.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesPrivate_ZOS.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilitiesProvider.h" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_AIX.hpp" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_AIX.hxx" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_DARWIN.hpp" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_DARWIN.hxx" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_FREEBSD.hpp" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_FREEBSD.hxx" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_HPUX.hpp" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_HPUX.hxx" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_LINUX.hpp" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_LINUX.hxx" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_SOLARIS.hpp" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_SOLARIS.hxx" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_STUB.hpp" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_STUB.hxx" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_TRU64.hpp" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_TRU64.hxx" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_VMS.hpp" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_VMS.hxx" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_WIN32.hpp" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_ZOS.hpp" />
+    <Node Include="UNIX_RoleBasedManagementCapabilities_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

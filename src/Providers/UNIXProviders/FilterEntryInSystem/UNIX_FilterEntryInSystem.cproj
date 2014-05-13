@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{74839001-C3FF-43C0-80F7-6770632E0D3B}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../VirtualComputerSystem/UNIX_VirtualComputerSystem.md.pc" name="UNIX_VirtualComputerSystem" IsProject="True" />
+        <Package file="../Cluster/UNIX_Cluster.md.pc" name="UNIX_Cluster" IsProject="True" />
+        <Package file="../ComputerSystem/UNIX_ComputerSystem.md.pc" name="UNIX_ComputerSystem" IsProject="True" />
+        <Package file="../Hdr8021Filter/UNIX_Hdr8021Filter.md.pc" name="UNIX_Hdr8021Filter" IsProject="True" />
+        <Package file="../PreambleFilter/UNIX_PreambleFilter.md.pc" name="UNIX_PreambleFilter" IsProject="True" />
+        <Package file="../X509CredentialFilterEntry/UNIX_X509CredentialFilterEntry.md.pc" name="UNIX_X509CredentialFilterEntry" IsProject="True" />
+        <Package file="../PeerIDPayloadFilterEntry/UNIX_PeerIDPayloadFilterEntry.md.pc" name="UNIX_PeerIDPayloadFilterEntry" IsProject="True" />
+        <Package file="../FilterEntry/UNIX_FilterEntry.md.pc" name="UNIX_FilterEntry" IsProject="True" />
+        <Package file="../IPHeadersFilter/UNIX_IPHeadersFilter.md.pc" name="UNIX_IPHeadersFilter" IsProject="True" />
+        <Package file="../IPSOFilterEntry/UNIX_IPSOFilterEntry.md.pc" name="UNIX_IPSOFilterEntry" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../VirtualComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Cluster/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Hdr8021Filter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PreambleFilter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../X509CredentialFilterEntry/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PeerIDPayloadFilterEntry/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FilterEntry/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPHeadersFilter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPSOFilterEntry/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_FilterEntryInSystemProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_FilterEntryInSystemLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_FilterEntryInSystemLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider -lUNIX_Hdr8021FilterProvider -lUNIX_PreambleFilterProvider -lUNIX_X509CredentialFilterEntryProvider -lUNIX_PeerIDPayloadFilterEntryProvider -lUNIX_FilterEntryProvider -lUNIX_IPHeadersFilterProvider -lUNIX_IPSOFilterEntryProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_FilterEntryInSystemProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_FilterEntryInSystemLib" -DPROVIDER_LIB_NS="namespace UNIX_FilterEntryInSystemLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider -lUNIX_Hdr8021FilterProvider -lUNIX_PreambleFilterProvider -lUNIX_X509CredentialFilterEntryProvider -lUNIX_PeerIDPayloadFilterEntryProvider -lUNIX_FilterEntryProvider -lUNIX_IPHeadersFilterProvider -lUNIX_IPSOFilterEntryProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_FilterEntryInSystem.cpp" />
+    <Compile Include="UNIX_FilterEntryInSystemMain.cpp" />
+    <Compile Include="UNIX_FilterEntryInSystemProvider.cpp" />
+    <Compile Include="UNIX_FilterEntryInSystem_AIX.cpp" />
+    <Compile Include="UNIX_FilterEntryInSystem_DARWIN.cpp" />
+    <Compile Include="UNIX_FilterEntryInSystem_FREEBSD.cpp" />
+    <Compile Include="UNIX_FilterEntryInSystem_HPUX.cpp" />
+    <Compile Include="UNIX_FilterEntryInSystem_LINUX.cpp" />
+    <Compile Include="UNIX_FilterEntryInSystem_SOLARIS.cpp" />
+    <Compile Include="UNIX_FilterEntryInSystem_STUB.cpp" />
+    <Compile Include="UNIX_FilterEntryInSystem_TRU64.cpp" />
+    <Compile Include="UNIX_FilterEntryInSystem_VMS.cpp" />
+    <Compile Include="UNIX_FilterEntryInSystem_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_FilterEntryInSystem.h" />
+    <Node Include="UNIX_FilterEntryInSystemDeps.h" />
+    <Node Include="UNIX_FilterEntryInSystemDeps_AIX.h" />
+    <Node Include="UNIX_FilterEntryInSystemDeps_DARWIN.h" />
+    <Node Include="UNIX_FilterEntryInSystemDeps_FREEBSD.h" />
+    <Node Include="UNIX_FilterEntryInSystemDeps_HPUX.h" />
+    <Node Include="UNIX_FilterEntryInSystemDeps_LINUX.h" />
+    <Node Include="UNIX_FilterEntryInSystemDeps_SOLARIS.h" />
+    <Node Include="UNIX_FilterEntryInSystemDeps_STUB.h" />
+    <Node Include="UNIX_FilterEntryInSystemDeps_TRU64.h" />
+    <Node Include="UNIX_FilterEntryInSystemDeps_VMS.h" />
+    <Node Include="UNIX_FilterEntryInSystemDeps_ZOS.h" />
+    <Node Include="UNIX_FilterEntryInSystemPrivate.h" />
+    <Node Include="UNIX_FilterEntryInSystemPrivate_AIX.h" />
+    <Node Include="UNIX_FilterEntryInSystemPrivate_DARWIN.h" />
+    <Node Include="UNIX_FilterEntryInSystemPrivate_FREEBSD.h" />
+    <Node Include="UNIX_FilterEntryInSystemPrivate_HPUX.h" />
+    <Node Include="UNIX_FilterEntryInSystemPrivate_LINUX.h" />
+    <Node Include="UNIX_FilterEntryInSystemPrivate_SOLARIS.h" />
+    <Node Include="UNIX_FilterEntryInSystemPrivate_STUB.h" />
+    <Node Include="UNIX_FilterEntryInSystemPrivate_TRU64.h" />
+    <Node Include="UNIX_FilterEntryInSystemPrivate_VMS.h" />
+    <Node Include="UNIX_FilterEntryInSystemPrivate_ZOS.h" />
+    <Node Include="UNIX_FilterEntryInSystemProvider.h" />
+    <Node Include="UNIX_FilterEntryInSystem_AIX.hpp" />
+    <Node Include="UNIX_FilterEntryInSystem_AIX.hxx" />
+    <Node Include="UNIX_FilterEntryInSystem_DARWIN.hpp" />
+    <Node Include="UNIX_FilterEntryInSystem_DARWIN.hxx" />
+    <Node Include="UNIX_FilterEntryInSystem_FREEBSD.hpp" />
+    <Node Include="UNIX_FilterEntryInSystem_FREEBSD.hxx" />
+    <Node Include="UNIX_FilterEntryInSystem_HPUX.hpp" />
+    <Node Include="UNIX_FilterEntryInSystem_HPUX.hxx" />
+    <Node Include="UNIX_FilterEntryInSystem_LINUX.hpp" />
+    <Node Include="UNIX_FilterEntryInSystem_LINUX.hxx" />
+    <Node Include="UNIX_FilterEntryInSystem_SOLARIS.hpp" />
+    <Node Include="UNIX_FilterEntryInSystem_SOLARIS.hxx" />
+    <Node Include="UNIX_FilterEntryInSystem_STUB.hpp" />
+    <Node Include="UNIX_FilterEntryInSystem_STUB.hxx" />
+    <Node Include="UNIX_FilterEntryInSystem_TRU64.hpp" />
+    <Node Include="UNIX_FilterEntryInSystem_TRU64.hxx" />
+    <Node Include="UNIX_FilterEntryInSystem_VMS.hpp" />
+    <Node Include="UNIX_FilterEntryInSystem_VMS.hxx" />
+    <Node Include="UNIX_FilterEntryInSystem_WIN32.hpp" />
+    <Node Include="UNIX_FilterEntryInSystem_ZOS.hpp" />
+    <Node Include="UNIX_FilterEntryInSystem_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

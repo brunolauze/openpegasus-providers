@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5668016C-54C6-450A-AC4E-9D631EBFE403}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_AverageRateMeterServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AverageRateMeterServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_AverageRateMeterServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_AverageRateMeterServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AverageRateMeterServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_AverageRateMeterServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_AverageRateMeterService.cpp" />
+    <Compile Include="UNIX_AverageRateMeterServiceMain.cpp" />
+    <Compile Include="UNIX_AverageRateMeterServiceProvider.cpp" />
+    <Compile Include="UNIX_AverageRateMeterService_AIX.cpp" />
+    <Compile Include="UNIX_AverageRateMeterService_DARWIN.cpp" />
+    <Compile Include="UNIX_AverageRateMeterService_FREEBSD.cpp" />
+    <Compile Include="UNIX_AverageRateMeterService_HPUX.cpp" />
+    <Compile Include="UNIX_AverageRateMeterService_LINUX.cpp" />
+    <Compile Include="UNIX_AverageRateMeterService_SOLARIS.cpp" />
+    <Compile Include="UNIX_AverageRateMeterService_STUB.cpp" />
+    <Compile Include="UNIX_AverageRateMeterService_TRU64.cpp" />
+    <Compile Include="UNIX_AverageRateMeterService_VMS.cpp" />
+    <Compile Include="UNIX_AverageRateMeterService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_AverageRateMeterService.h" />
+    <Node Include="UNIX_AverageRateMeterServiceDeps.h" />
+    <Node Include="UNIX_AverageRateMeterServiceDeps_AIX.h" />
+    <Node Include="UNIX_AverageRateMeterServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_AverageRateMeterServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_AverageRateMeterServiceDeps_HPUX.h" />
+    <Node Include="UNIX_AverageRateMeterServiceDeps_LINUX.h" />
+    <Node Include="UNIX_AverageRateMeterServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_AverageRateMeterServiceDeps_STUB.h" />
+    <Node Include="UNIX_AverageRateMeterServiceDeps_TRU64.h" />
+    <Node Include="UNIX_AverageRateMeterServiceDeps_VMS.h" />
+    <Node Include="UNIX_AverageRateMeterServiceDeps_ZOS.h" />
+    <Node Include="UNIX_AverageRateMeterServicePrivate.h" />
+    <Node Include="UNIX_AverageRateMeterServicePrivate_AIX.h" />
+    <Node Include="UNIX_AverageRateMeterServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_AverageRateMeterServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_AverageRateMeterServicePrivate_HPUX.h" />
+    <Node Include="UNIX_AverageRateMeterServicePrivate_LINUX.h" />
+    <Node Include="UNIX_AverageRateMeterServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_AverageRateMeterServicePrivate_STUB.h" />
+    <Node Include="UNIX_AverageRateMeterServicePrivate_TRU64.h" />
+    <Node Include="UNIX_AverageRateMeterServicePrivate_VMS.h" />
+    <Node Include="UNIX_AverageRateMeterServicePrivate_ZOS.h" />
+    <Node Include="UNIX_AverageRateMeterServiceProvider.h" />
+    <Node Include="UNIX_AverageRateMeterService_AIX.hpp" />
+    <Node Include="UNIX_AverageRateMeterService_AIX.hxx" />
+    <Node Include="UNIX_AverageRateMeterService_DARWIN.hpp" />
+    <Node Include="UNIX_AverageRateMeterService_DARWIN.hxx" />
+    <Node Include="UNIX_AverageRateMeterService_FREEBSD.hpp" />
+    <Node Include="UNIX_AverageRateMeterService_FREEBSD.hxx" />
+    <Node Include="UNIX_AverageRateMeterService_HPUX.hpp" />
+    <Node Include="UNIX_AverageRateMeterService_HPUX.hxx" />
+    <Node Include="UNIX_AverageRateMeterService_LINUX.hpp" />
+    <Node Include="UNIX_AverageRateMeterService_LINUX.hxx" />
+    <Node Include="UNIX_AverageRateMeterService_SOLARIS.hpp" />
+    <Node Include="UNIX_AverageRateMeterService_SOLARIS.hxx" />
+    <Node Include="UNIX_AverageRateMeterService_STUB.hpp" />
+    <Node Include="UNIX_AverageRateMeterService_STUB.hxx" />
+    <Node Include="UNIX_AverageRateMeterService_TRU64.hpp" />
+    <Node Include="UNIX_AverageRateMeterService_TRU64.hxx" />
+    <Node Include="UNIX_AverageRateMeterService_VMS.hpp" />
+    <Node Include="UNIX_AverageRateMeterService_VMS.hxx" />
+    <Node Include="UNIX_AverageRateMeterService_WIN32.hpp" />
+    <Node Include="UNIX_AverageRateMeterService_ZOS.hpp" />
+    <Node Include="UNIX_AverageRateMeterService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

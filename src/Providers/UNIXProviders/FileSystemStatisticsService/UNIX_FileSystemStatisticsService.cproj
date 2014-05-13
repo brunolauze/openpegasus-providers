@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B35B6ACD-3E36-4E71-B1A9-4DFFC9C6B4D9}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+        <Package file="../FileSystemStatisticsManifestCollection/UNIX_FileSystemStatisticsManifestCollection.md.pc" name="UNIX_FileSystemStatisticsManifestCollection" IsProject="True" />
+        <Package file="../StatisticsCollection/UNIX_StatisticsCollection.md.pc" name="UNIX_StatisticsCollection" IsProject="True" />
+        <Package file="../FileSystemStatisticsManifest/UNIX_FileSystemStatisticsManifest.md.pc" name="UNIX_FileSystemStatisticsManifest" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FileSystemStatisticsManifestCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StatisticsCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FileSystemStatisticsManifest/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_FileSystemStatisticsServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_FileSystemStatisticsServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_FileSystemStatisticsServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider -lUNIX_FileSystemStatisticsManifestCollectionProvider -lUNIX_StatisticsCollectionProvider -lUNIX_FileSystemStatisticsManifestProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_FileSystemStatisticsServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_FileSystemStatisticsServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_FileSystemStatisticsServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider -lUNIX_FileSystemStatisticsManifestCollectionProvider -lUNIX_StatisticsCollectionProvider -lUNIX_FileSystemStatisticsManifestProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_FileSystemStatisticsService.cpp" />
+    <Compile Include="UNIX_FileSystemStatisticsServiceMain.cpp" />
+    <Compile Include="UNIX_FileSystemStatisticsServiceProvider.cpp" />
+    <Compile Include="UNIX_FileSystemStatisticsService_AIX.cpp" />
+    <Compile Include="UNIX_FileSystemStatisticsService_DARWIN.cpp" />
+    <Compile Include="UNIX_FileSystemStatisticsService_FREEBSD.cpp" />
+    <Compile Include="UNIX_FileSystemStatisticsService_HPUX.cpp" />
+    <Compile Include="UNIX_FileSystemStatisticsService_LINUX.cpp" />
+    <Compile Include="UNIX_FileSystemStatisticsService_SOLARIS.cpp" />
+    <Compile Include="UNIX_FileSystemStatisticsService_STUB.cpp" />
+    <Compile Include="UNIX_FileSystemStatisticsService_TRU64.cpp" />
+    <Compile Include="UNIX_FileSystemStatisticsService_VMS.cpp" />
+    <Compile Include="UNIX_FileSystemStatisticsService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_FileSystemStatisticsService.h" />
+    <Node Include="UNIX_FileSystemStatisticsServiceDeps.h" />
+    <Node Include="UNIX_FileSystemStatisticsServiceDeps_AIX.h" />
+    <Node Include="UNIX_FileSystemStatisticsServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_FileSystemStatisticsServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_FileSystemStatisticsServiceDeps_HPUX.h" />
+    <Node Include="UNIX_FileSystemStatisticsServiceDeps_LINUX.h" />
+    <Node Include="UNIX_FileSystemStatisticsServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_FileSystemStatisticsServiceDeps_STUB.h" />
+    <Node Include="UNIX_FileSystemStatisticsServiceDeps_TRU64.h" />
+    <Node Include="UNIX_FileSystemStatisticsServiceDeps_VMS.h" />
+    <Node Include="UNIX_FileSystemStatisticsServiceDeps_ZOS.h" />
+    <Node Include="UNIX_FileSystemStatisticsServicePrivate.h" />
+    <Node Include="UNIX_FileSystemStatisticsServicePrivate_AIX.h" />
+    <Node Include="UNIX_FileSystemStatisticsServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_FileSystemStatisticsServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_FileSystemStatisticsServicePrivate_HPUX.h" />
+    <Node Include="UNIX_FileSystemStatisticsServicePrivate_LINUX.h" />
+    <Node Include="UNIX_FileSystemStatisticsServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_FileSystemStatisticsServicePrivate_STUB.h" />
+    <Node Include="UNIX_FileSystemStatisticsServicePrivate_TRU64.h" />
+    <Node Include="UNIX_FileSystemStatisticsServicePrivate_VMS.h" />
+    <Node Include="UNIX_FileSystemStatisticsServicePrivate_ZOS.h" />
+    <Node Include="UNIX_FileSystemStatisticsServiceProvider.h" />
+    <Node Include="UNIX_FileSystemStatisticsService_AIX.hpp" />
+    <Node Include="UNIX_FileSystemStatisticsService_AIX.hxx" />
+    <Node Include="UNIX_FileSystemStatisticsService_DARWIN.hpp" />
+    <Node Include="UNIX_FileSystemStatisticsService_DARWIN.hxx" />
+    <Node Include="UNIX_FileSystemStatisticsService_FREEBSD.hpp" />
+    <Node Include="UNIX_FileSystemStatisticsService_FREEBSD.hxx" />
+    <Node Include="UNIX_FileSystemStatisticsService_HPUX.hpp" />
+    <Node Include="UNIX_FileSystemStatisticsService_HPUX.hxx" />
+    <Node Include="UNIX_FileSystemStatisticsService_LINUX.hpp" />
+    <Node Include="UNIX_FileSystemStatisticsService_LINUX.hxx" />
+    <Node Include="UNIX_FileSystemStatisticsService_SOLARIS.hpp" />
+    <Node Include="UNIX_FileSystemStatisticsService_SOLARIS.hxx" />
+    <Node Include="UNIX_FileSystemStatisticsService_STUB.hpp" />
+    <Node Include="UNIX_FileSystemStatisticsService_STUB.hxx" />
+    <Node Include="UNIX_FileSystemStatisticsService_TRU64.hpp" />
+    <Node Include="UNIX_FileSystemStatisticsService_TRU64.hxx" />
+    <Node Include="UNIX_FileSystemStatisticsService_VMS.hpp" />
+    <Node Include="UNIX_FileSystemStatisticsService_VMS.hxx" />
+    <Node Include="UNIX_FileSystemStatisticsService_WIN32.hpp" />
+    <Node Include="UNIX_FileSystemStatisticsService_ZOS.hpp" />
+    <Node Include="UNIX_FileSystemStatisticsService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

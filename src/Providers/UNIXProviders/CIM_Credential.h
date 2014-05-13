@@ -1,0 +1,144 @@
+//%LICENSE////////////////////////////////////////////////////////////////
+//
+// Licensed to The Open Group (TOG) under one or more contributor license
+// agreements.  Refer to the OpenPegasusNOTICE.txt file distributed with
+// this work for additional information regarding copyright ownership.
+// Each contributor licenses this file to you under the OpenPegasus Open
+// Source License; you may not use this file except in compliance with the
+// License.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//////////////////////////////////////////////////////////////////////////
+//
+//%/////////////////////////////////////////////////////////////////////////
+
+
+/* **** Abstract *** */
+/*
+TRUE
+*/
+
+
+/* **** Version *** */
+/*
+2.17.0
+*/
+
+
+/* **** UMLPackagePath *** */
+/*
+CIM::User::Credential
+*/
+
+
+/* **** Description *** */
+/*
+Subclasses of CIM_Credential define materials, information or other data which are used to establish identity. Generally, there may be some shared information, or credential material which is used to identify and authenticate an entity in the process of gaining access to, or permission to use, resources. Such credential material may be used to authenticate an entity's identity initially, as done by a CIM_AuthenticationService, and additionally on an ongoing basis (for example, during the course of a connection or other security association), as proof that each received message or communication came from a valid 'user' of that credential material.
+*/
+
+
+/*
+			 *** Properties ***
+
+			CIM_ManagedElement:
+				InstanceID String
+				Caption String
+				Description String
+				ElementName String
+				Generation UInt64
+
+			CIM_Credential:
+				Issued DateTime
+				Expires DateTime
+				ValidFrom DateTime
+
+
+*/
+
+
+/*
+			 *** Methods ***
+
+			CIM_ManagedElement:
+
+			CIM_Credential:
+
+
+*/
+
+#ifndef __CIM_CREDENTIAL_H
+#define __CIM_CREDENTIAL_H
+
+
+#include "CIM_ManagedElement.h"
+
+
+#ifndef PROPERTY_ISSUED
+#define PROPERTY_ISSUED \
+					"Issued"
+#endif
+
+#ifndef PROPERTY_EXPIRES
+#define PROPERTY_EXPIRES \
+					"Expires"
+#endif
+
+#ifndef PROPERTY_VALID_FROM
+#define PROPERTY_VALID_FROM \
+					"ValidFrom"
+#endif
+
+
+
+class CIM_Credential :
+	public CIM_ManagedElement
+{
+public:
+
+	virtual Boolean initialize()=0;
+	virtual Boolean load(int&)=0;
+	virtual Boolean finalize()=0;
+	virtual Boolean find(const Array<CIMKeyBinding>&)=0;
+	virtual Boolean validateKey(CIMKeyBinding&) const=0;
+	virtual void setScope(CIMName)=0;
+	virtual void setCIMOMHandle(CIMOMHandle&)=0;
+	virtual void clearInstance()=0;
+	virtual Boolean loadInstance(const CIMInstance&)=0;
+	virtual Boolean createInstance(const OperationContext&)=0;
+	virtual Boolean modifyInstance(const OperationContext&)=0;
+	virtual Boolean deleteInstance(const OperationContext&)=0;
+	virtual Boolean validateInstance()=0;
+
+	virtual Boolean getIssued(CIMProperty&) const=0;
+	virtual CIMDateTime getIssued() const=0;
+	virtual void setIssued(CIMDateTime&)=0;
+	virtual Boolean getExpires(CIMProperty&) const=0;
+	virtual CIMDateTime getExpires() const=0;
+	virtual void setExpires(CIMDateTime&)=0;
+	virtual Boolean getValidFrom(CIMProperty&) const=0;
+	virtual CIMDateTime getValidFrom() const=0;
+	virtual void setValidFrom(CIMDateTime&)=0;
+
+
+private:
+
+};
+
+#endif /* CIM_CREDENTIAL */

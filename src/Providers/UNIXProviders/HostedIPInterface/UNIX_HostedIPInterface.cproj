@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E8706CF2-F918-4AB6-9D44-345F9F26A395}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ComputerSystem/UNIX_ComputerSystem.md.pc" name="UNIX_ComputerSystem" IsProject="True" />
+        <Package file="../IPEncapsulationInterface/UNIX_IPEncapsulationInterface.md.pc" name="UNIX_IPEncapsulationInterface" IsProject="True" />
+        <Package file="../IPSubinterface/UNIX_IPSubinterface.md.pc" name="UNIX_IPSubinterface" IsProject="True" />
+        <Package file="../SwitchVirtualInterface/UNIX_SwitchVirtualInterface.md.pc" name="UNIX_SwitchVirtualInterface" IsProject="True" />
+        <Package file="../IPLoopback/UNIX_IPLoopback.md.pc" name="UNIX_IPLoopback" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPEncapsulationInterface/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPSubinterface/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SwitchVirtualInterface/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPLoopback/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_HostedIPInterfaceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_HostedIPInterfaceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_HostedIPInterfaceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ComputerSystemProvider -lUNIX_IPEncapsulationInterfaceProvider -lUNIX_IPSubinterfaceProvider -lUNIX_SwitchVirtualInterfaceProvider -lUNIX_IPLoopbackProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_HostedIPInterfaceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_HostedIPInterfaceLib" -DPROVIDER_LIB_NS="namespace UNIX_HostedIPInterfaceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ComputerSystemProvider -lUNIX_IPEncapsulationInterfaceProvider -lUNIX_IPSubinterfaceProvider -lUNIX_SwitchVirtualInterfaceProvider -lUNIX_IPLoopbackProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_HostedIPInterface.cpp" />
+    <Compile Include="UNIX_HostedIPInterfaceMain.cpp" />
+    <Compile Include="UNIX_HostedIPInterfaceProvider.cpp" />
+    <Compile Include="UNIX_HostedIPInterface_AIX.cpp" />
+    <Compile Include="UNIX_HostedIPInterface_DARWIN.cpp" />
+    <Compile Include="UNIX_HostedIPInterface_FREEBSD.cpp" />
+    <Compile Include="UNIX_HostedIPInterface_HPUX.cpp" />
+    <Compile Include="UNIX_HostedIPInterface_LINUX.cpp" />
+    <Compile Include="UNIX_HostedIPInterface_SOLARIS.cpp" />
+    <Compile Include="UNIX_HostedIPInterface_STUB.cpp" />
+    <Compile Include="UNIX_HostedIPInterface_TRU64.cpp" />
+    <Compile Include="UNIX_HostedIPInterface_VMS.cpp" />
+    <Compile Include="UNIX_HostedIPInterface_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_HostedIPInterface.h" />
+    <Node Include="UNIX_HostedIPInterfaceDeps.h" />
+    <Node Include="UNIX_HostedIPInterfaceDeps_AIX.h" />
+    <Node Include="UNIX_HostedIPInterfaceDeps_DARWIN.h" />
+    <Node Include="UNIX_HostedIPInterfaceDeps_FREEBSD.h" />
+    <Node Include="UNIX_HostedIPInterfaceDeps_HPUX.h" />
+    <Node Include="UNIX_HostedIPInterfaceDeps_LINUX.h" />
+    <Node Include="UNIX_HostedIPInterfaceDeps_SOLARIS.h" />
+    <Node Include="UNIX_HostedIPInterfaceDeps_STUB.h" />
+    <Node Include="UNIX_HostedIPInterfaceDeps_TRU64.h" />
+    <Node Include="UNIX_HostedIPInterfaceDeps_VMS.h" />
+    <Node Include="UNIX_HostedIPInterfaceDeps_ZOS.h" />
+    <Node Include="UNIX_HostedIPInterfacePrivate.h" />
+    <Node Include="UNIX_HostedIPInterfacePrivate_AIX.h" />
+    <Node Include="UNIX_HostedIPInterfacePrivate_DARWIN.h" />
+    <Node Include="UNIX_HostedIPInterfacePrivate_FREEBSD.h" />
+    <Node Include="UNIX_HostedIPInterfacePrivate_HPUX.h" />
+    <Node Include="UNIX_HostedIPInterfacePrivate_LINUX.h" />
+    <Node Include="UNIX_HostedIPInterfacePrivate_SOLARIS.h" />
+    <Node Include="UNIX_HostedIPInterfacePrivate_STUB.h" />
+    <Node Include="UNIX_HostedIPInterfacePrivate_TRU64.h" />
+    <Node Include="UNIX_HostedIPInterfacePrivate_VMS.h" />
+    <Node Include="UNIX_HostedIPInterfacePrivate_ZOS.h" />
+    <Node Include="UNIX_HostedIPInterfaceProvider.h" />
+    <Node Include="UNIX_HostedIPInterface_AIX.hpp" />
+    <Node Include="UNIX_HostedIPInterface_AIX.hxx" />
+    <Node Include="UNIX_HostedIPInterface_DARWIN.hpp" />
+    <Node Include="UNIX_HostedIPInterface_DARWIN.hxx" />
+    <Node Include="UNIX_HostedIPInterface_FREEBSD.hpp" />
+    <Node Include="UNIX_HostedIPInterface_FREEBSD.hxx" />
+    <Node Include="UNIX_HostedIPInterface_HPUX.hpp" />
+    <Node Include="UNIX_HostedIPInterface_HPUX.hxx" />
+    <Node Include="UNIX_HostedIPInterface_LINUX.hpp" />
+    <Node Include="UNIX_HostedIPInterface_LINUX.hxx" />
+    <Node Include="UNIX_HostedIPInterface_SOLARIS.hpp" />
+    <Node Include="UNIX_HostedIPInterface_SOLARIS.hxx" />
+    <Node Include="UNIX_HostedIPInterface_STUB.hpp" />
+    <Node Include="UNIX_HostedIPInterface_STUB.hxx" />
+    <Node Include="UNIX_HostedIPInterface_TRU64.hpp" />
+    <Node Include="UNIX_HostedIPInterface_TRU64.hxx" />
+    <Node Include="UNIX_HostedIPInterface_VMS.hpp" />
+    <Node Include="UNIX_HostedIPInterface_VMS.hxx" />
+    <Node Include="UNIX_HostedIPInterface_WIN32.hpp" />
+    <Node Include="UNIX_HostedIPInterface_ZOS.hpp" />
+    <Node Include="UNIX_HostedIPInterface_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

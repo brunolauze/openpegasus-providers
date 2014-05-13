@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DC49DF22-94A9-4584-9486-AE7DC431133C}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../TierServiceCapabilities/UNIX_TierServiceCapabilities.md.pc" name="UNIX_TierServiceCapabilities" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../TierServiceCapabilities/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_TierPolicyServiceCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TierPolicyServiceCapabilitiesLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_TierPolicyServiceCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_TierServiceCapabilitiesProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_TierPolicyServiceCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TierPolicyServiceCapabilitiesLib" -DPROVIDER_LIB_NS="namespace UNIX_TierPolicyServiceCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_TierServiceCapabilitiesProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_TierPolicyServiceCapabilities.cpp" />
+    <Compile Include="UNIX_TierPolicyServiceCapabilitiesMain.cpp" />
+    <Compile Include="UNIX_TierPolicyServiceCapabilitiesProvider.cpp" />
+    <Compile Include="UNIX_TierPolicyServiceCapabilities_AIX.cpp" />
+    <Compile Include="UNIX_TierPolicyServiceCapabilities_DARWIN.cpp" />
+    <Compile Include="UNIX_TierPolicyServiceCapabilities_FREEBSD.cpp" />
+    <Compile Include="UNIX_TierPolicyServiceCapabilities_HPUX.cpp" />
+    <Compile Include="UNIX_TierPolicyServiceCapabilities_LINUX.cpp" />
+    <Compile Include="UNIX_TierPolicyServiceCapabilities_SOLARIS.cpp" />
+    <Compile Include="UNIX_TierPolicyServiceCapabilities_STUB.cpp" />
+    <Compile Include="UNIX_TierPolicyServiceCapabilities_TRU64.cpp" />
+    <Compile Include="UNIX_TierPolicyServiceCapabilities_VMS.cpp" />
+    <Compile Include="UNIX_TierPolicyServiceCapabilities_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesDeps.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesDeps_AIX.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesDeps_DARWIN.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesDeps_FREEBSD.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesDeps_HPUX.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesDeps_LINUX.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesDeps_SOLARIS.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesDeps_STUB.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesDeps_TRU64.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesDeps_VMS.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesDeps_ZOS.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesPrivate.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesPrivate_AIX.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesPrivate_DARWIN.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesPrivate_FREEBSD.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesPrivate_HPUX.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesPrivate_LINUX.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesPrivate_SOLARIS.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesPrivate_STUB.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesPrivate_TRU64.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesPrivate_VMS.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesPrivate_ZOS.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilitiesProvider.h" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_AIX.hpp" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_AIX.hxx" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_DARWIN.hpp" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_DARWIN.hxx" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_FREEBSD.hpp" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_FREEBSD.hxx" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_HPUX.hpp" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_HPUX.hxx" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_LINUX.hpp" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_LINUX.hxx" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_SOLARIS.hpp" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_SOLARIS.hxx" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_STUB.hpp" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_STUB.hxx" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_TRU64.hpp" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_TRU64.hxx" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_VMS.hpp" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_VMS.hxx" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_WIN32.hpp" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_ZOS.hpp" />
+    <Node Include="UNIX_TierPolicyServiceCapabilities_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

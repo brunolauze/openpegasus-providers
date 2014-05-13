@@ -1,0 +1,137 @@
+//%LICENSE////////////////////////////////////////////////////////////////
+//
+// Licensed to The Open Group (TOG) under one or more contributor license
+// agreements.  Refer to the OpenPegasusNOTICE.txt file distributed with
+// this work for additional information regarding copyright ownership.
+// Each contributor licenses this file to you under the OpenPegasus Open
+// Source License; you may not use this file except in compliance with the
+// License.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//////////////////////////////////////////////////////////////////////////
+//
+//%/////////////////////////////////////////////////////////////////////////
+
+
+
+// Copyright (c) 2005 DMTF.  All rights reserved.
+   [Association, Abstract, Version ( "2.10.0" ), 
+    UMLPackagePath ( "CIM::Core::CoreElements" ), 
+    Description ( 
+       "CIM_Dependency is a generic association used to establish "
+       "dependency relationships between ManagedElements." )]
+class CIM_Dependency {
+
+      [Key, Description ( 
+          "Antecedent represents the independent object in this association."
+           )]
+   CIM_ManagedElement REF Antecedent;
+
+      [Key, Description ( 
+          "Dependent represents the object that is dependent on the "
+          "Antecedent." )]
+   CIM_ManagedElement REF Dependent;
+
+
+};
+
+
+
+// Copyright (c) 2005 DMTF.  All rights reserved.
+   [Association, Version ( "2.6.0" ), 
+    UMLPackagePath ( "CIM::Core::Device" ), 
+    Description ( 
+       "CIM_Realizes is the association that defines the mapping "
+       "between LogicalDevices and the PhysicalElements that implement "
+       "them." )]
+class CIM_Realizes : CIM_Dependency {
+
+      [Override ( "Antecedent" ), 
+       Description ( 
+          "The physical component that implements the Device." )]
+   CIM_PhysicalElement REF Antecedent;
+
+      [Override ( "Dependent" ), 
+       Description ( "The LogicalDevice." )]
+   CIM_LogicalDevice REF Dependent;
+
+
+};
+
+
+
+// Copyright (c) 2005 DMTF.  All rights reserved.
+// <change cr="CIMCoreCR00776.004" type ="new"> Addition of
+// class.</change>
+// <change cr="ArchCR00066.004" type="add">Add UmlPackagePath
+// qualifier values to CIM Schema.</change>
+// ===================================================================
+// CIM_RealizesProcessor
+// ===================================================================
+   [Association, Experimental, Version ( "2.10.0" ), 
+    UMLPackagePath ( "CIM::Device::Processor" ), 
+    Description ( 
+       "One or more Processors can be Realized by a Physical Package. "
+       "This association adds semantics how these Processors are "
+       "realized. For example, the processors may be realized by "
+       "Hyperthreading technology or by multiple cores on the same "
+       "package." )]
+class CIM_RealizesProcessor : CIM_Realizes {
+
+      [Override ( "Antecedent" ), 
+       Max ( 1 ), 
+       Description ( 
+          "The PhysicalPackage on which the Processor is realized." )]
+   CIM_PhysicalPackage REF Antecedent;
+
+      [Override ( "Dependent" ), 
+       Description ( 
+          "The Processor that is realized by the Component." )]
+   CIM_Processor REF Dependent;
+
+      [Description ( 
+          "The type how a logical Processor is realized. If a "
+          "physical package contains one logical processor, which "
+          "is the traditional case, then this value is set to "
+          "\"Dedicated\". If a single physical package/chip "
+          "contains multiple processor threads (e.g. HyperThreads) "
+          "then this value is set to \"Thread\". If the package "
+          "contains multiple CPU cores, and the processor is "
+          "realized by a core, then this value is set to \"Core\". "
+          "If a physical package contains multiple cores and each "
+          "core has multiple threads, then the type is set to "
+          "\"ThreadOnCore\"." ), 
+       ValueMap { "0", "1", "2", "3", "4", "5" }, 
+       Values { "Unknown", "DMTF Reserved", "Dedicated", "Thread", 
+          "Core", "ThreadOnCore" }]
+   uint16 RealizationType;
+
+
+};
+
+
+
+   [Version( "2.40.0" ), Description("{0}")]
+class UNIX_RealizesProcessor : CIM_RealizesProcessor
+{
+
+
+};
+

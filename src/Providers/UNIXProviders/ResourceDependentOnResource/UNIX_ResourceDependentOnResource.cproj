@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A81D53C-5598-4982-8745-DF0776DB3D10}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../StorageAllocationSettingData/UNIX_StorageAllocationSettingData.md.pc" name="UNIX_StorageAllocationSettingData" IsProject="True" />
+        <Package file="../ProcessorAllocationSettingData/UNIX_ProcessorAllocationSettingData.md.pc" name="UNIX_ProcessorAllocationSettingData" IsProject="True" />
+        <Package file="../EthernetPortAllocationSettingData/UNIX_EthernetPortAllocationSettingData.md.pc" name="UNIX_EthernetPortAllocationSettingData" IsProject="True" />
+        <Package file="../PowerAllocationSettingData/UNIX_PowerAllocationSettingData.md.pc" name="UNIX_PowerAllocationSettingData" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../StorageAllocationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ProcessorAllocationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EthernetPortAllocationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PowerAllocationSettingData/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ResourceDependentOnResourceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ResourceDependentOnResourceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ResourceDependentOnResourceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_StorageAllocationSettingDataProvider -lUNIX_ProcessorAllocationSettingDataProvider -lUNIX_EthernetPortAllocationSettingDataProvider -lUNIX_PowerAllocationSettingDataProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ResourceDependentOnResourceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ResourceDependentOnResourceLib" -DPROVIDER_LIB_NS="namespace UNIX_ResourceDependentOnResourceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_StorageAllocationSettingDataProvider -lUNIX_ProcessorAllocationSettingDataProvider -lUNIX_EthernetPortAllocationSettingDataProvider -lUNIX_PowerAllocationSettingDataProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ResourceDependentOnResource.cpp" />
+    <Compile Include="UNIX_ResourceDependentOnResourceMain.cpp" />
+    <Compile Include="UNIX_ResourceDependentOnResourceProvider.cpp" />
+    <Compile Include="UNIX_ResourceDependentOnResource_AIX.cpp" />
+    <Compile Include="UNIX_ResourceDependentOnResource_DARWIN.cpp" />
+    <Compile Include="UNIX_ResourceDependentOnResource_FREEBSD.cpp" />
+    <Compile Include="UNIX_ResourceDependentOnResource_HPUX.cpp" />
+    <Compile Include="UNIX_ResourceDependentOnResource_LINUX.cpp" />
+    <Compile Include="UNIX_ResourceDependentOnResource_SOLARIS.cpp" />
+    <Compile Include="UNIX_ResourceDependentOnResource_STUB.cpp" />
+    <Compile Include="UNIX_ResourceDependentOnResource_TRU64.cpp" />
+    <Compile Include="UNIX_ResourceDependentOnResource_VMS.cpp" />
+    <Compile Include="UNIX_ResourceDependentOnResource_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ResourceDependentOnResource.h" />
+    <Node Include="UNIX_ResourceDependentOnResourceDeps.h" />
+    <Node Include="UNIX_ResourceDependentOnResourceDeps_AIX.h" />
+    <Node Include="UNIX_ResourceDependentOnResourceDeps_DARWIN.h" />
+    <Node Include="UNIX_ResourceDependentOnResourceDeps_FREEBSD.h" />
+    <Node Include="UNIX_ResourceDependentOnResourceDeps_HPUX.h" />
+    <Node Include="UNIX_ResourceDependentOnResourceDeps_LINUX.h" />
+    <Node Include="UNIX_ResourceDependentOnResourceDeps_SOLARIS.h" />
+    <Node Include="UNIX_ResourceDependentOnResourceDeps_STUB.h" />
+    <Node Include="UNIX_ResourceDependentOnResourceDeps_TRU64.h" />
+    <Node Include="UNIX_ResourceDependentOnResourceDeps_VMS.h" />
+    <Node Include="UNIX_ResourceDependentOnResourceDeps_ZOS.h" />
+    <Node Include="UNIX_ResourceDependentOnResourcePrivate.h" />
+    <Node Include="UNIX_ResourceDependentOnResourcePrivate_AIX.h" />
+    <Node Include="UNIX_ResourceDependentOnResourcePrivate_DARWIN.h" />
+    <Node Include="UNIX_ResourceDependentOnResourcePrivate_FREEBSD.h" />
+    <Node Include="UNIX_ResourceDependentOnResourcePrivate_HPUX.h" />
+    <Node Include="UNIX_ResourceDependentOnResourcePrivate_LINUX.h" />
+    <Node Include="UNIX_ResourceDependentOnResourcePrivate_SOLARIS.h" />
+    <Node Include="UNIX_ResourceDependentOnResourcePrivate_STUB.h" />
+    <Node Include="UNIX_ResourceDependentOnResourcePrivate_TRU64.h" />
+    <Node Include="UNIX_ResourceDependentOnResourcePrivate_VMS.h" />
+    <Node Include="UNIX_ResourceDependentOnResourcePrivate_ZOS.h" />
+    <Node Include="UNIX_ResourceDependentOnResourceProvider.h" />
+    <Node Include="UNIX_ResourceDependentOnResource_AIX.hpp" />
+    <Node Include="UNIX_ResourceDependentOnResource_AIX.hxx" />
+    <Node Include="UNIX_ResourceDependentOnResource_DARWIN.hpp" />
+    <Node Include="UNIX_ResourceDependentOnResource_DARWIN.hxx" />
+    <Node Include="UNIX_ResourceDependentOnResource_FREEBSD.hpp" />
+    <Node Include="UNIX_ResourceDependentOnResource_FREEBSD.hxx" />
+    <Node Include="UNIX_ResourceDependentOnResource_HPUX.hpp" />
+    <Node Include="UNIX_ResourceDependentOnResource_HPUX.hxx" />
+    <Node Include="UNIX_ResourceDependentOnResource_LINUX.hpp" />
+    <Node Include="UNIX_ResourceDependentOnResource_LINUX.hxx" />
+    <Node Include="UNIX_ResourceDependentOnResource_SOLARIS.hpp" />
+    <Node Include="UNIX_ResourceDependentOnResource_SOLARIS.hxx" />
+    <Node Include="UNIX_ResourceDependentOnResource_STUB.hpp" />
+    <Node Include="UNIX_ResourceDependentOnResource_STUB.hxx" />
+    <Node Include="UNIX_ResourceDependentOnResource_TRU64.hpp" />
+    <Node Include="UNIX_ResourceDependentOnResource_TRU64.hxx" />
+    <Node Include="UNIX_ResourceDependentOnResource_VMS.hpp" />
+    <Node Include="UNIX_ResourceDependentOnResource_VMS.hxx" />
+    <Node Include="UNIX_ResourceDependentOnResource_WIN32.hpp" />
+    <Node Include="UNIX_ResourceDependentOnResource_ZOS.hpp" />
+    <Node Include="UNIX_ResourceDependentOnResource_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

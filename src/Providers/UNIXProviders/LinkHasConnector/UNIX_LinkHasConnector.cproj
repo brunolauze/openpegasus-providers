@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C96898CB-1788-4498-BEB3-51049FA18F6D}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../PhysicalLink/UNIX_PhysicalLink.md.pc" name="UNIX_PhysicalLink" IsProject="True" />
+        <Package file="../PhysicalConnector/UNIX_PhysicalConnector.md.pc" name="UNIX_PhysicalConnector" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../PhysicalLink/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PhysicalConnector/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_LinkHasConnectorProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LinkHasConnectorLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_LinkHasConnectorLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PhysicalLinkProvider -lUNIX_PhysicalConnectorProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_LinkHasConnectorProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LinkHasConnectorLib" -DPROVIDER_LIB_NS="namespace UNIX_LinkHasConnectorLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PhysicalLinkProvider -lUNIX_PhysicalConnectorProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_LinkHasConnector.cpp" />
+    <Compile Include="UNIX_LinkHasConnectorMain.cpp" />
+    <Compile Include="UNIX_LinkHasConnectorProvider.cpp" />
+    <Compile Include="UNIX_LinkHasConnector_AIX.cpp" />
+    <Compile Include="UNIX_LinkHasConnector_DARWIN.cpp" />
+    <Compile Include="UNIX_LinkHasConnector_FREEBSD.cpp" />
+    <Compile Include="UNIX_LinkHasConnector_HPUX.cpp" />
+    <Compile Include="UNIX_LinkHasConnector_LINUX.cpp" />
+    <Compile Include="UNIX_LinkHasConnector_SOLARIS.cpp" />
+    <Compile Include="UNIX_LinkHasConnector_STUB.cpp" />
+    <Compile Include="UNIX_LinkHasConnector_TRU64.cpp" />
+    <Compile Include="UNIX_LinkHasConnector_VMS.cpp" />
+    <Compile Include="UNIX_LinkHasConnector_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_LinkHasConnector.h" />
+    <Node Include="UNIX_LinkHasConnectorDeps.h" />
+    <Node Include="UNIX_LinkHasConnectorDeps_AIX.h" />
+    <Node Include="UNIX_LinkHasConnectorDeps_DARWIN.h" />
+    <Node Include="UNIX_LinkHasConnectorDeps_FREEBSD.h" />
+    <Node Include="UNIX_LinkHasConnectorDeps_HPUX.h" />
+    <Node Include="UNIX_LinkHasConnectorDeps_LINUX.h" />
+    <Node Include="UNIX_LinkHasConnectorDeps_SOLARIS.h" />
+    <Node Include="UNIX_LinkHasConnectorDeps_STUB.h" />
+    <Node Include="UNIX_LinkHasConnectorDeps_TRU64.h" />
+    <Node Include="UNIX_LinkHasConnectorDeps_VMS.h" />
+    <Node Include="UNIX_LinkHasConnectorDeps_ZOS.h" />
+    <Node Include="UNIX_LinkHasConnectorPrivate.h" />
+    <Node Include="UNIX_LinkHasConnectorPrivate_AIX.h" />
+    <Node Include="UNIX_LinkHasConnectorPrivate_DARWIN.h" />
+    <Node Include="UNIX_LinkHasConnectorPrivate_FREEBSD.h" />
+    <Node Include="UNIX_LinkHasConnectorPrivate_HPUX.h" />
+    <Node Include="UNIX_LinkHasConnectorPrivate_LINUX.h" />
+    <Node Include="UNIX_LinkHasConnectorPrivate_SOLARIS.h" />
+    <Node Include="UNIX_LinkHasConnectorPrivate_STUB.h" />
+    <Node Include="UNIX_LinkHasConnectorPrivate_TRU64.h" />
+    <Node Include="UNIX_LinkHasConnectorPrivate_VMS.h" />
+    <Node Include="UNIX_LinkHasConnectorPrivate_ZOS.h" />
+    <Node Include="UNIX_LinkHasConnectorProvider.h" />
+    <Node Include="UNIX_LinkHasConnector_AIX.hpp" />
+    <Node Include="UNIX_LinkHasConnector_AIX.hxx" />
+    <Node Include="UNIX_LinkHasConnector_DARWIN.hpp" />
+    <Node Include="UNIX_LinkHasConnector_DARWIN.hxx" />
+    <Node Include="UNIX_LinkHasConnector_FREEBSD.hpp" />
+    <Node Include="UNIX_LinkHasConnector_FREEBSD.hxx" />
+    <Node Include="UNIX_LinkHasConnector_HPUX.hpp" />
+    <Node Include="UNIX_LinkHasConnector_HPUX.hxx" />
+    <Node Include="UNIX_LinkHasConnector_LINUX.hpp" />
+    <Node Include="UNIX_LinkHasConnector_LINUX.hxx" />
+    <Node Include="UNIX_LinkHasConnector_SOLARIS.hpp" />
+    <Node Include="UNIX_LinkHasConnector_SOLARIS.hxx" />
+    <Node Include="UNIX_LinkHasConnector_STUB.hpp" />
+    <Node Include="UNIX_LinkHasConnector_STUB.hxx" />
+    <Node Include="UNIX_LinkHasConnector_TRU64.hpp" />
+    <Node Include="UNIX_LinkHasConnector_TRU64.hxx" />
+    <Node Include="UNIX_LinkHasConnector_VMS.hpp" />
+    <Node Include="UNIX_LinkHasConnector_VMS.hxx" />
+    <Node Include="UNIX_LinkHasConnector_WIN32.hpp" />
+    <Node Include="UNIX_LinkHasConnector_ZOS.hpp" />
+    <Node Include="UNIX_LinkHasConnector_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

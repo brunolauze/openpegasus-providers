@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{13D07E86-8A9E-4762-B69F-4F6DCFAFC492}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_DatabaseServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DatabaseServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_DatabaseServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_DatabaseServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DatabaseServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_DatabaseServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_DatabaseService.cpp" />
+    <Compile Include="UNIX_DatabaseServiceMain.cpp" />
+    <Compile Include="UNIX_DatabaseServiceProvider.cpp" />
+    <Compile Include="UNIX_DatabaseService_AIX.cpp" />
+    <Compile Include="UNIX_DatabaseService_DARWIN.cpp" />
+    <Compile Include="UNIX_DatabaseService_FREEBSD.cpp" />
+    <Compile Include="UNIX_DatabaseService_HPUX.cpp" />
+    <Compile Include="UNIX_DatabaseService_LINUX.cpp" />
+    <Compile Include="UNIX_DatabaseService_SOLARIS.cpp" />
+    <Compile Include="UNIX_DatabaseService_STUB.cpp" />
+    <Compile Include="UNIX_DatabaseService_TRU64.cpp" />
+    <Compile Include="UNIX_DatabaseService_VMS.cpp" />
+    <Compile Include="UNIX_DatabaseService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_DatabaseService.h" />
+    <Node Include="UNIX_DatabaseServiceDeps.h" />
+    <Node Include="UNIX_DatabaseServiceDeps_AIX.h" />
+    <Node Include="UNIX_DatabaseServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_DatabaseServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_DatabaseServiceDeps_HPUX.h" />
+    <Node Include="UNIX_DatabaseServiceDeps_LINUX.h" />
+    <Node Include="UNIX_DatabaseServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_DatabaseServiceDeps_STUB.h" />
+    <Node Include="UNIX_DatabaseServiceDeps_TRU64.h" />
+    <Node Include="UNIX_DatabaseServiceDeps_VMS.h" />
+    <Node Include="UNIX_DatabaseServiceDeps_ZOS.h" />
+    <Node Include="UNIX_DatabaseServicePrivate.h" />
+    <Node Include="UNIX_DatabaseServicePrivate_AIX.h" />
+    <Node Include="UNIX_DatabaseServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_DatabaseServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_DatabaseServicePrivate_HPUX.h" />
+    <Node Include="UNIX_DatabaseServicePrivate_LINUX.h" />
+    <Node Include="UNIX_DatabaseServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_DatabaseServicePrivate_STUB.h" />
+    <Node Include="UNIX_DatabaseServicePrivate_TRU64.h" />
+    <Node Include="UNIX_DatabaseServicePrivate_VMS.h" />
+    <Node Include="UNIX_DatabaseServicePrivate_ZOS.h" />
+    <Node Include="UNIX_DatabaseServiceProvider.h" />
+    <Node Include="UNIX_DatabaseService_AIX.hpp" />
+    <Node Include="UNIX_DatabaseService_AIX.hxx" />
+    <Node Include="UNIX_DatabaseService_DARWIN.hpp" />
+    <Node Include="UNIX_DatabaseService_DARWIN.hxx" />
+    <Node Include="UNIX_DatabaseService_FREEBSD.hpp" />
+    <Node Include="UNIX_DatabaseService_FREEBSD.hxx" />
+    <Node Include="UNIX_DatabaseService_HPUX.hpp" />
+    <Node Include="UNIX_DatabaseService_HPUX.hxx" />
+    <Node Include="UNIX_DatabaseService_LINUX.hpp" />
+    <Node Include="UNIX_DatabaseService_LINUX.hxx" />
+    <Node Include="UNIX_DatabaseService_SOLARIS.hpp" />
+    <Node Include="UNIX_DatabaseService_SOLARIS.hxx" />
+    <Node Include="UNIX_DatabaseService_STUB.hpp" />
+    <Node Include="UNIX_DatabaseService_STUB.hxx" />
+    <Node Include="UNIX_DatabaseService_TRU64.hpp" />
+    <Node Include="UNIX_DatabaseService_TRU64.hxx" />
+    <Node Include="UNIX_DatabaseService_VMS.hpp" />
+    <Node Include="UNIX_DatabaseService_VMS.hxx" />
+    <Node Include="UNIX_DatabaseService_WIN32.hpp" />
+    <Node Include="UNIX_DatabaseService_ZOS.hpp" />
+    <Node Include="UNIX_DatabaseService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

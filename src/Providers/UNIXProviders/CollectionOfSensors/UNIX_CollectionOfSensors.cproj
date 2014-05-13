@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AB04649C-82EC-488B-9C88-0D34732DE5BD}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../MultiStateSensor/UNIX_MultiStateSensor.md.pc" name="UNIX_MultiStateSensor" IsProject="True" />
+        <Package file="../CurrentSensor/UNIX_CurrentSensor.md.pc" name="UNIX_CurrentSensor" IsProject="True" />
+        <Package file="../TemperatureSensor/UNIX_TemperatureSensor.md.pc" name="UNIX_TemperatureSensor" IsProject="True" />
+        <Package file="../VoltageSensor/UNIX_VoltageSensor.md.pc" name="UNIX_VoltageSensor" IsProject="True" />
+        <Package file="../Tachometer/UNIX_Tachometer.md.pc" name="UNIX_Tachometer" IsProject="True" />
+        <Package file="../BinarySensor/UNIX_BinarySensor.md.pc" name="UNIX_BinarySensor" IsProject="True" />
+        <Package file="../DiscreteSensor/UNIX_DiscreteSensor.md.pc" name="UNIX_DiscreteSensor" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../MultiStateSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CurrentSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TemperatureSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VoltageSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Tachometer/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BinarySensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiscreteSensor/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_CollectionOfSensorsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_CollectionOfSensorsLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_CollectionOfSensorsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_MultiStateSensorProvider -lUNIX_CurrentSensorProvider -lUNIX_TemperatureSensorProvider -lUNIX_VoltageSensorProvider -lUNIX_TachometerProvider -lUNIX_BinarySensorProvider -lUNIX_DiscreteSensorProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_CollectionOfSensorsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_CollectionOfSensorsLib" -DPROVIDER_LIB_NS="namespace UNIX_CollectionOfSensorsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_MultiStateSensorProvider -lUNIX_CurrentSensorProvider -lUNIX_TemperatureSensorProvider -lUNIX_VoltageSensorProvider -lUNIX_TachometerProvider -lUNIX_BinarySensorProvider -lUNIX_DiscreteSensorProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_CollectionOfSensors.cpp" />
+    <Compile Include="UNIX_CollectionOfSensorsMain.cpp" />
+    <Compile Include="UNIX_CollectionOfSensorsProvider.cpp" />
+    <Compile Include="UNIX_CollectionOfSensors_AIX.cpp" />
+    <Compile Include="UNIX_CollectionOfSensors_DARWIN.cpp" />
+    <Compile Include="UNIX_CollectionOfSensors_FREEBSD.cpp" />
+    <Compile Include="UNIX_CollectionOfSensors_HPUX.cpp" />
+    <Compile Include="UNIX_CollectionOfSensors_LINUX.cpp" />
+    <Compile Include="UNIX_CollectionOfSensors_SOLARIS.cpp" />
+    <Compile Include="UNIX_CollectionOfSensors_STUB.cpp" />
+    <Compile Include="UNIX_CollectionOfSensors_TRU64.cpp" />
+    <Compile Include="UNIX_CollectionOfSensors_VMS.cpp" />
+    <Compile Include="UNIX_CollectionOfSensors_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_CollectionOfSensors.h" />
+    <Node Include="UNIX_CollectionOfSensorsDeps.h" />
+    <Node Include="UNIX_CollectionOfSensorsDeps_AIX.h" />
+    <Node Include="UNIX_CollectionOfSensorsDeps_DARWIN.h" />
+    <Node Include="UNIX_CollectionOfSensorsDeps_FREEBSD.h" />
+    <Node Include="UNIX_CollectionOfSensorsDeps_HPUX.h" />
+    <Node Include="UNIX_CollectionOfSensorsDeps_LINUX.h" />
+    <Node Include="UNIX_CollectionOfSensorsDeps_SOLARIS.h" />
+    <Node Include="UNIX_CollectionOfSensorsDeps_STUB.h" />
+    <Node Include="UNIX_CollectionOfSensorsDeps_TRU64.h" />
+    <Node Include="UNIX_CollectionOfSensorsDeps_VMS.h" />
+    <Node Include="UNIX_CollectionOfSensorsDeps_ZOS.h" />
+    <Node Include="UNIX_CollectionOfSensorsPrivate.h" />
+    <Node Include="UNIX_CollectionOfSensorsPrivate_AIX.h" />
+    <Node Include="UNIX_CollectionOfSensorsPrivate_DARWIN.h" />
+    <Node Include="UNIX_CollectionOfSensorsPrivate_FREEBSD.h" />
+    <Node Include="UNIX_CollectionOfSensorsPrivate_HPUX.h" />
+    <Node Include="UNIX_CollectionOfSensorsPrivate_LINUX.h" />
+    <Node Include="UNIX_CollectionOfSensorsPrivate_SOLARIS.h" />
+    <Node Include="UNIX_CollectionOfSensorsPrivate_STUB.h" />
+    <Node Include="UNIX_CollectionOfSensorsPrivate_TRU64.h" />
+    <Node Include="UNIX_CollectionOfSensorsPrivate_VMS.h" />
+    <Node Include="UNIX_CollectionOfSensorsPrivate_ZOS.h" />
+    <Node Include="UNIX_CollectionOfSensorsProvider.h" />
+    <Node Include="UNIX_CollectionOfSensors_AIX.hpp" />
+    <Node Include="UNIX_CollectionOfSensors_AIX.hxx" />
+    <Node Include="UNIX_CollectionOfSensors_DARWIN.hpp" />
+    <Node Include="UNIX_CollectionOfSensors_DARWIN.hxx" />
+    <Node Include="UNIX_CollectionOfSensors_FREEBSD.hpp" />
+    <Node Include="UNIX_CollectionOfSensors_FREEBSD.hxx" />
+    <Node Include="UNIX_CollectionOfSensors_HPUX.hpp" />
+    <Node Include="UNIX_CollectionOfSensors_HPUX.hxx" />
+    <Node Include="UNIX_CollectionOfSensors_LINUX.hpp" />
+    <Node Include="UNIX_CollectionOfSensors_LINUX.hxx" />
+    <Node Include="UNIX_CollectionOfSensors_SOLARIS.hpp" />
+    <Node Include="UNIX_CollectionOfSensors_SOLARIS.hxx" />
+    <Node Include="UNIX_CollectionOfSensors_STUB.hpp" />
+    <Node Include="UNIX_CollectionOfSensors_STUB.hxx" />
+    <Node Include="UNIX_CollectionOfSensors_TRU64.hpp" />
+    <Node Include="UNIX_CollectionOfSensors_TRU64.hxx" />
+    <Node Include="UNIX_CollectionOfSensors_VMS.hpp" />
+    <Node Include="UNIX_CollectionOfSensors_VMS.hxx" />
+    <Node Include="UNIX_CollectionOfSensors_WIN32.hpp" />
+    <Node Include="UNIX_CollectionOfSensors_ZOS.hpp" />
+    <Node Include="UNIX_CollectionOfSensors_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

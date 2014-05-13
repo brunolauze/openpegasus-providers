@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{73B9A567-936C-475B-B3B2-66FDBDC2628B}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../VirtualComputerSystem/UNIX_VirtualComputerSystem.md.pc" name="UNIX_VirtualComputerSystem" IsProject="True" />
+        <Package file="../Cluster/UNIX_Cluster.md.pc" name="UNIX_Cluster" IsProject="True" />
+        <Package file="../ComputerSystem/UNIX_ComputerSystem.md.pc" name="UNIX_ComputerSystem" IsProject="True" />
+        <Package file="../PortResource/UNIX_PortResource.md.pc" name="UNIX_PortResource" IsProject="True" />
+        <Package file="../MemoryResource/UNIX_MemoryResource.md.pc" name="UNIX_MemoryResource" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../VirtualComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Cluster/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PortResource/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MemoryResource/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ComputerSystemMappedIOProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ComputerSystemMappedIOLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ComputerSystemMappedIOLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider -lUNIX_PortResourceProvider -lUNIX_MemoryResourceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ComputerSystemMappedIOProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ComputerSystemMappedIOLib" -DPROVIDER_LIB_NS="namespace UNIX_ComputerSystemMappedIOLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider -lUNIX_PortResourceProvider -lUNIX_MemoryResourceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ComputerSystemMappedIO.cpp" />
+    <Compile Include="UNIX_ComputerSystemMappedIOMain.cpp" />
+    <Compile Include="UNIX_ComputerSystemMappedIOProvider.cpp" />
+    <Compile Include="UNIX_ComputerSystemMappedIO_AIX.cpp" />
+    <Compile Include="UNIX_ComputerSystemMappedIO_DARWIN.cpp" />
+    <Compile Include="UNIX_ComputerSystemMappedIO_FREEBSD.cpp" />
+    <Compile Include="UNIX_ComputerSystemMappedIO_HPUX.cpp" />
+    <Compile Include="UNIX_ComputerSystemMappedIO_LINUX.cpp" />
+    <Compile Include="UNIX_ComputerSystemMappedIO_SOLARIS.cpp" />
+    <Compile Include="UNIX_ComputerSystemMappedIO_STUB.cpp" />
+    <Compile Include="UNIX_ComputerSystemMappedIO_TRU64.cpp" />
+    <Compile Include="UNIX_ComputerSystemMappedIO_VMS.cpp" />
+    <Compile Include="UNIX_ComputerSystemMappedIO_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ComputerSystemMappedIO.h" />
+    <Node Include="UNIX_ComputerSystemMappedIODeps.h" />
+    <Node Include="UNIX_ComputerSystemMappedIODeps_AIX.h" />
+    <Node Include="UNIX_ComputerSystemMappedIODeps_DARWIN.h" />
+    <Node Include="UNIX_ComputerSystemMappedIODeps_FREEBSD.h" />
+    <Node Include="UNIX_ComputerSystemMappedIODeps_HPUX.h" />
+    <Node Include="UNIX_ComputerSystemMappedIODeps_LINUX.h" />
+    <Node Include="UNIX_ComputerSystemMappedIODeps_SOLARIS.h" />
+    <Node Include="UNIX_ComputerSystemMappedIODeps_STUB.h" />
+    <Node Include="UNIX_ComputerSystemMappedIODeps_TRU64.h" />
+    <Node Include="UNIX_ComputerSystemMappedIODeps_VMS.h" />
+    <Node Include="UNIX_ComputerSystemMappedIODeps_ZOS.h" />
+    <Node Include="UNIX_ComputerSystemMappedIOPrivate.h" />
+    <Node Include="UNIX_ComputerSystemMappedIOPrivate_AIX.h" />
+    <Node Include="UNIX_ComputerSystemMappedIOPrivate_DARWIN.h" />
+    <Node Include="UNIX_ComputerSystemMappedIOPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ComputerSystemMappedIOPrivate_HPUX.h" />
+    <Node Include="UNIX_ComputerSystemMappedIOPrivate_LINUX.h" />
+    <Node Include="UNIX_ComputerSystemMappedIOPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ComputerSystemMappedIOPrivate_STUB.h" />
+    <Node Include="UNIX_ComputerSystemMappedIOPrivate_TRU64.h" />
+    <Node Include="UNIX_ComputerSystemMappedIOPrivate_VMS.h" />
+    <Node Include="UNIX_ComputerSystemMappedIOPrivate_ZOS.h" />
+    <Node Include="UNIX_ComputerSystemMappedIOProvider.h" />
+    <Node Include="UNIX_ComputerSystemMappedIO_AIX.hpp" />
+    <Node Include="UNIX_ComputerSystemMappedIO_AIX.hxx" />
+    <Node Include="UNIX_ComputerSystemMappedIO_DARWIN.hpp" />
+    <Node Include="UNIX_ComputerSystemMappedIO_DARWIN.hxx" />
+    <Node Include="UNIX_ComputerSystemMappedIO_FREEBSD.hpp" />
+    <Node Include="UNIX_ComputerSystemMappedIO_FREEBSD.hxx" />
+    <Node Include="UNIX_ComputerSystemMappedIO_HPUX.hpp" />
+    <Node Include="UNIX_ComputerSystemMappedIO_HPUX.hxx" />
+    <Node Include="UNIX_ComputerSystemMappedIO_LINUX.hpp" />
+    <Node Include="UNIX_ComputerSystemMappedIO_LINUX.hxx" />
+    <Node Include="UNIX_ComputerSystemMappedIO_SOLARIS.hpp" />
+    <Node Include="UNIX_ComputerSystemMappedIO_SOLARIS.hxx" />
+    <Node Include="UNIX_ComputerSystemMappedIO_STUB.hpp" />
+    <Node Include="UNIX_ComputerSystemMappedIO_STUB.hxx" />
+    <Node Include="UNIX_ComputerSystemMappedIO_TRU64.hpp" />
+    <Node Include="UNIX_ComputerSystemMappedIO_TRU64.hxx" />
+    <Node Include="UNIX_ComputerSystemMappedIO_VMS.hpp" />
+    <Node Include="UNIX_ComputerSystemMappedIO_VMS.hxx" />
+    <Node Include="UNIX_ComputerSystemMappedIO_WIN32.hpp" />
+    <Node Include="UNIX_ComputerSystemMappedIO_ZOS.hpp" />
+    <Node Include="UNIX_ComputerSystemMappedIO_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

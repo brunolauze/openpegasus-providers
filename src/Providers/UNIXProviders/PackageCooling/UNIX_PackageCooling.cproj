@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{66D1E492-5869-4955-B481-6D37E70341B2}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../Fan/UNIX_Fan.md.pc" name="UNIX_Fan" IsProject="True" />
+        <Package file="../Refrigeration/UNIX_Refrigeration.md.pc" name="UNIX_Refrigeration" IsProject="True" />
+        <Package file="../HeatPipe/UNIX_HeatPipe.md.pc" name="UNIX_HeatPipe" IsProject="True" />
+        <Package file="../Card/UNIX_Card.md.pc" name="UNIX_Card" IsProject="True" />
+        <Package file="../SystemBusCard/UNIX_SystemBusCard.md.pc" name="UNIX_SystemBusCard" IsProject="True" />
+        <Package file="../Chassis/UNIX_Chassis.md.pc" name="UNIX_Chassis" IsProject="True" />
+        <Package file="../Rack/UNIX_Rack.md.pc" name="UNIX_Rack" IsProject="True" />
+        <Package file="../PackageLocation/UNIX_PackageLocation.md.pc" name="UNIX_PackageLocation" IsProject="True" />
+        <Package file="../StorageMediaLocation/UNIX_StorageMediaLocation.md.pc" name="UNIX_StorageMediaLocation" IsProject="True" />
+        <Package file="../Magazine/UNIX_Magazine.md.pc" name="UNIX_Magazine" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../Fan/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Refrigeration/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../HeatPipe/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Card/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SystemBusCard/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Chassis/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Rack/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PackageLocation/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageMediaLocation/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Magazine/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_PackageCoolingProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PackageCoolingLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PackageCoolingLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_FanProvider -lUNIX_RefrigerationProvider -lUNIX_HeatPipeProvider -lUNIX_CardProvider -lUNIX_SystemBusCardProvider -lUNIX_ChassisProvider -lUNIX_RackProvider -lUNIX_PackageLocationProvider -lUNIX_StorageMediaLocationProvider -lUNIX_MagazineProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_PackageCoolingProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PackageCoolingLib" -DPROVIDER_LIB_NS="namespace UNIX_PackageCoolingLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_FanProvider -lUNIX_RefrigerationProvider -lUNIX_HeatPipeProvider -lUNIX_CardProvider -lUNIX_SystemBusCardProvider -lUNIX_ChassisProvider -lUNIX_RackProvider -lUNIX_PackageLocationProvider -lUNIX_StorageMediaLocationProvider -lUNIX_MagazineProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_PackageCooling.cpp" />
+    <Compile Include="UNIX_PackageCoolingMain.cpp" />
+    <Compile Include="UNIX_PackageCoolingProvider.cpp" />
+    <Compile Include="UNIX_PackageCooling_AIX.cpp" />
+    <Compile Include="UNIX_PackageCooling_DARWIN.cpp" />
+    <Compile Include="UNIX_PackageCooling_FREEBSD.cpp" />
+    <Compile Include="UNIX_PackageCooling_HPUX.cpp" />
+    <Compile Include="UNIX_PackageCooling_LINUX.cpp" />
+    <Compile Include="UNIX_PackageCooling_SOLARIS.cpp" />
+    <Compile Include="UNIX_PackageCooling_STUB.cpp" />
+    <Compile Include="UNIX_PackageCooling_TRU64.cpp" />
+    <Compile Include="UNIX_PackageCooling_VMS.cpp" />
+    <Compile Include="UNIX_PackageCooling_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_PackageCooling.h" />
+    <Node Include="UNIX_PackageCoolingDeps.h" />
+    <Node Include="UNIX_PackageCoolingDeps_AIX.h" />
+    <Node Include="UNIX_PackageCoolingDeps_DARWIN.h" />
+    <Node Include="UNIX_PackageCoolingDeps_FREEBSD.h" />
+    <Node Include="UNIX_PackageCoolingDeps_HPUX.h" />
+    <Node Include="UNIX_PackageCoolingDeps_LINUX.h" />
+    <Node Include="UNIX_PackageCoolingDeps_SOLARIS.h" />
+    <Node Include="UNIX_PackageCoolingDeps_STUB.h" />
+    <Node Include="UNIX_PackageCoolingDeps_TRU64.h" />
+    <Node Include="UNIX_PackageCoolingDeps_VMS.h" />
+    <Node Include="UNIX_PackageCoolingDeps_ZOS.h" />
+    <Node Include="UNIX_PackageCoolingPrivate.h" />
+    <Node Include="UNIX_PackageCoolingPrivate_AIX.h" />
+    <Node Include="UNIX_PackageCoolingPrivate_DARWIN.h" />
+    <Node Include="UNIX_PackageCoolingPrivate_FREEBSD.h" />
+    <Node Include="UNIX_PackageCoolingPrivate_HPUX.h" />
+    <Node Include="UNIX_PackageCoolingPrivate_LINUX.h" />
+    <Node Include="UNIX_PackageCoolingPrivate_SOLARIS.h" />
+    <Node Include="UNIX_PackageCoolingPrivate_STUB.h" />
+    <Node Include="UNIX_PackageCoolingPrivate_TRU64.h" />
+    <Node Include="UNIX_PackageCoolingPrivate_VMS.h" />
+    <Node Include="UNIX_PackageCoolingPrivate_ZOS.h" />
+    <Node Include="UNIX_PackageCoolingProvider.h" />
+    <Node Include="UNIX_PackageCooling_AIX.hpp" />
+    <Node Include="UNIX_PackageCooling_AIX.hxx" />
+    <Node Include="UNIX_PackageCooling_DARWIN.hpp" />
+    <Node Include="UNIX_PackageCooling_DARWIN.hxx" />
+    <Node Include="UNIX_PackageCooling_FREEBSD.hpp" />
+    <Node Include="UNIX_PackageCooling_FREEBSD.hxx" />
+    <Node Include="UNIX_PackageCooling_HPUX.hpp" />
+    <Node Include="UNIX_PackageCooling_HPUX.hxx" />
+    <Node Include="UNIX_PackageCooling_LINUX.hpp" />
+    <Node Include="UNIX_PackageCooling_LINUX.hxx" />
+    <Node Include="UNIX_PackageCooling_SOLARIS.hpp" />
+    <Node Include="UNIX_PackageCooling_SOLARIS.hxx" />
+    <Node Include="UNIX_PackageCooling_STUB.hpp" />
+    <Node Include="UNIX_PackageCooling_STUB.hxx" />
+    <Node Include="UNIX_PackageCooling_TRU64.hpp" />
+    <Node Include="UNIX_PackageCooling_TRU64.hxx" />
+    <Node Include="UNIX_PackageCooling_VMS.hpp" />
+    <Node Include="UNIX_PackageCooling_VMS.hxx" />
+    <Node Include="UNIX_PackageCooling_WIN32.hpp" />
+    <Node Include="UNIX_PackageCooling_ZOS.hpp" />
+    <Node Include="UNIX_PackageCooling_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

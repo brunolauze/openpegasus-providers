@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE488E8B-1638-41E6-A323-494F83E86FF1}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_PowerAllocationSettingDataProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PowerAllocationSettingDataLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PowerAllocationSettingDataLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_PowerAllocationSettingDataProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PowerAllocationSettingDataLib" -DPROVIDER_LIB_NS="namespace UNIX_PowerAllocationSettingDataLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_PowerAllocationSettingData.cpp" />
+    <Compile Include="UNIX_PowerAllocationSettingDataMain.cpp" />
+    <Compile Include="UNIX_PowerAllocationSettingDataProvider.cpp" />
+    <Compile Include="UNIX_PowerAllocationSettingData_AIX.cpp" />
+    <Compile Include="UNIX_PowerAllocationSettingData_DARWIN.cpp" />
+    <Compile Include="UNIX_PowerAllocationSettingData_FREEBSD.cpp" />
+    <Compile Include="UNIX_PowerAllocationSettingData_HPUX.cpp" />
+    <Compile Include="UNIX_PowerAllocationSettingData_LINUX.cpp" />
+    <Compile Include="UNIX_PowerAllocationSettingData_SOLARIS.cpp" />
+    <Compile Include="UNIX_PowerAllocationSettingData_STUB.cpp" />
+    <Compile Include="UNIX_PowerAllocationSettingData_TRU64.cpp" />
+    <Compile Include="UNIX_PowerAllocationSettingData_VMS.cpp" />
+    <Compile Include="UNIX_PowerAllocationSettingData_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_PowerAllocationSettingData.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataDeps.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataDeps_AIX.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataDeps_DARWIN.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataDeps_FREEBSD.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataDeps_HPUX.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataDeps_LINUX.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataDeps_SOLARIS.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataDeps_STUB.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataDeps_TRU64.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataDeps_VMS.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataDeps_ZOS.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataPrivate.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataPrivate_AIX.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataPrivate_DARWIN.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataPrivate_FREEBSD.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataPrivate_HPUX.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataPrivate_LINUX.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataPrivate_SOLARIS.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataPrivate_STUB.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataPrivate_TRU64.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataPrivate_VMS.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataPrivate_ZOS.h" />
+    <Node Include="UNIX_PowerAllocationSettingDataProvider.h" />
+    <Node Include="UNIX_PowerAllocationSettingData_AIX.hpp" />
+    <Node Include="UNIX_PowerAllocationSettingData_AIX.hxx" />
+    <Node Include="UNIX_PowerAllocationSettingData_DARWIN.hpp" />
+    <Node Include="UNIX_PowerAllocationSettingData_DARWIN.hxx" />
+    <Node Include="UNIX_PowerAllocationSettingData_FREEBSD.hpp" />
+    <Node Include="UNIX_PowerAllocationSettingData_FREEBSD.hxx" />
+    <Node Include="UNIX_PowerAllocationSettingData_HPUX.hpp" />
+    <Node Include="UNIX_PowerAllocationSettingData_HPUX.hxx" />
+    <Node Include="UNIX_PowerAllocationSettingData_LINUX.hpp" />
+    <Node Include="UNIX_PowerAllocationSettingData_LINUX.hxx" />
+    <Node Include="UNIX_PowerAllocationSettingData_SOLARIS.hpp" />
+    <Node Include="UNIX_PowerAllocationSettingData_SOLARIS.hxx" />
+    <Node Include="UNIX_PowerAllocationSettingData_STUB.hpp" />
+    <Node Include="UNIX_PowerAllocationSettingData_STUB.hxx" />
+    <Node Include="UNIX_PowerAllocationSettingData_TRU64.hpp" />
+    <Node Include="UNIX_PowerAllocationSettingData_TRU64.hxx" />
+    <Node Include="UNIX_PowerAllocationSettingData_VMS.hpp" />
+    <Node Include="UNIX_PowerAllocationSettingData_VMS.hxx" />
+    <Node Include="UNIX_PowerAllocationSettingData_WIN32.hpp" />
+    <Node Include="UNIX_PowerAllocationSettingData_ZOS.hpp" />
+    <Node Include="UNIX_PowerAllocationSettingData_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

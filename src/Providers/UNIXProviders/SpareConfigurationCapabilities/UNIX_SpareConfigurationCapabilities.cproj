@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B11352C3-C455-4BA9-BC8B-7DA8623A4944}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_SpareConfigurationCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SpareConfigurationCapabilitiesLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SpareConfigurationCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_SpareConfigurationCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SpareConfigurationCapabilitiesLib" -DPROVIDER_LIB_NS="namespace UNIX_SpareConfigurationCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SpareConfigurationCapabilities.cpp" />
+    <Compile Include="UNIX_SpareConfigurationCapabilitiesMain.cpp" />
+    <Compile Include="UNIX_SpareConfigurationCapabilitiesProvider.cpp" />
+    <Compile Include="UNIX_SpareConfigurationCapabilities_AIX.cpp" />
+    <Compile Include="UNIX_SpareConfigurationCapabilities_DARWIN.cpp" />
+    <Compile Include="UNIX_SpareConfigurationCapabilities_FREEBSD.cpp" />
+    <Compile Include="UNIX_SpareConfigurationCapabilities_HPUX.cpp" />
+    <Compile Include="UNIX_SpareConfigurationCapabilities_LINUX.cpp" />
+    <Compile Include="UNIX_SpareConfigurationCapabilities_SOLARIS.cpp" />
+    <Compile Include="UNIX_SpareConfigurationCapabilities_STUB.cpp" />
+    <Compile Include="UNIX_SpareConfigurationCapabilities_TRU64.cpp" />
+    <Compile Include="UNIX_SpareConfigurationCapabilities_VMS.cpp" />
+    <Compile Include="UNIX_SpareConfigurationCapabilities_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_SpareConfigurationCapabilities.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesDeps.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesDeps_AIX.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesDeps_DARWIN.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesDeps_FREEBSD.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesDeps_HPUX.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesDeps_LINUX.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesDeps_SOLARIS.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesDeps_STUB.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesDeps_TRU64.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesDeps_VMS.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesDeps_ZOS.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesPrivate.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesPrivate_AIX.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesPrivate_DARWIN.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesPrivate_FREEBSD.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesPrivate_HPUX.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesPrivate_LINUX.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesPrivate_SOLARIS.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesPrivate_STUB.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesPrivate_TRU64.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesPrivate_VMS.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesPrivate_ZOS.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilitiesProvider.h" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_AIX.hpp" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_AIX.hxx" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_DARWIN.hpp" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_DARWIN.hxx" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_FREEBSD.hpp" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_FREEBSD.hxx" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_HPUX.hpp" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_HPUX.hxx" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_LINUX.hpp" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_LINUX.hxx" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_SOLARIS.hpp" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_SOLARIS.hxx" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_STUB.hpp" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_STUB.hxx" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_TRU64.hpp" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_TRU64.hxx" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_VMS.hpp" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_VMS.hxx" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_WIN32.hpp" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_ZOS.hpp" />
+    <Node Include="UNIX_SpareConfigurationCapabilities_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

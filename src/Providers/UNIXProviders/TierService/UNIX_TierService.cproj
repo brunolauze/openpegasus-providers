@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4AE24392-5316-4EBB-ADA1-AA48B477E6F9}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+        <Package file="../StorageTier/UNIX_StorageTier.md.pc" name="UNIX_StorageTier" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageTier/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_TierServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TierServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_TierServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider -lUNIX_StorageTierProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_TierServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TierServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_TierServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider -lUNIX_StorageTierProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_TierService.cpp" />
+    <Compile Include="UNIX_TierServiceMain.cpp" />
+    <Compile Include="UNIX_TierServiceProvider.cpp" />
+    <Compile Include="UNIX_TierService_AIX.cpp" />
+    <Compile Include="UNIX_TierService_DARWIN.cpp" />
+    <Compile Include="UNIX_TierService_FREEBSD.cpp" />
+    <Compile Include="UNIX_TierService_HPUX.cpp" />
+    <Compile Include="UNIX_TierService_LINUX.cpp" />
+    <Compile Include="UNIX_TierService_SOLARIS.cpp" />
+    <Compile Include="UNIX_TierService_STUB.cpp" />
+    <Compile Include="UNIX_TierService_TRU64.cpp" />
+    <Compile Include="UNIX_TierService_VMS.cpp" />
+    <Compile Include="UNIX_TierService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_TierService.h" />
+    <Node Include="UNIX_TierServiceDeps.h" />
+    <Node Include="UNIX_TierServiceDeps_AIX.h" />
+    <Node Include="UNIX_TierServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_TierServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_TierServiceDeps_HPUX.h" />
+    <Node Include="UNIX_TierServiceDeps_LINUX.h" />
+    <Node Include="UNIX_TierServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_TierServiceDeps_STUB.h" />
+    <Node Include="UNIX_TierServiceDeps_TRU64.h" />
+    <Node Include="UNIX_TierServiceDeps_VMS.h" />
+    <Node Include="UNIX_TierServiceDeps_ZOS.h" />
+    <Node Include="UNIX_TierServicePrivate.h" />
+    <Node Include="UNIX_TierServicePrivate_AIX.h" />
+    <Node Include="UNIX_TierServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_TierServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_TierServicePrivate_HPUX.h" />
+    <Node Include="UNIX_TierServicePrivate_LINUX.h" />
+    <Node Include="UNIX_TierServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_TierServicePrivate_STUB.h" />
+    <Node Include="UNIX_TierServicePrivate_TRU64.h" />
+    <Node Include="UNIX_TierServicePrivate_VMS.h" />
+    <Node Include="UNIX_TierServicePrivate_ZOS.h" />
+    <Node Include="UNIX_TierServiceProvider.h" />
+    <Node Include="UNIX_TierService_AIX.hpp" />
+    <Node Include="UNIX_TierService_AIX.hxx" />
+    <Node Include="UNIX_TierService_DARWIN.hpp" />
+    <Node Include="UNIX_TierService_DARWIN.hxx" />
+    <Node Include="UNIX_TierService_FREEBSD.hpp" />
+    <Node Include="UNIX_TierService_FREEBSD.hxx" />
+    <Node Include="UNIX_TierService_HPUX.hpp" />
+    <Node Include="UNIX_TierService_HPUX.hxx" />
+    <Node Include="UNIX_TierService_LINUX.hpp" />
+    <Node Include="UNIX_TierService_LINUX.hxx" />
+    <Node Include="UNIX_TierService_SOLARIS.hpp" />
+    <Node Include="UNIX_TierService_SOLARIS.hxx" />
+    <Node Include="UNIX_TierService_STUB.hpp" />
+    <Node Include="UNIX_TierService_STUB.hxx" />
+    <Node Include="UNIX_TierService_TRU64.hpp" />
+    <Node Include="UNIX_TierService_TRU64.hxx" />
+    <Node Include="UNIX_TierService_VMS.hpp" />
+    <Node Include="UNIX_TierService_VMS.hxx" />
+    <Node Include="UNIX_TierService_WIN32.hpp" />
+    <Node Include="UNIX_TierService_ZOS.hpp" />
+    <Node Include="UNIX_TierService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

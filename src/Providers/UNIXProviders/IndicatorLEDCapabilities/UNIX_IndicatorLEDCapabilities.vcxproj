@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+   </ProjectConfiguration>
+   <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+   </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="../CIMHelper.cpp" />
+    <ClCompile Include="UNIX_IndicatorLEDCapabilities.cpp" />
+    <ClCompile Include="UNIX_IndicatorLEDCapabilitiesMain.cpp" />
+    <ClCompile Include="UNIX_IndicatorLEDCapabilitiesProvider.cpp" />
+    <ClCompile Include="UNIX_IndicatorLEDCapabilities_AIX.cpp" />
+    <ClCompile Include="UNIX_IndicatorLEDCapabilities_DARWIN.cpp" />
+    <ClCompile Include="UNIX_IndicatorLEDCapabilities_FREEBSD.cpp" />
+    <ClCompile Include="UNIX_IndicatorLEDCapabilities_HPUX.cpp" />
+    <ClCompile Include="UNIX_IndicatorLEDCapabilities_LINUX.cpp" />
+    <ClCompile Include="UNIX_IndicatorLEDCapabilities_SOLARIS.cpp" />
+    <ClCompile Include="UNIX_IndicatorLEDCapabilities_STUB.cpp" />
+    <ClCompile Include="UNIX_IndicatorLEDCapabilities_TRU64.cpp" />
+    <ClCompile Include="UNIX_IndicatorLEDCapabilities_VMS.cpp" />
+    <ClCompile Include="UNIX_IndicatorLEDCapabilities_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Makefile" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities.cproj" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities.md.pc" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesDeps.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesDeps_AIX.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesDeps_DARWIN.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesDeps_FREEBSD.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesDeps_HPUX.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesDeps_LINUX.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesDeps_SOLARIS.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesDeps_STUB.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesDeps_TRU64.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesDeps_VMS.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesDeps_ZOS.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesPrivate.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesPrivate_AIX.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesPrivate_DARWIN.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesPrivate_FREEBSD.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesPrivate_HPUX.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesPrivate_LINUX.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesPrivate_SOLARIS.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesPrivate_STUB.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesPrivate_TRU64.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesPrivate_VMS.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesPrivate_ZOS.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilitiesProvider.h" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_AIX.hpp" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_AIX.hxx" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_DARWIN.hpp" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_DARWIN.hxx" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_FREEBSD.hpp" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_FREEBSD.hxx" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_HPUX.hpp" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_HPUX.hxx" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_LINUX.hpp" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_LINUX.hxx" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_SOLARIS.hpp" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_SOLARIS.hxx" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_STUB.hpp" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_STUB.hxx" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_TRU64.hpp" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_TRU64.hxx" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_VMS.hpp" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_VMS.hxx" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_WIN32.hpp" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_ZOS.hpp" />
+    <ClInclude Include="UNIX_IndicatorLEDCapabilities_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{84161c14-6924-4949-9a3d-bbd7167f63cc}</ProjectGuid>
+    <RootNamespace>UNIX_IndicatorLEDCapabilitiesLib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>C:\mdtool-plink $(ProjectName)</NMakeBuildCommandLine>
+    <IncludePath>$(ProjectDir)/..;$(VisualStudioDir)\Includes;$(VisualStudioDir)\Includes\c++\v1</IncludePath>
+    <AdditionalOptions>/D__extension__="" /D__RUNETYPE_INTERNAL /D_LIBCPP_HAS_NO_LONG_LONG /D__GNUC_VA_LIST /D__GNUCLIKE_BUILTIN_STDARG /D_BSD_SOURCE /D_XLOCALE_H_ /D_GNU_SOURCE /DTHREAD_SAFE /D_REENTRANT /DPEGASUS_COMMON_INTERNAL /DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU /DPEGASUS_OS_FREEBSD /DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG /DPEGASUS_USE_SYSLOGS /DPEGASUS_ARCH_LIB="lib" /DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION /DPEGASUS_ENABLE_CQL /DPEGASUS_DEFAULT_ENABLE_OOP /DPEGASUS_ENABLE_EXECQUERY /DPEGASUS_HAS_SSL /DPEGASUS_SSL_RANDOMFILE /DPEGASUS_ENABLE_SSL_CRL_VERIFICATION /DPEGASUS_ENABLE_AUDIT_LOGGER /DPEGASUS_ENABLE_IPV6 /DPEGASUS_ENABLE_INDICATION_COUNT /DPEGASUS_ENABLE_SLP /DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 /DPEGASUS_ENABLE_INTEROP_PROVIDER /DPEGASUS_USE_EXPERIMENTAL_INTERFACES /DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER /DPEGASUS_DEST_LIB_DIR="lib" /DPEGASUS_ENABLE_PROTOCOL_WSMAN /DPEGASUS_PAM_AUTHENTICATION /DPEGASUS_NO_PASSWORDFILE /DPEGASUS_ENABLE_PROTOCOL_BINARY /DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" /DPROVIDER_LIB_NS="UNIX_IndicatorLEDCapabilitiesLib" /DPROVIDER_LIB_NS_BEGIN="namespace UNIX_IndicatorLEDCapabilitiesLib {"</AdditionalOptions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>C:\mdtool-plink $(ProjectName)</NMakeBuildCommandLine>
+    <IncludePath>$(ProjectDir)/..;$(VisualStudioDir)\Includes;$(VisualStudioDir)\Includes\c++\v1</IncludePath>
+    <AdditionalOptions>/D__extension__="" /D__RUNETYPE_INTERNAL /D_LIBCPP_HAS_NO_LONG_LONG /D__GNUC_VA_LIST /D__GNUCLIKE_BUILTIN_STDARG /D_BSD_SOURCE /D_XLOCALE_H_ /D_GNU_SOURCE /DTHREAD_SAFE /D_REENTRANT /DPEGASUS_COMMON_INTERNAL /DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU /DPEGASUS_OS_FREEBSD /DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG /DPEGASUS_USE_SYSLOGS /DPEGASUS_ARCH_LIB="lib" /DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION /DPEGASUS_ENABLE_CQL /DPEGASUS_DEFAULT_ENABLE_OOP /DPEGASUS_ENABLE_EXECQUERY /DPEGASUS_HAS_SSL /DPEGASUS_SSL_RANDOMFILE /DPEGASUS_ENABLE_SSL_CRL_VERIFICATION /DPEGASUS_ENABLE_AUDIT_LOGGER /DPEGASUS_ENABLE_IPV6 /DPEGASUS_ENABLE_INDICATION_COUNT /DPEGASUS_ENABLE_SLP /DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 /DPEGASUS_ENABLE_INTEROP_PROVIDER /DPEGASUS_USE_EXPERIMENTAL_INTERFACES /DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER /DPEGASUS_DEST_LIB_DIR="lib" /DPEGASUS_ENABLE_PROTOCOL_WSMAN /DPEGASUS_PAM_AUTHENTICATION /DPEGASUS_NO_PASSWORDFILE /DPEGASUS_ENABLE_PROTOCOL_BINARY /DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" /DPROVIDER_LIB_NS="UNIX_IndicatorLEDCapabilitiesLib" /DPROVIDER_LIB_NS_BEGIN="namespace UNIX_IndicatorLEDCapabilitiesLib {"</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

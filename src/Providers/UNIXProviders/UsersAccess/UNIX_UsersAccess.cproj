@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B763E331-716D-4F2C-97FF-4E0CE98A6B73}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_UsersAccessProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_UsersAccessLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_UsersAccessLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_UsersAccessProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_UsersAccessLib" -DPROVIDER_LIB_NS="namespace UNIX_UsersAccessLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_UsersAccess.cpp" />
+    <Compile Include="UNIX_UsersAccessMain.cpp" />
+    <Compile Include="UNIX_UsersAccessProvider.cpp" />
+    <Compile Include="UNIX_UsersAccess_AIX.cpp" />
+    <Compile Include="UNIX_UsersAccess_DARWIN.cpp" />
+    <Compile Include="UNIX_UsersAccess_FREEBSD.cpp" />
+    <Compile Include="UNIX_UsersAccess_HPUX.cpp" />
+    <Compile Include="UNIX_UsersAccess_LINUX.cpp" />
+    <Compile Include="UNIX_UsersAccess_SOLARIS.cpp" />
+    <Compile Include="UNIX_UsersAccess_STUB.cpp" />
+    <Compile Include="UNIX_UsersAccess_TRU64.cpp" />
+    <Compile Include="UNIX_UsersAccess_VMS.cpp" />
+    <Compile Include="UNIX_UsersAccess_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_UsersAccess.h" />
+    <Node Include="UNIX_UsersAccessDeps.h" />
+    <Node Include="UNIX_UsersAccessDeps_AIX.h" />
+    <Node Include="UNIX_UsersAccessDeps_DARWIN.h" />
+    <Node Include="UNIX_UsersAccessDeps_FREEBSD.h" />
+    <Node Include="UNIX_UsersAccessDeps_HPUX.h" />
+    <Node Include="UNIX_UsersAccessDeps_LINUX.h" />
+    <Node Include="UNIX_UsersAccessDeps_SOLARIS.h" />
+    <Node Include="UNIX_UsersAccessDeps_STUB.h" />
+    <Node Include="UNIX_UsersAccessDeps_TRU64.h" />
+    <Node Include="UNIX_UsersAccessDeps_VMS.h" />
+    <Node Include="UNIX_UsersAccessDeps_ZOS.h" />
+    <Node Include="UNIX_UsersAccessPrivate.h" />
+    <Node Include="UNIX_UsersAccessPrivate_AIX.h" />
+    <Node Include="UNIX_UsersAccessPrivate_DARWIN.h" />
+    <Node Include="UNIX_UsersAccessPrivate_FREEBSD.h" />
+    <Node Include="UNIX_UsersAccessPrivate_HPUX.h" />
+    <Node Include="UNIX_UsersAccessPrivate_LINUX.h" />
+    <Node Include="UNIX_UsersAccessPrivate_SOLARIS.h" />
+    <Node Include="UNIX_UsersAccessPrivate_STUB.h" />
+    <Node Include="UNIX_UsersAccessPrivate_TRU64.h" />
+    <Node Include="UNIX_UsersAccessPrivate_VMS.h" />
+    <Node Include="UNIX_UsersAccessPrivate_ZOS.h" />
+    <Node Include="UNIX_UsersAccessProvider.h" />
+    <Node Include="UNIX_UsersAccess_AIX.hpp" />
+    <Node Include="UNIX_UsersAccess_AIX.hxx" />
+    <Node Include="UNIX_UsersAccess_DARWIN.hpp" />
+    <Node Include="UNIX_UsersAccess_DARWIN.hxx" />
+    <Node Include="UNIX_UsersAccess_FREEBSD.hpp" />
+    <Node Include="UNIX_UsersAccess_FREEBSD.hxx" />
+    <Node Include="UNIX_UsersAccess_HPUX.hpp" />
+    <Node Include="UNIX_UsersAccess_HPUX.hxx" />
+    <Node Include="UNIX_UsersAccess_LINUX.hpp" />
+    <Node Include="UNIX_UsersAccess_LINUX.hxx" />
+    <Node Include="UNIX_UsersAccess_SOLARIS.hpp" />
+    <Node Include="UNIX_UsersAccess_SOLARIS.hxx" />
+    <Node Include="UNIX_UsersAccess_STUB.hpp" />
+    <Node Include="UNIX_UsersAccess_STUB.hxx" />
+    <Node Include="UNIX_UsersAccess_TRU64.hpp" />
+    <Node Include="UNIX_UsersAccess_TRU64.hxx" />
+    <Node Include="UNIX_UsersAccess_VMS.hpp" />
+    <Node Include="UNIX_UsersAccess_VMS.hxx" />
+    <Node Include="UNIX_UsersAccess_WIN32.hpp" />
+    <Node Include="UNIX_UsersAccess_ZOS.hpp" />
+    <Node Include="UNIX_UsersAccess_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

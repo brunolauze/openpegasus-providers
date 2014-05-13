@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{39251645-F918-4DC7-AAFA-C407C0EA9CF1}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_OrderedDependencyProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_OrderedDependencyLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_OrderedDependencyLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_OrderedDependencyProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_OrderedDependencyLib" -DPROVIDER_LIB_NS="namespace UNIX_OrderedDependencyLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_OrderedDependency.cpp" />
+    <Compile Include="UNIX_OrderedDependencyMain.cpp" />
+    <Compile Include="UNIX_OrderedDependencyProvider.cpp" />
+    <Compile Include="UNIX_OrderedDependency_AIX.cpp" />
+    <Compile Include="UNIX_OrderedDependency_DARWIN.cpp" />
+    <Compile Include="UNIX_OrderedDependency_FREEBSD.cpp" />
+    <Compile Include="UNIX_OrderedDependency_HPUX.cpp" />
+    <Compile Include="UNIX_OrderedDependency_LINUX.cpp" />
+    <Compile Include="UNIX_OrderedDependency_SOLARIS.cpp" />
+    <Compile Include="UNIX_OrderedDependency_STUB.cpp" />
+    <Compile Include="UNIX_OrderedDependency_TRU64.cpp" />
+    <Compile Include="UNIX_OrderedDependency_VMS.cpp" />
+    <Compile Include="UNIX_OrderedDependency_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_OrderedDependency.h" />
+    <Node Include="UNIX_OrderedDependencyDeps.h" />
+    <Node Include="UNIX_OrderedDependencyDeps_AIX.h" />
+    <Node Include="UNIX_OrderedDependencyDeps_DARWIN.h" />
+    <Node Include="UNIX_OrderedDependencyDeps_FREEBSD.h" />
+    <Node Include="UNIX_OrderedDependencyDeps_HPUX.h" />
+    <Node Include="UNIX_OrderedDependencyDeps_LINUX.h" />
+    <Node Include="UNIX_OrderedDependencyDeps_SOLARIS.h" />
+    <Node Include="UNIX_OrderedDependencyDeps_STUB.h" />
+    <Node Include="UNIX_OrderedDependencyDeps_TRU64.h" />
+    <Node Include="UNIX_OrderedDependencyDeps_VMS.h" />
+    <Node Include="UNIX_OrderedDependencyDeps_ZOS.h" />
+    <Node Include="UNIX_OrderedDependencyPrivate.h" />
+    <Node Include="UNIX_OrderedDependencyPrivate_AIX.h" />
+    <Node Include="UNIX_OrderedDependencyPrivate_DARWIN.h" />
+    <Node Include="UNIX_OrderedDependencyPrivate_FREEBSD.h" />
+    <Node Include="UNIX_OrderedDependencyPrivate_HPUX.h" />
+    <Node Include="UNIX_OrderedDependencyPrivate_LINUX.h" />
+    <Node Include="UNIX_OrderedDependencyPrivate_SOLARIS.h" />
+    <Node Include="UNIX_OrderedDependencyPrivate_STUB.h" />
+    <Node Include="UNIX_OrderedDependencyPrivate_TRU64.h" />
+    <Node Include="UNIX_OrderedDependencyPrivate_VMS.h" />
+    <Node Include="UNIX_OrderedDependencyPrivate_ZOS.h" />
+    <Node Include="UNIX_OrderedDependencyProvider.h" />
+    <Node Include="UNIX_OrderedDependency_AIX.hpp" />
+    <Node Include="UNIX_OrderedDependency_AIX.hxx" />
+    <Node Include="UNIX_OrderedDependency_DARWIN.hpp" />
+    <Node Include="UNIX_OrderedDependency_DARWIN.hxx" />
+    <Node Include="UNIX_OrderedDependency_FREEBSD.hpp" />
+    <Node Include="UNIX_OrderedDependency_FREEBSD.hxx" />
+    <Node Include="UNIX_OrderedDependency_HPUX.hpp" />
+    <Node Include="UNIX_OrderedDependency_HPUX.hxx" />
+    <Node Include="UNIX_OrderedDependency_LINUX.hpp" />
+    <Node Include="UNIX_OrderedDependency_LINUX.hxx" />
+    <Node Include="UNIX_OrderedDependency_SOLARIS.hpp" />
+    <Node Include="UNIX_OrderedDependency_SOLARIS.hxx" />
+    <Node Include="UNIX_OrderedDependency_STUB.hpp" />
+    <Node Include="UNIX_OrderedDependency_STUB.hxx" />
+    <Node Include="UNIX_OrderedDependency_TRU64.hpp" />
+    <Node Include="UNIX_OrderedDependency_TRU64.hxx" />
+    <Node Include="UNIX_OrderedDependency_VMS.hpp" />
+    <Node Include="UNIX_OrderedDependency_VMS.hxx" />
+    <Node Include="UNIX_OrderedDependency_WIN32.hpp" />
+    <Node Include="UNIX_OrderedDependency_ZOS.hpp" />
+    <Node Include="UNIX_OrderedDependency_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

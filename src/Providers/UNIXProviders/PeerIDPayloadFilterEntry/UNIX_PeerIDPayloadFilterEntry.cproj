@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB4DC95E-61F3-4E87-92A3-4547A801AFB7}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_PeerIDPayloadFilterEntryProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PeerIDPayloadFilterEntryLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PeerIDPayloadFilterEntryLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_PeerIDPayloadFilterEntryProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PeerIDPayloadFilterEntryLib" -DPROVIDER_LIB_NS="namespace UNIX_PeerIDPayloadFilterEntryLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_PeerIDPayloadFilterEntry.cpp" />
+    <Compile Include="UNIX_PeerIDPayloadFilterEntryMain.cpp" />
+    <Compile Include="UNIX_PeerIDPayloadFilterEntryProvider.cpp" />
+    <Compile Include="UNIX_PeerIDPayloadFilterEntry_AIX.cpp" />
+    <Compile Include="UNIX_PeerIDPayloadFilterEntry_DARWIN.cpp" />
+    <Compile Include="UNIX_PeerIDPayloadFilterEntry_FREEBSD.cpp" />
+    <Compile Include="UNIX_PeerIDPayloadFilterEntry_HPUX.cpp" />
+    <Compile Include="UNIX_PeerIDPayloadFilterEntry_LINUX.cpp" />
+    <Compile Include="UNIX_PeerIDPayloadFilterEntry_SOLARIS.cpp" />
+    <Compile Include="UNIX_PeerIDPayloadFilterEntry_STUB.cpp" />
+    <Compile Include="UNIX_PeerIDPayloadFilterEntry_TRU64.cpp" />
+    <Compile Include="UNIX_PeerIDPayloadFilterEntry_VMS.cpp" />
+    <Compile Include="UNIX_PeerIDPayloadFilterEntry_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryDeps.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryDeps_AIX.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryDeps_DARWIN.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryDeps_FREEBSD.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryDeps_HPUX.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryDeps_LINUX.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryDeps_SOLARIS.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryDeps_STUB.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryDeps_TRU64.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryDeps_VMS.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryDeps_ZOS.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryPrivate.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryPrivate_AIX.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryPrivate_DARWIN.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryPrivate_FREEBSD.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryPrivate_HPUX.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryPrivate_LINUX.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryPrivate_SOLARIS.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryPrivate_STUB.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryPrivate_TRU64.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryPrivate_VMS.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryPrivate_ZOS.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntryProvider.h" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_AIX.hpp" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_AIX.hxx" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_DARWIN.hpp" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_DARWIN.hxx" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_FREEBSD.hpp" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_FREEBSD.hxx" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_HPUX.hpp" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_HPUX.hxx" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_LINUX.hpp" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_LINUX.hxx" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_SOLARIS.hpp" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_SOLARIS.hxx" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_STUB.hpp" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_STUB.hxx" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_TRU64.hpp" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_TRU64.hxx" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_VMS.hpp" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_VMS.hxx" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_WIN32.hpp" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_ZOS.hpp" />
+    <Node Include="UNIX_PeerIDPayloadFilterEntry_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

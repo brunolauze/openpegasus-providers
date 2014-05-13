@@ -1,0 +1,135 @@
+//%LICENSE////////////////////////////////////////////////////////////////
+//
+// Licensed to The Open Group (TOG) under one or more contributor license
+// agreements.  Refer to the OpenPegasusNOTICE.txt file distributed with
+// this work for additional information regarding copyright ownership.
+// Each contributor licenses this file to you under the OpenPegasus Open
+// Source License; you may not use this file except in compliance with the
+// License.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//////////////////////////////////////////////////////////////////////////
+//
+//%/////////////////////////////////////////////////////////////////////////
+
+
+
+// Copyright (c) 2005 DMTF.  All rights reserved.
+   [Association, Abstract, Version ( "2.10.0" ), 
+    UMLPackagePath ( "CIM::Core::CoreElements" ), 
+    Description ( 
+       "CIM_Dependency is a generic association used to establish "
+       "dependency relationships between ManagedElements." )]
+class CIM_Dependency {
+
+      [Key, Description ( 
+          "Antecedent represents the independent object in this association."
+           )]
+   CIM_ManagedElement REF Antecedent;
+
+      [Key, Description ( 
+          "Dependent represents the object that is dependent on the "
+          "Antecedent." )]
+   CIM_ManagedElement REF Dependent;
+
+
+};
+
+
+
+// Copyright (c) 2005 DMTF.  All rights reserved.
+   [Association, Experimental, Version ( "2.10.0" ), 
+    UMLPackagePath ( "CIM::Core::CoreElements" ), 
+    Description ( 
+       "This association defines the relationship between a failing "
+       "managed element and the managed element that is causing the "
+       "error. The cause and effect might be indirect. The cause might "
+       "be simply that the lack of functionality of one component "
+       "causes another component to be overworked. \n"
+       "The association instance must exist as long as the cause-and- "
+       "effect relationship exists." )]
+class CIM_RelatedElementCausingError : CIM_Dependency {
+
+      [Override ( "Dependent" ), 
+       Description ( 
+          "Dependent represents the object whose degradation or "
+          "failure is caused, in part, by the Antecedent." )]
+   CIM_ManagedElement REF Dependent;
+
+      [Override ( "Antecedent" ), 
+       Description ( 
+          "Antecedent represents the object causing the failure on "
+          "the Dependent." )]
+   CIM_ManagedElement REF Antecedent;
+
+      [Description ( 
+          "The time that this failure relationship was created. The "
+          "datetime should be provided because it is helpful to "
+          "know when the effect was initiated." )]
+   datetime FailureRelationshipInitiated;
+
+      [Required, Description ( 
+          "An enumeration that very generally describes the "
+          "correlation of the failure of the Antecedent to its "
+          "effect on the Dependent. It describes the weight of the "
+          "effect reported by an instance of this class. The effect "
+          "of the Antecedent element can have a strong or heavy "
+          "impact on the health of the Dependent element, or the "
+          "impact can be weak or light." ), 
+       ValueMap { "2", "10", ".." }, 
+       Values { "Strong Correlated", "Weakly Correlated", 
+          "DMTF Reserved" }]
+   uint16 EffectCorrelation = 10;
+
+      [Description ( 
+          "Because more than one errant Managed Element could cause "
+          "a Managed Element to fail, this ranking is used to "
+          "express the most significant cause. \n"
+          "The Rank attribute is used to declare the ranking of a "
+          "particular cause-and-effect relationship among all "
+          "cause- and-effect relationships that are defined by "
+          "instances of this association for a particular element. \n"
+          "1 is the highest ranking. A rank of 1 declares that this "
+          "cause-and-effect relationship is the most debilitating "
+          "and should be addressed with priority over all other "
+          "cause-and- effect relationships. As the rank increases, "
+          "the effect imposed on the Antecedent Managed Element "
+          "failure decreases. There should be only one instance of "
+          "this association with a particular ranking value per "
+          "Dependent instance. If there is more than one instance "
+          "of the same ranking per Dependent instance, then the "
+          "observer cannot determine from the model which "
+          "cause-and-effect relationship to resolve first. \n"
+          "The ranking of existing instances can change over time "
+          "based on the prevailing conditions of the device." )]
+   uint16 Ranking = 1;
+
+
+};
+
+
+
+   [Version( "2.40.0" ), Description("{0}")]
+class UNIX_RelatedElementCausingError : CIM_RelatedElementCausingError
+{
+
+
+};
+

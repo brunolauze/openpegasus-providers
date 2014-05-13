@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+   </ProjectConfiguration>
+   <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+   </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="../CIMHelper.cpp" />
+    <ClCompile Include="UNIX_IRQ.cpp" />
+    <ClCompile Include="UNIX_IRQMain.cpp" />
+    <ClCompile Include="UNIX_IRQProvider.cpp" />
+    <ClCompile Include="UNIX_IRQ_AIX.cpp" />
+    <ClCompile Include="UNIX_IRQ_DARWIN.cpp" />
+    <ClCompile Include="UNIX_IRQ_FREEBSD.cpp" />
+    <ClCompile Include="UNIX_IRQ_HPUX.cpp" />
+    <ClCompile Include="UNIX_IRQ_LINUX.cpp" />
+    <ClCompile Include="UNIX_IRQ_SOLARIS.cpp" />
+    <ClCompile Include="UNIX_IRQ_STUB.cpp" />
+    <ClCompile Include="UNIX_IRQ_TRU64.cpp" />
+    <ClCompile Include="UNIX_IRQ_VMS.cpp" />
+    <ClCompile Include="UNIX_IRQ_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Makefile" />
+    <ClInclude Include="UNIX_IRQ.cproj" />
+    <ClInclude Include="UNIX_IRQ.h" />
+    <ClInclude Include="UNIX_IRQ.md.pc" />
+    <ClInclude Include="UNIX_IRQDeps.h" />
+    <ClInclude Include="UNIX_IRQDeps_AIX.h" />
+    <ClInclude Include="UNIX_IRQDeps_DARWIN.h" />
+    <ClInclude Include="UNIX_IRQDeps_FREEBSD.h" />
+    <ClInclude Include="UNIX_IRQDeps_HPUX.h" />
+    <ClInclude Include="UNIX_IRQDeps_LINUX.h" />
+    <ClInclude Include="UNIX_IRQDeps_SOLARIS.h" />
+    <ClInclude Include="UNIX_IRQDeps_STUB.h" />
+    <ClInclude Include="UNIX_IRQDeps_TRU64.h" />
+    <ClInclude Include="UNIX_IRQDeps_VMS.h" />
+    <ClInclude Include="UNIX_IRQDeps_ZOS.h" />
+    <ClInclude Include="UNIX_IRQPrivate.h" />
+    <ClInclude Include="UNIX_IRQPrivate_AIX.h" />
+    <ClInclude Include="UNIX_IRQPrivate_DARWIN.h" />
+    <ClInclude Include="UNIX_IRQPrivate_FREEBSD.h" />
+    <ClInclude Include="UNIX_IRQPrivate_HPUX.h" />
+    <ClInclude Include="UNIX_IRQPrivate_LINUX.h" />
+    <ClInclude Include="UNIX_IRQPrivate_SOLARIS.h" />
+    <ClInclude Include="UNIX_IRQPrivate_STUB.h" />
+    <ClInclude Include="UNIX_IRQPrivate_TRU64.h" />
+    <ClInclude Include="UNIX_IRQPrivate_VMS.h" />
+    <ClInclude Include="UNIX_IRQPrivate_ZOS.h" />
+    <ClInclude Include="UNIX_IRQProvider.h" />
+    <ClInclude Include="UNIX_IRQ_AIX.hpp" />
+    <ClInclude Include="UNIX_IRQ_AIX.hxx" />
+    <ClInclude Include="UNIX_IRQ_DARWIN.hpp" />
+    <ClInclude Include="UNIX_IRQ_DARWIN.hxx" />
+    <ClInclude Include="UNIX_IRQ_FREEBSD.hpp" />
+    <ClInclude Include="UNIX_IRQ_FREEBSD.hxx" />
+    <ClInclude Include="UNIX_IRQ_HPUX.hpp" />
+    <ClInclude Include="UNIX_IRQ_HPUX.hxx" />
+    <ClInclude Include="UNIX_IRQ_LINUX.hpp" />
+    <ClInclude Include="UNIX_IRQ_LINUX.hxx" />
+    <ClInclude Include="UNIX_IRQ_SOLARIS.hpp" />
+    <ClInclude Include="UNIX_IRQ_SOLARIS.hxx" />
+    <ClInclude Include="UNIX_IRQ_STUB.hpp" />
+    <ClInclude Include="UNIX_IRQ_STUB.hxx" />
+    <ClInclude Include="UNIX_IRQ_TRU64.hpp" />
+    <ClInclude Include="UNIX_IRQ_TRU64.hxx" />
+    <ClInclude Include="UNIX_IRQ_VMS.hpp" />
+    <ClInclude Include="UNIX_IRQ_VMS.hxx" />
+    <ClInclude Include="UNIX_IRQ_WIN32.hpp" />
+    <ClInclude Include="UNIX_IRQ_ZOS.hpp" />
+    <ClInclude Include="UNIX_IRQ_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{27d96b26-d843-4c9c-87f0-ed185c2217d7}</ProjectGuid>
+    <RootNamespace>UNIX_IRQLib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>C:\mdtool-plink $(ProjectName)</NMakeBuildCommandLine>
+    <IncludePath>$(ProjectDir)/..;$(VisualStudioDir)\Includes;$(VisualStudioDir)\Includes\c++\v1</IncludePath>
+    <AdditionalOptions>/D__extension__="" /D__RUNETYPE_INTERNAL /D_LIBCPP_HAS_NO_LONG_LONG /D__GNUC_VA_LIST /D__GNUCLIKE_BUILTIN_STDARG /D_BSD_SOURCE /D_XLOCALE_H_ /D_GNU_SOURCE /DTHREAD_SAFE /D_REENTRANT /DPEGASUS_COMMON_INTERNAL /DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU /DPEGASUS_OS_FREEBSD /DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG /DPEGASUS_USE_SYSLOGS /DPEGASUS_ARCH_LIB="lib" /DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION /DPEGASUS_ENABLE_CQL /DPEGASUS_DEFAULT_ENABLE_OOP /DPEGASUS_ENABLE_EXECQUERY /DPEGASUS_HAS_SSL /DPEGASUS_SSL_RANDOMFILE /DPEGASUS_ENABLE_SSL_CRL_VERIFICATION /DPEGASUS_ENABLE_AUDIT_LOGGER /DPEGASUS_ENABLE_IPV6 /DPEGASUS_ENABLE_INDICATION_COUNT /DPEGASUS_ENABLE_SLP /DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 /DPEGASUS_ENABLE_INTEROP_PROVIDER /DPEGASUS_USE_EXPERIMENTAL_INTERFACES /DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER /DPEGASUS_DEST_LIB_DIR="lib" /DPEGASUS_ENABLE_PROTOCOL_WSMAN /DPEGASUS_PAM_AUTHENTICATION /DPEGASUS_NO_PASSWORDFILE /DPEGASUS_ENABLE_PROTOCOL_BINARY /DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" /DPROVIDER_LIB_NS="UNIX_IRQLib" /DPROVIDER_LIB_NS_BEGIN="namespace UNIX_IRQLib {"</AdditionalOptions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>C:\mdtool-plink $(ProjectName)</NMakeBuildCommandLine>
+    <IncludePath>$(ProjectDir)/..;$(VisualStudioDir)\Includes;$(VisualStudioDir)\Includes\c++\v1</IncludePath>
+    <AdditionalOptions>/D__extension__="" /D__RUNETYPE_INTERNAL /D_LIBCPP_HAS_NO_LONG_LONG /D__GNUC_VA_LIST /D__GNUCLIKE_BUILTIN_STDARG /D_BSD_SOURCE /D_XLOCALE_H_ /D_GNU_SOURCE /DTHREAD_SAFE /D_REENTRANT /DPEGASUS_COMMON_INTERNAL /DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU /DPEGASUS_OS_FREEBSD /DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG /DPEGASUS_USE_SYSLOGS /DPEGASUS_ARCH_LIB="lib" /DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION /DPEGASUS_ENABLE_CQL /DPEGASUS_DEFAULT_ENABLE_OOP /DPEGASUS_ENABLE_EXECQUERY /DPEGASUS_HAS_SSL /DPEGASUS_SSL_RANDOMFILE /DPEGASUS_ENABLE_SSL_CRL_VERIFICATION /DPEGASUS_ENABLE_AUDIT_LOGGER /DPEGASUS_ENABLE_IPV6 /DPEGASUS_ENABLE_INDICATION_COUNT /DPEGASUS_ENABLE_SLP /DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 /DPEGASUS_ENABLE_INTEROP_PROVIDER /DPEGASUS_USE_EXPERIMENTAL_INTERFACES /DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER /DPEGASUS_DEST_LIB_DIR="lib" /DPEGASUS_ENABLE_PROTOCOL_WSMAN /DPEGASUS_PAM_AUTHENTICATION /DPEGASUS_NO_PASSWORDFILE /DPEGASUS_ENABLE_PROTOCOL_BINARY /DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" /DPROVIDER_LIB_NS="UNIX_IRQLib" /DPROVIDER_LIB_NS_BEGIN="namespace UNIX_IRQLib {"</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{419BBEBC-87A4-4713-AB58-B212D5316CBE}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ElementConfigurationProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ElementConfigurationLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ElementConfigurationLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ElementConfigurationProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ElementConfigurationLib" -DPROVIDER_LIB_NS="namespace UNIX_ElementConfigurationLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ElementConfiguration.cpp" />
+    <Compile Include="UNIX_ElementConfigurationMain.cpp" />
+    <Compile Include="UNIX_ElementConfigurationProvider.cpp" />
+    <Compile Include="UNIX_ElementConfiguration_AIX.cpp" />
+    <Compile Include="UNIX_ElementConfiguration_DARWIN.cpp" />
+    <Compile Include="UNIX_ElementConfiguration_FREEBSD.cpp" />
+    <Compile Include="UNIX_ElementConfiguration_HPUX.cpp" />
+    <Compile Include="UNIX_ElementConfiguration_LINUX.cpp" />
+    <Compile Include="UNIX_ElementConfiguration_SOLARIS.cpp" />
+    <Compile Include="UNIX_ElementConfiguration_STUB.cpp" />
+    <Compile Include="UNIX_ElementConfiguration_TRU64.cpp" />
+    <Compile Include="UNIX_ElementConfiguration_VMS.cpp" />
+    <Compile Include="UNIX_ElementConfiguration_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ElementConfiguration.h" />
+    <Node Include="UNIX_ElementConfigurationDeps.h" />
+    <Node Include="UNIX_ElementConfigurationDeps_AIX.h" />
+    <Node Include="UNIX_ElementConfigurationDeps_DARWIN.h" />
+    <Node Include="UNIX_ElementConfigurationDeps_FREEBSD.h" />
+    <Node Include="UNIX_ElementConfigurationDeps_HPUX.h" />
+    <Node Include="UNIX_ElementConfigurationDeps_LINUX.h" />
+    <Node Include="UNIX_ElementConfigurationDeps_SOLARIS.h" />
+    <Node Include="UNIX_ElementConfigurationDeps_STUB.h" />
+    <Node Include="UNIX_ElementConfigurationDeps_TRU64.h" />
+    <Node Include="UNIX_ElementConfigurationDeps_VMS.h" />
+    <Node Include="UNIX_ElementConfigurationDeps_ZOS.h" />
+    <Node Include="UNIX_ElementConfigurationPrivate.h" />
+    <Node Include="UNIX_ElementConfigurationPrivate_AIX.h" />
+    <Node Include="UNIX_ElementConfigurationPrivate_DARWIN.h" />
+    <Node Include="UNIX_ElementConfigurationPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ElementConfigurationPrivate_HPUX.h" />
+    <Node Include="UNIX_ElementConfigurationPrivate_LINUX.h" />
+    <Node Include="UNIX_ElementConfigurationPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ElementConfigurationPrivate_STUB.h" />
+    <Node Include="UNIX_ElementConfigurationPrivate_TRU64.h" />
+    <Node Include="UNIX_ElementConfigurationPrivate_VMS.h" />
+    <Node Include="UNIX_ElementConfigurationPrivate_ZOS.h" />
+    <Node Include="UNIX_ElementConfigurationProvider.h" />
+    <Node Include="UNIX_ElementConfiguration_AIX.hpp" />
+    <Node Include="UNIX_ElementConfiguration_AIX.hxx" />
+    <Node Include="UNIX_ElementConfiguration_DARWIN.hpp" />
+    <Node Include="UNIX_ElementConfiguration_DARWIN.hxx" />
+    <Node Include="UNIX_ElementConfiguration_FREEBSD.hpp" />
+    <Node Include="UNIX_ElementConfiguration_FREEBSD.hxx" />
+    <Node Include="UNIX_ElementConfiguration_HPUX.hpp" />
+    <Node Include="UNIX_ElementConfiguration_HPUX.hxx" />
+    <Node Include="UNIX_ElementConfiguration_LINUX.hpp" />
+    <Node Include="UNIX_ElementConfiguration_LINUX.hxx" />
+    <Node Include="UNIX_ElementConfiguration_SOLARIS.hpp" />
+    <Node Include="UNIX_ElementConfiguration_SOLARIS.hxx" />
+    <Node Include="UNIX_ElementConfiguration_STUB.hpp" />
+    <Node Include="UNIX_ElementConfiguration_STUB.hxx" />
+    <Node Include="UNIX_ElementConfiguration_TRU64.hpp" />
+    <Node Include="UNIX_ElementConfiguration_TRU64.hxx" />
+    <Node Include="UNIX_ElementConfiguration_VMS.hpp" />
+    <Node Include="UNIX_ElementConfiguration_VMS.hxx" />
+    <Node Include="UNIX_ElementConfiguration_WIN32.hpp" />
+    <Node Include="UNIX_ElementConfiguration_ZOS.hpp" />
+    <Node Include="UNIX_ElementConfiguration_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

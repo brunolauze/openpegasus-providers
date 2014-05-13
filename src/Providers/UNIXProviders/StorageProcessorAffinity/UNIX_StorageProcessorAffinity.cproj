@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2151CF5-6D68-4800-A69B-A8EDCB2FF837}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../VirtualComputerSystem/UNIX_VirtualComputerSystem.md.pc" name="UNIX_VirtualComputerSystem" IsProject="True" />
+        <Package file="../Cluster/UNIX_Cluster.md.pc" name="UNIX_Cluster" IsProject="True" />
+        <Package file="../ComputerSystem/UNIX_ComputerSystem.md.pc" name="UNIX_ComputerSystem" IsProject="True" />
+        <Package file="../TopologyGraph/UNIX_TopologyGraph.md.pc" name="UNIX_TopologyGraph" IsProject="True" />
+        <Package file="../ConcreteCollection/UNIX_ConcreteCollection.md.pc" name="UNIX_ConcreteCollection" IsProject="True" />
+        <Package file="../StatusCollection/UNIX_StatusCollection.md.pc" name="UNIX_StatusCollection" IsProject="True" />
+        <Package file="../IPXNetwork/UNIX_IPXNetwork.md.pc" name="UNIX_IPXNetwork" IsProject="True" />
+        <Package file="../LANSegment/UNIX_LANSegment.md.pc" name="UNIX_LANSegment" IsProject="True" />
+        <Package file="../IPSubnet/UNIX_IPSubnet.md.pc" name="UNIX_IPSubnet" IsProject="True" />
+        <Package file="../BGPPeerGroup/UNIX_BGPPeerGroup.md.pc" name="UNIX_BGPPeerGroup" IsProject="True" />
+        <Package file="../BufferPool/UNIX_BufferPool.md.pc" name="UNIX_BufferPool" IsProject="True" />
+        <Package file="../MPLSBuffers/UNIX_MPLSBuffers.md.pc" name="UNIX_MPLSBuffers" IsProject="True" />
+        <Package file="../IPAddressRange/UNIX_IPAddressRange.md.pc" name="UNIX_IPAddressRange" IsProject="True" />
+        <Package file="../BGPCluster/UNIX_BGPCluster.md.pc" name="UNIX_BGPCluster" IsProject="True" />
+        <Package file="../DiskGroup/UNIX_DiskGroup.md.pc" name="UNIX_DiskGroup" IsProject="True" />
+        <Package file="../Role/UNIX_Role.md.pc" name="UNIX_Role" IsProject="True" />
+        <Package file="../ReplacementSet/UNIX_ReplacementSet.md.pc" name="UNIX_ReplacementSet" IsProject="True" />
+        <Package file="../StatisticsCollection/UNIX_StatisticsCollection.md.pc" name="UNIX_StatisticsCollection" IsProject="True" />
+        <Package file="../QueryStatisticsCollection/UNIX_QueryStatisticsCollection.md.pc" name="UNIX_QueryStatisticsCollection" IsProject="True" />
+        <Package file="../TargetPortGroup/UNIX_TargetPortGroup.md.pc" name="UNIX_TargetPortGroup" IsProject="True" />
+        <Package file="../Zone/UNIX_Zone.md.pc" name="UNIX_Zone" IsProject="True" />
+        <Package file="../ZoneSet/UNIX_ZoneSet.md.pc" name="UNIX_ZoneSet" IsProject="True" />
+        <Package file="../LANConnectivitySegment/UNIX_LANConnectivitySegment.md.pc" name="UNIX_LANConnectivitySegment" IsProject="True" />
+        <Package file="../IPXConnectivityNetwork/UNIX_IPXConnectivityNetwork.md.pc" name="UNIX_IPXConnectivityNetwork" IsProject="True" />
+        <Package file="../OSPFLink/UNIX_OSPFLink.md.pc" name="UNIX_OSPFLink" IsProject="True" />
+        <Package file="../NetworkVLAN/UNIX_NetworkVLAN.md.pc" name="UNIX_NetworkVLAN" IsProject="True" />
+        <Package file="../IPConnectivitySubnet/UNIX_IPConnectivitySubnet.md.pc" name="UNIX_IPConnectivitySubnet" IsProject="True" />
+        <Package file="../DeviceConnectivityCollection/UNIX_DeviceConnectivityCollection.md.pc" name="UNIX_DeviceConnectivityCollection" IsProject="True" />
+        <Package file="../RemoteReplicationCollection/UNIX_RemoteReplicationCollection.md.pc" name="UNIX_RemoteReplicationCollection" IsProject="True" />
+        <Package file="../StorageTier/UNIX_StorageTier.md.pc" name="UNIX_StorageTier" IsProject="True" />
+        <Package file="../FileSystemStatisticsManifestCollection/UNIX_FileSystemStatisticsManifestCollection.md.pc" name="UNIX_FileSystemStatisticsManifestCollection" IsProject="True" />
+        <Package file="../LogicalPortGroup/UNIX_LogicalPortGroup.md.pc" name="UNIX_LogicalPortGroup" IsProject="True" />
+        <Package file="../PCIPortGroup/UNIX_PCIPortGroup.md.pc" name="UNIX_PCIPortGroup" IsProject="True" />
+        <Package file="../SCSITargetPortGroup/UNIX_SCSITargetPortGroup.md.pc" name="UNIX_SCSITargetPortGroup" IsProject="True" />
+        <Package file="../VirtualRoutingAndForwardingTable/UNIX_VirtualRoutingAndForwardingTable.md.pc" name="UNIX_VirtualRoutingAndForwardingTable" IsProject="True" />
+        <Package file="../StorageResourceLoadGroup/UNIX_StorageResourceLoadGroup.md.pc" name="UNIX_StorageResourceLoadGroup" IsProject="True" />
+        <Package file="../InitiatorMaskingGroup/UNIX_InitiatorMaskingGroup.md.pc" name="UNIX_InitiatorMaskingGroup" IsProject="True" />
+        <Package file="../TargetMaskingGroup/UNIX_TargetMaskingGroup.md.pc" name="UNIX_TargetMaskingGroup" IsProject="True" />
+        <Package file="../DeviceMaskingGroup/UNIX_DeviceMaskingGroup.md.pc" name="UNIX_DeviceMaskingGroup" IsProject="True" />
+        <Package file="../FailoverStorageExtentsCollection/UNIX_FailoverStorageExtentsCollection.md.pc" name="UNIX_FailoverStorageExtentsCollection" IsProject="True" />
+        <Package file="../PolicyRoleCollection/UNIX_PolicyRoleCollection.md.pc" name="UNIX_PolicyRoleCollection" IsProject="True" />
+        <Package file="../BlockStatisticsManifestCollection/UNIX_BlockStatisticsManifestCollection.md.pc" name="UNIX_BlockStatisticsManifestCollection" IsProject="True" />
+        <Package file="../RedundancySet/UNIX_RedundancySet.md.pc" name="UNIX_RedundancySet" IsProject="True" />
+        <Package file="../StorageRedundancySet/UNIX_StorageRedundancySet.md.pc" name="UNIX_StorageRedundancySet" IsProject="True" />
+        <Package file="../RangeOfIPAddresses/UNIX_RangeOfIPAddresses.md.pc" name="UNIX_RangeOfIPAddresses" IsProject="True" />
+        <Package file="../NamedAddressCollection/UNIX_NamedAddressCollection.md.pc" name="UNIX_NamedAddressCollection" IsProject="True" />
+        <Package file="../ReplicationGroup/UNIX_ReplicationGroup.md.pc" name="UNIX_ReplicationGroup" IsProject="True" />
+        <Package file="../InstalledProduct/UNIX_InstalledProduct.md.pc" name="UNIX_InstalledProduct" IsProject="True" />
+        <Package file="../CredentialStore/UNIX_CredentialStore.md.pc" name="UNIX_CredentialStore" IsProject="True" />
+        <Package file="../Keystore/UNIX_Keystore.md.pc" name="UNIX_Keystore" IsProject="True" />
+        <Package file="../FilterCollection/UNIX_FilterCollection.md.pc" name="UNIX_FilterCollection" IsProject="True" />
+        <Package file="../Group/UNIX_Group.md.pc" name="UNIX_Group" IsProject="True" />
+        <Package file="../Profile/UNIX_Profile.md.pc" name="UNIX_Profile" IsProject="True" />
+        <Package file="../BatchJobGroup/UNIX_BatchJobGroup.md.pc" name="UNIX_BatchJobGroup" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../VirtualComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Cluster/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TopologyGraph/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ConcreteCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StatusCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPXNetwork/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LANSegment/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPSubnet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BGPPeerGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BufferPool/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSBuffers/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPAddressRange/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BGPCluster/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiskGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Role/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ReplacementSet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StatisticsCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../QueryStatisticsCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TargetPortGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Zone/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ZoneSet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LANConnectivitySegment/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPXConnectivityNetwork/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OSPFLink/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkVLAN/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPConnectivitySubnet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DeviceConnectivityCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RemoteReplicationCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageTier/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FileSystemStatisticsManifestCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LogicalPortGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PCIPortGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SCSITargetPortGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VirtualRoutingAndForwardingTable/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageResourceLoadGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../InitiatorMaskingGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TargetMaskingGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DeviceMaskingGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FailoverStorageExtentsCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PolicyRoleCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BlockStatisticsManifestCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RedundancySet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageRedundancySet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RangeOfIPAddresses/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NamedAddressCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ReplicationGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../InstalledProduct/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CredentialStore/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Keystore/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FilterCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Group/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Profile/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BatchJobGroup/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_StorageProcessorAffinityProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_StorageProcessorAffinityLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_StorageProcessorAffinityLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider -lUNIX_TopologyGraphProvider -lUNIX_ConcreteCollectionProvider -lUNIX_StatusCollectionProvider -lUNIX_IPXNetworkProvider -lUNIX_LANSegmentProvider -lUNIX_IPSubnetProvider -lUNIX_BGPPeerGroupProvider -lUNIX_BufferPoolProvider -lUNIX_MPLSBuffersProvider -lUNIX_IPAddressRangeProvider -lUNIX_BGPClusterProvider -lUNIX_DiskGroupProvider -lUNIX_RoleProvider -lUNIX_ReplacementSetProvider -lUNIX_StatisticsCollectionProvider -lUNIX_QueryStatisticsCollectionProvider -lUNIX_TargetPortGroupProvider -lUNIX_ZoneProvider -lUNIX_ZoneSetProvider -lUNIX_LANConnectivitySegmentProvider -lUNIX_IPXConnectivityNetworkProvider -lUNIX_OSPFLinkProvider -lUNIX_NetworkVLANProvider -lUNIX_IPConnectivitySubnetProvider -lUNIX_DeviceConnectivityCollectionProvider -lUNIX_RemoteReplicationCollectionProvider -lUNIX_StorageTierProvider -lUNIX_FileSystemStatisticsManifestCollectionProvider -lUNIX_LogicalPortGroupProvider -lUNIX_PCIPortGroupProvider -lUNIX_SCSITargetPortGroupProvider -lUNIX_VirtualRoutingAndForwardingTableProvider -lUNIX_StorageResourceLoadGroupProvider -lUNIX_InitiatorMaskingGroupProvider -lUNIX_TargetMaskingGroupProvider -lUNIX_DeviceMaskingGroupProvider -lUNIX_FailoverStorageExtentsCollectionProvider -lUNIX_PolicyRoleCollectionProvider -lUNIX_BlockStatisticsManifestCollectionProvider -lUNIX_RedundancySetProvider -lUNIX_StorageRedundancySetProvider -lUNIX_RangeOfIPAddressesProvider -lUNIX_NamedAddressCollectionProvider -lUNIX_ReplicationGroupProvider -lUNIX_InstalledProductProvider -lUNIX_CredentialStoreProvider -lUNIX_KeystoreProvider -lUNIX_FilterCollectionProvider -lUNIX_GroupProvider -lUNIX_ProfileProvider -lUNIX_BatchJobGroupProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_StorageProcessorAffinityProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_StorageProcessorAffinityLib" -DPROVIDER_LIB_NS="namespace UNIX_StorageProcessorAffinityLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider -lUNIX_TopologyGraphProvider -lUNIX_ConcreteCollectionProvider -lUNIX_StatusCollectionProvider -lUNIX_IPXNetworkProvider -lUNIX_LANSegmentProvider -lUNIX_IPSubnetProvider -lUNIX_BGPPeerGroupProvider -lUNIX_BufferPoolProvider -lUNIX_MPLSBuffersProvider -lUNIX_IPAddressRangeProvider -lUNIX_BGPClusterProvider -lUNIX_DiskGroupProvider -lUNIX_RoleProvider -lUNIX_ReplacementSetProvider -lUNIX_StatisticsCollectionProvider -lUNIX_QueryStatisticsCollectionProvider -lUNIX_TargetPortGroupProvider -lUNIX_ZoneProvider -lUNIX_ZoneSetProvider -lUNIX_LANConnectivitySegmentProvider -lUNIX_IPXConnectivityNetworkProvider -lUNIX_OSPFLinkProvider -lUNIX_NetworkVLANProvider -lUNIX_IPConnectivitySubnetProvider -lUNIX_DeviceConnectivityCollectionProvider -lUNIX_RemoteReplicationCollectionProvider -lUNIX_StorageTierProvider -lUNIX_FileSystemStatisticsManifestCollectionProvider -lUNIX_LogicalPortGroupProvider -lUNIX_PCIPortGroupProvider -lUNIX_SCSITargetPortGroupProvider -lUNIX_VirtualRoutingAndForwardingTableProvider -lUNIX_StorageResourceLoadGroupProvider -lUNIX_InitiatorMaskingGroupProvider -lUNIX_TargetMaskingGroupProvider -lUNIX_DeviceMaskingGroupProvider -lUNIX_FailoverStorageExtentsCollectionProvider -lUNIX_PolicyRoleCollectionProvider -lUNIX_BlockStatisticsManifestCollectionProvider -lUNIX_RedundancySetProvider -lUNIX_StorageRedundancySetProvider -lUNIX_RangeOfIPAddressesProvider -lUNIX_NamedAddressCollectionProvider -lUNIX_ReplicationGroupProvider -lUNIX_InstalledProductProvider -lUNIX_CredentialStoreProvider -lUNIX_KeystoreProvider -lUNIX_FilterCollectionProvider -lUNIX_GroupProvider -lUNIX_ProfileProvider -lUNIX_BatchJobGroupProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_StorageProcessorAffinity.cpp" />
+    <Compile Include="UNIX_StorageProcessorAffinityMain.cpp" />
+    <Compile Include="UNIX_StorageProcessorAffinityProvider.cpp" />
+    <Compile Include="UNIX_StorageProcessorAffinity_AIX.cpp" />
+    <Compile Include="UNIX_StorageProcessorAffinity_DARWIN.cpp" />
+    <Compile Include="UNIX_StorageProcessorAffinity_FREEBSD.cpp" />
+    <Compile Include="UNIX_StorageProcessorAffinity_HPUX.cpp" />
+    <Compile Include="UNIX_StorageProcessorAffinity_LINUX.cpp" />
+    <Compile Include="UNIX_StorageProcessorAffinity_SOLARIS.cpp" />
+    <Compile Include="UNIX_StorageProcessorAffinity_STUB.cpp" />
+    <Compile Include="UNIX_StorageProcessorAffinity_TRU64.cpp" />
+    <Compile Include="UNIX_StorageProcessorAffinity_VMS.cpp" />
+    <Compile Include="UNIX_StorageProcessorAffinity_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_StorageProcessorAffinity.h" />
+    <Node Include="UNIX_StorageProcessorAffinityDeps.h" />
+    <Node Include="UNIX_StorageProcessorAffinityDeps_AIX.h" />
+    <Node Include="UNIX_StorageProcessorAffinityDeps_DARWIN.h" />
+    <Node Include="UNIX_StorageProcessorAffinityDeps_FREEBSD.h" />
+    <Node Include="UNIX_StorageProcessorAffinityDeps_HPUX.h" />
+    <Node Include="UNIX_StorageProcessorAffinityDeps_LINUX.h" />
+    <Node Include="UNIX_StorageProcessorAffinityDeps_SOLARIS.h" />
+    <Node Include="UNIX_StorageProcessorAffinityDeps_STUB.h" />
+    <Node Include="UNIX_StorageProcessorAffinityDeps_TRU64.h" />
+    <Node Include="UNIX_StorageProcessorAffinityDeps_VMS.h" />
+    <Node Include="UNIX_StorageProcessorAffinityDeps_ZOS.h" />
+    <Node Include="UNIX_StorageProcessorAffinityPrivate.h" />
+    <Node Include="UNIX_StorageProcessorAffinityPrivate_AIX.h" />
+    <Node Include="UNIX_StorageProcessorAffinityPrivate_DARWIN.h" />
+    <Node Include="UNIX_StorageProcessorAffinityPrivate_FREEBSD.h" />
+    <Node Include="UNIX_StorageProcessorAffinityPrivate_HPUX.h" />
+    <Node Include="UNIX_StorageProcessorAffinityPrivate_LINUX.h" />
+    <Node Include="UNIX_StorageProcessorAffinityPrivate_SOLARIS.h" />
+    <Node Include="UNIX_StorageProcessorAffinityPrivate_STUB.h" />
+    <Node Include="UNIX_StorageProcessorAffinityPrivate_TRU64.h" />
+    <Node Include="UNIX_StorageProcessorAffinityPrivate_VMS.h" />
+    <Node Include="UNIX_StorageProcessorAffinityPrivate_ZOS.h" />
+    <Node Include="UNIX_StorageProcessorAffinityProvider.h" />
+    <Node Include="UNIX_StorageProcessorAffinity_AIX.hpp" />
+    <Node Include="UNIX_StorageProcessorAffinity_AIX.hxx" />
+    <Node Include="UNIX_StorageProcessorAffinity_DARWIN.hpp" />
+    <Node Include="UNIX_StorageProcessorAffinity_DARWIN.hxx" />
+    <Node Include="UNIX_StorageProcessorAffinity_FREEBSD.hpp" />
+    <Node Include="UNIX_StorageProcessorAffinity_FREEBSD.hxx" />
+    <Node Include="UNIX_StorageProcessorAffinity_HPUX.hpp" />
+    <Node Include="UNIX_StorageProcessorAffinity_HPUX.hxx" />
+    <Node Include="UNIX_StorageProcessorAffinity_LINUX.hpp" />
+    <Node Include="UNIX_StorageProcessorAffinity_LINUX.hxx" />
+    <Node Include="UNIX_StorageProcessorAffinity_SOLARIS.hpp" />
+    <Node Include="UNIX_StorageProcessorAffinity_SOLARIS.hxx" />
+    <Node Include="UNIX_StorageProcessorAffinity_STUB.hpp" />
+    <Node Include="UNIX_StorageProcessorAffinity_STUB.hxx" />
+    <Node Include="UNIX_StorageProcessorAffinity_TRU64.hpp" />
+    <Node Include="UNIX_StorageProcessorAffinity_TRU64.hxx" />
+    <Node Include="UNIX_StorageProcessorAffinity_VMS.hpp" />
+    <Node Include="UNIX_StorageProcessorAffinity_VMS.hxx" />
+    <Node Include="UNIX_StorageProcessorAffinity_WIN32.hpp" />
+    <Node Include="UNIX_StorageProcessorAffinity_ZOS.hpp" />
+    <Node Include="UNIX_StorageProcessorAffinity_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

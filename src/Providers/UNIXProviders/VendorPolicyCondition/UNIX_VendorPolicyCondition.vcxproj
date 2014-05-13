@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+   </ProjectConfiguration>
+   <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+   </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="../CIMHelper.cpp" />
+    <ClCompile Include="UNIX_VendorPolicyCondition.cpp" />
+    <ClCompile Include="UNIX_VendorPolicyConditionMain.cpp" />
+    <ClCompile Include="UNIX_VendorPolicyConditionProvider.cpp" />
+    <ClCompile Include="UNIX_VendorPolicyCondition_AIX.cpp" />
+    <ClCompile Include="UNIX_VendorPolicyCondition_DARWIN.cpp" />
+    <ClCompile Include="UNIX_VendorPolicyCondition_FREEBSD.cpp" />
+    <ClCompile Include="UNIX_VendorPolicyCondition_HPUX.cpp" />
+    <ClCompile Include="UNIX_VendorPolicyCondition_LINUX.cpp" />
+    <ClCompile Include="UNIX_VendorPolicyCondition_SOLARIS.cpp" />
+    <ClCompile Include="UNIX_VendorPolicyCondition_STUB.cpp" />
+    <ClCompile Include="UNIX_VendorPolicyCondition_TRU64.cpp" />
+    <ClCompile Include="UNIX_VendorPolicyCondition_VMS.cpp" />
+    <ClCompile Include="UNIX_VendorPolicyCondition_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Makefile" />
+    <ClInclude Include="UNIX_VendorPolicyCondition.cproj" />
+    <ClInclude Include="UNIX_VendorPolicyCondition.h" />
+    <ClInclude Include="UNIX_VendorPolicyCondition.md.pc" />
+    <ClInclude Include="UNIX_VendorPolicyConditionDeps.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionDeps_AIX.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionDeps_DARWIN.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionDeps_FREEBSD.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionDeps_HPUX.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionDeps_LINUX.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionDeps_SOLARIS.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionDeps_STUB.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionDeps_TRU64.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionDeps_VMS.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionDeps_ZOS.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionPrivate.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionPrivate_AIX.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionPrivate_DARWIN.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionPrivate_FREEBSD.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionPrivate_HPUX.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionPrivate_LINUX.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionPrivate_SOLARIS.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionPrivate_STUB.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionPrivate_TRU64.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionPrivate_VMS.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionPrivate_ZOS.h" />
+    <ClInclude Include="UNIX_VendorPolicyConditionProvider.h" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_AIX.hpp" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_AIX.hxx" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_DARWIN.hpp" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_DARWIN.hxx" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_FREEBSD.hpp" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_FREEBSD.hxx" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_HPUX.hpp" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_HPUX.hxx" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_LINUX.hpp" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_LINUX.hxx" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_SOLARIS.hpp" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_SOLARIS.hxx" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_STUB.hpp" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_STUB.hxx" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_TRU64.hpp" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_TRU64.hxx" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_VMS.hpp" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_VMS.hxx" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_WIN32.hpp" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_ZOS.hpp" />
+    <ClInclude Include="UNIX_VendorPolicyCondition_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{b6b8321b-4263-46a3-b7dc-44b95f48c6b5}</ProjectGuid>
+    <RootNamespace>UNIX_VendorPolicyConditionLib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>C:\mdtool-plink $(ProjectName)</NMakeBuildCommandLine>
+    <IncludePath>$(ProjectDir)/..;$(VisualStudioDir)\Includes;$(VisualStudioDir)\Includes\c++\v1</IncludePath>
+    <AdditionalOptions>/D__extension__="" /D__RUNETYPE_INTERNAL /D_LIBCPP_HAS_NO_LONG_LONG /D__GNUC_VA_LIST /D__GNUCLIKE_BUILTIN_STDARG /D_BSD_SOURCE /D_XLOCALE_H_ /D_GNU_SOURCE /DTHREAD_SAFE /D_REENTRANT /DPEGASUS_COMMON_INTERNAL /DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU /DPEGASUS_OS_FREEBSD /DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG /DPEGASUS_USE_SYSLOGS /DPEGASUS_ARCH_LIB="lib" /DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION /DPEGASUS_ENABLE_CQL /DPEGASUS_DEFAULT_ENABLE_OOP /DPEGASUS_ENABLE_EXECQUERY /DPEGASUS_HAS_SSL /DPEGASUS_SSL_RANDOMFILE /DPEGASUS_ENABLE_SSL_CRL_VERIFICATION /DPEGASUS_ENABLE_AUDIT_LOGGER /DPEGASUS_ENABLE_IPV6 /DPEGASUS_ENABLE_INDICATION_COUNT /DPEGASUS_ENABLE_SLP /DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 /DPEGASUS_ENABLE_INTEROP_PROVIDER /DPEGASUS_USE_EXPERIMENTAL_INTERFACES /DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER /DPEGASUS_DEST_LIB_DIR="lib" /DPEGASUS_ENABLE_PROTOCOL_WSMAN /DPEGASUS_PAM_AUTHENTICATION /DPEGASUS_NO_PASSWORDFILE /DPEGASUS_ENABLE_PROTOCOL_BINARY /DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" /DPROVIDER_LIB_NS="UNIX_VendorPolicyConditionLib" /DPROVIDER_LIB_NS_BEGIN="namespace UNIX_VendorPolicyConditionLib {"</AdditionalOptions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>C:\mdtool-plink $(ProjectName)</NMakeBuildCommandLine>
+    <IncludePath>$(ProjectDir)/..;$(VisualStudioDir)\Includes;$(VisualStudioDir)\Includes\c++\v1</IncludePath>
+    <AdditionalOptions>/D__extension__="" /D__RUNETYPE_INTERNAL /D_LIBCPP_HAS_NO_LONG_LONG /D__GNUC_VA_LIST /D__GNUCLIKE_BUILTIN_STDARG /D_BSD_SOURCE /D_XLOCALE_H_ /D_GNU_SOURCE /DTHREAD_SAFE /D_REENTRANT /DPEGASUS_COMMON_INTERNAL /DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU /DPEGASUS_OS_FREEBSD /DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG /DPEGASUS_USE_SYSLOGS /DPEGASUS_ARCH_LIB="lib" /DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION /DPEGASUS_ENABLE_CQL /DPEGASUS_DEFAULT_ENABLE_OOP /DPEGASUS_ENABLE_EXECQUERY /DPEGASUS_HAS_SSL /DPEGASUS_SSL_RANDOMFILE /DPEGASUS_ENABLE_SSL_CRL_VERIFICATION /DPEGASUS_ENABLE_AUDIT_LOGGER /DPEGASUS_ENABLE_IPV6 /DPEGASUS_ENABLE_INDICATION_COUNT /DPEGASUS_ENABLE_SLP /DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 /DPEGASUS_ENABLE_INTEROP_PROVIDER /DPEGASUS_USE_EXPERIMENTAL_INTERFACES /DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER /DPEGASUS_DEST_LIB_DIR="lib" /DPEGASUS_ENABLE_PROTOCOL_WSMAN /DPEGASUS_PAM_AUTHENTICATION /DPEGASUS_NO_PASSWORDFILE /DPEGASUS_ENABLE_PROTOCOL_BINARY /DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" /DPROVIDER_LIB_NS="UNIX_VendorPolicyConditionLib" /DPROVIDER_LIB_NS_BEGIN="namespace UNIX_VendorPolicyConditionLib {"</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

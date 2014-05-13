@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2DE12B58-A159-4794-838B-D06F8882C078}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_DisplayControllerProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DisplayControllerLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_DisplayControllerLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_DisplayControllerProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DisplayControllerLib" -DPROVIDER_LIB_NS="namespace UNIX_DisplayControllerLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_DisplayController.cpp" />
+    <Compile Include="UNIX_DisplayControllerMain.cpp" />
+    <Compile Include="UNIX_DisplayControllerProvider.cpp" />
+    <Compile Include="UNIX_DisplayController_AIX.cpp" />
+    <Compile Include="UNIX_DisplayController_DARWIN.cpp" />
+    <Compile Include="UNIX_DisplayController_FREEBSD.cpp" />
+    <Compile Include="UNIX_DisplayController_HPUX.cpp" />
+    <Compile Include="UNIX_DisplayController_LINUX.cpp" />
+    <Compile Include="UNIX_DisplayController_SOLARIS.cpp" />
+    <Compile Include="UNIX_DisplayController_STUB.cpp" />
+    <Compile Include="UNIX_DisplayController_TRU64.cpp" />
+    <Compile Include="UNIX_DisplayController_VMS.cpp" />
+    <Compile Include="UNIX_DisplayController_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_DisplayController.h" />
+    <Node Include="UNIX_DisplayControllerDeps.h" />
+    <Node Include="UNIX_DisplayControllerDeps_AIX.h" />
+    <Node Include="UNIX_DisplayControllerDeps_DARWIN.h" />
+    <Node Include="UNIX_DisplayControllerDeps_FREEBSD.h" />
+    <Node Include="UNIX_DisplayControllerDeps_HPUX.h" />
+    <Node Include="UNIX_DisplayControllerDeps_LINUX.h" />
+    <Node Include="UNIX_DisplayControllerDeps_SOLARIS.h" />
+    <Node Include="UNIX_DisplayControllerDeps_STUB.h" />
+    <Node Include="UNIX_DisplayControllerDeps_TRU64.h" />
+    <Node Include="UNIX_DisplayControllerDeps_VMS.h" />
+    <Node Include="UNIX_DisplayControllerDeps_ZOS.h" />
+    <Node Include="UNIX_DisplayControllerPrivate.h" />
+    <Node Include="UNIX_DisplayControllerPrivate_AIX.h" />
+    <Node Include="UNIX_DisplayControllerPrivate_DARWIN.h" />
+    <Node Include="UNIX_DisplayControllerPrivate_FREEBSD.h" />
+    <Node Include="UNIX_DisplayControllerPrivate_HPUX.h" />
+    <Node Include="UNIX_DisplayControllerPrivate_LINUX.h" />
+    <Node Include="UNIX_DisplayControllerPrivate_SOLARIS.h" />
+    <Node Include="UNIX_DisplayControllerPrivate_STUB.h" />
+    <Node Include="UNIX_DisplayControllerPrivate_TRU64.h" />
+    <Node Include="UNIX_DisplayControllerPrivate_VMS.h" />
+    <Node Include="UNIX_DisplayControllerPrivate_ZOS.h" />
+    <Node Include="UNIX_DisplayControllerProvider.h" />
+    <Node Include="UNIX_DisplayController_AIX.hpp" />
+    <Node Include="UNIX_DisplayController_AIX.hxx" />
+    <Node Include="UNIX_DisplayController_DARWIN.hpp" />
+    <Node Include="UNIX_DisplayController_DARWIN.hxx" />
+    <Node Include="UNIX_DisplayController_FREEBSD.hpp" />
+    <Node Include="UNIX_DisplayController_FREEBSD.hxx" />
+    <Node Include="UNIX_DisplayController_HPUX.hpp" />
+    <Node Include="UNIX_DisplayController_HPUX.hxx" />
+    <Node Include="UNIX_DisplayController_LINUX.hpp" />
+    <Node Include="UNIX_DisplayController_LINUX.hxx" />
+    <Node Include="UNIX_DisplayController_SOLARIS.hpp" />
+    <Node Include="UNIX_DisplayController_SOLARIS.hxx" />
+    <Node Include="UNIX_DisplayController_STUB.hpp" />
+    <Node Include="UNIX_DisplayController_STUB.hxx" />
+    <Node Include="UNIX_DisplayController_TRU64.hpp" />
+    <Node Include="UNIX_DisplayController_TRU64.hxx" />
+    <Node Include="UNIX_DisplayController_VMS.hpp" />
+    <Node Include="UNIX_DisplayController_VMS.hxx" />
+    <Node Include="UNIX_DisplayController_WIN32.hpp" />
+    <Node Include="UNIX_DisplayController_ZOS.hpp" />
+    <Node Include="UNIX_DisplayController_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

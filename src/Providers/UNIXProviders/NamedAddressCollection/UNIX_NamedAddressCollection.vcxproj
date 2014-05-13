@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+   </ProjectConfiguration>
+   <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+   </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="../CIMHelper.cpp" />
+    <ClCompile Include="UNIX_NamedAddressCollection.cpp" />
+    <ClCompile Include="UNIX_NamedAddressCollectionMain.cpp" />
+    <ClCompile Include="UNIX_NamedAddressCollectionProvider.cpp" />
+    <ClCompile Include="UNIX_NamedAddressCollection_AIX.cpp" />
+    <ClCompile Include="UNIX_NamedAddressCollection_DARWIN.cpp" />
+    <ClCompile Include="UNIX_NamedAddressCollection_FREEBSD.cpp" />
+    <ClCompile Include="UNIX_NamedAddressCollection_HPUX.cpp" />
+    <ClCompile Include="UNIX_NamedAddressCollection_LINUX.cpp" />
+    <ClCompile Include="UNIX_NamedAddressCollection_SOLARIS.cpp" />
+    <ClCompile Include="UNIX_NamedAddressCollection_STUB.cpp" />
+    <ClCompile Include="UNIX_NamedAddressCollection_TRU64.cpp" />
+    <ClCompile Include="UNIX_NamedAddressCollection_VMS.cpp" />
+    <ClCompile Include="UNIX_NamedAddressCollection_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Makefile" />
+    <ClInclude Include="UNIX_NamedAddressCollection.cproj" />
+    <ClInclude Include="UNIX_NamedAddressCollection.h" />
+    <ClInclude Include="UNIX_NamedAddressCollection.md.pc" />
+    <ClInclude Include="UNIX_NamedAddressCollectionDeps.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionDeps_AIX.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionDeps_DARWIN.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionDeps_FREEBSD.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionDeps_HPUX.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionDeps_LINUX.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionDeps_SOLARIS.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionDeps_STUB.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionDeps_TRU64.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionDeps_VMS.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionDeps_ZOS.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionPrivate.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionPrivate_AIX.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionPrivate_DARWIN.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionPrivate_FREEBSD.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionPrivate_HPUX.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionPrivate_LINUX.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionPrivate_SOLARIS.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionPrivate_STUB.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionPrivate_TRU64.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionPrivate_VMS.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionPrivate_ZOS.h" />
+    <ClInclude Include="UNIX_NamedAddressCollectionProvider.h" />
+    <ClInclude Include="UNIX_NamedAddressCollection_AIX.hpp" />
+    <ClInclude Include="UNIX_NamedAddressCollection_AIX.hxx" />
+    <ClInclude Include="UNIX_NamedAddressCollection_DARWIN.hpp" />
+    <ClInclude Include="UNIX_NamedAddressCollection_DARWIN.hxx" />
+    <ClInclude Include="UNIX_NamedAddressCollection_FREEBSD.hpp" />
+    <ClInclude Include="UNIX_NamedAddressCollection_FREEBSD.hxx" />
+    <ClInclude Include="UNIX_NamedAddressCollection_HPUX.hpp" />
+    <ClInclude Include="UNIX_NamedAddressCollection_HPUX.hxx" />
+    <ClInclude Include="UNIX_NamedAddressCollection_LINUX.hpp" />
+    <ClInclude Include="UNIX_NamedAddressCollection_LINUX.hxx" />
+    <ClInclude Include="UNIX_NamedAddressCollection_SOLARIS.hpp" />
+    <ClInclude Include="UNIX_NamedAddressCollection_SOLARIS.hxx" />
+    <ClInclude Include="UNIX_NamedAddressCollection_STUB.hpp" />
+    <ClInclude Include="UNIX_NamedAddressCollection_STUB.hxx" />
+    <ClInclude Include="UNIX_NamedAddressCollection_TRU64.hpp" />
+    <ClInclude Include="UNIX_NamedAddressCollection_TRU64.hxx" />
+    <ClInclude Include="UNIX_NamedAddressCollection_VMS.hpp" />
+    <ClInclude Include="UNIX_NamedAddressCollection_VMS.hxx" />
+    <ClInclude Include="UNIX_NamedAddressCollection_WIN32.hpp" />
+    <ClInclude Include="UNIX_NamedAddressCollection_ZOS.hpp" />
+    <ClInclude Include="UNIX_NamedAddressCollection_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{b55259c2-c8b7-4104-a17c-1b394b8940c5}</ProjectGuid>
+    <RootNamespace>UNIX_NamedAddressCollectionLib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>C:\mdtool-plink $(ProjectName)</NMakeBuildCommandLine>
+    <IncludePath>$(ProjectDir)/..;$(VisualStudioDir)\Includes;$(VisualStudioDir)\Includes\c++\v1</IncludePath>
+    <AdditionalOptions>/D__extension__="" /D__RUNETYPE_INTERNAL /D_LIBCPP_HAS_NO_LONG_LONG /D__GNUC_VA_LIST /D__GNUCLIKE_BUILTIN_STDARG /D_BSD_SOURCE /D_XLOCALE_H_ /D_GNU_SOURCE /DTHREAD_SAFE /D_REENTRANT /DPEGASUS_COMMON_INTERNAL /DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU /DPEGASUS_OS_FREEBSD /DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG /DPEGASUS_USE_SYSLOGS /DPEGASUS_ARCH_LIB="lib" /DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION /DPEGASUS_ENABLE_CQL /DPEGASUS_DEFAULT_ENABLE_OOP /DPEGASUS_ENABLE_EXECQUERY /DPEGASUS_HAS_SSL /DPEGASUS_SSL_RANDOMFILE /DPEGASUS_ENABLE_SSL_CRL_VERIFICATION /DPEGASUS_ENABLE_AUDIT_LOGGER /DPEGASUS_ENABLE_IPV6 /DPEGASUS_ENABLE_INDICATION_COUNT /DPEGASUS_ENABLE_SLP /DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 /DPEGASUS_ENABLE_INTEROP_PROVIDER /DPEGASUS_USE_EXPERIMENTAL_INTERFACES /DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER /DPEGASUS_DEST_LIB_DIR="lib" /DPEGASUS_ENABLE_PROTOCOL_WSMAN /DPEGASUS_PAM_AUTHENTICATION /DPEGASUS_NO_PASSWORDFILE /DPEGASUS_ENABLE_PROTOCOL_BINARY /DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" /DPROVIDER_LIB_NS="UNIX_NamedAddressCollectionLib" /DPROVIDER_LIB_NS_BEGIN="namespace UNIX_NamedAddressCollectionLib {"</AdditionalOptions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>C:\mdtool-plink $(ProjectName)</NMakeBuildCommandLine>
+    <IncludePath>$(ProjectDir)/..;$(VisualStudioDir)\Includes;$(VisualStudioDir)\Includes\c++\v1</IncludePath>
+    <AdditionalOptions>/D__extension__="" /D__RUNETYPE_INTERNAL /D_LIBCPP_HAS_NO_LONG_LONG /D__GNUC_VA_LIST /D__GNUCLIKE_BUILTIN_STDARG /D_BSD_SOURCE /D_XLOCALE_H_ /D_GNU_SOURCE /DTHREAD_SAFE /D_REENTRANT /DPEGASUS_COMMON_INTERNAL /DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU /DPEGASUS_OS_FREEBSD /DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG /DPEGASUS_USE_SYSLOGS /DPEGASUS_ARCH_LIB="lib" /DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION /DPEGASUS_ENABLE_CQL /DPEGASUS_DEFAULT_ENABLE_OOP /DPEGASUS_ENABLE_EXECQUERY /DPEGASUS_HAS_SSL /DPEGASUS_SSL_RANDOMFILE /DPEGASUS_ENABLE_SSL_CRL_VERIFICATION /DPEGASUS_ENABLE_AUDIT_LOGGER /DPEGASUS_ENABLE_IPV6 /DPEGASUS_ENABLE_INDICATION_COUNT /DPEGASUS_ENABLE_SLP /DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 /DPEGASUS_ENABLE_INTEROP_PROVIDER /DPEGASUS_USE_EXPERIMENTAL_INTERFACES /DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER /DPEGASUS_DEST_LIB_DIR="lib" /DPEGASUS_ENABLE_PROTOCOL_WSMAN /DPEGASUS_PAM_AUTHENTICATION /DPEGASUS_NO_PASSWORDFILE /DPEGASUS_ENABLE_PROTOCOL_BINARY /DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" /DPROVIDER_LIB_NS="UNIX_NamedAddressCollectionLib" /DPROVIDER_LIB_NS_BEGIN="namespace UNIX_NamedAddressCollectionLib {"</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

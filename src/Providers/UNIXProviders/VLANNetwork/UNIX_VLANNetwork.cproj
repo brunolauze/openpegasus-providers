@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{27BE8D2C-F7D4-46A1-9A8F-227FE3100256}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../Network/UNIX_Network.md.pc" name="UNIX_Network" IsProject="True" />
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../Network/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_VLANNetworkProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_VLANNetworkLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_VLANNetworkLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_NetworkProvider -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_VLANNetworkProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_VLANNetworkLib" -DPROVIDER_LIB_NS="namespace UNIX_VLANNetworkLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_NetworkProvider -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_VLANNetwork.cpp" />
+    <Compile Include="UNIX_VLANNetworkMain.cpp" />
+    <Compile Include="UNIX_VLANNetworkProvider.cpp" />
+    <Compile Include="UNIX_VLANNetwork_AIX.cpp" />
+    <Compile Include="UNIX_VLANNetwork_DARWIN.cpp" />
+    <Compile Include="UNIX_VLANNetwork_FREEBSD.cpp" />
+    <Compile Include="UNIX_VLANNetwork_HPUX.cpp" />
+    <Compile Include="UNIX_VLANNetwork_LINUX.cpp" />
+    <Compile Include="UNIX_VLANNetwork_SOLARIS.cpp" />
+    <Compile Include="UNIX_VLANNetwork_STUB.cpp" />
+    <Compile Include="UNIX_VLANNetwork_TRU64.cpp" />
+    <Compile Include="UNIX_VLANNetwork_VMS.cpp" />
+    <Compile Include="UNIX_VLANNetwork_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_VLANNetwork.h" />
+    <Node Include="UNIX_VLANNetworkDeps.h" />
+    <Node Include="UNIX_VLANNetworkDeps_AIX.h" />
+    <Node Include="UNIX_VLANNetworkDeps_DARWIN.h" />
+    <Node Include="UNIX_VLANNetworkDeps_FREEBSD.h" />
+    <Node Include="UNIX_VLANNetworkDeps_HPUX.h" />
+    <Node Include="UNIX_VLANNetworkDeps_LINUX.h" />
+    <Node Include="UNIX_VLANNetworkDeps_SOLARIS.h" />
+    <Node Include="UNIX_VLANNetworkDeps_STUB.h" />
+    <Node Include="UNIX_VLANNetworkDeps_TRU64.h" />
+    <Node Include="UNIX_VLANNetworkDeps_VMS.h" />
+    <Node Include="UNIX_VLANNetworkDeps_ZOS.h" />
+    <Node Include="UNIX_VLANNetworkPrivate.h" />
+    <Node Include="UNIX_VLANNetworkPrivate_AIX.h" />
+    <Node Include="UNIX_VLANNetworkPrivate_DARWIN.h" />
+    <Node Include="UNIX_VLANNetworkPrivate_FREEBSD.h" />
+    <Node Include="UNIX_VLANNetworkPrivate_HPUX.h" />
+    <Node Include="UNIX_VLANNetworkPrivate_LINUX.h" />
+    <Node Include="UNIX_VLANNetworkPrivate_SOLARIS.h" />
+    <Node Include="UNIX_VLANNetworkPrivate_STUB.h" />
+    <Node Include="UNIX_VLANNetworkPrivate_TRU64.h" />
+    <Node Include="UNIX_VLANNetworkPrivate_VMS.h" />
+    <Node Include="UNIX_VLANNetworkPrivate_ZOS.h" />
+    <Node Include="UNIX_VLANNetworkProvider.h" />
+    <Node Include="UNIX_VLANNetwork_AIX.hpp" />
+    <Node Include="UNIX_VLANNetwork_AIX.hxx" />
+    <Node Include="UNIX_VLANNetwork_DARWIN.hpp" />
+    <Node Include="UNIX_VLANNetwork_DARWIN.hxx" />
+    <Node Include="UNIX_VLANNetwork_FREEBSD.hpp" />
+    <Node Include="UNIX_VLANNetwork_FREEBSD.hxx" />
+    <Node Include="UNIX_VLANNetwork_HPUX.hpp" />
+    <Node Include="UNIX_VLANNetwork_HPUX.hxx" />
+    <Node Include="UNIX_VLANNetwork_LINUX.hpp" />
+    <Node Include="UNIX_VLANNetwork_LINUX.hxx" />
+    <Node Include="UNIX_VLANNetwork_SOLARIS.hpp" />
+    <Node Include="UNIX_VLANNetwork_SOLARIS.hxx" />
+    <Node Include="UNIX_VLANNetwork_STUB.hpp" />
+    <Node Include="UNIX_VLANNetwork_STUB.hxx" />
+    <Node Include="UNIX_VLANNetwork_TRU64.hpp" />
+    <Node Include="UNIX_VLANNetwork_TRU64.hxx" />
+    <Node Include="UNIX_VLANNetwork_VMS.hpp" />
+    <Node Include="UNIX_VLANNetwork_VMS.hxx" />
+    <Node Include="UNIX_VLANNetwork_WIN32.hpp" />
+    <Node Include="UNIX_VLANNetwork_ZOS.hpp" />
+    <Node Include="UNIX_VLANNetwork_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

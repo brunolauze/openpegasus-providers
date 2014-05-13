@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{206E4FDC-E505-4E87-9B35-A33C457BA75E}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../MPLSLSP/UNIX_MPLSLSP.md.pc" name="UNIX_MPLSLSP" IsProject="True" />
+        <Package file="../MPLSTunnel/UNIX_MPLSTunnel.md.pc" name="UNIX_MPLSTunnel" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../MPLSLSP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSTunnel/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_MPLSCurrentlyAssignedLSPProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MPLSCurrentlyAssignedLSPLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_MPLSCurrentlyAssignedLSPLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_MPLSLSPProvider -lUNIX_MPLSTunnelProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_MPLSCurrentlyAssignedLSPProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MPLSCurrentlyAssignedLSPLib" -DPROVIDER_LIB_NS="namespace UNIX_MPLSCurrentlyAssignedLSPLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_MPLSLSPProvider -lUNIX_MPLSTunnelProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_MPLSCurrentlyAssignedLSP.cpp" />
+    <Compile Include="UNIX_MPLSCurrentlyAssignedLSPMain.cpp" />
+    <Compile Include="UNIX_MPLSCurrentlyAssignedLSPProvider.cpp" />
+    <Compile Include="UNIX_MPLSCurrentlyAssignedLSP_AIX.cpp" />
+    <Compile Include="UNIX_MPLSCurrentlyAssignedLSP_DARWIN.cpp" />
+    <Compile Include="UNIX_MPLSCurrentlyAssignedLSP_FREEBSD.cpp" />
+    <Compile Include="UNIX_MPLSCurrentlyAssignedLSP_HPUX.cpp" />
+    <Compile Include="UNIX_MPLSCurrentlyAssignedLSP_LINUX.cpp" />
+    <Compile Include="UNIX_MPLSCurrentlyAssignedLSP_SOLARIS.cpp" />
+    <Compile Include="UNIX_MPLSCurrentlyAssignedLSP_STUB.cpp" />
+    <Compile Include="UNIX_MPLSCurrentlyAssignedLSP_TRU64.cpp" />
+    <Compile Include="UNIX_MPLSCurrentlyAssignedLSP_VMS.cpp" />
+    <Compile Include="UNIX_MPLSCurrentlyAssignedLSP_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPDeps.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPDeps_AIX.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPDeps_DARWIN.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPDeps_FREEBSD.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPDeps_HPUX.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPDeps_LINUX.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPDeps_SOLARIS.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPDeps_STUB.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPDeps_TRU64.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPDeps_VMS.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPDeps_ZOS.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPPrivate.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPPrivate_AIX.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPPrivate_DARWIN.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPPrivate_FREEBSD.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPPrivate_HPUX.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPPrivate_LINUX.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPPrivate_SOLARIS.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPPrivate_STUB.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPPrivate_TRU64.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPPrivate_VMS.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPPrivate_ZOS.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSPProvider.h" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_AIX.hpp" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_AIX.hxx" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_DARWIN.hpp" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_DARWIN.hxx" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_FREEBSD.hpp" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_FREEBSD.hxx" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_HPUX.hpp" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_HPUX.hxx" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_LINUX.hpp" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_LINUX.hxx" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_SOLARIS.hpp" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_SOLARIS.hxx" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_STUB.hpp" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_STUB.hxx" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_TRU64.hpp" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_TRU64.hxx" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_VMS.hpp" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_VMS.hxx" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_WIN32.hpp" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_ZOS.hpp" />
+    <Node Include="UNIX_MPLSCurrentlyAssignedLSP_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

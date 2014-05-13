@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0C11AA95-1316-49C2-B1EC-A04FEC3A21BD}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../BootSourceSetting/UNIX_BootSourceSetting.md.pc" name="UNIX_BootSourceSetting" IsProject="True" />
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../BootSourceSetting/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_BootConfigSettingProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_BootConfigSettingLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_BootConfigSettingLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_BootSourceSettingProvider -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_BootConfigSettingProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_BootConfigSettingLib" -DPROVIDER_LIB_NS="namespace UNIX_BootConfigSettingLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_BootSourceSettingProvider -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_BootConfigSetting.cpp" />
+    <Compile Include="UNIX_BootConfigSettingMain.cpp" />
+    <Compile Include="UNIX_BootConfigSettingProvider.cpp" />
+    <Compile Include="UNIX_BootConfigSetting_AIX.cpp" />
+    <Compile Include="UNIX_BootConfigSetting_DARWIN.cpp" />
+    <Compile Include="UNIX_BootConfigSetting_FREEBSD.cpp" />
+    <Compile Include="UNIX_BootConfigSetting_HPUX.cpp" />
+    <Compile Include="UNIX_BootConfigSetting_LINUX.cpp" />
+    <Compile Include="UNIX_BootConfigSetting_SOLARIS.cpp" />
+    <Compile Include="UNIX_BootConfigSetting_STUB.cpp" />
+    <Compile Include="UNIX_BootConfigSetting_TRU64.cpp" />
+    <Compile Include="UNIX_BootConfigSetting_VMS.cpp" />
+    <Compile Include="UNIX_BootConfigSetting_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_BootConfigSetting.h" />
+    <Node Include="UNIX_BootConfigSettingDeps.h" />
+    <Node Include="UNIX_BootConfigSettingDeps_AIX.h" />
+    <Node Include="UNIX_BootConfigSettingDeps_DARWIN.h" />
+    <Node Include="UNIX_BootConfigSettingDeps_FREEBSD.h" />
+    <Node Include="UNIX_BootConfigSettingDeps_HPUX.h" />
+    <Node Include="UNIX_BootConfigSettingDeps_LINUX.h" />
+    <Node Include="UNIX_BootConfigSettingDeps_SOLARIS.h" />
+    <Node Include="UNIX_BootConfigSettingDeps_STUB.h" />
+    <Node Include="UNIX_BootConfigSettingDeps_TRU64.h" />
+    <Node Include="UNIX_BootConfigSettingDeps_VMS.h" />
+    <Node Include="UNIX_BootConfigSettingDeps_ZOS.h" />
+    <Node Include="UNIX_BootConfigSettingPrivate.h" />
+    <Node Include="UNIX_BootConfigSettingPrivate_AIX.h" />
+    <Node Include="UNIX_BootConfigSettingPrivate_DARWIN.h" />
+    <Node Include="UNIX_BootConfigSettingPrivate_FREEBSD.h" />
+    <Node Include="UNIX_BootConfigSettingPrivate_HPUX.h" />
+    <Node Include="UNIX_BootConfigSettingPrivate_LINUX.h" />
+    <Node Include="UNIX_BootConfigSettingPrivate_SOLARIS.h" />
+    <Node Include="UNIX_BootConfigSettingPrivate_STUB.h" />
+    <Node Include="UNIX_BootConfigSettingPrivate_TRU64.h" />
+    <Node Include="UNIX_BootConfigSettingPrivate_VMS.h" />
+    <Node Include="UNIX_BootConfigSettingPrivate_ZOS.h" />
+    <Node Include="UNIX_BootConfigSettingProvider.h" />
+    <Node Include="UNIX_BootConfigSetting_AIX.hpp" />
+    <Node Include="UNIX_BootConfigSetting_AIX.hxx" />
+    <Node Include="UNIX_BootConfigSetting_DARWIN.hpp" />
+    <Node Include="UNIX_BootConfigSetting_DARWIN.hxx" />
+    <Node Include="UNIX_BootConfigSetting_FREEBSD.hpp" />
+    <Node Include="UNIX_BootConfigSetting_FREEBSD.hxx" />
+    <Node Include="UNIX_BootConfigSetting_HPUX.hpp" />
+    <Node Include="UNIX_BootConfigSetting_HPUX.hxx" />
+    <Node Include="UNIX_BootConfigSetting_LINUX.hpp" />
+    <Node Include="UNIX_BootConfigSetting_LINUX.hxx" />
+    <Node Include="UNIX_BootConfigSetting_SOLARIS.hpp" />
+    <Node Include="UNIX_BootConfigSetting_SOLARIS.hxx" />
+    <Node Include="UNIX_BootConfigSetting_STUB.hpp" />
+    <Node Include="UNIX_BootConfigSetting_STUB.hxx" />
+    <Node Include="UNIX_BootConfigSetting_TRU64.hpp" />
+    <Node Include="UNIX_BootConfigSetting_TRU64.hxx" />
+    <Node Include="UNIX_BootConfigSetting_VMS.hpp" />
+    <Node Include="UNIX_BootConfigSetting_VMS.hxx" />
+    <Node Include="UNIX_BootConfigSetting_WIN32.hpp" />
+    <Node Include="UNIX_BootConfigSetting_ZOS.hpp" />
+    <Node Include="UNIX_BootConfigSetting_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

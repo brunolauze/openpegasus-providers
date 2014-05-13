@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3D56B6B7-7FF7-4024-8C90-4C5220FB2911}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../PacketSchedulingService/UNIX_PacketSchedulingService.md.pc" name="UNIX_PacketSchedulingService" IsProject="True" />
+        <Package file="../PrioritySchedulingElement/UNIX_PrioritySchedulingElement.md.pc" name="UNIX_PrioritySchedulingElement" IsProject="True" />
+        <Package file="../BoundedPrioritySchedulingElement/UNIX_BoundedPrioritySchedulingElement.md.pc" name="UNIX_BoundedPrioritySchedulingElement" IsProject="True" />
+        <Package file="../AllocationSchedulingElement/UNIX_AllocationSchedulingElement.md.pc" name="UNIX_AllocationSchedulingElement" IsProject="True" />
+        <Package file="../WRRSchedulingElement/UNIX_WRRSchedulingElement.md.pc" name="UNIX_WRRSchedulingElement" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../PacketSchedulingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PrioritySchedulingElement/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BoundedPrioritySchedulingElement/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AllocationSchedulingElement/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WRRSchedulingElement/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ElementInSchedulingServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ElementInSchedulingServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ElementInSchedulingServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PacketSchedulingServiceProvider -lUNIX_PrioritySchedulingElementProvider -lUNIX_BoundedPrioritySchedulingElementProvider -lUNIX_AllocationSchedulingElementProvider -lUNIX_WRRSchedulingElementProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ElementInSchedulingServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ElementInSchedulingServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_ElementInSchedulingServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PacketSchedulingServiceProvider -lUNIX_PrioritySchedulingElementProvider -lUNIX_BoundedPrioritySchedulingElementProvider -lUNIX_AllocationSchedulingElementProvider -lUNIX_WRRSchedulingElementProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ElementInSchedulingService.cpp" />
+    <Compile Include="UNIX_ElementInSchedulingServiceMain.cpp" />
+    <Compile Include="UNIX_ElementInSchedulingServiceProvider.cpp" />
+    <Compile Include="UNIX_ElementInSchedulingService_AIX.cpp" />
+    <Compile Include="UNIX_ElementInSchedulingService_DARWIN.cpp" />
+    <Compile Include="UNIX_ElementInSchedulingService_FREEBSD.cpp" />
+    <Compile Include="UNIX_ElementInSchedulingService_HPUX.cpp" />
+    <Compile Include="UNIX_ElementInSchedulingService_LINUX.cpp" />
+    <Compile Include="UNIX_ElementInSchedulingService_SOLARIS.cpp" />
+    <Compile Include="UNIX_ElementInSchedulingService_STUB.cpp" />
+    <Compile Include="UNIX_ElementInSchedulingService_TRU64.cpp" />
+    <Compile Include="UNIX_ElementInSchedulingService_VMS.cpp" />
+    <Compile Include="UNIX_ElementInSchedulingService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ElementInSchedulingService.h" />
+    <Node Include="UNIX_ElementInSchedulingServiceDeps.h" />
+    <Node Include="UNIX_ElementInSchedulingServiceDeps_AIX.h" />
+    <Node Include="UNIX_ElementInSchedulingServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_ElementInSchedulingServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_ElementInSchedulingServiceDeps_HPUX.h" />
+    <Node Include="UNIX_ElementInSchedulingServiceDeps_LINUX.h" />
+    <Node Include="UNIX_ElementInSchedulingServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_ElementInSchedulingServiceDeps_STUB.h" />
+    <Node Include="UNIX_ElementInSchedulingServiceDeps_TRU64.h" />
+    <Node Include="UNIX_ElementInSchedulingServiceDeps_VMS.h" />
+    <Node Include="UNIX_ElementInSchedulingServiceDeps_ZOS.h" />
+    <Node Include="UNIX_ElementInSchedulingServicePrivate.h" />
+    <Node Include="UNIX_ElementInSchedulingServicePrivate_AIX.h" />
+    <Node Include="UNIX_ElementInSchedulingServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_ElementInSchedulingServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_ElementInSchedulingServicePrivate_HPUX.h" />
+    <Node Include="UNIX_ElementInSchedulingServicePrivate_LINUX.h" />
+    <Node Include="UNIX_ElementInSchedulingServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_ElementInSchedulingServicePrivate_STUB.h" />
+    <Node Include="UNIX_ElementInSchedulingServicePrivate_TRU64.h" />
+    <Node Include="UNIX_ElementInSchedulingServicePrivate_VMS.h" />
+    <Node Include="UNIX_ElementInSchedulingServicePrivate_ZOS.h" />
+    <Node Include="UNIX_ElementInSchedulingServiceProvider.h" />
+    <Node Include="UNIX_ElementInSchedulingService_AIX.hpp" />
+    <Node Include="UNIX_ElementInSchedulingService_AIX.hxx" />
+    <Node Include="UNIX_ElementInSchedulingService_DARWIN.hpp" />
+    <Node Include="UNIX_ElementInSchedulingService_DARWIN.hxx" />
+    <Node Include="UNIX_ElementInSchedulingService_FREEBSD.hpp" />
+    <Node Include="UNIX_ElementInSchedulingService_FREEBSD.hxx" />
+    <Node Include="UNIX_ElementInSchedulingService_HPUX.hpp" />
+    <Node Include="UNIX_ElementInSchedulingService_HPUX.hxx" />
+    <Node Include="UNIX_ElementInSchedulingService_LINUX.hpp" />
+    <Node Include="UNIX_ElementInSchedulingService_LINUX.hxx" />
+    <Node Include="UNIX_ElementInSchedulingService_SOLARIS.hpp" />
+    <Node Include="UNIX_ElementInSchedulingService_SOLARIS.hxx" />
+    <Node Include="UNIX_ElementInSchedulingService_STUB.hpp" />
+    <Node Include="UNIX_ElementInSchedulingService_STUB.hxx" />
+    <Node Include="UNIX_ElementInSchedulingService_TRU64.hpp" />
+    <Node Include="UNIX_ElementInSchedulingService_TRU64.hxx" />
+    <Node Include="UNIX_ElementInSchedulingService_VMS.hpp" />
+    <Node Include="UNIX_ElementInSchedulingService_VMS.hxx" />
+    <Node Include="UNIX_ElementInSchedulingService_WIN32.hpp" />
+    <Node Include="UNIX_ElementInSchedulingService_ZOS.hpp" />
+    <Node Include="UNIX_ElementInSchedulingService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

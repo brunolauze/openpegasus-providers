@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D833614D-B943-4772-9121-BE16B9F02FF5}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ProtocolController/UNIX_ProtocolController.md.pc" name="UNIX_ProtocolController" IsProject="True" />
+        <Package file="../NetworkPort/UNIX_NetworkPort.md.pc" name="UNIX_NetworkPort" IsProject="True" />
+        <Package file="../WiFiPort/UNIX_WiFiPort.md.pc" name="UNIX_WiFiPort" IsProject="True" />
+        <Package file="../EthernetPort/UNIX_EthernetPort.md.pc" name="UNIX_EthernetPort" IsProject="True" />
+        <Package file="../LLDPEthernetPort/UNIX_LLDPEthernetPort.md.pc" name="UNIX_LLDPEthernetPort" IsProject="True" />
+        <Package file="../DataCenterEthernetPort/UNIX_DataCenterEthernetPort.md.pc" name="UNIX_DataCenterEthernetPort" IsProject="True" />
+        <Package file="../SASPort/UNIX_SASPort.md.pc" name="UNIX_SASPort" IsProject="True" />
+        <Package file="../IBPort/UNIX_IBPort.md.pc" name="UNIX_IBPort" IsProject="True" />
+        <Package file="../FCPort/UNIX_FCPort.md.pc" name="UNIX_FCPort" IsProject="True" />
+        <Package file="../WirelessPort/UNIX_WirelessPort.md.pc" name="UNIX_WirelessPort" IsProject="True" />
+        <Package file="../TokenRingPort/UNIX_TokenRingPort.md.pc" name="UNIX_TokenRingPort" IsProject="True" />
+        <Package file="../DAPort/UNIX_DAPort.md.pc" name="UNIX_DAPort" IsProject="True" />
+        <Package file="../SerialPort/UNIX_SerialPort.md.pc" name="UNIX_SerialPort" IsProject="True" />
+        <Package file="../ATAPort/UNIX_ATAPort.md.pc" name="UNIX_ATAPort" IsProject="True" />
+        <Package file="../USBPort/UNIX_USBPort.md.pc" name="UNIX_USBPort" IsProject="True" />
+        <Package file="../PCIPort/UNIX_PCIPort.md.pc" name="UNIX_PCIPort" IsProject="True" />
+        <Package file="../SPIPort/UNIX_SPIPort.md.pc" name="UNIX_SPIPort" IsProject="True" />
+        <Package file="../ParallelPort/UNIX_ParallelPort.md.pc" name="UNIX_ParallelPort" IsProject="True" />
+        <Package file="../FibrePort/UNIX_FibrePort.md.pc" name="UNIX_FibrePort" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ProtocolController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WiFiPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EthernetPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LLDPEthernetPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DataCenterEthernetPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SASPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IBPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FCPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WirelessPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TokenRingPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DAPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SerialPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ATAPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../USBPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PCIPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SPIPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ParallelPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FibrePort/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ProtocolControllerForPortProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ProtocolControllerForPortLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ProtocolControllerForPortLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ProtocolControllerProvider -lUNIX_NetworkPortProvider -lUNIX_WiFiPortProvider -lUNIX_EthernetPortProvider -lUNIX_LLDPEthernetPortProvider -lUNIX_DataCenterEthernetPortProvider -lUNIX_SASPortProvider -lUNIX_IBPortProvider -lUNIX_FCPortProvider -lUNIX_WirelessPortProvider -lUNIX_TokenRingPortProvider -lUNIX_DAPortProvider -lUNIX_SerialPortProvider -lUNIX_ATAPortProvider -lUNIX_USBPortProvider -lUNIX_PCIPortProvider -lUNIX_SPIPortProvider -lUNIX_ParallelPortProvider -lUNIX_FibrePortProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ProtocolControllerForPortProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ProtocolControllerForPortLib" -DPROVIDER_LIB_NS="namespace UNIX_ProtocolControllerForPortLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ProtocolControllerProvider -lUNIX_NetworkPortProvider -lUNIX_WiFiPortProvider -lUNIX_EthernetPortProvider -lUNIX_LLDPEthernetPortProvider -lUNIX_DataCenterEthernetPortProvider -lUNIX_SASPortProvider -lUNIX_IBPortProvider -lUNIX_FCPortProvider -lUNIX_WirelessPortProvider -lUNIX_TokenRingPortProvider -lUNIX_DAPortProvider -lUNIX_SerialPortProvider -lUNIX_ATAPortProvider -lUNIX_USBPortProvider -lUNIX_PCIPortProvider -lUNIX_SPIPortProvider -lUNIX_ParallelPortProvider -lUNIX_FibrePortProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ProtocolControllerForPort.cpp" />
+    <Compile Include="UNIX_ProtocolControllerForPortMain.cpp" />
+    <Compile Include="UNIX_ProtocolControllerForPortProvider.cpp" />
+    <Compile Include="UNIX_ProtocolControllerForPort_AIX.cpp" />
+    <Compile Include="UNIX_ProtocolControllerForPort_DARWIN.cpp" />
+    <Compile Include="UNIX_ProtocolControllerForPort_FREEBSD.cpp" />
+    <Compile Include="UNIX_ProtocolControllerForPort_HPUX.cpp" />
+    <Compile Include="UNIX_ProtocolControllerForPort_LINUX.cpp" />
+    <Compile Include="UNIX_ProtocolControllerForPort_SOLARIS.cpp" />
+    <Compile Include="UNIX_ProtocolControllerForPort_STUB.cpp" />
+    <Compile Include="UNIX_ProtocolControllerForPort_TRU64.cpp" />
+    <Compile Include="UNIX_ProtocolControllerForPort_VMS.cpp" />
+    <Compile Include="UNIX_ProtocolControllerForPort_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ProtocolControllerForPort.h" />
+    <Node Include="UNIX_ProtocolControllerForPortDeps.h" />
+    <Node Include="UNIX_ProtocolControllerForPortDeps_AIX.h" />
+    <Node Include="UNIX_ProtocolControllerForPortDeps_DARWIN.h" />
+    <Node Include="UNIX_ProtocolControllerForPortDeps_FREEBSD.h" />
+    <Node Include="UNIX_ProtocolControllerForPortDeps_HPUX.h" />
+    <Node Include="UNIX_ProtocolControllerForPortDeps_LINUX.h" />
+    <Node Include="UNIX_ProtocolControllerForPortDeps_SOLARIS.h" />
+    <Node Include="UNIX_ProtocolControllerForPortDeps_STUB.h" />
+    <Node Include="UNIX_ProtocolControllerForPortDeps_TRU64.h" />
+    <Node Include="UNIX_ProtocolControllerForPortDeps_VMS.h" />
+    <Node Include="UNIX_ProtocolControllerForPortDeps_ZOS.h" />
+    <Node Include="UNIX_ProtocolControllerForPortPrivate.h" />
+    <Node Include="UNIX_ProtocolControllerForPortPrivate_AIX.h" />
+    <Node Include="UNIX_ProtocolControllerForPortPrivate_DARWIN.h" />
+    <Node Include="UNIX_ProtocolControllerForPortPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ProtocolControllerForPortPrivate_HPUX.h" />
+    <Node Include="UNIX_ProtocolControllerForPortPrivate_LINUX.h" />
+    <Node Include="UNIX_ProtocolControllerForPortPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ProtocolControllerForPortPrivate_STUB.h" />
+    <Node Include="UNIX_ProtocolControllerForPortPrivate_TRU64.h" />
+    <Node Include="UNIX_ProtocolControllerForPortPrivate_VMS.h" />
+    <Node Include="UNIX_ProtocolControllerForPortPrivate_ZOS.h" />
+    <Node Include="UNIX_ProtocolControllerForPortProvider.h" />
+    <Node Include="UNIX_ProtocolControllerForPort_AIX.hpp" />
+    <Node Include="UNIX_ProtocolControllerForPort_AIX.hxx" />
+    <Node Include="UNIX_ProtocolControllerForPort_DARWIN.hpp" />
+    <Node Include="UNIX_ProtocolControllerForPort_DARWIN.hxx" />
+    <Node Include="UNIX_ProtocolControllerForPort_FREEBSD.hpp" />
+    <Node Include="UNIX_ProtocolControllerForPort_FREEBSD.hxx" />
+    <Node Include="UNIX_ProtocolControllerForPort_HPUX.hpp" />
+    <Node Include="UNIX_ProtocolControllerForPort_HPUX.hxx" />
+    <Node Include="UNIX_ProtocolControllerForPort_LINUX.hpp" />
+    <Node Include="UNIX_ProtocolControllerForPort_LINUX.hxx" />
+    <Node Include="UNIX_ProtocolControllerForPort_SOLARIS.hpp" />
+    <Node Include="UNIX_ProtocolControllerForPort_SOLARIS.hxx" />
+    <Node Include="UNIX_ProtocolControllerForPort_STUB.hpp" />
+    <Node Include="UNIX_ProtocolControllerForPort_STUB.hxx" />
+    <Node Include="UNIX_ProtocolControllerForPort_TRU64.hpp" />
+    <Node Include="UNIX_ProtocolControllerForPort_TRU64.hxx" />
+    <Node Include="UNIX_ProtocolControllerForPort_VMS.hpp" />
+    <Node Include="UNIX_ProtocolControllerForPort_VMS.hxx" />
+    <Node Include="UNIX_ProtocolControllerForPort_WIN32.hpp" />
+    <Node Include="UNIX_ProtocolControllerForPort_ZOS.hpp" />
+    <Node Include="UNIX_ProtocolControllerForPort_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

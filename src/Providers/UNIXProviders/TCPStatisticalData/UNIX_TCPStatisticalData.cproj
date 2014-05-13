@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7C5BDC7A-1A60-4A0E-B0B5-A79FF71118A6}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_TCPStatisticalDataProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TCPStatisticalDataLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_TCPStatisticalDataLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_TCPStatisticalDataProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TCPStatisticalDataLib" -DPROVIDER_LIB_NS="namespace UNIX_TCPStatisticalDataLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_TCPStatisticalData.cpp" />
+    <Compile Include="UNIX_TCPStatisticalDataMain.cpp" />
+    <Compile Include="UNIX_TCPStatisticalDataProvider.cpp" />
+    <Compile Include="UNIX_TCPStatisticalData_AIX.cpp" />
+    <Compile Include="UNIX_TCPStatisticalData_DARWIN.cpp" />
+    <Compile Include="UNIX_TCPStatisticalData_FREEBSD.cpp" />
+    <Compile Include="UNIX_TCPStatisticalData_HPUX.cpp" />
+    <Compile Include="UNIX_TCPStatisticalData_LINUX.cpp" />
+    <Compile Include="UNIX_TCPStatisticalData_SOLARIS.cpp" />
+    <Compile Include="UNIX_TCPStatisticalData_STUB.cpp" />
+    <Compile Include="UNIX_TCPStatisticalData_TRU64.cpp" />
+    <Compile Include="UNIX_TCPStatisticalData_VMS.cpp" />
+    <Compile Include="UNIX_TCPStatisticalData_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_TCPStatisticalData.h" />
+    <Node Include="UNIX_TCPStatisticalDataDeps.h" />
+    <Node Include="UNIX_TCPStatisticalDataDeps_AIX.h" />
+    <Node Include="UNIX_TCPStatisticalDataDeps_DARWIN.h" />
+    <Node Include="UNIX_TCPStatisticalDataDeps_FREEBSD.h" />
+    <Node Include="UNIX_TCPStatisticalDataDeps_HPUX.h" />
+    <Node Include="UNIX_TCPStatisticalDataDeps_LINUX.h" />
+    <Node Include="UNIX_TCPStatisticalDataDeps_SOLARIS.h" />
+    <Node Include="UNIX_TCPStatisticalDataDeps_STUB.h" />
+    <Node Include="UNIX_TCPStatisticalDataDeps_TRU64.h" />
+    <Node Include="UNIX_TCPStatisticalDataDeps_VMS.h" />
+    <Node Include="UNIX_TCPStatisticalDataDeps_ZOS.h" />
+    <Node Include="UNIX_TCPStatisticalDataPrivate.h" />
+    <Node Include="UNIX_TCPStatisticalDataPrivate_AIX.h" />
+    <Node Include="UNIX_TCPStatisticalDataPrivate_DARWIN.h" />
+    <Node Include="UNIX_TCPStatisticalDataPrivate_FREEBSD.h" />
+    <Node Include="UNIX_TCPStatisticalDataPrivate_HPUX.h" />
+    <Node Include="UNIX_TCPStatisticalDataPrivate_LINUX.h" />
+    <Node Include="UNIX_TCPStatisticalDataPrivate_SOLARIS.h" />
+    <Node Include="UNIX_TCPStatisticalDataPrivate_STUB.h" />
+    <Node Include="UNIX_TCPStatisticalDataPrivate_TRU64.h" />
+    <Node Include="UNIX_TCPStatisticalDataPrivate_VMS.h" />
+    <Node Include="UNIX_TCPStatisticalDataPrivate_ZOS.h" />
+    <Node Include="UNIX_TCPStatisticalDataProvider.h" />
+    <Node Include="UNIX_TCPStatisticalData_AIX.hpp" />
+    <Node Include="UNIX_TCPStatisticalData_AIX.hxx" />
+    <Node Include="UNIX_TCPStatisticalData_DARWIN.hpp" />
+    <Node Include="UNIX_TCPStatisticalData_DARWIN.hxx" />
+    <Node Include="UNIX_TCPStatisticalData_FREEBSD.hpp" />
+    <Node Include="UNIX_TCPStatisticalData_FREEBSD.hxx" />
+    <Node Include="UNIX_TCPStatisticalData_HPUX.hpp" />
+    <Node Include="UNIX_TCPStatisticalData_HPUX.hxx" />
+    <Node Include="UNIX_TCPStatisticalData_LINUX.hpp" />
+    <Node Include="UNIX_TCPStatisticalData_LINUX.hxx" />
+    <Node Include="UNIX_TCPStatisticalData_SOLARIS.hpp" />
+    <Node Include="UNIX_TCPStatisticalData_SOLARIS.hxx" />
+    <Node Include="UNIX_TCPStatisticalData_STUB.hpp" />
+    <Node Include="UNIX_TCPStatisticalData_STUB.hxx" />
+    <Node Include="UNIX_TCPStatisticalData_TRU64.hpp" />
+    <Node Include="UNIX_TCPStatisticalData_TRU64.hxx" />
+    <Node Include="UNIX_TCPStatisticalData_VMS.hpp" />
+    <Node Include="UNIX_TCPStatisticalData_VMS.hxx" />
+    <Node Include="UNIX_TCPStatisticalData_WIN32.hpp" />
+    <Node Include="UNIX_TCPStatisticalData_ZOS.hpp" />
+    <Node Include="UNIX_TCPStatisticalData_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

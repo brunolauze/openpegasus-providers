@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0B576816-022D-467E-8E84-CC3C7D26DA92}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_VLANStatisticsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_VLANStatisticsLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_VLANStatisticsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_VLANStatisticsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_VLANStatisticsLib" -DPROVIDER_LIB_NS="namespace UNIX_VLANStatisticsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_VLANStatistics.cpp" />
+    <Compile Include="UNIX_VLANStatisticsMain.cpp" />
+    <Compile Include="UNIX_VLANStatisticsProvider.cpp" />
+    <Compile Include="UNIX_VLANStatistics_AIX.cpp" />
+    <Compile Include="UNIX_VLANStatistics_DARWIN.cpp" />
+    <Compile Include="UNIX_VLANStatistics_FREEBSD.cpp" />
+    <Compile Include="UNIX_VLANStatistics_HPUX.cpp" />
+    <Compile Include="UNIX_VLANStatistics_LINUX.cpp" />
+    <Compile Include="UNIX_VLANStatistics_SOLARIS.cpp" />
+    <Compile Include="UNIX_VLANStatistics_STUB.cpp" />
+    <Compile Include="UNIX_VLANStatistics_TRU64.cpp" />
+    <Compile Include="UNIX_VLANStatistics_VMS.cpp" />
+    <Compile Include="UNIX_VLANStatistics_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_VLANStatistics.h" />
+    <Node Include="UNIX_VLANStatisticsDeps.h" />
+    <Node Include="UNIX_VLANStatisticsDeps_AIX.h" />
+    <Node Include="UNIX_VLANStatisticsDeps_DARWIN.h" />
+    <Node Include="UNIX_VLANStatisticsDeps_FREEBSD.h" />
+    <Node Include="UNIX_VLANStatisticsDeps_HPUX.h" />
+    <Node Include="UNIX_VLANStatisticsDeps_LINUX.h" />
+    <Node Include="UNIX_VLANStatisticsDeps_SOLARIS.h" />
+    <Node Include="UNIX_VLANStatisticsDeps_STUB.h" />
+    <Node Include="UNIX_VLANStatisticsDeps_TRU64.h" />
+    <Node Include="UNIX_VLANStatisticsDeps_VMS.h" />
+    <Node Include="UNIX_VLANStatisticsDeps_ZOS.h" />
+    <Node Include="UNIX_VLANStatisticsPrivate.h" />
+    <Node Include="UNIX_VLANStatisticsPrivate_AIX.h" />
+    <Node Include="UNIX_VLANStatisticsPrivate_DARWIN.h" />
+    <Node Include="UNIX_VLANStatisticsPrivate_FREEBSD.h" />
+    <Node Include="UNIX_VLANStatisticsPrivate_HPUX.h" />
+    <Node Include="UNIX_VLANStatisticsPrivate_LINUX.h" />
+    <Node Include="UNIX_VLANStatisticsPrivate_SOLARIS.h" />
+    <Node Include="UNIX_VLANStatisticsPrivate_STUB.h" />
+    <Node Include="UNIX_VLANStatisticsPrivate_TRU64.h" />
+    <Node Include="UNIX_VLANStatisticsPrivate_VMS.h" />
+    <Node Include="UNIX_VLANStatisticsPrivate_ZOS.h" />
+    <Node Include="UNIX_VLANStatisticsProvider.h" />
+    <Node Include="UNIX_VLANStatistics_AIX.hpp" />
+    <Node Include="UNIX_VLANStatistics_AIX.hxx" />
+    <Node Include="UNIX_VLANStatistics_DARWIN.hpp" />
+    <Node Include="UNIX_VLANStatistics_DARWIN.hxx" />
+    <Node Include="UNIX_VLANStatistics_FREEBSD.hpp" />
+    <Node Include="UNIX_VLANStatistics_FREEBSD.hxx" />
+    <Node Include="UNIX_VLANStatistics_HPUX.hpp" />
+    <Node Include="UNIX_VLANStatistics_HPUX.hxx" />
+    <Node Include="UNIX_VLANStatistics_LINUX.hpp" />
+    <Node Include="UNIX_VLANStatistics_LINUX.hxx" />
+    <Node Include="UNIX_VLANStatistics_SOLARIS.hpp" />
+    <Node Include="UNIX_VLANStatistics_SOLARIS.hxx" />
+    <Node Include="UNIX_VLANStatistics_STUB.hpp" />
+    <Node Include="UNIX_VLANStatistics_STUB.hxx" />
+    <Node Include="UNIX_VLANStatistics_TRU64.hpp" />
+    <Node Include="UNIX_VLANStatistics_TRU64.hxx" />
+    <Node Include="UNIX_VLANStatistics_VMS.hpp" />
+    <Node Include="UNIX_VLANStatistics_VMS.hxx" />
+    <Node Include="UNIX_VLANStatistics_WIN32.hpp" />
+    <Node Include="UNIX_VLANStatistics_ZOS.hpp" />
+    <Node Include="UNIX_VLANStatistics_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

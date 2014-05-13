@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0FD2BD3F-D371-462E-98C7-F7A9A1B56C7D}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../AccessControlPolicy/UNIX_AccessControlPolicy.md.pc" name="UNIX_AccessControlPolicy" IsProject="True" />
+        <Package file="../PolicyGroup/UNIX_PolicyGroup.md.pc" name="UNIX_PolicyGroup" IsProject="True" />
+        <Package file="../AccessControlPolicyGroup/UNIX_AccessControlPolicyGroup.md.pc" name="UNIX_AccessControlPolicyGroup" IsProject="True" />
+        <Package file="../AuthorizationRule/UNIX_AuthorizationRule.md.pc" name="UNIX_AuthorizationRule" IsProject="True" />
+        <Package file="../NetworkPolicyRule/UNIX_NetworkPolicyRule.md.pc" name="UNIX_NetworkPolicyRule" IsProject="True" />
+        <Package file="../IPsecRule/UNIX_IPsecRule.md.pc" name="UNIX_IPsecRule" IsProject="True" />
+        <Package file="../IKERule/UNIX_IKERule.md.pc" name="UNIX_IKERule" IsProject="True" />
+        <Package file="../AuthenticationRule/UNIX_AuthenticationRule.md.pc" name="UNIX_AuthenticationRule" IsProject="True" />
+        <Package file="../TierPolicyRule/UNIX_TierPolicyRule.md.pc" name="UNIX_TierPolicyRule" IsProject="True" />
+        <Package file="../PolicyTimePeriodCondition/UNIX_PolicyTimePeriodCondition.md.pc" name="UNIX_PolicyTimePeriodCondition" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../AccessControlPolicy/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PolicyGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AccessControlPolicyGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AuthorizationRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkPolicyRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPsecRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IKERule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AuthenticationRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TierPolicyRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PolicyTimePeriodCondition/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_PolicySetValidityPeriodProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PolicySetValidityPeriodLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PolicySetValidityPeriodLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AccessControlPolicyProvider -lUNIX_PolicyGroupProvider -lUNIX_AccessControlPolicyGroupProvider -lUNIX_AuthorizationRuleProvider -lUNIX_NetworkPolicyRuleProvider -lUNIX_IPsecRuleProvider -lUNIX_IKERuleProvider -lUNIX_AuthenticationRuleProvider -lUNIX_TierPolicyRuleProvider -lUNIX_PolicyTimePeriodConditionProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_PolicySetValidityPeriodProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PolicySetValidityPeriodLib" -DPROVIDER_LIB_NS="namespace UNIX_PolicySetValidityPeriodLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AccessControlPolicyProvider -lUNIX_PolicyGroupProvider -lUNIX_AccessControlPolicyGroupProvider -lUNIX_AuthorizationRuleProvider -lUNIX_NetworkPolicyRuleProvider -lUNIX_IPsecRuleProvider -lUNIX_IKERuleProvider -lUNIX_AuthenticationRuleProvider -lUNIX_TierPolicyRuleProvider -lUNIX_PolicyTimePeriodConditionProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_PolicySetValidityPeriod.cpp" />
+    <Compile Include="UNIX_PolicySetValidityPeriodMain.cpp" />
+    <Compile Include="UNIX_PolicySetValidityPeriodProvider.cpp" />
+    <Compile Include="UNIX_PolicySetValidityPeriod_AIX.cpp" />
+    <Compile Include="UNIX_PolicySetValidityPeriod_DARWIN.cpp" />
+    <Compile Include="UNIX_PolicySetValidityPeriod_FREEBSD.cpp" />
+    <Compile Include="UNIX_PolicySetValidityPeriod_HPUX.cpp" />
+    <Compile Include="UNIX_PolicySetValidityPeriod_LINUX.cpp" />
+    <Compile Include="UNIX_PolicySetValidityPeriod_SOLARIS.cpp" />
+    <Compile Include="UNIX_PolicySetValidityPeriod_STUB.cpp" />
+    <Compile Include="UNIX_PolicySetValidityPeriod_TRU64.cpp" />
+    <Compile Include="UNIX_PolicySetValidityPeriod_VMS.cpp" />
+    <Compile Include="UNIX_PolicySetValidityPeriod_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_PolicySetValidityPeriod.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodDeps.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodDeps_AIX.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodDeps_DARWIN.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodDeps_FREEBSD.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodDeps_HPUX.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodDeps_LINUX.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodDeps_SOLARIS.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodDeps_STUB.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodDeps_TRU64.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodDeps_VMS.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodDeps_ZOS.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodPrivate.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodPrivate_AIX.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodPrivate_DARWIN.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodPrivate_FREEBSD.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodPrivate_HPUX.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodPrivate_LINUX.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodPrivate_SOLARIS.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodPrivate_STUB.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodPrivate_TRU64.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodPrivate_VMS.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodPrivate_ZOS.h" />
+    <Node Include="UNIX_PolicySetValidityPeriodProvider.h" />
+    <Node Include="UNIX_PolicySetValidityPeriod_AIX.hpp" />
+    <Node Include="UNIX_PolicySetValidityPeriod_AIX.hxx" />
+    <Node Include="UNIX_PolicySetValidityPeriod_DARWIN.hpp" />
+    <Node Include="UNIX_PolicySetValidityPeriod_DARWIN.hxx" />
+    <Node Include="UNIX_PolicySetValidityPeriod_FREEBSD.hpp" />
+    <Node Include="UNIX_PolicySetValidityPeriod_FREEBSD.hxx" />
+    <Node Include="UNIX_PolicySetValidityPeriod_HPUX.hpp" />
+    <Node Include="UNIX_PolicySetValidityPeriod_HPUX.hxx" />
+    <Node Include="UNIX_PolicySetValidityPeriod_LINUX.hpp" />
+    <Node Include="UNIX_PolicySetValidityPeriod_LINUX.hxx" />
+    <Node Include="UNIX_PolicySetValidityPeriod_SOLARIS.hpp" />
+    <Node Include="UNIX_PolicySetValidityPeriod_SOLARIS.hxx" />
+    <Node Include="UNIX_PolicySetValidityPeriod_STUB.hpp" />
+    <Node Include="UNIX_PolicySetValidityPeriod_STUB.hxx" />
+    <Node Include="UNIX_PolicySetValidityPeriod_TRU64.hpp" />
+    <Node Include="UNIX_PolicySetValidityPeriod_TRU64.hxx" />
+    <Node Include="UNIX_PolicySetValidityPeriod_VMS.hpp" />
+    <Node Include="UNIX_PolicySetValidityPeriod_VMS.hxx" />
+    <Node Include="UNIX_PolicySetValidityPeriod_WIN32.hpp" />
+    <Node Include="UNIX_PolicySetValidityPeriod_ZOS.hpp" />
+    <Node Include="UNIX_PolicySetValidityPeriod_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

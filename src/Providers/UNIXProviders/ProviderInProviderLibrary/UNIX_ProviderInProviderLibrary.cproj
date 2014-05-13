@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B91EDFAC-EA6A-4994-8331-4DA0912BE65B}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ProviderLibrary/UNIX_ProviderLibrary.md.pc" name="UNIX_ProviderLibrary" IsProject="True" />
+        <Package file="../Provider/UNIX_Provider.md.pc" name="UNIX_Provider" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ProviderLibrary/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Provider/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ProviderInProviderLibraryProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ProviderInProviderLibraryLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ProviderInProviderLibraryLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ProviderLibraryProvider -lUNIX_ProviderProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ProviderInProviderLibraryProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ProviderInProviderLibraryLib" -DPROVIDER_LIB_NS="namespace UNIX_ProviderInProviderLibraryLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ProviderLibraryProvider -lUNIX_ProviderProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ProviderInProviderLibrary.cpp" />
+    <Compile Include="UNIX_ProviderInProviderLibraryMain.cpp" />
+    <Compile Include="UNIX_ProviderInProviderLibraryProvider.cpp" />
+    <Compile Include="UNIX_ProviderInProviderLibrary_AIX.cpp" />
+    <Compile Include="UNIX_ProviderInProviderLibrary_DARWIN.cpp" />
+    <Compile Include="UNIX_ProviderInProviderLibrary_FREEBSD.cpp" />
+    <Compile Include="UNIX_ProviderInProviderLibrary_HPUX.cpp" />
+    <Compile Include="UNIX_ProviderInProviderLibrary_LINUX.cpp" />
+    <Compile Include="UNIX_ProviderInProviderLibrary_SOLARIS.cpp" />
+    <Compile Include="UNIX_ProviderInProviderLibrary_STUB.cpp" />
+    <Compile Include="UNIX_ProviderInProviderLibrary_TRU64.cpp" />
+    <Compile Include="UNIX_ProviderInProviderLibrary_VMS.cpp" />
+    <Compile Include="UNIX_ProviderInProviderLibrary_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ProviderInProviderLibrary.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryDeps.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryDeps_AIX.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryDeps_DARWIN.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryDeps_FREEBSD.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryDeps_HPUX.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryDeps_LINUX.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryDeps_SOLARIS.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryDeps_STUB.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryDeps_TRU64.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryDeps_VMS.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryDeps_ZOS.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryPrivate.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryPrivate_AIX.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryPrivate_DARWIN.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryPrivate_HPUX.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryPrivate_LINUX.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryPrivate_STUB.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryPrivate_TRU64.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryPrivate_VMS.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryPrivate_ZOS.h" />
+    <Node Include="UNIX_ProviderInProviderLibraryProvider.h" />
+    <Node Include="UNIX_ProviderInProviderLibrary_AIX.hpp" />
+    <Node Include="UNIX_ProviderInProviderLibrary_AIX.hxx" />
+    <Node Include="UNIX_ProviderInProviderLibrary_DARWIN.hpp" />
+    <Node Include="UNIX_ProviderInProviderLibrary_DARWIN.hxx" />
+    <Node Include="UNIX_ProviderInProviderLibrary_FREEBSD.hpp" />
+    <Node Include="UNIX_ProviderInProviderLibrary_FREEBSD.hxx" />
+    <Node Include="UNIX_ProviderInProviderLibrary_HPUX.hpp" />
+    <Node Include="UNIX_ProviderInProviderLibrary_HPUX.hxx" />
+    <Node Include="UNIX_ProviderInProviderLibrary_LINUX.hpp" />
+    <Node Include="UNIX_ProviderInProviderLibrary_LINUX.hxx" />
+    <Node Include="UNIX_ProviderInProviderLibrary_SOLARIS.hpp" />
+    <Node Include="UNIX_ProviderInProviderLibrary_SOLARIS.hxx" />
+    <Node Include="UNIX_ProviderInProviderLibrary_STUB.hpp" />
+    <Node Include="UNIX_ProviderInProviderLibrary_STUB.hxx" />
+    <Node Include="UNIX_ProviderInProviderLibrary_TRU64.hpp" />
+    <Node Include="UNIX_ProviderInProviderLibrary_TRU64.hxx" />
+    <Node Include="UNIX_ProviderInProviderLibrary_VMS.hpp" />
+    <Node Include="UNIX_ProviderInProviderLibrary_VMS.hxx" />
+    <Node Include="UNIX_ProviderInProviderLibrary_WIN32.hpp" />
+    <Node Include="UNIX_ProviderInProviderLibrary_ZOS.hpp" />
+    <Node Include="UNIX_ProviderInProviderLibrary_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

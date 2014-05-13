@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A011AEE8-7AB5-4312-943A-692534DF8793}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../JobDestinationJobs/UNIX_JobDestinationJobs.md.pc" name="UNIX_JobDestinationJobs" IsProject="True" />
+        <Package file="../PrintQueue/UNIX_PrintQueue.md.pc" name="UNIX_PrintQueue" IsProject="True" />
+        <Package file="../PrintJob/UNIX_PrintJob.md.pc" name="UNIX_PrintJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../JobDestinationJobs/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PrintQueue/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PrintJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_OwningPrintQueueProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_OwningPrintQueueLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_OwningPrintQueueLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_JobDestinationJobsProvider -lUNIX_PrintQueueProvider -lUNIX_PrintJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_OwningPrintQueueProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_OwningPrintQueueLib" -DPROVIDER_LIB_NS="namespace UNIX_OwningPrintQueueLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_JobDestinationJobsProvider -lUNIX_PrintQueueProvider -lUNIX_PrintJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_OwningPrintQueue.cpp" />
+    <Compile Include="UNIX_OwningPrintQueueMain.cpp" />
+    <Compile Include="UNIX_OwningPrintQueueProvider.cpp" />
+    <Compile Include="UNIX_OwningPrintQueue_AIX.cpp" />
+    <Compile Include="UNIX_OwningPrintQueue_DARWIN.cpp" />
+    <Compile Include="UNIX_OwningPrintQueue_FREEBSD.cpp" />
+    <Compile Include="UNIX_OwningPrintQueue_HPUX.cpp" />
+    <Compile Include="UNIX_OwningPrintQueue_LINUX.cpp" />
+    <Compile Include="UNIX_OwningPrintQueue_SOLARIS.cpp" />
+    <Compile Include="UNIX_OwningPrintQueue_STUB.cpp" />
+    <Compile Include="UNIX_OwningPrintQueue_TRU64.cpp" />
+    <Compile Include="UNIX_OwningPrintQueue_VMS.cpp" />
+    <Compile Include="UNIX_OwningPrintQueue_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_OwningPrintQueue.h" />
+    <Node Include="UNIX_OwningPrintQueueDeps.h" />
+    <Node Include="UNIX_OwningPrintQueueDeps_AIX.h" />
+    <Node Include="UNIX_OwningPrintQueueDeps_DARWIN.h" />
+    <Node Include="UNIX_OwningPrintQueueDeps_FREEBSD.h" />
+    <Node Include="UNIX_OwningPrintQueueDeps_HPUX.h" />
+    <Node Include="UNIX_OwningPrintQueueDeps_LINUX.h" />
+    <Node Include="UNIX_OwningPrintQueueDeps_SOLARIS.h" />
+    <Node Include="UNIX_OwningPrintQueueDeps_STUB.h" />
+    <Node Include="UNIX_OwningPrintQueueDeps_TRU64.h" />
+    <Node Include="UNIX_OwningPrintQueueDeps_VMS.h" />
+    <Node Include="UNIX_OwningPrintQueueDeps_ZOS.h" />
+    <Node Include="UNIX_OwningPrintQueuePrivate.h" />
+    <Node Include="UNIX_OwningPrintQueuePrivate_AIX.h" />
+    <Node Include="UNIX_OwningPrintQueuePrivate_DARWIN.h" />
+    <Node Include="UNIX_OwningPrintQueuePrivate_FREEBSD.h" />
+    <Node Include="UNIX_OwningPrintQueuePrivate_HPUX.h" />
+    <Node Include="UNIX_OwningPrintQueuePrivate_LINUX.h" />
+    <Node Include="UNIX_OwningPrintQueuePrivate_SOLARIS.h" />
+    <Node Include="UNIX_OwningPrintQueuePrivate_STUB.h" />
+    <Node Include="UNIX_OwningPrintQueuePrivate_TRU64.h" />
+    <Node Include="UNIX_OwningPrintQueuePrivate_VMS.h" />
+    <Node Include="UNIX_OwningPrintQueuePrivate_ZOS.h" />
+    <Node Include="UNIX_OwningPrintQueueProvider.h" />
+    <Node Include="UNIX_OwningPrintQueue_AIX.hpp" />
+    <Node Include="UNIX_OwningPrintQueue_AIX.hxx" />
+    <Node Include="UNIX_OwningPrintQueue_DARWIN.hpp" />
+    <Node Include="UNIX_OwningPrintQueue_DARWIN.hxx" />
+    <Node Include="UNIX_OwningPrintQueue_FREEBSD.hpp" />
+    <Node Include="UNIX_OwningPrintQueue_FREEBSD.hxx" />
+    <Node Include="UNIX_OwningPrintQueue_HPUX.hpp" />
+    <Node Include="UNIX_OwningPrintQueue_HPUX.hxx" />
+    <Node Include="UNIX_OwningPrintQueue_LINUX.hpp" />
+    <Node Include="UNIX_OwningPrintQueue_LINUX.hxx" />
+    <Node Include="UNIX_OwningPrintQueue_SOLARIS.hpp" />
+    <Node Include="UNIX_OwningPrintQueue_SOLARIS.hxx" />
+    <Node Include="UNIX_OwningPrintQueue_STUB.hpp" />
+    <Node Include="UNIX_OwningPrintQueue_STUB.hxx" />
+    <Node Include="UNIX_OwningPrintQueue_TRU64.hpp" />
+    <Node Include="UNIX_OwningPrintQueue_TRU64.hxx" />
+    <Node Include="UNIX_OwningPrintQueue_VMS.hpp" />
+    <Node Include="UNIX_OwningPrintQueue_VMS.hxx" />
+    <Node Include="UNIX_OwningPrintQueue_WIN32.hpp" />
+    <Node Include="UNIX_OwningPrintQueue_ZOS.hpp" />
+    <Node Include="UNIX_OwningPrintQueue_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

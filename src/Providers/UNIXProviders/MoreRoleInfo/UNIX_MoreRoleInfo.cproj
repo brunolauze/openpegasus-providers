@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{07D6F925-E821-447B-ADEE-F0963843312C}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../Role/UNIX_Role.md.pc" name="UNIX_Role" IsProject="True" />
+        <Package file="../OtherRoleInformation/UNIX_OtherRoleInformation.md.pc" name="UNIX_OtherRoleInformation" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../Role/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OtherRoleInformation/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_MoreRoleInfoProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MoreRoleInfoLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_MoreRoleInfoLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_RoleProvider -lUNIX_OtherRoleInformationProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_MoreRoleInfoProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MoreRoleInfoLib" -DPROVIDER_LIB_NS="namespace UNIX_MoreRoleInfoLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_RoleProvider -lUNIX_OtherRoleInformationProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_MoreRoleInfo.cpp" />
+    <Compile Include="UNIX_MoreRoleInfoMain.cpp" />
+    <Compile Include="UNIX_MoreRoleInfoProvider.cpp" />
+    <Compile Include="UNIX_MoreRoleInfo_AIX.cpp" />
+    <Compile Include="UNIX_MoreRoleInfo_DARWIN.cpp" />
+    <Compile Include="UNIX_MoreRoleInfo_FREEBSD.cpp" />
+    <Compile Include="UNIX_MoreRoleInfo_HPUX.cpp" />
+    <Compile Include="UNIX_MoreRoleInfo_LINUX.cpp" />
+    <Compile Include="UNIX_MoreRoleInfo_SOLARIS.cpp" />
+    <Compile Include="UNIX_MoreRoleInfo_STUB.cpp" />
+    <Compile Include="UNIX_MoreRoleInfo_TRU64.cpp" />
+    <Compile Include="UNIX_MoreRoleInfo_VMS.cpp" />
+    <Compile Include="UNIX_MoreRoleInfo_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_MoreRoleInfo.h" />
+    <Node Include="UNIX_MoreRoleInfoDeps.h" />
+    <Node Include="UNIX_MoreRoleInfoDeps_AIX.h" />
+    <Node Include="UNIX_MoreRoleInfoDeps_DARWIN.h" />
+    <Node Include="UNIX_MoreRoleInfoDeps_FREEBSD.h" />
+    <Node Include="UNIX_MoreRoleInfoDeps_HPUX.h" />
+    <Node Include="UNIX_MoreRoleInfoDeps_LINUX.h" />
+    <Node Include="UNIX_MoreRoleInfoDeps_SOLARIS.h" />
+    <Node Include="UNIX_MoreRoleInfoDeps_STUB.h" />
+    <Node Include="UNIX_MoreRoleInfoDeps_TRU64.h" />
+    <Node Include="UNIX_MoreRoleInfoDeps_VMS.h" />
+    <Node Include="UNIX_MoreRoleInfoDeps_ZOS.h" />
+    <Node Include="UNIX_MoreRoleInfoPrivate.h" />
+    <Node Include="UNIX_MoreRoleInfoPrivate_AIX.h" />
+    <Node Include="UNIX_MoreRoleInfoPrivate_DARWIN.h" />
+    <Node Include="UNIX_MoreRoleInfoPrivate_FREEBSD.h" />
+    <Node Include="UNIX_MoreRoleInfoPrivate_HPUX.h" />
+    <Node Include="UNIX_MoreRoleInfoPrivate_LINUX.h" />
+    <Node Include="UNIX_MoreRoleInfoPrivate_SOLARIS.h" />
+    <Node Include="UNIX_MoreRoleInfoPrivate_STUB.h" />
+    <Node Include="UNIX_MoreRoleInfoPrivate_TRU64.h" />
+    <Node Include="UNIX_MoreRoleInfoPrivate_VMS.h" />
+    <Node Include="UNIX_MoreRoleInfoPrivate_ZOS.h" />
+    <Node Include="UNIX_MoreRoleInfoProvider.h" />
+    <Node Include="UNIX_MoreRoleInfo_AIX.hpp" />
+    <Node Include="UNIX_MoreRoleInfo_AIX.hxx" />
+    <Node Include="UNIX_MoreRoleInfo_DARWIN.hpp" />
+    <Node Include="UNIX_MoreRoleInfo_DARWIN.hxx" />
+    <Node Include="UNIX_MoreRoleInfo_FREEBSD.hpp" />
+    <Node Include="UNIX_MoreRoleInfo_FREEBSD.hxx" />
+    <Node Include="UNIX_MoreRoleInfo_HPUX.hpp" />
+    <Node Include="UNIX_MoreRoleInfo_HPUX.hxx" />
+    <Node Include="UNIX_MoreRoleInfo_LINUX.hpp" />
+    <Node Include="UNIX_MoreRoleInfo_LINUX.hxx" />
+    <Node Include="UNIX_MoreRoleInfo_SOLARIS.hpp" />
+    <Node Include="UNIX_MoreRoleInfo_SOLARIS.hxx" />
+    <Node Include="UNIX_MoreRoleInfo_STUB.hpp" />
+    <Node Include="UNIX_MoreRoleInfo_STUB.hxx" />
+    <Node Include="UNIX_MoreRoleInfo_TRU64.hpp" />
+    <Node Include="UNIX_MoreRoleInfo_TRU64.hxx" />
+    <Node Include="UNIX_MoreRoleInfo_VMS.hpp" />
+    <Node Include="UNIX_MoreRoleInfo_VMS.hxx" />
+    <Node Include="UNIX_MoreRoleInfo_WIN32.hpp" />
+    <Node Include="UNIX_MoreRoleInfo_ZOS.hpp" />
+    <Node Include="UNIX_MoreRoleInfo_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

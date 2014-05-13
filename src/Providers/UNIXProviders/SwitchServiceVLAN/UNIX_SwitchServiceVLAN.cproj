@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{100F383D-E505-4599-9FAA-876C089DC91A}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../SwitchService/UNIX_SwitchService.md.pc" name="UNIX_SwitchService" IsProject="True" />
+        <Package file="../VLANService/UNIX_VLANService.md.pc" name="UNIX_VLANService" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../SwitchService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VLANService/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_SwitchServiceVLANProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SwitchServiceVLANLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SwitchServiceVLANLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_SwitchServiceProvider -lUNIX_VLANServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_SwitchServiceVLANProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SwitchServiceVLANLib" -DPROVIDER_LIB_NS="namespace UNIX_SwitchServiceVLANLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_SwitchServiceProvider -lUNIX_VLANServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SwitchServiceVLAN.cpp" />
+    <Compile Include="UNIX_SwitchServiceVLANMain.cpp" />
+    <Compile Include="UNIX_SwitchServiceVLANProvider.cpp" />
+    <Compile Include="UNIX_SwitchServiceVLAN_AIX.cpp" />
+    <Compile Include="UNIX_SwitchServiceVLAN_DARWIN.cpp" />
+    <Compile Include="UNIX_SwitchServiceVLAN_FREEBSD.cpp" />
+    <Compile Include="UNIX_SwitchServiceVLAN_HPUX.cpp" />
+    <Compile Include="UNIX_SwitchServiceVLAN_LINUX.cpp" />
+    <Compile Include="UNIX_SwitchServiceVLAN_SOLARIS.cpp" />
+    <Compile Include="UNIX_SwitchServiceVLAN_STUB.cpp" />
+    <Compile Include="UNIX_SwitchServiceVLAN_TRU64.cpp" />
+    <Compile Include="UNIX_SwitchServiceVLAN_VMS.cpp" />
+    <Compile Include="UNIX_SwitchServiceVLAN_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_SwitchServiceVLAN.h" />
+    <Node Include="UNIX_SwitchServiceVLANDeps.h" />
+    <Node Include="UNIX_SwitchServiceVLANDeps_AIX.h" />
+    <Node Include="UNIX_SwitchServiceVLANDeps_DARWIN.h" />
+    <Node Include="UNIX_SwitchServiceVLANDeps_FREEBSD.h" />
+    <Node Include="UNIX_SwitchServiceVLANDeps_HPUX.h" />
+    <Node Include="UNIX_SwitchServiceVLANDeps_LINUX.h" />
+    <Node Include="UNIX_SwitchServiceVLANDeps_SOLARIS.h" />
+    <Node Include="UNIX_SwitchServiceVLANDeps_STUB.h" />
+    <Node Include="UNIX_SwitchServiceVLANDeps_TRU64.h" />
+    <Node Include="UNIX_SwitchServiceVLANDeps_VMS.h" />
+    <Node Include="UNIX_SwitchServiceVLANDeps_ZOS.h" />
+    <Node Include="UNIX_SwitchServiceVLANPrivate.h" />
+    <Node Include="UNIX_SwitchServiceVLANPrivate_AIX.h" />
+    <Node Include="UNIX_SwitchServiceVLANPrivate_DARWIN.h" />
+    <Node Include="UNIX_SwitchServiceVLANPrivate_FREEBSD.h" />
+    <Node Include="UNIX_SwitchServiceVLANPrivate_HPUX.h" />
+    <Node Include="UNIX_SwitchServiceVLANPrivate_LINUX.h" />
+    <Node Include="UNIX_SwitchServiceVLANPrivate_SOLARIS.h" />
+    <Node Include="UNIX_SwitchServiceVLANPrivate_STUB.h" />
+    <Node Include="UNIX_SwitchServiceVLANPrivate_TRU64.h" />
+    <Node Include="UNIX_SwitchServiceVLANPrivate_VMS.h" />
+    <Node Include="UNIX_SwitchServiceVLANPrivate_ZOS.h" />
+    <Node Include="UNIX_SwitchServiceVLANProvider.h" />
+    <Node Include="UNIX_SwitchServiceVLAN_AIX.hpp" />
+    <Node Include="UNIX_SwitchServiceVLAN_AIX.hxx" />
+    <Node Include="UNIX_SwitchServiceVLAN_DARWIN.hpp" />
+    <Node Include="UNIX_SwitchServiceVLAN_DARWIN.hxx" />
+    <Node Include="UNIX_SwitchServiceVLAN_FREEBSD.hpp" />
+    <Node Include="UNIX_SwitchServiceVLAN_FREEBSD.hxx" />
+    <Node Include="UNIX_SwitchServiceVLAN_HPUX.hpp" />
+    <Node Include="UNIX_SwitchServiceVLAN_HPUX.hxx" />
+    <Node Include="UNIX_SwitchServiceVLAN_LINUX.hpp" />
+    <Node Include="UNIX_SwitchServiceVLAN_LINUX.hxx" />
+    <Node Include="UNIX_SwitchServiceVLAN_SOLARIS.hpp" />
+    <Node Include="UNIX_SwitchServiceVLAN_SOLARIS.hxx" />
+    <Node Include="UNIX_SwitchServiceVLAN_STUB.hpp" />
+    <Node Include="UNIX_SwitchServiceVLAN_STUB.hxx" />
+    <Node Include="UNIX_SwitchServiceVLAN_TRU64.hpp" />
+    <Node Include="UNIX_SwitchServiceVLAN_TRU64.hxx" />
+    <Node Include="UNIX_SwitchServiceVLAN_VMS.hpp" />
+    <Node Include="UNIX_SwitchServiceVLAN_VMS.hxx" />
+    <Node Include="UNIX_SwitchServiceVLAN_WIN32.hpp" />
+    <Node Include="UNIX_SwitchServiceVLAN_ZOS.hpp" />
+    <Node Include="UNIX_SwitchServiceVLAN_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

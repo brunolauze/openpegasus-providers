@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B04FCE7E-566B-4625-B020-FE68524C5BC5}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../RegisteredSpecification/UNIX_RegisteredSpecification.md.pc" name="UNIX_RegisteredSpecification" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../RegisteredSpecification/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_RegisteredProfileProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RegisteredProfileLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_RegisteredProfileLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_RegisteredSpecificationProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_RegisteredProfileProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RegisteredProfileLib" -DPROVIDER_LIB_NS="namespace UNIX_RegisteredProfileLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_RegisteredSpecificationProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_RegisteredProfile.cpp" />
+    <Compile Include="UNIX_RegisteredProfileMain.cpp" />
+    <Compile Include="UNIX_RegisteredProfileProvider.cpp" />
+    <Compile Include="UNIX_RegisteredProfile_AIX.cpp" />
+    <Compile Include="UNIX_RegisteredProfile_DARWIN.cpp" />
+    <Compile Include="UNIX_RegisteredProfile_FREEBSD.cpp" />
+    <Compile Include="UNIX_RegisteredProfile_HPUX.cpp" />
+    <Compile Include="UNIX_RegisteredProfile_LINUX.cpp" />
+    <Compile Include="UNIX_RegisteredProfile_SOLARIS.cpp" />
+    <Compile Include="UNIX_RegisteredProfile_STUB.cpp" />
+    <Compile Include="UNIX_RegisteredProfile_TRU64.cpp" />
+    <Compile Include="UNIX_RegisteredProfile_VMS.cpp" />
+    <Compile Include="UNIX_RegisteredProfile_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_RegisteredProfile.h" />
+    <Node Include="UNIX_RegisteredProfileDeps.h" />
+    <Node Include="UNIX_RegisteredProfileDeps_AIX.h" />
+    <Node Include="UNIX_RegisteredProfileDeps_DARWIN.h" />
+    <Node Include="UNIX_RegisteredProfileDeps_FREEBSD.h" />
+    <Node Include="UNIX_RegisteredProfileDeps_HPUX.h" />
+    <Node Include="UNIX_RegisteredProfileDeps_LINUX.h" />
+    <Node Include="UNIX_RegisteredProfileDeps_SOLARIS.h" />
+    <Node Include="UNIX_RegisteredProfileDeps_STUB.h" />
+    <Node Include="UNIX_RegisteredProfileDeps_TRU64.h" />
+    <Node Include="UNIX_RegisteredProfileDeps_VMS.h" />
+    <Node Include="UNIX_RegisteredProfileDeps_ZOS.h" />
+    <Node Include="UNIX_RegisteredProfilePrivate.h" />
+    <Node Include="UNIX_RegisteredProfilePrivate_AIX.h" />
+    <Node Include="UNIX_RegisteredProfilePrivate_DARWIN.h" />
+    <Node Include="UNIX_RegisteredProfilePrivate_FREEBSD.h" />
+    <Node Include="UNIX_RegisteredProfilePrivate_HPUX.h" />
+    <Node Include="UNIX_RegisteredProfilePrivate_LINUX.h" />
+    <Node Include="UNIX_RegisteredProfilePrivate_SOLARIS.h" />
+    <Node Include="UNIX_RegisteredProfilePrivate_STUB.h" />
+    <Node Include="UNIX_RegisteredProfilePrivate_TRU64.h" />
+    <Node Include="UNIX_RegisteredProfilePrivate_VMS.h" />
+    <Node Include="UNIX_RegisteredProfilePrivate_ZOS.h" />
+    <Node Include="UNIX_RegisteredProfileProvider.h" />
+    <Node Include="UNIX_RegisteredProfile_AIX.hpp" />
+    <Node Include="UNIX_RegisteredProfile_AIX.hxx" />
+    <Node Include="UNIX_RegisteredProfile_DARWIN.hpp" />
+    <Node Include="UNIX_RegisteredProfile_DARWIN.hxx" />
+    <Node Include="UNIX_RegisteredProfile_FREEBSD.hpp" />
+    <Node Include="UNIX_RegisteredProfile_FREEBSD.hxx" />
+    <Node Include="UNIX_RegisteredProfile_HPUX.hpp" />
+    <Node Include="UNIX_RegisteredProfile_HPUX.hxx" />
+    <Node Include="UNIX_RegisteredProfile_LINUX.hpp" />
+    <Node Include="UNIX_RegisteredProfile_LINUX.hxx" />
+    <Node Include="UNIX_RegisteredProfile_SOLARIS.hpp" />
+    <Node Include="UNIX_RegisteredProfile_SOLARIS.hxx" />
+    <Node Include="UNIX_RegisteredProfile_STUB.hpp" />
+    <Node Include="UNIX_RegisteredProfile_STUB.hxx" />
+    <Node Include="UNIX_RegisteredProfile_TRU64.hpp" />
+    <Node Include="UNIX_RegisteredProfile_TRU64.hxx" />
+    <Node Include="UNIX_RegisteredProfile_VMS.hpp" />
+    <Node Include="UNIX_RegisteredProfile_VMS.hxx" />
+    <Node Include="UNIX_RegisteredProfile_WIN32.hpp" />
+    <Node Include="UNIX_RegisteredProfile_ZOS.hpp" />
+    <Node Include="UNIX_RegisteredProfile_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7C962DC5-B7DE-42AE-986D-67DD092D6293}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+        <Package file="../BlockStatisticsManifestCollection/UNIX_BlockStatisticsManifestCollection.md.pc" name="UNIX_BlockStatisticsManifestCollection" IsProject="True" />
+        <Package file="../StatisticsCollection/UNIX_StatisticsCollection.md.pc" name="UNIX_StatisticsCollection" IsProject="True" />
+        <Package file="../BlockStatisticsManifest/UNIX_BlockStatisticsManifest.md.pc" name="UNIX_BlockStatisticsManifest" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BlockStatisticsManifestCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StatisticsCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BlockStatisticsManifest/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_BlockStatisticsServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_BlockStatisticsServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_BlockStatisticsServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider -lUNIX_BlockStatisticsManifestCollectionProvider -lUNIX_StatisticsCollectionProvider -lUNIX_BlockStatisticsManifestProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_BlockStatisticsServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_BlockStatisticsServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_BlockStatisticsServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider -lUNIX_BlockStatisticsManifestCollectionProvider -lUNIX_StatisticsCollectionProvider -lUNIX_BlockStatisticsManifestProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_BlockStatisticsService.cpp" />
+    <Compile Include="UNIX_BlockStatisticsServiceMain.cpp" />
+    <Compile Include="UNIX_BlockStatisticsServiceProvider.cpp" />
+    <Compile Include="UNIX_BlockStatisticsService_AIX.cpp" />
+    <Compile Include="UNIX_BlockStatisticsService_DARWIN.cpp" />
+    <Compile Include="UNIX_BlockStatisticsService_FREEBSD.cpp" />
+    <Compile Include="UNIX_BlockStatisticsService_HPUX.cpp" />
+    <Compile Include="UNIX_BlockStatisticsService_LINUX.cpp" />
+    <Compile Include="UNIX_BlockStatisticsService_SOLARIS.cpp" />
+    <Compile Include="UNIX_BlockStatisticsService_STUB.cpp" />
+    <Compile Include="UNIX_BlockStatisticsService_TRU64.cpp" />
+    <Compile Include="UNIX_BlockStatisticsService_VMS.cpp" />
+    <Compile Include="UNIX_BlockStatisticsService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_BlockStatisticsService.h" />
+    <Node Include="UNIX_BlockStatisticsServiceDeps.h" />
+    <Node Include="UNIX_BlockStatisticsServiceDeps_AIX.h" />
+    <Node Include="UNIX_BlockStatisticsServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_BlockStatisticsServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_BlockStatisticsServiceDeps_HPUX.h" />
+    <Node Include="UNIX_BlockStatisticsServiceDeps_LINUX.h" />
+    <Node Include="UNIX_BlockStatisticsServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_BlockStatisticsServiceDeps_STUB.h" />
+    <Node Include="UNIX_BlockStatisticsServiceDeps_TRU64.h" />
+    <Node Include="UNIX_BlockStatisticsServiceDeps_VMS.h" />
+    <Node Include="UNIX_BlockStatisticsServiceDeps_ZOS.h" />
+    <Node Include="UNIX_BlockStatisticsServicePrivate.h" />
+    <Node Include="UNIX_BlockStatisticsServicePrivate_AIX.h" />
+    <Node Include="UNIX_BlockStatisticsServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_BlockStatisticsServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_BlockStatisticsServicePrivate_HPUX.h" />
+    <Node Include="UNIX_BlockStatisticsServicePrivate_LINUX.h" />
+    <Node Include="UNIX_BlockStatisticsServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_BlockStatisticsServicePrivate_STUB.h" />
+    <Node Include="UNIX_BlockStatisticsServicePrivate_TRU64.h" />
+    <Node Include="UNIX_BlockStatisticsServicePrivate_VMS.h" />
+    <Node Include="UNIX_BlockStatisticsServicePrivate_ZOS.h" />
+    <Node Include="UNIX_BlockStatisticsServiceProvider.h" />
+    <Node Include="UNIX_BlockStatisticsService_AIX.hpp" />
+    <Node Include="UNIX_BlockStatisticsService_AIX.hxx" />
+    <Node Include="UNIX_BlockStatisticsService_DARWIN.hpp" />
+    <Node Include="UNIX_BlockStatisticsService_DARWIN.hxx" />
+    <Node Include="UNIX_BlockStatisticsService_FREEBSD.hpp" />
+    <Node Include="UNIX_BlockStatisticsService_FREEBSD.hxx" />
+    <Node Include="UNIX_BlockStatisticsService_HPUX.hpp" />
+    <Node Include="UNIX_BlockStatisticsService_HPUX.hxx" />
+    <Node Include="UNIX_BlockStatisticsService_LINUX.hpp" />
+    <Node Include="UNIX_BlockStatisticsService_LINUX.hxx" />
+    <Node Include="UNIX_BlockStatisticsService_SOLARIS.hpp" />
+    <Node Include="UNIX_BlockStatisticsService_SOLARIS.hxx" />
+    <Node Include="UNIX_BlockStatisticsService_STUB.hpp" />
+    <Node Include="UNIX_BlockStatisticsService_STUB.hxx" />
+    <Node Include="UNIX_BlockStatisticsService_TRU64.hpp" />
+    <Node Include="UNIX_BlockStatisticsService_TRU64.hxx" />
+    <Node Include="UNIX_BlockStatisticsService_VMS.hpp" />
+    <Node Include="UNIX_BlockStatisticsService_VMS.hxx" />
+    <Node Include="UNIX_BlockStatisticsService_WIN32.hpp" />
+    <Node Include="UNIX_BlockStatisticsService_ZOS.hpp" />
+    <Node Include="UNIX_BlockStatisticsService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

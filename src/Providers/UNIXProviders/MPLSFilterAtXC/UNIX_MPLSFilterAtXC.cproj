@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{72BCCC13-4222-4198-8129-031CB90C10B9}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../FilterList/UNIX_FilterList.md.pc" name="UNIX_FilterList" IsProject="True" />
+        <Package file="../MPLSCrossConnect/UNIX_MPLSCrossConnect.md.pc" name="UNIX_MPLSCrossConnect" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../FilterList/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSCrossConnect/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_MPLSFilterAtXCProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MPLSFilterAtXCLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_MPLSFilterAtXCLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_FilterListProvider -lUNIX_MPLSCrossConnectProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_MPLSFilterAtXCProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MPLSFilterAtXCLib" -DPROVIDER_LIB_NS="namespace UNIX_MPLSFilterAtXCLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_FilterListProvider -lUNIX_MPLSCrossConnectProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_MPLSFilterAtXC.cpp" />
+    <Compile Include="UNIX_MPLSFilterAtXCMain.cpp" />
+    <Compile Include="UNIX_MPLSFilterAtXCProvider.cpp" />
+    <Compile Include="UNIX_MPLSFilterAtXC_AIX.cpp" />
+    <Compile Include="UNIX_MPLSFilterAtXC_DARWIN.cpp" />
+    <Compile Include="UNIX_MPLSFilterAtXC_FREEBSD.cpp" />
+    <Compile Include="UNIX_MPLSFilterAtXC_HPUX.cpp" />
+    <Compile Include="UNIX_MPLSFilterAtXC_LINUX.cpp" />
+    <Compile Include="UNIX_MPLSFilterAtXC_SOLARIS.cpp" />
+    <Compile Include="UNIX_MPLSFilterAtXC_STUB.cpp" />
+    <Compile Include="UNIX_MPLSFilterAtXC_TRU64.cpp" />
+    <Compile Include="UNIX_MPLSFilterAtXC_VMS.cpp" />
+    <Compile Include="UNIX_MPLSFilterAtXC_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_MPLSFilterAtXC.h" />
+    <Node Include="UNIX_MPLSFilterAtXCDeps.h" />
+    <Node Include="UNIX_MPLSFilterAtXCDeps_AIX.h" />
+    <Node Include="UNIX_MPLSFilterAtXCDeps_DARWIN.h" />
+    <Node Include="UNIX_MPLSFilterAtXCDeps_FREEBSD.h" />
+    <Node Include="UNIX_MPLSFilterAtXCDeps_HPUX.h" />
+    <Node Include="UNIX_MPLSFilterAtXCDeps_LINUX.h" />
+    <Node Include="UNIX_MPLSFilterAtXCDeps_SOLARIS.h" />
+    <Node Include="UNIX_MPLSFilterAtXCDeps_STUB.h" />
+    <Node Include="UNIX_MPLSFilterAtXCDeps_TRU64.h" />
+    <Node Include="UNIX_MPLSFilterAtXCDeps_VMS.h" />
+    <Node Include="UNIX_MPLSFilterAtXCDeps_ZOS.h" />
+    <Node Include="UNIX_MPLSFilterAtXCPrivate.h" />
+    <Node Include="UNIX_MPLSFilterAtXCPrivate_AIX.h" />
+    <Node Include="UNIX_MPLSFilterAtXCPrivate_DARWIN.h" />
+    <Node Include="UNIX_MPLSFilterAtXCPrivate_FREEBSD.h" />
+    <Node Include="UNIX_MPLSFilterAtXCPrivate_HPUX.h" />
+    <Node Include="UNIX_MPLSFilterAtXCPrivate_LINUX.h" />
+    <Node Include="UNIX_MPLSFilterAtXCPrivate_SOLARIS.h" />
+    <Node Include="UNIX_MPLSFilterAtXCPrivate_STUB.h" />
+    <Node Include="UNIX_MPLSFilterAtXCPrivate_TRU64.h" />
+    <Node Include="UNIX_MPLSFilterAtXCPrivate_VMS.h" />
+    <Node Include="UNIX_MPLSFilterAtXCPrivate_ZOS.h" />
+    <Node Include="UNIX_MPLSFilterAtXCProvider.h" />
+    <Node Include="UNIX_MPLSFilterAtXC_AIX.hpp" />
+    <Node Include="UNIX_MPLSFilterAtXC_AIX.hxx" />
+    <Node Include="UNIX_MPLSFilterAtXC_DARWIN.hpp" />
+    <Node Include="UNIX_MPLSFilterAtXC_DARWIN.hxx" />
+    <Node Include="UNIX_MPLSFilterAtXC_FREEBSD.hpp" />
+    <Node Include="UNIX_MPLSFilterAtXC_FREEBSD.hxx" />
+    <Node Include="UNIX_MPLSFilterAtXC_HPUX.hpp" />
+    <Node Include="UNIX_MPLSFilterAtXC_HPUX.hxx" />
+    <Node Include="UNIX_MPLSFilterAtXC_LINUX.hpp" />
+    <Node Include="UNIX_MPLSFilterAtXC_LINUX.hxx" />
+    <Node Include="UNIX_MPLSFilterAtXC_SOLARIS.hpp" />
+    <Node Include="UNIX_MPLSFilterAtXC_SOLARIS.hxx" />
+    <Node Include="UNIX_MPLSFilterAtXC_STUB.hpp" />
+    <Node Include="UNIX_MPLSFilterAtXC_STUB.hxx" />
+    <Node Include="UNIX_MPLSFilterAtXC_TRU64.hpp" />
+    <Node Include="UNIX_MPLSFilterAtXC_TRU64.hxx" />
+    <Node Include="UNIX_MPLSFilterAtXC_VMS.hpp" />
+    <Node Include="UNIX_MPLSFilterAtXC_VMS.hxx" />
+    <Node Include="UNIX_MPLSFilterAtXC_WIN32.hpp" />
+    <Node Include="UNIX_MPLSFilterAtXC_ZOS.hpp" />
+    <Node Include="UNIX_MPLSFilterAtXC_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

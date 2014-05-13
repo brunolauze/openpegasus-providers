@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{81B6B810-626B-47A0-A5ED-292B9836EBBA}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../NATStaticSettings/UNIX_NATStaticSettings.md.pc" name="UNIX_NATStaticSettings" IsProject="True" />
+        <Package file="../NATListBasedSettings/UNIX_NATListBasedSettings.md.pc" name="UNIX_NATListBasedSettings" IsProject="True" />
+        <Package file="../FileSystemSettingData/UNIX_FileSystemSettingData.md.pc" name="UNIX_FileSystemSettingData" IsProject="True" />
+        <Package file="../DatabaseSegmentSettingData/UNIX_DatabaseSegmentSettingData.md.pc" name="UNIX_DatabaseSegmentSettingData" IsProject="True" />
+        <Package file="../AHTransform/UNIX_AHTransform.md.pc" name="UNIX_AHTransform" IsProject="True" />
+        <Package file="../ESPTransform/UNIX_ESPTransform.md.pc" name="UNIX_ESPTransform" IsProject="True" />
+        <Package file="../IPCOMPTransform/UNIX_IPCOMPTransform.md.pc" name="UNIX_IPCOMPTransform" IsProject="True" />
+        <Package file="../IPsecProposal/UNIX_IPsecProposal.md.pc" name="UNIX_IPsecProposal" IsProject="True" />
+        <Package file="../IKEProposal/UNIX_IKEProposal.md.pc" name="UNIX_IKEProposal" IsProject="True" />
+        <Package file="../TimeoutsForNATTranslation/UNIX_TimeoutsForNATTranslation.md.pc" name="UNIX_TimeoutsForNATTranslation" IsProject="True" />
+        <Package file="../DatabaseParameter/UNIX_DatabaseParameter.md.pc" name="UNIX_DatabaseParameter" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../NATStaticSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NATListBasedSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FileSystemSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DatabaseSegmentSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AHTransform/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ESPTransform/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPCOMPTransform/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPsecProposal/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IKEProposal/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TimeoutsForNATTranslation/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DatabaseParameter/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ScopedSettingProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ScopedSettingLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ScopedSettingLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_NATStaticSettingsProvider -lUNIX_NATListBasedSettingsProvider -lUNIX_FileSystemSettingDataProvider -lUNIX_DatabaseSegmentSettingDataProvider -lUNIX_AHTransformProvider -lUNIX_ESPTransformProvider -lUNIX_IPCOMPTransformProvider -lUNIX_IPsecProposalProvider -lUNIX_IKEProposalProvider -lUNIX_TimeoutsForNATTranslationProvider -lUNIX_DatabaseParameterProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ScopedSettingProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ScopedSettingLib" -DPROVIDER_LIB_NS="namespace UNIX_ScopedSettingLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_NATStaticSettingsProvider -lUNIX_NATListBasedSettingsProvider -lUNIX_FileSystemSettingDataProvider -lUNIX_DatabaseSegmentSettingDataProvider -lUNIX_AHTransformProvider -lUNIX_ESPTransformProvider -lUNIX_IPCOMPTransformProvider -lUNIX_IPsecProposalProvider -lUNIX_IKEProposalProvider -lUNIX_TimeoutsForNATTranslationProvider -lUNIX_DatabaseParameterProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ScopedSetting.cpp" />
+    <Compile Include="UNIX_ScopedSettingMain.cpp" />
+    <Compile Include="UNIX_ScopedSettingProvider.cpp" />
+    <Compile Include="UNIX_ScopedSetting_AIX.cpp" />
+    <Compile Include="UNIX_ScopedSetting_DARWIN.cpp" />
+    <Compile Include="UNIX_ScopedSetting_FREEBSD.cpp" />
+    <Compile Include="UNIX_ScopedSetting_HPUX.cpp" />
+    <Compile Include="UNIX_ScopedSetting_LINUX.cpp" />
+    <Compile Include="UNIX_ScopedSetting_SOLARIS.cpp" />
+    <Compile Include="UNIX_ScopedSetting_STUB.cpp" />
+    <Compile Include="UNIX_ScopedSetting_TRU64.cpp" />
+    <Compile Include="UNIX_ScopedSetting_VMS.cpp" />
+    <Compile Include="UNIX_ScopedSetting_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ScopedSetting.h" />
+    <Node Include="UNIX_ScopedSettingDeps.h" />
+    <Node Include="UNIX_ScopedSettingDeps_AIX.h" />
+    <Node Include="UNIX_ScopedSettingDeps_DARWIN.h" />
+    <Node Include="UNIX_ScopedSettingDeps_FREEBSD.h" />
+    <Node Include="UNIX_ScopedSettingDeps_HPUX.h" />
+    <Node Include="UNIX_ScopedSettingDeps_LINUX.h" />
+    <Node Include="UNIX_ScopedSettingDeps_SOLARIS.h" />
+    <Node Include="UNIX_ScopedSettingDeps_STUB.h" />
+    <Node Include="UNIX_ScopedSettingDeps_TRU64.h" />
+    <Node Include="UNIX_ScopedSettingDeps_VMS.h" />
+    <Node Include="UNIX_ScopedSettingDeps_ZOS.h" />
+    <Node Include="UNIX_ScopedSettingPrivate.h" />
+    <Node Include="UNIX_ScopedSettingPrivate_AIX.h" />
+    <Node Include="UNIX_ScopedSettingPrivate_DARWIN.h" />
+    <Node Include="UNIX_ScopedSettingPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ScopedSettingPrivate_HPUX.h" />
+    <Node Include="UNIX_ScopedSettingPrivate_LINUX.h" />
+    <Node Include="UNIX_ScopedSettingPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ScopedSettingPrivate_STUB.h" />
+    <Node Include="UNIX_ScopedSettingPrivate_TRU64.h" />
+    <Node Include="UNIX_ScopedSettingPrivate_VMS.h" />
+    <Node Include="UNIX_ScopedSettingPrivate_ZOS.h" />
+    <Node Include="UNIX_ScopedSettingProvider.h" />
+    <Node Include="UNIX_ScopedSetting_AIX.hpp" />
+    <Node Include="UNIX_ScopedSetting_AIX.hxx" />
+    <Node Include="UNIX_ScopedSetting_DARWIN.hpp" />
+    <Node Include="UNIX_ScopedSetting_DARWIN.hxx" />
+    <Node Include="UNIX_ScopedSetting_FREEBSD.hpp" />
+    <Node Include="UNIX_ScopedSetting_FREEBSD.hxx" />
+    <Node Include="UNIX_ScopedSetting_HPUX.hpp" />
+    <Node Include="UNIX_ScopedSetting_HPUX.hxx" />
+    <Node Include="UNIX_ScopedSetting_LINUX.hpp" />
+    <Node Include="UNIX_ScopedSetting_LINUX.hxx" />
+    <Node Include="UNIX_ScopedSetting_SOLARIS.hpp" />
+    <Node Include="UNIX_ScopedSetting_SOLARIS.hxx" />
+    <Node Include="UNIX_ScopedSetting_STUB.hpp" />
+    <Node Include="UNIX_ScopedSetting_STUB.hxx" />
+    <Node Include="UNIX_ScopedSetting_TRU64.hpp" />
+    <Node Include="UNIX_ScopedSetting_TRU64.hxx" />
+    <Node Include="UNIX_ScopedSetting_VMS.hpp" />
+    <Node Include="UNIX_ScopedSetting_VMS.hxx" />
+    <Node Include="UNIX_ScopedSetting_WIN32.hpp" />
+    <Node Include="UNIX_ScopedSetting_ZOS.hpp" />
+    <Node Include="UNIX_ScopedSetting_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

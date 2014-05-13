@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E5D625D0-CB5D-4F59-B9EF-AD637AE52E68}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_OtherOrganizationInformationProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_OtherOrganizationInformationLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_OtherOrganizationInformationLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_OtherOrganizationInformationProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_OtherOrganizationInformationLib" -DPROVIDER_LIB_NS="namespace UNIX_OtherOrganizationInformationLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_OtherOrganizationInformation.cpp" />
+    <Compile Include="UNIX_OtherOrganizationInformationMain.cpp" />
+    <Compile Include="UNIX_OtherOrganizationInformationProvider.cpp" />
+    <Compile Include="UNIX_OtherOrganizationInformation_AIX.cpp" />
+    <Compile Include="UNIX_OtherOrganizationInformation_DARWIN.cpp" />
+    <Compile Include="UNIX_OtherOrganizationInformation_FREEBSD.cpp" />
+    <Compile Include="UNIX_OtherOrganizationInformation_HPUX.cpp" />
+    <Compile Include="UNIX_OtherOrganizationInformation_LINUX.cpp" />
+    <Compile Include="UNIX_OtherOrganizationInformation_SOLARIS.cpp" />
+    <Compile Include="UNIX_OtherOrganizationInformation_STUB.cpp" />
+    <Compile Include="UNIX_OtherOrganizationInformation_TRU64.cpp" />
+    <Compile Include="UNIX_OtherOrganizationInformation_VMS.cpp" />
+    <Compile Include="UNIX_OtherOrganizationInformation_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_OtherOrganizationInformation.h" />
+    <Node Include="UNIX_OtherOrganizationInformationDeps.h" />
+    <Node Include="UNIX_OtherOrganizationInformationDeps_AIX.h" />
+    <Node Include="UNIX_OtherOrganizationInformationDeps_DARWIN.h" />
+    <Node Include="UNIX_OtherOrganizationInformationDeps_FREEBSD.h" />
+    <Node Include="UNIX_OtherOrganizationInformationDeps_HPUX.h" />
+    <Node Include="UNIX_OtherOrganizationInformationDeps_LINUX.h" />
+    <Node Include="UNIX_OtherOrganizationInformationDeps_SOLARIS.h" />
+    <Node Include="UNIX_OtherOrganizationInformationDeps_STUB.h" />
+    <Node Include="UNIX_OtherOrganizationInformationDeps_TRU64.h" />
+    <Node Include="UNIX_OtherOrganizationInformationDeps_VMS.h" />
+    <Node Include="UNIX_OtherOrganizationInformationDeps_ZOS.h" />
+    <Node Include="UNIX_OtherOrganizationInformationPrivate.h" />
+    <Node Include="UNIX_OtherOrganizationInformationPrivate_AIX.h" />
+    <Node Include="UNIX_OtherOrganizationInformationPrivate_DARWIN.h" />
+    <Node Include="UNIX_OtherOrganizationInformationPrivate_FREEBSD.h" />
+    <Node Include="UNIX_OtherOrganizationInformationPrivate_HPUX.h" />
+    <Node Include="UNIX_OtherOrganizationInformationPrivate_LINUX.h" />
+    <Node Include="UNIX_OtherOrganizationInformationPrivate_SOLARIS.h" />
+    <Node Include="UNIX_OtherOrganizationInformationPrivate_STUB.h" />
+    <Node Include="UNIX_OtherOrganizationInformationPrivate_TRU64.h" />
+    <Node Include="UNIX_OtherOrganizationInformationPrivate_VMS.h" />
+    <Node Include="UNIX_OtherOrganizationInformationPrivate_ZOS.h" />
+    <Node Include="UNIX_OtherOrganizationInformationProvider.h" />
+    <Node Include="UNIX_OtherOrganizationInformation_AIX.hpp" />
+    <Node Include="UNIX_OtherOrganizationInformation_AIX.hxx" />
+    <Node Include="UNIX_OtherOrganizationInformation_DARWIN.hpp" />
+    <Node Include="UNIX_OtherOrganizationInformation_DARWIN.hxx" />
+    <Node Include="UNIX_OtherOrganizationInformation_FREEBSD.hpp" />
+    <Node Include="UNIX_OtherOrganizationInformation_FREEBSD.hxx" />
+    <Node Include="UNIX_OtherOrganizationInformation_HPUX.hpp" />
+    <Node Include="UNIX_OtherOrganizationInformation_HPUX.hxx" />
+    <Node Include="UNIX_OtherOrganizationInformation_LINUX.hpp" />
+    <Node Include="UNIX_OtherOrganizationInformation_LINUX.hxx" />
+    <Node Include="UNIX_OtherOrganizationInformation_SOLARIS.hpp" />
+    <Node Include="UNIX_OtherOrganizationInformation_SOLARIS.hxx" />
+    <Node Include="UNIX_OtherOrganizationInformation_STUB.hpp" />
+    <Node Include="UNIX_OtherOrganizationInformation_STUB.hxx" />
+    <Node Include="UNIX_OtherOrganizationInformation_TRU64.hpp" />
+    <Node Include="UNIX_OtherOrganizationInformation_TRU64.hxx" />
+    <Node Include="UNIX_OtherOrganizationInformation_VMS.hpp" />
+    <Node Include="UNIX_OtherOrganizationInformation_VMS.hxx" />
+    <Node Include="UNIX_OtherOrganizationInformation_WIN32.hpp" />
+    <Node Include="UNIX_OtherOrganizationInformation_ZOS.hpp" />
+    <Node Include="UNIX_OtherOrganizationInformation_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

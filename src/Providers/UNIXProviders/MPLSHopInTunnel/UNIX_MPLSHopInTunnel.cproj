@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7CE8DF4A-7C7D-42BE-ADE3-1A3656E1FA9C}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../MPLSTunnelHop/UNIX_MPLSTunnelHop.md.pc" name="UNIX_MPLSTunnelHop" IsProject="True" />
+        <Package file="../MPLSTunnel/UNIX_MPLSTunnel.md.pc" name="UNIX_MPLSTunnel" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../MPLSTunnelHop/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSTunnel/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_MPLSHopInTunnelProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MPLSHopInTunnelLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_MPLSHopInTunnelLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_MPLSTunnelHopProvider -lUNIX_MPLSTunnelProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_MPLSHopInTunnelProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MPLSHopInTunnelLib" -DPROVIDER_LIB_NS="namespace UNIX_MPLSHopInTunnelLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_MPLSTunnelHopProvider -lUNIX_MPLSTunnelProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_MPLSHopInTunnel.cpp" />
+    <Compile Include="UNIX_MPLSHopInTunnelMain.cpp" />
+    <Compile Include="UNIX_MPLSHopInTunnelProvider.cpp" />
+    <Compile Include="UNIX_MPLSHopInTunnel_AIX.cpp" />
+    <Compile Include="UNIX_MPLSHopInTunnel_DARWIN.cpp" />
+    <Compile Include="UNIX_MPLSHopInTunnel_FREEBSD.cpp" />
+    <Compile Include="UNIX_MPLSHopInTunnel_HPUX.cpp" />
+    <Compile Include="UNIX_MPLSHopInTunnel_LINUX.cpp" />
+    <Compile Include="UNIX_MPLSHopInTunnel_SOLARIS.cpp" />
+    <Compile Include="UNIX_MPLSHopInTunnel_STUB.cpp" />
+    <Compile Include="UNIX_MPLSHopInTunnel_TRU64.cpp" />
+    <Compile Include="UNIX_MPLSHopInTunnel_VMS.cpp" />
+    <Compile Include="UNIX_MPLSHopInTunnel_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_MPLSHopInTunnel.h" />
+    <Node Include="UNIX_MPLSHopInTunnelDeps.h" />
+    <Node Include="UNIX_MPLSHopInTunnelDeps_AIX.h" />
+    <Node Include="UNIX_MPLSHopInTunnelDeps_DARWIN.h" />
+    <Node Include="UNIX_MPLSHopInTunnelDeps_FREEBSD.h" />
+    <Node Include="UNIX_MPLSHopInTunnelDeps_HPUX.h" />
+    <Node Include="UNIX_MPLSHopInTunnelDeps_LINUX.h" />
+    <Node Include="UNIX_MPLSHopInTunnelDeps_SOLARIS.h" />
+    <Node Include="UNIX_MPLSHopInTunnelDeps_STUB.h" />
+    <Node Include="UNIX_MPLSHopInTunnelDeps_TRU64.h" />
+    <Node Include="UNIX_MPLSHopInTunnelDeps_VMS.h" />
+    <Node Include="UNIX_MPLSHopInTunnelDeps_ZOS.h" />
+    <Node Include="UNIX_MPLSHopInTunnelPrivate.h" />
+    <Node Include="UNIX_MPLSHopInTunnelPrivate_AIX.h" />
+    <Node Include="UNIX_MPLSHopInTunnelPrivate_DARWIN.h" />
+    <Node Include="UNIX_MPLSHopInTunnelPrivate_FREEBSD.h" />
+    <Node Include="UNIX_MPLSHopInTunnelPrivate_HPUX.h" />
+    <Node Include="UNIX_MPLSHopInTunnelPrivate_LINUX.h" />
+    <Node Include="UNIX_MPLSHopInTunnelPrivate_SOLARIS.h" />
+    <Node Include="UNIX_MPLSHopInTunnelPrivate_STUB.h" />
+    <Node Include="UNIX_MPLSHopInTunnelPrivate_TRU64.h" />
+    <Node Include="UNIX_MPLSHopInTunnelPrivate_VMS.h" />
+    <Node Include="UNIX_MPLSHopInTunnelPrivate_ZOS.h" />
+    <Node Include="UNIX_MPLSHopInTunnelProvider.h" />
+    <Node Include="UNIX_MPLSHopInTunnel_AIX.hpp" />
+    <Node Include="UNIX_MPLSHopInTunnel_AIX.hxx" />
+    <Node Include="UNIX_MPLSHopInTunnel_DARWIN.hpp" />
+    <Node Include="UNIX_MPLSHopInTunnel_DARWIN.hxx" />
+    <Node Include="UNIX_MPLSHopInTunnel_FREEBSD.hpp" />
+    <Node Include="UNIX_MPLSHopInTunnel_FREEBSD.hxx" />
+    <Node Include="UNIX_MPLSHopInTunnel_HPUX.hpp" />
+    <Node Include="UNIX_MPLSHopInTunnel_HPUX.hxx" />
+    <Node Include="UNIX_MPLSHopInTunnel_LINUX.hpp" />
+    <Node Include="UNIX_MPLSHopInTunnel_LINUX.hxx" />
+    <Node Include="UNIX_MPLSHopInTunnel_SOLARIS.hpp" />
+    <Node Include="UNIX_MPLSHopInTunnel_SOLARIS.hxx" />
+    <Node Include="UNIX_MPLSHopInTunnel_STUB.hpp" />
+    <Node Include="UNIX_MPLSHopInTunnel_STUB.hxx" />
+    <Node Include="UNIX_MPLSHopInTunnel_TRU64.hpp" />
+    <Node Include="UNIX_MPLSHopInTunnel_TRU64.hxx" />
+    <Node Include="UNIX_MPLSHopInTunnel_VMS.hpp" />
+    <Node Include="UNIX_MPLSHopInTunnel_VMS.hxx" />
+    <Node Include="UNIX_MPLSHopInTunnel_WIN32.hpp" />
+    <Node Include="UNIX_MPLSHopInTunnel_ZOS.hpp" />
+    <Node Include="UNIX_MPLSHopInTunnel_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7212A82B-FBF6-41AB-8D71-5523DBA87BE6}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../AutonomousSystem/UNIX_AutonomousSystem.md.pc" name="UNIX_AutonomousSystem" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../AutonomousSystem/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ConfederationProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ConfederationLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ConfederationLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AutonomousSystemProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ConfederationProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ConfederationLib" -DPROVIDER_LIB_NS="namespace UNIX_ConfederationLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AutonomousSystemProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_Confederation.cpp" />
+    <Compile Include="UNIX_ConfederationMain.cpp" />
+    <Compile Include="UNIX_ConfederationProvider.cpp" />
+    <Compile Include="UNIX_Confederation_AIX.cpp" />
+    <Compile Include="UNIX_Confederation_DARWIN.cpp" />
+    <Compile Include="UNIX_Confederation_FREEBSD.cpp" />
+    <Compile Include="UNIX_Confederation_HPUX.cpp" />
+    <Compile Include="UNIX_Confederation_LINUX.cpp" />
+    <Compile Include="UNIX_Confederation_SOLARIS.cpp" />
+    <Compile Include="UNIX_Confederation_STUB.cpp" />
+    <Compile Include="UNIX_Confederation_TRU64.cpp" />
+    <Compile Include="UNIX_Confederation_VMS.cpp" />
+    <Compile Include="UNIX_Confederation_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_Confederation.h" />
+    <Node Include="UNIX_ConfederationDeps.h" />
+    <Node Include="UNIX_ConfederationDeps_AIX.h" />
+    <Node Include="UNIX_ConfederationDeps_DARWIN.h" />
+    <Node Include="UNIX_ConfederationDeps_FREEBSD.h" />
+    <Node Include="UNIX_ConfederationDeps_HPUX.h" />
+    <Node Include="UNIX_ConfederationDeps_LINUX.h" />
+    <Node Include="UNIX_ConfederationDeps_SOLARIS.h" />
+    <Node Include="UNIX_ConfederationDeps_STUB.h" />
+    <Node Include="UNIX_ConfederationDeps_TRU64.h" />
+    <Node Include="UNIX_ConfederationDeps_VMS.h" />
+    <Node Include="UNIX_ConfederationDeps_ZOS.h" />
+    <Node Include="UNIX_ConfederationPrivate.h" />
+    <Node Include="UNIX_ConfederationPrivate_AIX.h" />
+    <Node Include="UNIX_ConfederationPrivate_DARWIN.h" />
+    <Node Include="UNIX_ConfederationPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ConfederationPrivate_HPUX.h" />
+    <Node Include="UNIX_ConfederationPrivate_LINUX.h" />
+    <Node Include="UNIX_ConfederationPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ConfederationPrivate_STUB.h" />
+    <Node Include="UNIX_ConfederationPrivate_TRU64.h" />
+    <Node Include="UNIX_ConfederationPrivate_VMS.h" />
+    <Node Include="UNIX_ConfederationPrivate_ZOS.h" />
+    <Node Include="UNIX_ConfederationProvider.h" />
+    <Node Include="UNIX_Confederation_AIX.hpp" />
+    <Node Include="UNIX_Confederation_AIX.hxx" />
+    <Node Include="UNIX_Confederation_DARWIN.hpp" />
+    <Node Include="UNIX_Confederation_DARWIN.hxx" />
+    <Node Include="UNIX_Confederation_FREEBSD.hpp" />
+    <Node Include="UNIX_Confederation_FREEBSD.hxx" />
+    <Node Include="UNIX_Confederation_HPUX.hpp" />
+    <Node Include="UNIX_Confederation_HPUX.hxx" />
+    <Node Include="UNIX_Confederation_LINUX.hpp" />
+    <Node Include="UNIX_Confederation_LINUX.hxx" />
+    <Node Include="UNIX_Confederation_SOLARIS.hpp" />
+    <Node Include="UNIX_Confederation_SOLARIS.hxx" />
+    <Node Include="UNIX_Confederation_STUB.hpp" />
+    <Node Include="UNIX_Confederation_STUB.hxx" />
+    <Node Include="UNIX_Confederation_TRU64.hpp" />
+    <Node Include="UNIX_Confederation_TRU64.hxx" />
+    <Node Include="UNIX_Confederation_VMS.hpp" />
+    <Node Include="UNIX_Confederation_VMS.hxx" />
+    <Node Include="UNIX_Confederation_WIN32.hpp" />
+    <Node Include="UNIX_Confederation_ZOS.hpp" />
+    <Node Include="UNIX_Confederation_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

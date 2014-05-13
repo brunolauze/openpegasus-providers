@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{861CAD19-CF43-4ED7-86D3-C0AA6E6D3337}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+        <Package file="../ReplicationGroup/UNIX_ReplicationGroup.md.pc" name="UNIX_ReplicationGroup" IsProject="True" />
+        <Package file="../Synchronized/UNIX_Synchronized.md.pc" name="UNIX_Synchronized" IsProject="True" />
+        <Package file="../ResourcePool/UNIX_ResourcePool.md.pc" name="UNIX_ResourcePool" IsProject="True" />
+        <Package file="../SettingsDefineState/UNIX_SettingsDefineState.md.pc" name="UNIX_SettingsDefineState" IsProject="True" />
+        <Package file="../ComputerSystem/UNIX_ComputerSystem.md.pc" name="UNIX_ComputerSystem" IsProject="True" />
+        <Package file="../ReplicationEntity/UNIX_ReplicationEntity.md.pc" name="UNIX_ReplicationEntity" IsProject="True" />
+        <Package file="../SharedSecret/UNIX_SharedSecret.md.pc" name="UNIX_SharedSecret" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ReplicationGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Synchronized/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ResourcePool/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SettingsDefineState/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ReplicationEntity/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SharedSecret/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ReplicationServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ReplicationServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ReplicationServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider -lUNIX_ReplicationGroupProvider -lUNIX_SynchronizedProvider -lUNIX_ResourcePoolProvider -lUNIX_SettingsDefineStateProvider -lUNIX_ComputerSystemProvider -lUNIX_ReplicationEntityProvider -lUNIX_SharedSecretProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ReplicationServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ReplicationServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_ReplicationServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider -lUNIX_ReplicationGroupProvider -lUNIX_SynchronizedProvider -lUNIX_ResourcePoolProvider -lUNIX_SettingsDefineStateProvider -lUNIX_ComputerSystemProvider -lUNIX_ReplicationEntityProvider -lUNIX_SharedSecretProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ReplicationService.cpp" />
+    <Compile Include="UNIX_ReplicationServiceMain.cpp" />
+    <Compile Include="UNIX_ReplicationServiceProvider.cpp" />
+    <Compile Include="UNIX_ReplicationService_AIX.cpp" />
+    <Compile Include="UNIX_ReplicationService_DARWIN.cpp" />
+    <Compile Include="UNIX_ReplicationService_FREEBSD.cpp" />
+    <Compile Include="UNIX_ReplicationService_HPUX.cpp" />
+    <Compile Include="UNIX_ReplicationService_LINUX.cpp" />
+    <Compile Include="UNIX_ReplicationService_SOLARIS.cpp" />
+    <Compile Include="UNIX_ReplicationService_STUB.cpp" />
+    <Compile Include="UNIX_ReplicationService_TRU64.cpp" />
+    <Compile Include="UNIX_ReplicationService_VMS.cpp" />
+    <Compile Include="UNIX_ReplicationService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ReplicationService.h" />
+    <Node Include="UNIX_ReplicationServiceDeps.h" />
+    <Node Include="UNIX_ReplicationServiceDeps_AIX.h" />
+    <Node Include="UNIX_ReplicationServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_ReplicationServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_ReplicationServiceDeps_HPUX.h" />
+    <Node Include="UNIX_ReplicationServiceDeps_LINUX.h" />
+    <Node Include="UNIX_ReplicationServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_ReplicationServiceDeps_STUB.h" />
+    <Node Include="UNIX_ReplicationServiceDeps_TRU64.h" />
+    <Node Include="UNIX_ReplicationServiceDeps_VMS.h" />
+    <Node Include="UNIX_ReplicationServiceDeps_ZOS.h" />
+    <Node Include="UNIX_ReplicationServicePrivate.h" />
+    <Node Include="UNIX_ReplicationServicePrivate_AIX.h" />
+    <Node Include="UNIX_ReplicationServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_ReplicationServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_ReplicationServicePrivate_HPUX.h" />
+    <Node Include="UNIX_ReplicationServicePrivate_LINUX.h" />
+    <Node Include="UNIX_ReplicationServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_ReplicationServicePrivate_STUB.h" />
+    <Node Include="UNIX_ReplicationServicePrivate_TRU64.h" />
+    <Node Include="UNIX_ReplicationServicePrivate_VMS.h" />
+    <Node Include="UNIX_ReplicationServicePrivate_ZOS.h" />
+    <Node Include="UNIX_ReplicationServiceProvider.h" />
+    <Node Include="UNIX_ReplicationService_AIX.hpp" />
+    <Node Include="UNIX_ReplicationService_AIX.hxx" />
+    <Node Include="UNIX_ReplicationService_DARWIN.hpp" />
+    <Node Include="UNIX_ReplicationService_DARWIN.hxx" />
+    <Node Include="UNIX_ReplicationService_FREEBSD.hpp" />
+    <Node Include="UNIX_ReplicationService_FREEBSD.hxx" />
+    <Node Include="UNIX_ReplicationService_HPUX.hpp" />
+    <Node Include="UNIX_ReplicationService_HPUX.hxx" />
+    <Node Include="UNIX_ReplicationService_LINUX.hpp" />
+    <Node Include="UNIX_ReplicationService_LINUX.hxx" />
+    <Node Include="UNIX_ReplicationService_SOLARIS.hpp" />
+    <Node Include="UNIX_ReplicationService_SOLARIS.hxx" />
+    <Node Include="UNIX_ReplicationService_STUB.hpp" />
+    <Node Include="UNIX_ReplicationService_STUB.hxx" />
+    <Node Include="UNIX_ReplicationService_TRU64.hpp" />
+    <Node Include="UNIX_ReplicationService_TRU64.hxx" />
+    <Node Include="UNIX_ReplicationService_VMS.hpp" />
+    <Node Include="UNIX_ReplicationService_VMS.hxx" />
+    <Node Include="UNIX_ReplicationService_WIN32.hpp" />
+    <Node Include="UNIX_ReplicationService_ZOS.hpp" />
+    <Node Include="UNIX_ReplicationService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

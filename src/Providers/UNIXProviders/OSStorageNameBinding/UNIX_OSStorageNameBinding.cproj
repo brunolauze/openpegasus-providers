@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D4DC1D4E-1A30-4F6F-81D1-282B18F06E77}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_OSStorageNameBindingProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_OSStorageNameBindingLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_OSStorageNameBindingLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_OSStorageNameBindingProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_OSStorageNameBindingLib" -DPROVIDER_LIB_NS="namespace UNIX_OSStorageNameBindingLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_OSStorageNameBinding.cpp" />
+    <Compile Include="UNIX_OSStorageNameBindingMain.cpp" />
+    <Compile Include="UNIX_OSStorageNameBindingProvider.cpp" />
+    <Compile Include="UNIX_OSStorageNameBinding_AIX.cpp" />
+    <Compile Include="UNIX_OSStorageNameBinding_DARWIN.cpp" />
+    <Compile Include="UNIX_OSStorageNameBinding_FREEBSD.cpp" />
+    <Compile Include="UNIX_OSStorageNameBinding_HPUX.cpp" />
+    <Compile Include="UNIX_OSStorageNameBinding_LINUX.cpp" />
+    <Compile Include="UNIX_OSStorageNameBinding_SOLARIS.cpp" />
+    <Compile Include="UNIX_OSStorageNameBinding_STUB.cpp" />
+    <Compile Include="UNIX_OSStorageNameBinding_TRU64.cpp" />
+    <Compile Include="UNIX_OSStorageNameBinding_VMS.cpp" />
+    <Compile Include="UNIX_OSStorageNameBinding_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_OSStorageNameBinding.h" />
+    <Node Include="UNIX_OSStorageNameBindingDeps.h" />
+    <Node Include="UNIX_OSStorageNameBindingDeps_AIX.h" />
+    <Node Include="UNIX_OSStorageNameBindingDeps_DARWIN.h" />
+    <Node Include="UNIX_OSStorageNameBindingDeps_FREEBSD.h" />
+    <Node Include="UNIX_OSStorageNameBindingDeps_HPUX.h" />
+    <Node Include="UNIX_OSStorageNameBindingDeps_LINUX.h" />
+    <Node Include="UNIX_OSStorageNameBindingDeps_SOLARIS.h" />
+    <Node Include="UNIX_OSStorageNameBindingDeps_STUB.h" />
+    <Node Include="UNIX_OSStorageNameBindingDeps_TRU64.h" />
+    <Node Include="UNIX_OSStorageNameBindingDeps_VMS.h" />
+    <Node Include="UNIX_OSStorageNameBindingDeps_ZOS.h" />
+    <Node Include="UNIX_OSStorageNameBindingPrivate.h" />
+    <Node Include="UNIX_OSStorageNameBindingPrivate_AIX.h" />
+    <Node Include="UNIX_OSStorageNameBindingPrivate_DARWIN.h" />
+    <Node Include="UNIX_OSStorageNameBindingPrivate_FREEBSD.h" />
+    <Node Include="UNIX_OSStorageNameBindingPrivate_HPUX.h" />
+    <Node Include="UNIX_OSStorageNameBindingPrivate_LINUX.h" />
+    <Node Include="UNIX_OSStorageNameBindingPrivate_SOLARIS.h" />
+    <Node Include="UNIX_OSStorageNameBindingPrivate_STUB.h" />
+    <Node Include="UNIX_OSStorageNameBindingPrivate_TRU64.h" />
+    <Node Include="UNIX_OSStorageNameBindingPrivate_VMS.h" />
+    <Node Include="UNIX_OSStorageNameBindingPrivate_ZOS.h" />
+    <Node Include="UNIX_OSStorageNameBindingProvider.h" />
+    <Node Include="UNIX_OSStorageNameBinding_AIX.hpp" />
+    <Node Include="UNIX_OSStorageNameBinding_AIX.hxx" />
+    <Node Include="UNIX_OSStorageNameBinding_DARWIN.hpp" />
+    <Node Include="UNIX_OSStorageNameBinding_DARWIN.hxx" />
+    <Node Include="UNIX_OSStorageNameBinding_FREEBSD.hpp" />
+    <Node Include="UNIX_OSStorageNameBinding_FREEBSD.hxx" />
+    <Node Include="UNIX_OSStorageNameBinding_HPUX.hpp" />
+    <Node Include="UNIX_OSStorageNameBinding_HPUX.hxx" />
+    <Node Include="UNIX_OSStorageNameBinding_LINUX.hpp" />
+    <Node Include="UNIX_OSStorageNameBinding_LINUX.hxx" />
+    <Node Include="UNIX_OSStorageNameBinding_SOLARIS.hpp" />
+    <Node Include="UNIX_OSStorageNameBinding_SOLARIS.hxx" />
+    <Node Include="UNIX_OSStorageNameBinding_STUB.hpp" />
+    <Node Include="UNIX_OSStorageNameBinding_STUB.hxx" />
+    <Node Include="UNIX_OSStorageNameBinding_TRU64.hpp" />
+    <Node Include="UNIX_OSStorageNameBinding_TRU64.hxx" />
+    <Node Include="UNIX_OSStorageNameBinding_VMS.hpp" />
+    <Node Include="UNIX_OSStorageNameBinding_VMS.hxx" />
+    <Node Include="UNIX_OSStorageNameBinding_WIN32.hpp" />
+    <Node Include="UNIX_OSStorageNameBinding_ZOS.hpp" />
+    <Node Include="UNIX_OSStorageNameBinding_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

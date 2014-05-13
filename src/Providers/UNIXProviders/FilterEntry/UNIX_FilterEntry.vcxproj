@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+   </ProjectConfiguration>
+   <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+   </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="../CIMHelper.cpp" />
+    <ClCompile Include="UNIX_FilterEntry.cpp" />
+    <ClCompile Include="UNIX_FilterEntryMain.cpp" />
+    <ClCompile Include="UNIX_FilterEntryProvider.cpp" />
+    <ClCompile Include="UNIX_FilterEntry_AIX.cpp" />
+    <ClCompile Include="UNIX_FilterEntry_DARWIN.cpp" />
+    <ClCompile Include="UNIX_FilterEntry_FREEBSD.cpp" />
+    <ClCompile Include="UNIX_FilterEntry_HPUX.cpp" />
+    <ClCompile Include="UNIX_FilterEntry_LINUX.cpp" />
+    <ClCompile Include="UNIX_FilterEntry_SOLARIS.cpp" />
+    <ClCompile Include="UNIX_FilterEntry_STUB.cpp" />
+    <ClCompile Include="UNIX_FilterEntry_TRU64.cpp" />
+    <ClCompile Include="UNIX_FilterEntry_VMS.cpp" />
+    <ClCompile Include="UNIX_FilterEntry_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Makefile" />
+    <ClInclude Include="UNIX_FilterEntry.cproj" />
+    <ClInclude Include="UNIX_FilterEntry.h" />
+    <ClInclude Include="UNIX_FilterEntry.md.pc" />
+    <ClInclude Include="UNIX_FilterEntryDeps.h" />
+    <ClInclude Include="UNIX_FilterEntryDeps_AIX.h" />
+    <ClInclude Include="UNIX_FilterEntryDeps_DARWIN.h" />
+    <ClInclude Include="UNIX_FilterEntryDeps_FREEBSD.h" />
+    <ClInclude Include="UNIX_FilterEntryDeps_HPUX.h" />
+    <ClInclude Include="UNIX_FilterEntryDeps_LINUX.h" />
+    <ClInclude Include="UNIX_FilterEntryDeps_SOLARIS.h" />
+    <ClInclude Include="UNIX_FilterEntryDeps_STUB.h" />
+    <ClInclude Include="UNIX_FilterEntryDeps_TRU64.h" />
+    <ClInclude Include="UNIX_FilterEntryDeps_VMS.h" />
+    <ClInclude Include="UNIX_FilterEntryDeps_ZOS.h" />
+    <ClInclude Include="UNIX_FilterEntryPrivate.h" />
+    <ClInclude Include="UNIX_FilterEntryPrivate_AIX.h" />
+    <ClInclude Include="UNIX_FilterEntryPrivate_DARWIN.h" />
+    <ClInclude Include="UNIX_FilterEntryPrivate_FREEBSD.h" />
+    <ClInclude Include="UNIX_FilterEntryPrivate_HPUX.h" />
+    <ClInclude Include="UNIX_FilterEntryPrivate_LINUX.h" />
+    <ClInclude Include="UNIX_FilterEntryPrivate_SOLARIS.h" />
+    <ClInclude Include="UNIX_FilterEntryPrivate_STUB.h" />
+    <ClInclude Include="UNIX_FilterEntryPrivate_TRU64.h" />
+    <ClInclude Include="UNIX_FilterEntryPrivate_VMS.h" />
+    <ClInclude Include="UNIX_FilterEntryPrivate_ZOS.h" />
+    <ClInclude Include="UNIX_FilterEntryProvider.h" />
+    <ClInclude Include="UNIX_FilterEntry_AIX.hpp" />
+    <ClInclude Include="UNIX_FilterEntry_AIX.hxx" />
+    <ClInclude Include="UNIX_FilterEntry_DARWIN.hpp" />
+    <ClInclude Include="UNIX_FilterEntry_DARWIN.hxx" />
+    <ClInclude Include="UNIX_FilterEntry_FREEBSD.hpp" />
+    <ClInclude Include="UNIX_FilterEntry_FREEBSD.hxx" />
+    <ClInclude Include="UNIX_FilterEntry_HPUX.hpp" />
+    <ClInclude Include="UNIX_FilterEntry_HPUX.hxx" />
+    <ClInclude Include="UNIX_FilterEntry_LINUX.hpp" />
+    <ClInclude Include="UNIX_FilterEntry_LINUX.hxx" />
+    <ClInclude Include="UNIX_FilterEntry_SOLARIS.hpp" />
+    <ClInclude Include="UNIX_FilterEntry_SOLARIS.hxx" />
+    <ClInclude Include="UNIX_FilterEntry_STUB.hpp" />
+    <ClInclude Include="UNIX_FilterEntry_STUB.hxx" />
+    <ClInclude Include="UNIX_FilterEntry_TRU64.hpp" />
+    <ClInclude Include="UNIX_FilterEntry_TRU64.hxx" />
+    <ClInclude Include="UNIX_FilterEntry_VMS.hpp" />
+    <ClInclude Include="UNIX_FilterEntry_VMS.hxx" />
+    <ClInclude Include="UNIX_FilterEntry_WIN32.hpp" />
+    <ClInclude Include="UNIX_FilterEntry_ZOS.hpp" />
+    <ClInclude Include="UNIX_FilterEntry_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6e51ecee-5f47-4e13-ae4e-058137619c22}</ProjectGuid>
+    <RootNamespace>UNIX_FilterEntryLib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>C:\mdtool-plink $(ProjectName)</NMakeBuildCommandLine>
+    <IncludePath>$(ProjectDir)/..;$(VisualStudioDir)\Includes;$(VisualStudioDir)\Includes\c++\v1</IncludePath>
+    <AdditionalOptions>/D__extension__="" /D__RUNETYPE_INTERNAL /D_LIBCPP_HAS_NO_LONG_LONG /D__GNUC_VA_LIST /D__GNUCLIKE_BUILTIN_STDARG /D_BSD_SOURCE /D_XLOCALE_H_ /D_GNU_SOURCE /DTHREAD_SAFE /D_REENTRANT /DPEGASUS_COMMON_INTERNAL /DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU /DPEGASUS_OS_FREEBSD /DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG /DPEGASUS_USE_SYSLOGS /DPEGASUS_ARCH_LIB="lib" /DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION /DPEGASUS_ENABLE_CQL /DPEGASUS_DEFAULT_ENABLE_OOP /DPEGASUS_ENABLE_EXECQUERY /DPEGASUS_HAS_SSL /DPEGASUS_SSL_RANDOMFILE /DPEGASUS_ENABLE_SSL_CRL_VERIFICATION /DPEGASUS_ENABLE_AUDIT_LOGGER /DPEGASUS_ENABLE_IPV6 /DPEGASUS_ENABLE_INDICATION_COUNT /DPEGASUS_ENABLE_SLP /DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 /DPEGASUS_ENABLE_INTEROP_PROVIDER /DPEGASUS_USE_EXPERIMENTAL_INTERFACES /DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER /DPEGASUS_DEST_LIB_DIR="lib" /DPEGASUS_ENABLE_PROTOCOL_WSMAN /DPEGASUS_PAM_AUTHENTICATION /DPEGASUS_NO_PASSWORDFILE /DPEGASUS_ENABLE_PROTOCOL_BINARY /DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" /DPROVIDER_LIB_NS="UNIX_FilterEntryLib" /DPROVIDER_LIB_NS_BEGIN="namespace UNIX_FilterEntryLib {"</AdditionalOptions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>C:\mdtool-plink $(ProjectName)</NMakeBuildCommandLine>
+    <IncludePath>$(ProjectDir)/..;$(VisualStudioDir)\Includes;$(VisualStudioDir)\Includes\c++\v1</IncludePath>
+    <AdditionalOptions>/D__extension__="" /D__RUNETYPE_INTERNAL /D_LIBCPP_HAS_NO_LONG_LONG /D__GNUC_VA_LIST /D__GNUCLIKE_BUILTIN_STDARG /D_BSD_SOURCE /D_XLOCALE_H_ /D_GNU_SOURCE /DTHREAD_SAFE /D_REENTRANT /DPEGASUS_COMMON_INTERNAL /DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU /DPEGASUS_OS_FREEBSD /DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG /DPEGASUS_USE_SYSLOGS /DPEGASUS_ARCH_LIB="lib" /DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION /DPEGASUS_ENABLE_CQL /DPEGASUS_DEFAULT_ENABLE_OOP /DPEGASUS_ENABLE_EXECQUERY /DPEGASUS_HAS_SSL /DPEGASUS_SSL_RANDOMFILE /DPEGASUS_ENABLE_SSL_CRL_VERIFICATION /DPEGASUS_ENABLE_AUDIT_LOGGER /DPEGASUS_ENABLE_IPV6 /DPEGASUS_ENABLE_INDICATION_COUNT /DPEGASUS_ENABLE_SLP /DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 /DPEGASUS_ENABLE_INTEROP_PROVIDER /DPEGASUS_USE_EXPERIMENTAL_INTERFACES /DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER /DPEGASUS_DEST_LIB_DIR="lib" /DPEGASUS_ENABLE_PROTOCOL_WSMAN /DPEGASUS_PAM_AUTHENTICATION /DPEGASUS_NO_PASSWORDFILE /DPEGASUS_ENABLE_PROTOCOL_BINARY /DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" /DPROVIDER_LIB_NS="UNIX_FilterEntryLib" /DPROVIDER_LIB_NS_BEGIN="namespace UNIX_FilterEntryLib {"</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

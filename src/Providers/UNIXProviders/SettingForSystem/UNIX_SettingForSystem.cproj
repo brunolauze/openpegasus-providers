@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{702B186E-850D-4FAC-8E95-11405E84F735}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ComputerSystem/UNIX_ComputerSystem.md.pc" name="UNIX_ComputerSystem" IsProject="True" />
+        <Package file="../SystemSetting/UNIX_SystemSetting.md.pc" name="UNIX_SystemSetting" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SystemSetting/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_SettingForSystemProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SettingForSystemLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SettingForSystemLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ComputerSystemProvider -lUNIX_SystemSettingProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_SettingForSystemProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SettingForSystemLib" -DPROVIDER_LIB_NS="namespace UNIX_SettingForSystemLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ComputerSystemProvider -lUNIX_SystemSettingProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SettingForSystem.cpp" />
+    <Compile Include="UNIX_SettingForSystemMain.cpp" />
+    <Compile Include="UNIX_SettingForSystemProvider.cpp" />
+    <Compile Include="UNIX_SettingForSystem_AIX.cpp" />
+    <Compile Include="UNIX_SettingForSystem_DARWIN.cpp" />
+    <Compile Include="UNIX_SettingForSystem_FREEBSD.cpp" />
+    <Compile Include="UNIX_SettingForSystem_HPUX.cpp" />
+    <Compile Include="UNIX_SettingForSystem_LINUX.cpp" />
+    <Compile Include="UNIX_SettingForSystem_SOLARIS.cpp" />
+    <Compile Include="UNIX_SettingForSystem_STUB.cpp" />
+    <Compile Include="UNIX_SettingForSystem_TRU64.cpp" />
+    <Compile Include="UNIX_SettingForSystem_VMS.cpp" />
+    <Compile Include="UNIX_SettingForSystem_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_SettingForSystem.h" />
+    <Node Include="UNIX_SettingForSystemDeps.h" />
+    <Node Include="UNIX_SettingForSystemDeps_AIX.h" />
+    <Node Include="UNIX_SettingForSystemDeps_DARWIN.h" />
+    <Node Include="UNIX_SettingForSystemDeps_FREEBSD.h" />
+    <Node Include="UNIX_SettingForSystemDeps_HPUX.h" />
+    <Node Include="UNIX_SettingForSystemDeps_LINUX.h" />
+    <Node Include="UNIX_SettingForSystemDeps_SOLARIS.h" />
+    <Node Include="UNIX_SettingForSystemDeps_STUB.h" />
+    <Node Include="UNIX_SettingForSystemDeps_TRU64.h" />
+    <Node Include="UNIX_SettingForSystemDeps_VMS.h" />
+    <Node Include="UNIX_SettingForSystemDeps_ZOS.h" />
+    <Node Include="UNIX_SettingForSystemPrivate.h" />
+    <Node Include="UNIX_SettingForSystemPrivate_AIX.h" />
+    <Node Include="UNIX_SettingForSystemPrivate_DARWIN.h" />
+    <Node Include="UNIX_SettingForSystemPrivate_FREEBSD.h" />
+    <Node Include="UNIX_SettingForSystemPrivate_HPUX.h" />
+    <Node Include="UNIX_SettingForSystemPrivate_LINUX.h" />
+    <Node Include="UNIX_SettingForSystemPrivate_SOLARIS.h" />
+    <Node Include="UNIX_SettingForSystemPrivate_STUB.h" />
+    <Node Include="UNIX_SettingForSystemPrivate_TRU64.h" />
+    <Node Include="UNIX_SettingForSystemPrivate_VMS.h" />
+    <Node Include="UNIX_SettingForSystemPrivate_ZOS.h" />
+    <Node Include="UNIX_SettingForSystemProvider.h" />
+    <Node Include="UNIX_SettingForSystem_AIX.hpp" />
+    <Node Include="UNIX_SettingForSystem_AIX.hxx" />
+    <Node Include="UNIX_SettingForSystem_DARWIN.hpp" />
+    <Node Include="UNIX_SettingForSystem_DARWIN.hxx" />
+    <Node Include="UNIX_SettingForSystem_FREEBSD.hpp" />
+    <Node Include="UNIX_SettingForSystem_FREEBSD.hxx" />
+    <Node Include="UNIX_SettingForSystem_HPUX.hpp" />
+    <Node Include="UNIX_SettingForSystem_HPUX.hxx" />
+    <Node Include="UNIX_SettingForSystem_LINUX.hpp" />
+    <Node Include="UNIX_SettingForSystem_LINUX.hxx" />
+    <Node Include="UNIX_SettingForSystem_SOLARIS.hpp" />
+    <Node Include="UNIX_SettingForSystem_SOLARIS.hxx" />
+    <Node Include="UNIX_SettingForSystem_STUB.hpp" />
+    <Node Include="UNIX_SettingForSystem_STUB.hxx" />
+    <Node Include="UNIX_SettingForSystem_TRU64.hpp" />
+    <Node Include="UNIX_SettingForSystem_TRU64.hxx" />
+    <Node Include="UNIX_SettingForSystem_VMS.hpp" />
+    <Node Include="UNIX_SettingForSystem_VMS.hxx" />
+    <Node Include="UNIX_SettingForSystem_WIN32.hpp" />
+    <Node Include="UNIX_SettingForSystem_ZOS.hpp" />
+    <Node Include="UNIX_SettingForSystem_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

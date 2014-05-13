@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1290D683-8EA9-423D-AD8B-234C80B0F344}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../CompoundPolicyCondition/UNIX_CompoundPolicyCondition.md.pc" name="UNIX_CompoundPolicyCondition" IsProject="True" />
+        <Package file="../PacketFilterCondition/UNIX_PacketFilterCondition.md.pc" name="UNIX_PacketFilterCondition" IsProject="True" />
+        <Package file="../QueryCondition/UNIX_QueryCondition.md.pc" name="UNIX_QueryCondition" IsProject="True" />
+        <Package file="../DocumentAuthentication/UNIX_DocumentAuthentication.md.pc" name="UNIX_DocumentAuthentication" IsProject="True" />
+        <Package file="../NetworkingIDAuthentication/UNIX_NetworkingIDAuthentication.md.pc" name="UNIX_NetworkingIDAuthentication" IsProject="True" />
+        <Package file="../KerberosAuthentication/UNIX_KerberosAuthentication.md.pc" name="UNIX_KerberosAuthentication" IsProject="True" />
+        <Package file="../BiometricAuthentication/UNIX_BiometricAuthentication.md.pc" name="UNIX_BiometricAuthentication" IsProject="True" />
+        <Package file="../PublicPrivateKeyAuthentication/UNIX_PublicPrivateKeyAuthentication.md.pc" name="UNIX_PublicPrivateKeyAuthentication" IsProject="True" />
+        <Package file="../PhysicalCredentialAuthentication/UNIX_PhysicalCredentialAuthentication.md.pc" name="UNIX_PhysicalCredentialAuthentication" IsProject="True" />
+        <Package file="../SharedSecretAuthentication/UNIX_SharedSecretAuthentication.md.pc" name="UNIX_SharedSecretAuthentication" IsProject="True" />
+        <Package file="../AccountAuthentication/UNIX_AccountAuthentication.md.pc" name="UNIX_AccountAuthentication" IsProject="True" />
+        <Package file="../PolicyTimePeriodCondition/UNIX_PolicyTimePeriodCondition.md.pc" name="UNIX_PolicyTimePeriodCondition" IsProject="True" />
+        <Package file="../VendorPolicyCondition/UNIX_VendorPolicyCondition.md.pc" name="UNIX_VendorPolicyCondition" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../CompoundPolicyCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PacketFilterCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../QueryCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DocumentAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkingIDAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../KerberosAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BiometricAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PublicPrivateKeyAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PhysicalCredentialAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SharedSecretAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AccountAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PolicyTimePeriodCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VendorPolicyCondition/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_PolicyConditionInPolicyConditionProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PolicyConditionInPolicyConditionLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PolicyConditionInPolicyConditionLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_CompoundPolicyConditionProvider -lUNIX_PacketFilterConditionProvider -lUNIX_QueryConditionProvider -lUNIX_DocumentAuthenticationProvider -lUNIX_NetworkingIDAuthenticationProvider -lUNIX_KerberosAuthenticationProvider -lUNIX_BiometricAuthenticationProvider -lUNIX_PublicPrivateKeyAuthenticationProvider -lUNIX_PhysicalCredentialAuthenticationProvider -lUNIX_SharedSecretAuthenticationProvider -lUNIX_AccountAuthenticationProvider -lUNIX_PolicyTimePeriodConditionProvider -lUNIX_VendorPolicyConditionProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_PolicyConditionInPolicyConditionProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PolicyConditionInPolicyConditionLib" -DPROVIDER_LIB_NS="namespace UNIX_PolicyConditionInPolicyConditionLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_CompoundPolicyConditionProvider -lUNIX_PacketFilterConditionProvider -lUNIX_QueryConditionProvider -lUNIX_DocumentAuthenticationProvider -lUNIX_NetworkingIDAuthenticationProvider -lUNIX_KerberosAuthenticationProvider -lUNIX_BiometricAuthenticationProvider -lUNIX_PublicPrivateKeyAuthenticationProvider -lUNIX_PhysicalCredentialAuthenticationProvider -lUNIX_SharedSecretAuthenticationProvider -lUNIX_AccountAuthenticationProvider -lUNIX_PolicyTimePeriodConditionProvider -lUNIX_VendorPolicyConditionProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_PolicyConditionInPolicyCondition.cpp" />
+    <Compile Include="UNIX_PolicyConditionInPolicyConditionMain.cpp" />
+    <Compile Include="UNIX_PolicyConditionInPolicyConditionProvider.cpp" />
+    <Compile Include="UNIX_PolicyConditionInPolicyCondition_AIX.cpp" />
+    <Compile Include="UNIX_PolicyConditionInPolicyCondition_DARWIN.cpp" />
+    <Compile Include="UNIX_PolicyConditionInPolicyCondition_FREEBSD.cpp" />
+    <Compile Include="UNIX_PolicyConditionInPolicyCondition_HPUX.cpp" />
+    <Compile Include="UNIX_PolicyConditionInPolicyCondition_LINUX.cpp" />
+    <Compile Include="UNIX_PolicyConditionInPolicyCondition_SOLARIS.cpp" />
+    <Compile Include="UNIX_PolicyConditionInPolicyCondition_STUB.cpp" />
+    <Compile Include="UNIX_PolicyConditionInPolicyCondition_TRU64.cpp" />
+    <Compile Include="UNIX_PolicyConditionInPolicyCondition_VMS.cpp" />
+    <Compile Include="UNIX_PolicyConditionInPolicyCondition_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionDeps.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionDeps_AIX.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionDeps_DARWIN.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionDeps_FREEBSD.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionDeps_HPUX.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionDeps_LINUX.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionDeps_SOLARIS.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionDeps_STUB.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionDeps_TRU64.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionDeps_VMS.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionDeps_ZOS.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionPrivate.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionPrivate_AIX.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionPrivate_DARWIN.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionPrivate_FREEBSD.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionPrivate_HPUX.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionPrivate_LINUX.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionPrivate_SOLARIS.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionPrivate_STUB.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionPrivate_TRU64.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionPrivate_VMS.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionPrivate_ZOS.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyConditionProvider.h" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_AIX.hpp" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_AIX.hxx" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_DARWIN.hpp" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_DARWIN.hxx" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_FREEBSD.hpp" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_FREEBSD.hxx" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_HPUX.hpp" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_HPUX.hxx" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_LINUX.hpp" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_LINUX.hxx" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_SOLARIS.hpp" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_SOLARIS.hxx" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_STUB.hpp" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_STUB.hxx" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_TRU64.hpp" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_TRU64.hxx" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_VMS.hpp" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_VMS.hxx" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_WIN32.hpp" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_ZOS.hpp" />
+    <Node Include="UNIX_PolicyConditionInPolicyCondition_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

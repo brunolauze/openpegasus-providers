@@ -1,0 +1,468 @@
+//%LICENSE////////////////////////////////////////////////////////////////
+//
+// Licensed to The Open Group (TOG) under one or more contributor license
+// agreements.  Refer to the OpenPegasusNOTICE.txt file distributed with
+// this work for additional information regarding copyright ownership.
+// Each contributor licenses this file to you under the OpenPegasus Open
+// Source License; you may not use this file except in compliance with the
+// License.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//////////////////////////////////////////////////////////////////////////
+//
+//%/////////////////////////////////////////////////////////////////////////
+
+
+
+// Copyright (c) 2009 DMTF.  All rights reserved.
+   [Abstract, Version ( "2.19.0" ), 
+    UMLPackagePath ( "CIM::Core::CoreElements" ), 
+    Description ( 
+       "ManagedElement is an abstract class that provides a common "
+       "superclass (or top of the inheritance tree) for the "
+       "non-association classes in the CIM Schema." )]
+class CIM_ManagedElement {
+
+      [Description ( 
+          "InstanceID is an optional property that may be used to "
+          "opaquely and uniquely identify an instance of this class "
+          "within the scope of the instantiating Namespace. Various "
+          "subclasses of this class may override this property to "
+          "make it required, or a key. Such subclasses may also "
+          "modify the preferred algorithms for ensuring uniqueness "
+          "that are defined below.\n"
+          "To ensure uniqueness within the NameSpace, the value of "
+          "InstanceID should be constructed using the following "
+          "\"preferred\" algorithm: \n"
+          "<OrgID>:<LocalID> \n"
+          "Where <OrgID> and <LocalID> are separated by a colon "
+          "(:), and where <OrgID> must include a copyrighted, "
+          "trademarked, or otherwise unique name that is owned by "
+          "the business entity that is creating or defining the "
+          "InstanceID or that is a registered ID assigned to the "
+          "business entity by a recognized global authority. (This "
+          "requirement is similar to the <Schema Name>_<Class Name> "
+          "structure of Schema class names.) In addition, to ensure "
+          "uniqueness, <OrgID> must not contain a colon (:). When "
+          "using this algorithm, the first colon to appear in "
+          "InstanceID must appear between <OrgID> and <LocalID>. \n"
+          "<LocalID> is chosen by the business entity and should "
+          "not be reused to identify different underlying "
+          "(real-world) elements. If not null and the above "
+          "\"preferred\" algorithm is not used, the defining entity "
+          "must assure that the resulting InstanceID is not reused "
+          "across any InstanceIDs produced by this or other "
+          "providers for the NameSpace of this instance. \n"
+          "If not set to null for DMTF-defined instances, the "
+          "\"preferred\" algorithm must be used with the <OrgID> "
+          "set to CIM." )]
+   string InstanceID;
+
+      [Description ( 
+          "The Caption property is a short textual description "
+          "(one- line string) of the object." ), 
+       MaxLen ( 64 )]
+   string Caption;
+
+      [Description ( 
+          "The Description property provides a textual description "
+          "of the object." )]
+   string Description;
+
+      [Description ( 
+          "A user-friendly name for the object. This property "
+          "allows each instance to define a user-friendly name in "
+          "addition to its key properties, identity data, and "
+          "description information. \n"
+          "Note that the Name property of ManagedSystemElement is "
+          "also defined as a user-friendly name. But, it is often "
+          "subclassed to be a Key. It is not reasonable that the "
+          "same property can convey both identity and a "
+          "user-friendly name, without inconsistencies. Where Name "
+          "exists and is not a Key (such as for instances of "
+          "LogicalDevice), the same information can be present in "
+          "both the Name and ElementName properties. Note that if "
+          "there is an associated instance of "
+          "CIM_EnabledLogicalElementCapabilities, restrictions on "
+          "this properties may exist as defined in ElementNameMask "
+          "and MaxElementNameLen properties defined in that class." )]
+   string ElementName;
+
+      [Experimental, Description ( 
+          "Generation is an optional, monotonically increasing "
+          "property that may be used to identify a particular "
+          "generation of the resource represented by this class.\n"
+          "If Generation is supported by the implementation, its "
+          "value shall not be null. \n"
+          "Except as otherwise specified, a value (including null) "
+          "of Generation specified at creation time shall be "
+          "replaced by null if Generation is not supported by the "
+          "implementation or shall be a, (possibly different), "
+          "non-null value if the implementation does support Generation.\n"
+          "After creation and if supported, Generation shall be "
+          "updated, at least once per access, whenever the "
+          "represented resource is modified, regardless of the "
+          "source of the modification.\n"
+          "Note: the Generation value only needs to be updated once "
+          "between references, even if the resource is updated many "
+          "times. The key point is to assure that it will be "
+          "different if there have been updates, not to count each update.\n"
+          "Note: unless otherwise specified, the value of "
+          "Generation within one instance is not required to be "
+          "coordinated with the value of Generation in any other instance.\n"
+          "Note:the semantics of the instance, (as defined by its "
+          "creation class), define the underlying resource. That "
+          "underlying resource may be a collection or aggregation "
+          "of resources. And, in that case, the semantics of the "
+          "instance further define when updates to constituent "
+          "resources also require updates to the Generation of the "
+          "collective resource. Default behavior of composite "
+          "aggregations should be to update the Generation of the "
+          "composite whenever the Generation of a component is updated.\n"
+          "Subclasses may define additional requirements for "
+          "updates on some or all of related instances.\n"
+          "For a particular instance, the value of Generation may "
+          "wrap through zero, but the elapsed time between wraps "
+          "shall be greater than 10\'s of years.\n"
+          "This class does not require Generation to be unique "
+          "across instances of other classes nor across instances "
+          "of the same class that have different keys. Generation "
+          "shall be different across power cycles, resets, or "
+          "reboots if any of those actions results in an update. "
+          "Generation may be different across power cycles, resets, "
+          "or reboots if those actions do not result in an update. "
+          "If the Generation property of an instance is non-null, "
+          "and if any attempt to update the instance includes the "
+          "Generation property, then if it doesn\'t match the "
+          "current value, the update shall fail.\n"
+          "The usage of this property is intended to be further "
+          "specified by applicable management profiles. \n"
+          "Typically, a client will read the value of this property "
+          "and then supply that value as input to an operation that "
+          "modifies the instance in some means. This may be via an "
+          "explicit parameter in an extrinsic method or via an "
+          "embedded value in an extrinsic method or intrinsic operation.\n"
+          "For example: a profile may require that an intrinsic "
+          "instance modification supply the Generation property and "
+          "that it must match for the modification to succeed." )]
+   uint64 Generation;
+
+
+};
+
+
+
+// Copyright (c) 2008 DMTF.  All rights reserved.
+   [Abstract, Version ( "2.19.0" ), 
+    UMLPackagePath ( "CIM::Core::Capabilities" ), 
+    Description ( 
+       "Capabilities is an abstract class whose subclasses describe "
+       "abilities and/or potential for use. For example, one may "
+       "describe the maximum number of VLANs that can be supported on "
+       "a system using a subclass of Capabilities. Capabilities are "
+       "tied to the elements which they describe using the "
+       "ElementCapabilities association. Note that the cardinality of "
+       "the ManagedElement reference is Min(1). This cardinality "
+       "mandates the instantiation of the ElementCapabilities "
+       "association for the referenced instance of Capabilities. "
+       "ElementCapabilities describes the existence requirements for "
+       "the referenced instance of ManagedElement. Specifically, the "
+       "ManagedElement MUST exist and provide the context for the "
+       "Capabilities. Note that Capabilities do not indicate what IS "
+       "configured or operational, but what CAN or CANNOT exist, be "
+       "defined or be used. Note that it is possible to describe both "
+       "supported and excluded abilities and functions (both "
+       "capabilities and limitations) using this class." )]
+class CIM_Capabilities : CIM_ManagedElement {
+
+      [Key, Override ( "InstanceID" ), 
+       Description ( 
+          "Within the scope of the instantiating Namespace, "
+          "InstanceID opaquely and uniquely identifies an instance "
+          "of this class. In order to ensure uniqueness within the "
+          "NameSpace, the value of InstanceID SHOULD be constructed "
+          "using the following \'preferred\' algorithm: \n"
+          "<OrgID>:<LocalID> \n"
+          "Where <OrgID> and <LocalID> are separated by a colon "
+          "\':\', and where <OrgID> MUST include a copyrighted, "
+          "trademarked or otherwise unique name that is owned by "
+          "the business entity creating/defining the InstanceID, or "
+          "is a registered ID that is assigned to the business "
+          "entity by a recognized global authority (This is similar "
+          "to the <Schema Name>_<Class Name> structure of Schema "
+          "class names.) In addition, to ensure uniqueness <OrgID> "
+          "MUST NOT contain a colon (\':\'). When using this "
+          "algorithm, the first colon to appear in InstanceID MUST "
+          "appear between <OrgID> and <LocalID>. \n"
+          "<LocalID> is chosen by the business entity and SHOULD "
+          "not be re-used to identify different underlying "
+          "(real-world) elements. If the above \'preferred\' "
+          "algorithm is not used, the defining entity MUST assure "
+          "that the resultant InstanceID is not re-used across any "
+          "InstanceIDs produced by this or other providers for this "
+          "instance\'s NameSpace. \n"
+          "For DMTF defined instances, the \'preferred\' algorithm "
+          "MUST be used with the <OrgID> set to \'CIM\'." )]
+   string InstanceID;
+
+      [Required, Override ( "ElementName" ), 
+       Description ( 
+          "The user friendly name for this instance of "
+          "Capabilities. In addition, the user friendly name can be "
+          "used as a index property for a search of query. (Note: "
+          "Name does not have to be unique within a namespace.)" )]
+   string ElementName;
+
+
+      [Experimental, Description ( 
+          "Method to create a set of supported SettingData "
+          "elements, from two sets of SettingData elements, "
+          "provided by the caller. \n"
+          "CreateGoal should be used when the SettingData instances "
+          "that represents the goal will not persist beyond the "
+          "execution of the client and where those instances are "
+          "not intended to be shared with other, non-cooperating "
+          "clients. \n"
+          "Both TemplateGoalSettings and SupportedGoalSettings are "
+          "represented as strings containing EmbeddedInstances of a "
+          "CIM_SettingData subclass. These embedded instances do "
+          "not exist in the infrastructure supporting this method "
+          "but are maintained by the caller/client. \n"
+          "This method should return CIM_Error(s) representing that "
+          "a single named property of a setting (or other) "
+          "parameter (either reference or embedded object) has an "
+          "invalid value or that an invalid combination of named "
+          "properties of a setting (or other) parameter (either "
+          "reference or embedded object) has been requested. \n"
+          "If the input TemplateGoalSettings is NULL or the empty "
+          "string, this method returns a default SettingData "
+          "element that is supported by this Capabilities element. \n"
+          "If the TemplateGoalSettings specifies values that cannot "
+          "be supported, this method shall return an appropriate "
+          "CIM_Error and should return a best match for a "
+          "SupportedGoalSettings. \n"
+          "The client proposes a goal using the "
+          "TemplateGoalSettings parameter and gets back Success if "
+          "the TemplateGoalSettings is exactly supportable. It gets "
+          "back \"Alternative Proposed\" if the output "
+          "SupportedGoalSettings represents a supported "
+          "alternative. This alternative should be a best match, as "
+          "defined by the implementation. \n"
+          "If the implementation is conformant to a "
+          "RegisteredProfile, then that profile may specify the "
+          "algorithms used to determine best match. A client may "
+          "compare the returned value of each property against the "
+          "requested value to determine if it is left unchanged, "
+          "degraded or upgraded. \n"
+          "\n"
+          "Otherwise, if the TemplateGoalSettings is not applicable "
+          "an \"Invalid Parameter\" error is returned. \n"
+          "\n"
+          "When a mutually acceptable SupportedGoalSettings has "
+          "been achieved, the client may use the contained "
+          "SettingData instances as input to methods for creating a "
+          "new object ormodifying an existing object. Also the "
+          "embedded SettingData instances returned in the "
+          "SupportedGoalSettings may be instantiated via "
+          "CreateInstance, either by a client or as a side-effect "
+          "of the execution of an extrinsic method for which the "
+          "returned SupportedGoalSettings is passed as an embedded "
+          "instance." ), 
+       ValueMap { "0", "1", "2", "3", "4", "5", "6", "..", 
+          "32768..65535" }, 
+       Values { "Success", "Not Supported", "Unknown", "Timeout", 
+          "Failed", "Invalid Parameter", "Alternative Proposed", 
+          "DMTF Reserved", "Vendor Specific" }]
+   uint16 CreateGoalSettings(
+         [IN, Description ( 
+             "If provided, TemplateGoalSettings are elements of "
+             "class CIM_SettingData, or a derived class, that is "
+             "used as the template to be matched. . \n"
+             "At most, one instance of each SettingData subclass "
+             "may be supplied. \n"
+             "All SettingData instances provided by this "
+             "property are interpreted as a set, relative to "
+             "this Capabilities instance. \n"
+             "SettingData instances that are not relevant to "
+             "this instance are ignored. \n"
+             "If not provided, it shall be set to NULL. In that "
+             "case, a SettingData instance representing the "
+             "default settings of the associated ManagedElement "
+             "is used." ), 
+          EmbeddedInstance ( "CIM_SettingData" )]
+      string TemplateGoalSettings[], 
+         [IN, OUT, Description ( 
+             "SupportedGoalSettings are elements of class "
+             "CIM_SettingData, or a derived class. \n"
+             "At most, one instance of each SettingData subclass "
+             "may be supplied. \n"
+             "All SettingData instances provided by this "
+             "property are interpreted as a set, relative to "
+             "this Capabilities instance. \n"
+             "\n"
+             "To enable a client to provide additional "
+             "information towards achieving the "
+             "TemplateGoalSettings, an input set of SettingData "
+             "instances may be provided. If not provided, this "
+             "property shall be set to NULL on input.. Note that "
+             "when provided, what property values are changed, "
+             "and how, is implementation dependent and may be "
+             "the subject of other standards. \n"
+             "If provided, the input SettingData instances must "
+             "be ones that the implementation is able to support "
+             "relative to the ManagedElement associated via "
+             "ElementCapabilities. Typically, the input "
+             "SettingData instances are created by a previous "
+             "instantiation of CreateGoalSettings. \n"
+             "If the input SupportedGoalSettings is not "
+             "supported by the implementation, then an \"Invalid "
+             "Parameter\" (5) error is returned by this call. In "
+             "this case, a corresponding CIM_ERROR should also "
+             "be returned. \n"
+             "On output, this property is used to return the "
+             "best supported match to the TemplateGoalSettings. \n"
+             "If the output SupportedGoalSettings matches the "
+             "input SupportedGoalSettings, then the "
+             "implementation is unable to improve further "
+             "towards meeting the TemplateGoalSettings." ), 
+          EmbeddedInstance ( "CIM_SettingData" )]
+      string SupportedGoalSettings[]);
+
+};
+
+
+
+// Copyright (c) 2009 DMTF.  All rights reserved.
+   [Version ( "2.22.0" ), 
+    UMLPackagePath ( "CIM::Core::Capabilities" ), 
+    Description ( 
+       "EnabledLogicalElementCapabilities describes the capabilities "
+       "supported for changing the state of the assciated "
+       "EnabledLogicalElement." )]
+class CIM_EnabledLogicalElementCapabilities : CIM_Capabilities {
+
+      [Description ( 
+          "Boolean indicating whether the ElementName can be modified."
+           ), 
+       MappingStrings { 
+          "FC-SWAPI.INCITS-T11|SWAPI_UNIT_CONFIG_CAPS_T|EditName" }, 
+       ModelCorrespondence { "CIM_ManagedElement.ElementName" }]
+   boolean ElementNameEditSupported;
+
+      [Description ( "Maximum supported ElementName length." ), 
+       MaxValue ( 256 ), 
+       MappingStrings { 
+          "FC-SWAPI.INCITS-T11|SWAPI_UNIT_CONFIG_CAPS_T|MaxNameChars" }, 
+       ModelCorrespondence { 
+          "CIM_FCSwitchCapabilities.ElementNameEditSupported", 
+          "CIM_EnabledLogicalElementCapabilities.ElementNameMask" }]
+   uint16 MaxElementNameLen;
+
+      [Description ( 
+          "RequestedStatesSupported indicates the possible states "
+          "that can be requested when using the method "
+          "RequestStateChange on the EnabledLogicalElement." ), 
+       ValueMap { "2", "3", "4", "6", "7", "8", "9", "10", "11" }, 
+       Values { "Enabled", "Disabled", "Shut Down", "Offline", 
+          "Test", "Defer", "Quiesce", "Reboot", "Reset" }, 
+       ModelCorrespondence { 
+          "CIM_EnabledLogicalElement.RequestStateChange" }]
+   uint16 RequestedStatesSupported[];
+
+      [Description ( 
+          "This string expresses the restrictions on "
+          "ElementName.The mask is expressed as a regular "
+          "expression.See DMTF standard ABNF with the Management "
+          "Profile Specification Usage Guide, appendix C for the "
+          "regular expression syntax permitted. \n"
+          "Since the ElementNameMask can describe the maximum "
+          "length of the ElementName,any length defined in the "
+          "regexp is in addition to the restriction defined in "
+          "MaxElementNameLen (causing the smaller value to be the "
+          "maximum length)The ElementName value satisfies the "
+          "restriction, if and only if it matches the regular "
+          "expression" ), 
+       ModelCorrespondence { 
+          "CIM_EnabledLogicalElementCapabilities.MaxElementNameLen" }]
+   string ElementNameMask;
+
+      [Experimental, Description ( 
+          "StateAwareness indicates support for modeling the state "
+          "of the associated instance of CIM_EnabledLogicalElement. \n"
+          "If StateAwareness contains the value 2 \"Implicit\", the "
+          "RequestedState and TransitioningToState properties of "
+          "the associated instance of CIM_EnabledLogicalElement "
+          "shall provide information about state transitions that "
+          "were initiated through a mechanism other than invocation "
+          "of the RequestStateChange() method. \n"
+          "If StateAwareness contains the value 3 "
+          "\"RequestStateChange\", the RequestedState and "
+          "TransitioningToState properties of the associated "
+          "instance of CIM_EnabledLogicalElement shall provide "
+          "information about state transitions initiated by "
+          "invocation of the RequestStateChange() method. \n"
+          "A value of NULL or an array that contains zero elements "
+          "shall indicate the RequestedState and "
+          "TransitioningToState properties will not reflect any "
+          "transitions, irrespective of how they are initiated." ), 
+       ValueMap { "2", "3", ".." }, 
+       Values { "Implicit", "RequestStateChange", "DMTF Reserved" }]
+   uint16 StateAwareness[];
+
+
+};
+
+
+
+// Copyright (c) 2010 DMTF.  All rights reserved.
+   [Version ( "2.27.0" ), 
+    UMLPackagePath ( "CIM::Core::LaunchInContext" ), 
+    Description ( 
+       "This class exposes the capabilities of the Launch in Context service."
+        )]
+class CIM_LaunchInContextCapabilities : CIM_EnabledLogicalElementCapabilities {
+
+      [Description ( 
+          "This property asserts the maximum accepted size of the "
+          "RestrictedToElement array parameter used in the "
+          "CIM_LaunchInContextService methods: CreateLaunchPoint, "
+          "RemoveLaunchPoint, and AssertLaunchPoint.\n"
+          "A zero indicates no defined limit." )]
+   uint16 MaxRestrictionListSize = 0;
+
+      [Description ( 
+          "This property asserts the maximum number of "
+          "CIM_LaunchInContextSAP instances that may be "
+          "instantiated at one time within the modeled implementation.\n"
+          "A zero indicates no defined limit." )]
+   uint16 MaxLaunchPoints = 0;
+
+
+};
+
+
+
+   [Version( "2.40.0" ), Description("{0}")]
+class UNIX_LaunchInContextCapabilities : CIM_LaunchInContextCapabilities
+{
+
+
+};
+

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>15aa6069-a1ec-4d6d-9866-809aff32e04f</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../../UNIX_PolicyConditionInPolicyRule.md.pc" name="UNIX_PolicyConditionInPolicyRule" IsProject="True" />
+        <Package file="../../../AuthorizationRule/UNIX_AuthorizationRule.md.pc" name="UNIX_AuthorizationRule" IsProject="True" />
+        <Package file="../../../NetworkPolicyRule/UNIX_NetworkPolicyRule.md.pc" name="UNIX_NetworkPolicyRule" IsProject="True" />
+        <Package file="../../../IPsecRule/UNIX_IPsecRule.md.pc" name="UNIX_IPsecRule" IsProject="True" />
+        <Package file="../../../IKERule/UNIX_IKERule.md.pc" name="UNIX_IKERule" IsProject="True" />
+        <Package file="../../../AuthenticationRule/UNIX_AuthenticationRule.md.pc" name="UNIX_AuthenticationRule" IsProject="True" />
+        <Package file="../../../TierPolicyRule/UNIX_TierPolicyRule.md.pc" name="UNIX_TierPolicyRule" IsProject="True" />
+        <Package file="../../../PacketFilterCondition/UNIX_PacketFilterCondition.md.pc" name="UNIX_PacketFilterCondition" IsProject="True" />
+        <Package file="../../../CompoundPolicyCondition/UNIX_CompoundPolicyCondition.md.pc" name="UNIX_CompoundPolicyCondition" IsProject="True" />
+        <Package file="../../../QueryCondition/UNIX_QueryCondition.md.pc" name="UNIX_QueryCondition" IsProject="True" />
+        <Package file="../../../DocumentAuthentication/UNIX_DocumentAuthentication.md.pc" name="UNIX_DocumentAuthentication" IsProject="True" />
+        <Package file="../../../NetworkingIDAuthentication/UNIX_NetworkingIDAuthentication.md.pc" name="UNIX_NetworkingIDAuthentication" IsProject="True" />
+        <Package file="../../../KerberosAuthentication/UNIX_KerberosAuthentication.md.pc" name="UNIX_KerberosAuthentication" IsProject="True" />
+        <Package file="../../../BiometricAuthentication/UNIX_BiometricAuthentication.md.pc" name="UNIX_BiometricAuthentication" IsProject="True" />
+        <Package file="../../../PublicPrivateKeyAuthentication/UNIX_PublicPrivateKeyAuthentication.md.pc" name="UNIX_PublicPrivateKeyAuthentication" IsProject="True" />
+        <Package file="../../../PhysicalCredentialAuthentication/UNIX_PhysicalCredentialAuthentication.md.pc" name="UNIX_PhysicalCredentialAuthentication" IsProject="True" />
+        <Package file="../../../SharedSecretAuthentication/UNIX_SharedSecretAuthentication.md.pc" name="UNIX_SharedSecretAuthentication" IsProject="True" />
+        <Package file="../../../AccountAuthentication/UNIX_AccountAuthentication.md.pc" name="UNIX_AccountAuthentication" IsProject="True" />
+        <Package file="../../../PolicyTimePeriodCondition/UNIX_PolicyTimePeriodCondition.md.pc" name="UNIX_PolicyTimePeriodCondition" IsProject="True" />
+        <Package file="../../../VendorPolicyCondition/UNIX_VendorPolicyCondition.md.pc" name="UNIX_VendorPolicyCondition" IsProject="True" />
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>TestUNIX_PolicyConditionInPolicyRule</OutputName>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/*</Include>
+        <Include>${ProjectDir}/../../..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PolicyConditionInPolicyRuleLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PolicyConditionInPolicyRuleLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PolicyConditionInPolicyRuleProvider -lUNIX_AuthorizationRuleProvider -lUNIX_NetworkPolicyRuleProvider -lUNIX_IPsecRuleProvider -lUNIX_IKERuleProvider -lUNIX_AuthenticationRuleProvider -lUNIX_TierPolicyRuleProvider -lUNIX_PacketFilterConditionProvider -lUNIX_CompoundPolicyConditionProvider -lUNIX_QueryConditionProvider -lUNIX_DocumentAuthenticationProvider -lUNIX_NetworkingIDAuthenticationProvider -lUNIX_KerberosAuthenticationProvider -lUNIX_BiometricAuthenticationProvider -lUNIX_PublicPrivateKeyAuthenticationProvider -lUNIX_PhysicalCredentialAuthenticationProvider -lUNIX_SharedSecretAuthenticationProvider -lUNIX_AccountAuthenticationProvider -lUNIX_PolicyTimePeriodConditionProvider -lUNIX_VendorPolicyConditionProvider</ExtraLinkerArguments>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="LD_LIBRARY_PATH" value="../../../../bin/Debug:../../../../../AuthorizationRule/bin/Debug:../../../../../NetworkPolicyRule/bin/Debug:../../../../../IPsecRule/bin/Debug:../../../../../IKERule/bin/Debug:../../../../../AuthenticationRule/bin/Debug:../../../../../TierPolicyRule/bin/Debug:../../../../../PacketFilterCondition/bin/Debug:../../../../../CompoundPolicyCondition/bin/Debug:../../../../../QueryCondition/bin/Debug:../../../../../DocumentAuthentication/bin/Debug:../../../../../NetworkingIDAuthentication/bin/Debug:../../../../../KerberosAuthentication/bin/Debug:../../../../../BiometricAuthentication/bin/Debug:../../../../../PublicPrivateKeyAuthentication/bin/Debug:../../../../../PhysicalCredentialAuthentication/bin/Debug:../../../../../SharedSecretAuthentication/bin/Debug:../../../../../AccountAuthentication/bin/Debug:../../../../../PolicyTimePeriodCondition/bin/Debug:../../../../../VendorPolicyCondition/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
+    <Commandlineparameters></Commandlineparameters>
+    <ConsolePause>false</ConsolePause>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../../bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AuthorizationRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NetworkPolicyRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPsecRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IKERule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AuthenticationRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TierPolicyRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PacketFilterCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../CompoundPolicyCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../QueryCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DocumentAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NetworkingIDAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../KerberosAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../BiometricAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PublicPrivateKeyAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PhysicalCredentialAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SharedSecretAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AccountAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PolicyTimePeriodCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VendorPolicyCondition/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>TestUNIX_PolicyConditionInPolicyRule</OutputName>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PolicyConditionInPolicyRuleLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PolicyConditionInPolicyRuleLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PolicyConditionInPolicyRuleProvider -lUNIX_AuthorizationRuleProvider -lUNIX_NetworkPolicyRuleProvider -lUNIX_IPsecRuleProvider -lUNIX_IKERuleProvider -lUNIX_AuthenticationRuleProvider -lUNIX_TierPolicyRuleProvider -lUNIX_PacketFilterConditionProvider -lUNIX_CompoundPolicyConditionProvider -lUNIX_QueryConditionProvider -lUNIX_DocumentAuthenticationProvider -lUNIX_NetworkingIDAuthenticationProvider -lUNIX_KerberosAuthenticationProvider -lUNIX_BiometricAuthenticationProvider -lUNIX_PublicPrivateKeyAuthenticationProvider -lUNIX_PhysicalCredentialAuthenticationProvider -lUNIX_SharedSecretAuthenticationProvider -lUNIX_AccountAuthenticationProvider -lUNIX_PolicyTimePeriodConditionProvider -lUNIX_VendorPolicyConditionProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../MockResponseHandler.cpp">
+        <Link>MockResponseHandler.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_PolicyConditionInPolicyRuleFixture.cpp" />
+    <Compile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="RunTestUNIX_PolicyConditionInPolicyRule.sh" />
+    <Node Include="UNIX_PolicyConditionInPolicyRuleFixture.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

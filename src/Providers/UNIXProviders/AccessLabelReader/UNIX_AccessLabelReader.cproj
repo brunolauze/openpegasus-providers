@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{51471ABB-8CA3-4639-8DCF-2D2DC93BECD8}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../LabelReader/UNIX_LabelReader.md.pc" name="UNIX_LabelReader" IsProject="True" />
+        <Package file="../TapeDrive/UNIX_TapeDrive.md.pc" name="UNIX_TapeDrive" IsProject="True" />
+        <Package file="../CDROMDrive/UNIX_CDROMDrive.md.pc" name="UNIX_CDROMDrive" IsProject="True" />
+        <Package file="../WORMDrive/UNIX_WORMDrive.md.pc" name="UNIX_WORMDrive" IsProject="True" />
+        <Package file="../DiskDrive/UNIX_DiskDrive.md.pc" name="UNIX_DiskDrive" IsProject="True" />
+        <Package file="../DVDDrive/UNIX_DVDDrive.md.pc" name="UNIX_DVDDrive" IsProject="True" />
+        <Package file="../DisketteDrive/UNIX_DisketteDrive.md.pc" name="UNIX_DisketteDrive" IsProject="True" />
+        <Package file="../MagnetoOpticalDrive/UNIX_MagnetoOpticalDrive.md.pc" name="UNIX_MagnetoOpticalDrive" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../LabelReader/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TapeDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CDROMDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WORMDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiskDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DVDDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DisketteDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MagnetoOpticalDrive/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_AccessLabelReaderProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AccessLabelReaderLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_AccessLabelReaderLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_LabelReaderProvider -lUNIX_TapeDriveProvider -lUNIX_CDROMDriveProvider -lUNIX_WORMDriveProvider -lUNIX_DiskDriveProvider -lUNIX_DVDDriveProvider -lUNIX_DisketteDriveProvider -lUNIX_MagnetoOpticalDriveProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_AccessLabelReaderProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AccessLabelReaderLib" -DPROVIDER_LIB_NS="namespace UNIX_AccessLabelReaderLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_LabelReaderProvider -lUNIX_TapeDriveProvider -lUNIX_CDROMDriveProvider -lUNIX_WORMDriveProvider -lUNIX_DiskDriveProvider -lUNIX_DVDDriveProvider -lUNIX_DisketteDriveProvider -lUNIX_MagnetoOpticalDriveProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_AccessLabelReader.cpp" />
+    <Compile Include="UNIX_AccessLabelReaderMain.cpp" />
+    <Compile Include="UNIX_AccessLabelReaderProvider.cpp" />
+    <Compile Include="UNIX_AccessLabelReader_AIX.cpp" />
+    <Compile Include="UNIX_AccessLabelReader_DARWIN.cpp" />
+    <Compile Include="UNIX_AccessLabelReader_FREEBSD.cpp" />
+    <Compile Include="UNIX_AccessLabelReader_HPUX.cpp" />
+    <Compile Include="UNIX_AccessLabelReader_LINUX.cpp" />
+    <Compile Include="UNIX_AccessLabelReader_SOLARIS.cpp" />
+    <Compile Include="UNIX_AccessLabelReader_STUB.cpp" />
+    <Compile Include="UNIX_AccessLabelReader_TRU64.cpp" />
+    <Compile Include="UNIX_AccessLabelReader_VMS.cpp" />
+    <Compile Include="UNIX_AccessLabelReader_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_AccessLabelReader.h" />
+    <Node Include="UNIX_AccessLabelReaderDeps.h" />
+    <Node Include="UNIX_AccessLabelReaderDeps_AIX.h" />
+    <Node Include="UNIX_AccessLabelReaderDeps_DARWIN.h" />
+    <Node Include="UNIX_AccessLabelReaderDeps_FREEBSD.h" />
+    <Node Include="UNIX_AccessLabelReaderDeps_HPUX.h" />
+    <Node Include="UNIX_AccessLabelReaderDeps_LINUX.h" />
+    <Node Include="UNIX_AccessLabelReaderDeps_SOLARIS.h" />
+    <Node Include="UNIX_AccessLabelReaderDeps_STUB.h" />
+    <Node Include="UNIX_AccessLabelReaderDeps_TRU64.h" />
+    <Node Include="UNIX_AccessLabelReaderDeps_VMS.h" />
+    <Node Include="UNIX_AccessLabelReaderDeps_ZOS.h" />
+    <Node Include="UNIX_AccessLabelReaderPrivate.h" />
+    <Node Include="UNIX_AccessLabelReaderPrivate_AIX.h" />
+    <Node Include="UNIX_AccessLabelReaderPrivate_DARWIN.h" />
+    <Node Include="UNIX_AccessLabelReaderPrivate_FREEBSD.h" />
+    <Node Include="UNIX_AccessLabelReaderPrivate_HPUX.h" />
+    <Node Include="UNIX_AccessLabelReaderPrivate_LINUX.h" />
+    <Node Include="UNIX_AccessLabelReaderPrivate_SOLARIS.h" />
+    <Node Include="UNIX_AccessLabelReaderPrivate_STUB.h" />
+    <Node Include="UNIX_AccessLabelReaderPrivate_TRU64.h" />
+    <Node Include="UNIX_AccessLabelReaderPrivate_VMS.h" />
+    <Node Include="UNIX_AccessLabelReaderPrivate_ZOS.h" />
+    <Node Include="UNIX_AccessLabelReaderProvider.h" />
+    <Node Include="UNIX_AccessLabelReader_AIX.hpp" />
+    <Node Include="UNIX_AccessLabelReader_AIX.hxx" />
+    <Node Include="UNIX_AccessLabelReader_DARWIN.hpp" />
+    <Node Include="UNIX_AccessLabelReader_DARWIN.hxx" />
+    <Node Include="UNIX_AccessLabelReader_FREEBSD.hpp" />
+    <Node Include="UNIX_AccessLabelReader_FREEBSD.hxx" />
+    <Node Include="UNIX_AccessLabelReader_HPUX.hpp" />
+    <Node Include="UNIX_AccessLabelReader_HPUX.hxx" />
+    <Node Include="UNIX_AccessLabelReader_LINUX.hpp" />
+    <Node Include="UNIX_AccessLabelReader_LINUX.hxx" />
+    <Node Include="UNIX_AccessLabelReader_SOLARIS.hpp" />
+    <Node Include="UNIX_AccessLabelReader_SOLARIS.hxx" />
+    <Node Include="UNIX_AccessLabelReader_STUB.hpp" />
+    <Node Include="UNIX_AccessLabelReader_STUB.hxx" />
+    <Node Include="UNIX_AccessLabelReader_TRU64.hpp" />
+    <Node Include="UNIX_AccessLabelReader_TRU64.hxx" />
+    <Node Include="UNIX_AccessLabelReader_VMS.hpp" />
+    <Node Include="UNIX_AccessLabelReader_VMS.hxx" />
+    <Node Include="UNIX_AccessLabelReader_WIN32.hpp" />
+    <Node Include="UNIX_AccessLabelReader_ZOS.hpp" />
+    <Node Include="UNIX_AccessLabelReader_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

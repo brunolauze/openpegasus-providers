@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>417aa71f-39a8-4a3a-956f-4e59c2c7eb82</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../../UNIX_AssociatedPrintSupply.md.pc" name="UNIX_AssociatedPrintSupply" IsProject="True" />
+        <Package file="../../../PrintSupply/UNIX_PrintSupply.md.pc" name="UNIX_PrintSupply" IsProject="True" />
+        <Package file="../../../PrintFinisher/UNIX_PrintFinisher.md.pc" name="UNIX_PrintFinisher" IsProject="True" />
+        <Package file="../../../PrintMarker/UNIX_PrintMarker.md.pc" name="UNIX_PrintMarker" IsProject="True" />
+        <Package file="../../../PrintInterlock/UNIX_PrintInterlock.md.pc" name="UNIX_PrintInterlock" IsProject="True" />
+        <Package file="../../../PrintChannel/UNIX_PrintChannel.md.pc" name="UNIX_PrintChannel" IsProject="True" />
+        <Package file="../../../PrintInputTray/UNIX_PrintInputTray.md.pc" name="UNIX_PrintInputTray" IsProject="True" />
+        <Package file="../../../PrintOutputTray/UNIX_PrintOutputTray.md.pc" name="UNIX_PrintOutputTray" IsProject="True" />
+        <Package file="../../../PrintInterpreter/UNIX_PrintInterpreter.md.pc" name="UNIX_PrintInterpreter" IsProject="True" />
+        <Package file="../../../PrintMediaPath/UNIX_PrintMediaPath.md.pc" name="UNIX_PrintMediaPath" IsProject="True" />
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>TestUNIX_AssociatedPrintSupply</OutputName>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/*</Include>
+        <Include>${ProjectDir}/../../..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AssociatedPrintSupplyLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_AssociatedPrintSupplyLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AssociatedPrintSupplyProvider -lUNIX_PrintSupplyProvider -lUNIX_PrintFinisherProvider -lUNIX_PrintMarkerProvider -lUNIX_PrintInterlockProvider -lUNIX_PrintChannelProvider -lUNIX_PrintInputTrayProvider -lUNIX_PrintOutputTrayProvider -lUNIX_PrintInterpreterProvider -lUNIX_PrintMediaPathProvider</ExtraLinkerArguments>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="LD_LIBRARY_PATH" value="../../../../bin/Debug:../../../../../PrintSupply/bin/Debug:../../../../../PrintFinisher/bin/Debug:../../../../../PrintMarker/bin/Debug:../../../../../PrintInterlock/bin/Debug:../../../../../PrintChannel/bin/Debug:../../../../../PrintInputTray/bin/Debug:../../../../../PrintOutputTray/bin/Debug:../../../../../PrintInterpreter/bin/Debug:../../../../../PrintMediaPath/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
+    <Commandlineparameters></Commandlineparameters>
+    <ConsolePause>false</ConsolePause>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../../bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PrintSupply/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PrintFinisher/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PrintMarker/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PrintInterlock/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PrintChannel/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PrintInputTray/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PrintOutputTray/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PrintInterpreter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PrintMediaPath/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>TestUNIX_AssociatedPrintSupply</OutputName>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AssociatedPrintSupplyLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_AssociatedPrintSupplyLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AssociatedPrintSupplyProvider -lUNIX_PrintSupplyProvider -lUNIX_PrintFinisherProvider -lUNIX_PrintMarkerProvider -lUNIX_PrintInterlockProvider -lUNIX_PrintChannelProvider -lUNIX_PrintInputTrayProvider -lUNIX_PrintOutputTrayProvider -lUNIX_PrintInterpreterProvider -lUNIX_PrintMediaPathProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../MockResponseHandler.cpp">
+        <Link>MockResponseHandler.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_AssociatedPrintSupplyFixture.cpp" />
+    <Compile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="RunTestUNIX_AssociatedPrintSupply.sh" />
+    <Node Include="UNIX_AssociatedPrintSupplyFixture.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

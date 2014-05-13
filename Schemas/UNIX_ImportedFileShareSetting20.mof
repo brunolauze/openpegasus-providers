@@ -1,0 +1,818 @@
+//%LICENSE////////////////////////////////////////////////////////////////
+//
+// Licensed to The Open Group (TOG) under one or more contributor license
+// agreements.  Refer to the OpenPegasusNOTICE.txt file distributed with
+// this work for additional information regarding copyright ownership.
+// Each contributor licenses this file to you under the OpenPegasus Open
+// Source License; you may not use this file except in compliance with the
+// License.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//////////////////////////////////////////////////////////////////////////
+//
+//%/////////////////////////////////////////////////////////////////////////
+
+
+
+// Copyright (c) 2009 DMTF.  All rights reserved.
+   [Abstract, Version ( "2.19.0" ), 
+    UMLPackagePath ( "CIM::Core::CoreElements" ), 
+    Description ( 
+       "ManagedElement is an abstract class that provides a common "
+       "superclass (or top of the inheritance tree) for the "
+       "non-association classes in the CIM Schema." )]
+class CIM_ManagedElement {
+
+      [Description ( 
+          "InstanceID is an optional property that may be used to "
+          "opaquely and uniquely identify an instance of this class "
+          "within the scope of the instantiating Namespace. Various "
+          "subclasses of this class may override this property to "
+          "make it required, or a key. Such subclasses may also "
+          "modify the preferred algorithms for ensuring uniqueness "
+          "that are defined below.\n"
+          "To ensure uniqueness within the NameSpace, the value of "
+          "InstanceID should be constructed using the following "
+          "\"preferred\" algorithm: \n"
+          "<OrgID>:<LocalID> \n"
+          "Where <OrgID> and <LocalID> are separated by a colon "
+          "(:), and where <OrgID> must include a copyrighted, "
+          "trademarked, or otherwise unique name that is owned by "
+          "the business entity that is creating or defining the "
+          "InstanceID or that is a registered ID assigned to the "
+          "business entity by a recognized global authority. (This "
+          "requirement is similar to the <Schema Name>_<Class Name> "
+          "structure of Schema class names.) In addition, to ensure "
+          "uniqueness, <OrgID> must not contain a colon (:). When "
+          "using this algorithm, the first colon to appear in "
+          "InstanceID must appear between <OrgID> and <LocalID>. \n"
+          "<LocalID> is chosen by the business entity and should "
+          "not be reused to identify different underlying "
+          "(real-world) elements. If not null and the above "
+          "\"preferred\" algorithm is not used, the defining entity "
+          "must assure that the resulting InstanceID is not reused "
+          "across any InstanceIDs produced by this or other "
+          "providers for the NameSpace of this instance. \n"
+          "If not set to null for DMTF-defined instances, the "
+          "\"preferred\" algorithm must be used with the <OrgID> "
+          "set to CIM." )]
+   string InstanceID;
+
+      [Description ( 
+          "The Caption property is a short textual description "
+          "(one- line string) of the object." ), 
+       MaxLen ( 64 )]
+   string Caption;
+
+      [Description ( 
+          "The Description property provides a textual description "
+          "of the object." )]
+   string Description;
+
+      [Description ( 
+          "A user-friendly name for the object. This property "
+          "allows each instance to define a user-friendly name in "
+          "addition to its key properties, identity data, and "
+          "description information. \n"
+          "Note that the Name property of ManagedSystemElement is "
+          "also defined as a user-friendly name. But, it is often "
+          "subclassed to be a Key. It is not reasonable that the "
+          "same property can convey both identity and a "
+          "user-friendly name, without inconsistencies. Where Name "
+          "exists and is not a Key (such as for instances of "
+          "LogicalDevice), the same information can be present in "
+          "both the Name and ElementName properties. Note that if "
+          "there is an associated instance of "
+          "CIM_EnabledLogicalElementCapabilities, restrictions on "
+          "this properties may exist as defined in ElementNameMask "
+          "and MaxElementNameLen properties defined in that class." )]
+   string ElementName;
+
+      [Experimental, Description ( 
+          "Generation is an optional, monotonically increasing "
+          "property that may be used to identify a particular "
+          "generation of the resource represented by this class.\n"
+          "If Generation is supported by the implementation, its "
+          "value shall not be null. \n"
+          "Except as otherwise specified, a value (including null) "
+          "of Generation specified at creation time shall be "
+          "replaced by null if Generation is not supported by the "
+          "implementation or shall be a, (possibly different), "
+          "non-null value if the implementation does support Generation.\n"
+          "After creation and if supported, Generation shall be "
+          "updated, at least once per access, whenever the "
+          "represented resource is modified, regardless of the "
+          "source of the modification.\n"
+          "Note: the Generation value only needs to be updated once "
+          "between references, even if the resource is updated many "
+          "times. The key point is to assure that it will be "
+          "different if there have been updates, not to count each update.\n"
+          "Note: unless otherwise specified, the value of "
+          "Generation within one instance is not required to be "
+          "coordinated with the value of Generation in any other instance.\n"
+          "Note:the semantics of the instance, (as defined by its "
+          "creation class), define the underlying resource. That "
+          "underlying resource may be a collection or aggregation "
+          "of resources. And, in that case, the semantics of the "
+          "instance further define when updates to constituent "
+          "resources also require updates to the Generation of the "
+          "collective resource. Default behavior of composite "
+          "aggregations should be to update the Generation of the "
+          "composite whenever the Generation of a component is updated.\n"
+          "Subclasses may define additional requirements for "
+          "updates on some or all of related instances.\n"
+          "For a particular instance, the value of Generation may "
+          "wrap through zero, but the elapsed time between wraps "
+          "shall be greater than 10\'s of years.\n"
+          "This class does not require Generation to be unique "
+          "across instances of other classes nor across instances "
+          "of the same class that have different keys. Generation "
+          "shall be different across power cycles, resets, or "
+          "reboots if any of those actions results in an update. "
+          "Generation may be different across power cycles, resets, "
+          "or reboots if those actions do not result in an update. "
+          "If the Generation property of an instance is non-null, "
+          "and if any attempt to update the instance includes the "
+          "Generation property, then if it doesn\'t match the "
+          "current value, the update shall fail.\n"
+          "The usage of this property is intended to be further "
+          "specified by applicable management profiles. \n"
+          "Typically, a client will read the value of this property "
+          "and then supply that value as input to an operation that "
+          "modifies the instance in some means. This may be via an "
+          "explicit parameter in an extrinsic method or via an "
+          "embedded value in an extrinsic method or intrinsic operation.\n"
+          "For example: a profile may require that an intrinsic "
+          "instance modification supply the Generation property and "
+          "that it must match for the modification to succeed." )]
+   uint64 Generation;
+
+
+};
+
+
+
+// Copyright (c) 2013 DMTF.  All rights reserved.
+   [Abstract, Version ( "2.38.0" ), 
+    ClassConstraint { "inv: SoID <> null implies SoOrgID <> null" }, 
+    UMLPackagePath ( "CIM::Core::Settings" ), 
+    Description ( 
+       "CIM_SettingData is used to represent configuration and and "
+       "operational parameters for CIM_ManagedElement instances. There "
+       "are a number of different uses of CIM_SettingData supported in "
+       "the model today. Additional uses may be defined in the future.\n"
+       "Instances of CIM_SettingData may represent Aspects of a "
+       "CIM_ManagedElement instance. This is modeled using the "
+       "CIM_SettingsDefineState association. CIM_SettingData may be "
+       "used to define capabilities when associated to an instance of "
+       "CIM_Capabilities through the CIM_SettingsDefineCapabilities "
+       "association. \n"
+       "Instances of CIM_SettingData may represent different types of "
+       "configurations for a CIM_ManagedElement, including persistent "
+       "configurations, in progress configuration changes, or "
+       "requested configurations. The CIM_ElementSettingData "
+       "association is used to model the relationship between a "
+       "CIM_SettingData instance and the CIM_ManagedElement for which "
+       "it is a configuration. \n"
+       "When an instance of CIM_SettingData represents a "
+       "configuration, the current operational values for the "
+       "parameters of the element are reflected by properties in the "
+       "Element itself or by properties in its associations. These "
+       "properties do not have to be the same values that are present "
+       "in the SettingData object. For example, a modem might have a "
+       "SettingData baud rate of 56Kb/sec but be operating at "
+       "19.2Kb/sec. \n"
+       "Note: The CIM_SettingData class is very similar to "
+       "CIM_Setting, yet both classes are present in the model because "
+       "many implementations have successfully used CIM_Setting. "
+       "However, issues have arisen that could not be resolved without "
+       "defining a new class. Therefore, until a new major release "
+       "occurs, both classes will exist in the model. Refer to the "
+       "Core White Paper for additional information. SettingData "
+       "instances can be aggregated together into higher- level "
+       "SettingData objects using ConcreteComponent associations." )]
+class CIM_SettingData : CIM_ManagedElement {
+
+      [Key, Override ( "InstanceID" ), 
+       Description ( 
+          "Within the scope of the instantiating Namespace, "
+          "InstanceID opaquely and uniquely identifies an instance "
+          "of this class. To ensure uniqueness within the "
+          "NameSpace, the value of InstanceID should be constructed "
+          "using the following \"preferred\" algorithm: \n"
+          "<OrgID>:<LocalID> \n"
+          "Where <OrgID> and <LocalID> are separated by a colon "
+          "(:), and where <OrgID> must include a copyrighted, "
+          "trademarked, or otherwise unique name that is owned by "
+          "the business entity that is creating or defining the "
+          "InstanceID or that is a registered ID assigned to the "
+          "business entity by a recognized global authority. (This "
+          "requirement is similar to the <Schema Name>_<Class Name> "
+          "structure of Schema class names.) In addition, to ensure "
+          "uniqueness, <OrgID> must not contain a colon (:). When "
+          "using this algorithm, the first colon to appear in "
+          "InstanceID must appear between <OrgID> and <LocalID>. \n"
+          "<LocalID> is chosen by the business entity and should "
+          "not be reused to identify different underlying "
+          "(real-world) elements. If the above \"preferred\" "
+          "algorithm is not used, the defining entity must assure "
+          "that the resulting InstanceID is not reused across any "
+          "InstanceIDs produced by this or other providers for the "
+          "NameSpace of this instance. \n"
+          "For DMTF-defined instances, the \"preferred\" algorithm "
+          "must be used with the <OrgID> set to CIM." )]
+   string InstanceID;
+
+      [Required, Override ( "ElementName" ), 
+       Description ( 
+          "The user-friendly name for this instance of SettingData. "
+          "In addition, the user-friendly name can be used as an "
+          "index property for a search or query. (Note: The name "
+          "does not have to be unique within a namespace.)" )]
+   string ElementName;
+
+      [Description ( 
+          "An instance of CIM_SettingData may correspond to a "
+          "well-known configuration that exists for an associated "
+          "CIM_ManagedElement. If the ConfigurationName property is "
+          "non-NULL, the instance of CIM_SettingData shall "
+          "correspond to a well-known configuration for a Managed "
+          "Element, the value of the ConfigurationName property "
+          "shall be the name of the configuration, and the "
+          "ChangeableType property shall have the value 0 or 2. A "
+          "value of NULL for the ConfigurationName property shall "
+          "mean that the instance of CIM_SettingData does not "
+          "correspond to a well-known configuration for a Managed "
+          "Element or that this information is unknown." )]
+   string ConfigurationName;
+
+      [Description ( 
+          "Enumeration indicating the type of setting. 0 \"Not "
+          "Changeable - Persistent\" indicates the instance of "
+          "SettingData represents primordial settings and shall not "
+          "be modifiable. 1 \"Changeable - Transient\" indicates "
+          "the SettingData represents modifiable settings that are "
+          "not persisted. Establishing persistent settings from "
+          "transient settings may be supported. 2 \"Changeable - "
+          "Persistent\" indicates the SettingData represents a "
+          "persistent configuration that may be modified. 3 \"Not "
+          "Changeable - Transient\" indicates the SettingData "
+          "represents a snapshot of the settings of the associated "
+          "ManagedElement and is not persistent." ), 
+       ValueMap { "0", "1", "2", "3" }, 
+       Values { "Not Changeable - Persistent", 
+          "Changeable - Transient", "Changeable - Persistent", 
+          "Not Changeable - Transient" }]
+   uint16 ChangeableType;
+
+      [Experimental, Description ( 
+          "The value of each CIM_ComponentSetting instance includes "
+          "a CIM_SettingData instance that specifies further values "
+          "for this CIM_SettingData instance. The values are "
+          "interpreted according to the values of the Policy, "
+          "ValueRole, and ValueRange properties included in each "
+          "CIM_ComponentSetting instance.\n"
+          "\n"
+          "Note: If SoID is not null, then the embedded "
+          "ComponentSetting elements may be interpreted as ITIL "
+          "Service Level Targets.\n"
+          "Note: For CIM v3, the type of ComponentSetting will be "
+          "CIM_ComponentSetting. This is not represented as an "
+          "EmbeddedInstance in CIM v2 to avoid a circular "
+          "dependency that CIM v2 compilers cannot handle." ), 
+       EmbeddedObject]
+   string ComponentSetting[];
+
+      [Experimental, Description ( 
+          "If not Null, the CIM_SettingData instance is being used "
+          "to represent an ITIL element: either a service option, a "
+          "service level requirement, or a service level target. "
+          "The value SoID must be unique in the context of an "
+          "Organization unique identifier specified in SoOrgID." ), 
+       ModelCorrespondence { "CIM_SettingData.SoOrgID" }]
+   string SoID;
+
+      [Experimental, Description ( 
+          "If not Null, the CIM_SettingData instance is being used "
+          "to represent an ITIL element: either a service option, a "
+          "service level requirement, or a service level target. "
+          "When not Null, the value of SoOrgID shall be a unique "
+          "identifier for the organization that specifies the value "
+          "of SoID." ), 
+       ModelCorrespondence { "CIM_SettingData.SoID" }]
+   string SoOrgID;
+
+
+};
+
+
+
+// Copyright (c) 2005 DMTF.  All rights reserved.
+   [Experimental, Version ( "2.8.1000" ), 
+    UMLPackagePath ( "CIM::System::FileServices" ), 
+    Description ( 
+       "The ImportedFileShareSetting describes the attribute values "
+       "that were set when a FileShare was created for a LogicalFile "
+       "by a FileImportService. These settings are associated with the "
+       "created Share via the ElementSettingData association. These "
+       "settings can also be associated with an "
+       "ImportedFileShareCapabilities element via "
+       "SettingAssociatedToCapabilities. If the setting is associated "
+       "with a FileShare, it cannot have undefined or NULL properties. "
+       "If it is associated with an ImportedFileShareCapabilities, a "
+       "null property indicates that the property is not supported or "
+       "that the value is a vendor-specific context-dependent default "
+       "that may not be set." )]
+class CIM_ImportedFileShareSetting : CIM_SettingData {
+
+      [Description ( 
+          "An enumerated integer indicating the share protocol that "
+          "this share can support. This property must exist and "
+          "have a value. The version of the protocol must be "
+          "specified in the corresponding ProtocolVersions "
+          "property." ), 
+       ValueMap { "0", "2", "3", "4", "5", "6", "7", "..", "0x8000.." }, 
+       Values { "Unknown", "NFS", "CIFS", "DAFS", "WebDAV", "HTTP", 
+          "FTP", "DMTF Reserved", "Vendor Defined" }, 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareCapabilities.FileSharingProtocol", 
+          "CIM_ExportedFileShareSetting.FileSharingProtocol", 
+          "CIM_ImportedFileShareSetting.ProtocolVersions" }]
+   uint16 FileSharingProtocol;
+
+      [Description ( 
+          "An array of strings listing the versions of the file "
+          "sharing protocol that this share can support. This "
+          "property must exist and have at least one entry." ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareCapabilities.ProtocolVersions", 
+          "CIM_ExportedFileShareSetting.ProtocolVersions", 
+          "CIM_ImportedFileShareSetting.FileSharingProtocol" }]
+   string ProtocolVersions[];
+
+      [Description ( 
+          "InitialEnabledState is an integer enumeration that "
+          "indicates the enabled/disabled states initially set for "
+          "a file share element. Unlike FileShare.EnabledState it "
+          "cannot indicate transitions between requested states "
+          "because those states cannot be requested. The following "
+          "text briefly summarizes the various enabled/disabled "
+          "initial states: \n"
+          "Enabled (2) indicates that the element will execute "
+          "commands, will process any queued commands, and will "
+          "queue new requests. \n"
+          "Disabled (3) indicates that the element will not execute "
+          "commands and will drop any new requests. \n"
+          "In Test (7) indicates that the element will be in a test "
+          "state. \n"
+          "Deferred (8) indicates that the element will not process "
+          "any commands but will queue new requests. \n"
+          "Quiesce (9) indicates that the element is enabled but in "
+          "a restricted mode. The element\'s behavior is similar to "
+          "the Enabled state, but it only processes a restricted "
+          "set of commands. All other requests are queued." ), 
+       ValueMap { "0", "1", "2", "3", "7", "8", "9", "11..32767", 
+          "32768..65535" }, 
+       Values { "Unknown", "Other", "Enabled", "Disabled", 
+          "In Test", "Deferred", "Quiesce", "DMTF Reserved", 
+          "Vendor Reserved" }, 
+       ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.OtherEnabledState", 
+          "CIM_EnabledLogicalElement.EnabledState" }]
+   uint16 InitialEnabledState = 8;
+
+      [Description ( 
+          "A string describing the element\'s initial "
+          "enabled/disabled state when the InitialEnabledState "
+          "property is set to 1 (\"Other\"). This property MUST be "
+          "set to NULL when InitialEnabledState is any value other "
+          "than 1." ), 
+       ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.InitialEnabledState", 
+          "CIM_FileShare.OtherEnabledState" }]
+   string OtherEnabledState;
+
+      [Description ( 
+          "An enumerated value representing the policy that is "
+          "supported by the FileImportService on the FileShare. The "
+          "value specifies whether/how the FileImportService should "
+          "retry a request that either failed or left the system "
+          "hanging. If the request is being performed in the "
+          "foreground, the options are to try once and fail if a "
+          "timeout happens, or, to try repeatedly. If the request "
+          "can be performed in the background, the returned Job "
+          "will try repeatedly until stopped." ), 
+       ValueMap { "0", "2", "3", "4", "..", "0x8000.." }, 
+       Values { "Unknown", "Try Once", "Try Again", 
+          "Try in Background", "DMTF Reserved", "Vendor Defined" }, 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.TransmissionRetriesMax", 
+          "CIM_ImportedFileShareSetting.RetransmissionTimeoutMin" }]
+   uint16 RequestRetryPolicy = 0;
+
+      [Description ( 
+          "An integer specifying the maximum number of "
+          "retransmission attempts to be made when the transmission "
+          "of a request fails or makes the system hang. A value of "
+          "\'0\' specifies an implementation-specific default." ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.RequestRetryPolicy", 
+          "CIM_ImportedFileShareSetting.RetransmissionTimeoutMin" }]
+   uint32 TransmissionRetriesMax = 0;
+
+      [Description ( 
+          "An integer specifying the minimum number of milliseconds "
+          "that the provider must wait before assuming that a "
+          "transmission has failed. \'0\' indicates an "
+          "implementation-specific default." ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.TransmissionRetriesMax", 
+          "CIM_ImportedFileShareSetting.RequestRetryPolicy" }]
+   uint32 RetransmissionTimeoutMin = 0;
+
+      [Description ( 
+          "An enumerated value that specifies if the import "
+          "operation should be attempted one or more times in the "
+          "foreground or tried repeatedly in the background until "
+          "it succeeds. The number of attempts would be limited by "
+          "the corresponding ImportRetriesMax property of the "
+          "setting." ), 
+       ValueMap { "0", "2", "3", "..", "0x8000.." }, 
+       Values { "Unknown", "Foreground", "Background", 
+          "DMTF Reserved", "Vendor Defined" }, 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.ImportRetriesMax" }]
+   uint16 ImportFailurePolicy = 0;
+
+      [Description ( 
+          "An integer specifying the maximum number of attempts "
+          "that should be made to import an FileShare using this "
+          "element as the proxy. A value of \'0\' specifies an "
+          "implementation-specific default." ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.ImportFailurePolicy" }]
+   uint32 ImportRetriesMax = 0;
+
+      [Description ( 
+          "An integer specifying the minimum number of bytes that "
+          "must be allocated to each buffer used for reading. A "
+          "value of \'0\' specifies an implementation-specific "
+          "default." ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.ReadBufferSizeMax" }]
+   uint32 ReadBufferSizeMin = 0;
+
+      [Description ( 
+          "An integer specifying the maximum number of bytes that "
+          "may be allocated to each buffer used for reading. A "
+          "value of \'0\' specifies an implementation-specific "
+          "default." ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.ReadBufferSizeMin" }]
+   uint32 ReadBufferSizeMax = 0;
+
+      [Description ( 
+          "An integer specifying the minimum number of bytes that "
+          "must be allocated to each buffer used for writing. A "
+          "value of \'0\' specifies an implementation-specific "
+          "default." ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.WriteBufferSizeMax" }]
+   uint32 WriteBufferSizeMin = 0;
+
+      [Description ( 
+          "An integer specifying the maximum number of bytes that "
+          "may be allocated to each buffer used for writing. A "
+          "value of \'0\' specifies an implementation-specific "
+          "default." ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.WriteBufferSizeMin" }]
+   uint32 WriteBufferSizeMax = 0;
+
+      [Description ( 
+          "An array of enumerated values that specify whether "
+          "attribute caching is (or is not) supported for some "
+          "object. The object class and the support parameters are "
+          "specified in the corresponding AttributeCachingObjects, "
+          "AttributeCachingTimeMin, and AttributeCachingTimeMax "
+          "properties. \n"
+          "FileShare object types that can be imported by this "
+          "FileImportService are represented by an entry in these "
+          "arrays. The entry in the AttributeCaching array can be "
+          "\'On\', \'Off\', or \'Unknown\'. Implementation of this "
+          "feature requires support from other system components, "
+          "so it is quite possible that specifying \'On\' may still "
+          "not result in caching behavior. \'Unknown\' indicates "
+          "that the FileImportService will try to work with "
+          "whatever options the host system can support. In all "
+          "cases, AttributeCachingTimeMin and "
+          "AttributeCachingTimeMax provide the minimum and maximum "
+          "time for which the attributes can be cached. When this "
+          "Setting is used as a Goal, the client may specify "
+          "\'Unknown\', but the Setting in the created object "
+          "should contain the supported setting, whether \'On\' or "
+          "\'Off\'." ), 
+       ValueMap { "0", "2", "3", "..", "0x8000.." }, 
+       Values { "Unknown", "On", "Off", "DMTF Reserved", 
+          "Vendor Defined" }, 
+       ArrayType ( "Indexed" ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.AttributeCachingObjects", 
+          "CIM_ImportedFileShareSetting.AttributeCachingTimeMin", 
+          "CIM_ImportedFileShareSetting.AttributeCachingTimeMax" }]
+   uint16 AttributeCaching[] = {0};
+
+      [Description ( 
+          "An array of enumerated values that specify the attribute "
+          "caching support provided to various object classes. "
+          "These classes represent types of shareable objects "
+          "stored in a LocalFileSystem -- files and directories as "
+          "well as others that may be defined in the future. The "
+          "corresponding properties, AttributeCaching, "
+          "AttributeCachingTimeMin, and provide "
+          "AttributeCachingTimeMax the supported features for the "
+          "type of object. \'None\' and \'All\' cannot both be "
+          "specified; if either one is specified, it must be the "
+          "first entry in the array and the entry is interpreted as "
+          "the default setting for all objects. If neither \'None\' "
+          "or \'All\' are specified, the caching settings for other "
+          "objects are defaulted by the implementation. If \'Rest\' "
+          "is specified, the entry applies to all known object "
+          "types other than the named ones. If \'Unknown\' is "
+          "specified it applies to object types not known to this "
+          "application (this can happen when foreign file systems "
+          "are mounted." ), 
+       ValueMap { "0", "1", "2", "3", "4", "5", "..", "0x8000.." }, 
+       Values { "Unknown", "None", "All", "Rest", "File", 
+          "Directory", "DMTF Reserved", "Vendor Defined" }, 
+       ArrayType ( "Indexed" ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.AttributeCaching", 
+          "CIM_ImportedFileShareSetting.AttributeCachingTimeMin", 
+          "CIM_ImportedFileShareSetting.AttributeCachingTimeMax" }]
+   uint16 AttributeCachingObjects[] = {2};
+
+      [Description ( 
+          "An array of integers specifying, in milliseconds, the "
+          "minimum time for which an object of the type specified "
+          "by the corresponding AttributeCaching property must be "
+          "retained in the attribute cache. When used as a Goal, a "
+          "value of \'0\' indicates an implementation-specific "
+          "default." ), 
+       ArrayType ( "Indexed" ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.AttributeCaching" }]
+   uint32 AttributeCachingTimeMin[] = {0};
+
+      [Description ( 
+          "An array of integers specifying, in milliseconds, the "
+          "maximum time for which an object of the type specified "
+          "by the corresponding AttributeCaching property must be "
+          "retained in the attribute cache. When used as a Goal, a "
+          "value of \'0\' indicates an implementation-specific "
+          "default." ), 
+       ArrayType ( "Indexed" ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.AttributeCaching" }]
+   uint32 AttributeCachingTimeMax[] = {0};
+
+      [Description ( 
+          "An enumerated value that specifies the Service Access "
+          "Points on the exporting system that may be used to "
+          "access the remote Share. This does not specify either "
+          "the actual availability of these ServiceAccessPoints or "
+          "the right to use them.; rather, these are the points "
+          "that the FileImportService will attempt to use.to access "
+          "the share. \n"
+          "If this property is NULL or empty, it indicates that "
+          "there will be no change to the current set of access "
+          "points. \'Service-Default\' indicates that it should "
+          "include the default Service Access points of the remote "
+          "FileExportService. \'All\' indicates that it should "
+          "include all the supported Service Access points of the "
+          "remote FileExportService. \'None\' indicates that the "
+          "set of access points is to be reset to the empty set. "
+          "\'Named Points\' indicates that the Service Access "
+          "Points that will be used may be specified as the "
+          "AccessPoints parameter of the CreateImportedShare or "
+          "ModifyImportedShare methods. As a Setting for a "
+          "FileShare, this property cannot be undefined or NULL." ), 
+       ValueMap { "0", "2", "3", "4", "5", "..", "0x8000.." }, 
+       Values { "Unknown", "None", "Service Default", "All", 
+          "Named Points", "DMTF Reserved", "Vendor Defined" }, 
+       Read]
+   uint16 AccessPoints;
+
+      [Description ( 
+          "An enumerated value that specifies the Read-Write policy "
+          "set on the ImportedShare association and supported by "
+          "the FileImportService servicing this FileShare. \'Read "
+          "Only\' specifies that the FileShare is set up solely for "
+          "reading. \'Read/Write\' specifies that the FileShare is "
+          "set up for \'read\' and \'write\' operations. \'Force "
+          "Read/Write\' specifies that \'Read-Only\' has been "
+          "over-ridden by a client with write access to the "
+          "FileShare. This option is intended for use when the "
+          "associated FileShare has been made \'Read Only\' by "
+          "default, as might happen if it were created to be the "
+          "target of a Synchronization or Mirror operation." ), 
+       ValueMap { "0", "2", "3", "4", "..", "0x8000.." }, 
+       Values { "Unknown", "Read Only", "Read/Write", 
+          "Force Read/Write", "DMTF Reserved", "Vendor Defined" }, 
+       Read]
+   uint16 ReadWritePolicy;
+
+      [Description ( 
+          "An array of enumerated values that specify the policies "
+          "that are supported via a newly created imported "
+          "FileShare for CIFS-style opportunistic locks. \'No\' "
+          "specifies that CIFS-style oplocks are not supported, and "
+          "is exclusive of the other options. \'Type 1 oplocks "
+          "supported\' specifies that CIFS-style Type 1 oplocks are "
+          "supported. \'Type 2 oplocks supported\' specifies that "
+          "CIFS-style Type 2 oplocks are supported. If defaulted, "
+          "this is \'No\' if the FileSharingProtocol is NFS; this "
+          "is \'Type 1 oplocks supported\' if the "
+          "FileSharingProtocol is CIFS. The defaults for other "
+          "FileSharingProtocols are not currently specified. \n"
+          "No matter what is requested as a Goal: If the "
+          "FileSharingProtocol is NFS, only \'No\' will be "
+          "supported (i.e., the same as the default). If the "
+          "FileSharingProtocol is CIFS, \'No\' cannot be selected; "
+          "the supported default will be vendor-specified. \n"
+          "The reference to CIFS-style locking here is not intended "
+          "to indicate required support for CIFS, but as an "
+          "abbreviation for the functionality specified by CIFS." ), 
+       ValueMap { "0", "2", "3", "4", "..", "0x8000.." }, 
+       Values { "Unknown", "No", "Type 1 oplocks supported", 
+          "Type 2 oplocks supported", "DMTF Reserved", 
+          "Vendor Defined" }, 
+       ArrayType ( "Indexed" ), 
+       Read]
+   uint16 CIFSLocksSupportPolicy[] = {0};
+
+      [Description ( 
+          "An array of enumerated values that specify the "
+          "CIFS-style notifications that will generated by the "
+          "FileImportService for the newly created imported "
+          "FileShare. \'No\' specifies that no notifications will "
+          "be made. \'Yes\' specifies that a notification will be "
+          "generated. This property is specified as an array, so "
+          "that a vendor can specify supported notifications at a "
+          "finer grain. No matter what is requested as a Goal: If "
+          "the FileSharingProtocol is NFS, only \'No\' will be "
+          "supported. Other FileSharingProtocol values may impose "
+          "different constraints." ), 
+       ValueMap { "0", "2", "3", "..", "0x8000.." }, 
+       Values { "Unknown", "No", "Yes", "DMTF Reserved", 
+          "Vendor Defined" }, 
+       ArrayType ( "Indexed" ), 
+       Read]
+   uint16 CifsNotificationPolicy[] = {0};
+
+      [Description ( 
+          "An array of enumerated values that specify the policies "
+          "that are supported by the FileImportService via the "
+          "created FileShare for accessing elements of the target "
+          "FileShare. \'Unknown\' is the default and specifies that "
+          "the policy will come from the FileShare target (for a "
+          "LogicalFile or other File element, this would be the "
+          "FileSystem containing the element). \'CIFS\' specifies "
+          "that CIFS-style access policies are supported. \'NFS\' "
+          "specifies that NFS-style access policies are supported. "
+          "\'Other\' specifies vendor-implemented or proprietary "
+          "mechanisms. Parameters for these mechanisms are "
+          "specified in the corresponding "
+          "OtherAccessPoliciesParameter. More than one policy can "
+          "be specified, in which case all are supported. More than "
+          "one \'Other\' policy entry can exist. As a Goal, more "
+          "than one policy can be requested. The privileges "
+          "established by this property would be surfaced by the "
+          "provider using the CIM_Privilege model." ), 
+       ValueMap { "0", "1", "2", "3", "..", "0x8000.." }, 
+       Values { "Unknown", "Other", "CIFS", "NFS", "DMTF Reserved", 
+          "Vendor Defined" }, 
+       ArrayType ( "Indexed" ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.OtherAccessPoliciesParameters" }]
+   uint16 AccessPolicies[] = {0};
+
+      [Description ( 
+          "An array of strings that specify parameters to use with "
+          "the corresponding AccessPolicies entry -- if that entry "
+          "is set to \'Other\', the entry here MUST not be null, "
+          "but it could be null otherwise." ), 
+       ArrayType ( "Indexed" ), 
+       Read, ModelCorrespondence { 
+          "CIM_ImportedFileShareSetting.AccessPolicies" }]
+   string OtherAccessPoliciesParameters[] = {""};
+
+      [Description ( 
+          "An enumerated value that specifies the CIFS Locking that "
+          "will be enforced on the target of the ImportedShare by "
+          "the supporting FileImportService if the \'AccessPolicies\' "
+          "property array includes \'CIFS\'. \n"
+          "\'Enforce None\' does not enforce CIFS locks. \'Enforce "
+          "Write\' does not allow writes to CIFS-locked files. "
+          "\'Enforce Read/Write\' does not allow reads or writes to "
+          "CIFS-locked files." ), 
+       ValueMap { "0", "2", "3", "4", "..", "0x8000.." }, 
+       Values { "Unknown", "Enforce None", "Enforce Write", 
+          "Enforce Read/Write", "DMTF Reserved", "Vendor Defined" }, 
+       Read]
+   uint16 CifsLockPolicy = 0;
+
+      [Description ( 
+          "An enumerated value that specifies the client\'s "
+          "preferences for local caching support. This property "
+          "might be an appropriate setting on the FileShare "
+          "element." ), 
+       ValueMap { "0", "2", "3", "4", "..", "0x8000.." }, 
+       Values { "Unknown", "Asynchronized", "Synchronized", 
+          "Write-Through", "DMTF Reserved", "Vendor Defined" }, 
+       Read]
+   uint16 CachingOptions = 0;
+
+      [Description ( 
+          "An enumerated value that specifies if this FileShare "
+          "should be enabled when the operational FileImportService "
+          "is started. This property might be an appropriate "
+          "setting for the FileShare element." ), 
+       ValueMap { "0", "1", "2", "..", "0x8000.." }, 
+       Values { "Vendor-specific Default", "Automatic", "Manual", 
+          "DMTF Reserved", "Vendor Defined" }, 
+       Read]
+   uint16 ImportOnServiceStart = 0;
+
+      [Description ( 
+          "An instance of a CIM_Privilege, encoded as a string, "
+          "that expresses the client\'s expectations about access "
+          "to elements of the exported FileShare. The provider is "
+          "expected to surface this access using the privilege "
+          "model." ), 
+       EmbeddedInstance ( "CIM_Privilege" ), 
+       Read]
+   string ReadWritePref;
+
+      [Description ( 
+          "An enumerated value that specifies if support should be "
+          "provided on the local host for executing elements "
+          "accessed through this FileShare. This may require "
+          "setting up specialized paging or execution buffers "
+          "either on the client or on the server side (as "
+          "appropriate for the implementation). Note that this does "
+          "not provide any rights to actually execute any element "
+          "but only specifies support for such execution, if "
+          "permitted." ), 
+       ValueMap { "0", "2", "3", "..", "0x8000.." }, 
+       Values { "Unknown", "Execution Supported", 
+          "Execution Not Supported", "DMTF Reserved", 
+          "Vendor Defined" }, 
+       Read]
+   uint16 ExecutePref = 0;
+
+      [Description ( 
+          "An instance of a CIM_Privilege, encoded as a string, "
+          "that expresses the client\'s expectations about "
+          "privileged access by appropriately privileged System "
+          "Administrative users on the local host (\'root\' or "
+          "\'superuser\') to the exported FileShare and its "
+          "elements. The provider is expected to surface this "
+          "access using the privilege model. \n"
+          "Support for the privileged access might require setup at "
+          "both the exported FileShare and imported FileShare "
+          "hosts, so there is no guarantee that the request can be "
+          "satisfied." ), 
+       EmbeddedInstance ( "CIM_Privilege" ), 
+       Read]
+   string RootAccessPref;
+
+
+};
+
+
+
+   [Version( "2.40.0" ), Description("{0}")]
+class UNIX_ImportedFileShareSetting : CIM_ImportedFileShareSetting
+{
+
+
+};
+

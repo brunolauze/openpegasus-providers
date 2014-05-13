@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+   </ProjectConfiguration>
+   <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+   </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="../CIMHelper.cpp" />
+    <ClCompile Include="UNIX_LibraryExchange.cpp" />
+    <ClCompile Include="UNIX_LibraryExchangeMain.cpp" />
+    <ClCompile Include="UNIX_LibraryExchangeProvider.cpp" />
+    <ClCompile Include="UNIX_LibraryExchange_AIX.cpp" />
+    <ClCompile Include="UNIX_LibraryExchange_DARWIN.cpp" />
+    <ClCompile Include="UNIX_LibraryExchange_FREEBSD.cpp" />
+    <ClCompile Include="UNIX_LibraryExchange_HPUX.cpp" />
+    <ClCompile Include="UNIX_LibraryExchange_LINUX.cpp" />
+    <ClCompile Include="UNIX_LibraryExchange_SOLARIS.cpp" />
+    <ClCompile Include="UNIX_LibraryExchange_STUB.cpp" />
+    <ClCompile Include="UNIX_LibraryExchange_TRU64.cpp" />
+    <ClCompile Include="UNIX_LibraryExchange_VMS.cpp" />
+    <ClCompile Include="UNIX_LibraryExchange_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Makefile" />
+    <ClInclude Include="UNIX_LibraryExchange.cproj" />
+    <ClInclude Include="UNIX_LibraryExchange.h" />
+    <ClInclude Include="UNIX_LibraryExchange.md.pc" />
+    <ClInclude Include="UNIX_LibraryExchangeDeps.h" />
+    <ClInclude Include="UNIX_LibraryExchangeDeps_AIX.h" />
+    <ClInclude Include="UNIX_LibraryExchangeDeps_DARWIN.h" />
+    <ClInclude Include="UNIX_LibraryExchangeDeps_FREEBSD.h" />
+    <ClInclude Include="UNIX_LibraryExchangeDeps_HPUX.h" />
+    <ClInclude Include="UNIX_LibraryExchangeDeps_LINUX.h" />
+    <ClInclude Include="UNIX_LibraryExchangeDeps_SOLARIS.h" />
+    <ClInclude Include="UNIX_LibraryExchangeDeps_STUB.h" />
+    <ClInclude Include="UNIX_LibraryExchangeDeps_TRU64.h" />
+    <ClInclude Include="UNIX_LibraryExchangeDeps_VMS.h" />
+    <ClInclude Include="UNIX_LibraryExchangeDeps_ZOS.h" />
+    <ClInclude Include="UNIX_LibraryExchangePrivate.h" />
+    <ClInclude Include="UNIX_LibraryExchangePrivate_AIX.h" />
+    <ClInclude Include="UNIX_LibraryExchangePrivate_DARWIN.h" />
+    <ClInclude Include="UNIX_LibraryExchangePrivate_FREEBSD.h" />
+    <ClInclude Include="UNIX_LibraryExchangePrivate_HPUX.h" />
+    <ClInclude Include="UNIX_LibraryExchangePrivate_LINUX.h" />
+    <ClInclude Include="UNIX_LibraryExchangePrivate_SOLARIS.h" />
+    <ClInclude Include="UNIX_LibraryExchangePrivate_STUB.h" />
+    <ClInclude Include="UNIX_LibraryExchangePrivate_TRU64.h" />
+    <ClInclude Include="UNIX_LibraryExchangePrivate_VMS.h" />
+    <ClInclude Include="UNIX_LibraryExchangePrivate_ZOS.h" />
+    <ClInclude Include="UNIX_LibraryExchangeProvider.h" />
+    <ClInclude Include="UNIX_LibraryExchange_AIX.hpp" />
+    <ClInclude Include="UNIX_LibraryExchange_AIX.hxx" />
+    <ClInclude Include="UNIX_LibraryExchange_DARWIN.hpp" />
+    <ClInclude Include="UNIX_LibraryExchange_DARWIN.hxx" />
+    <ClInclude Include="UNIX_LibraryExchange_FREEBSD.hpp" />
+    <ClInclude Include="UNIX_LibraryExchange_FREEBSD.hxx" />
+    <ClInclude Include="UNIX_LibraryExchange_HPUX.hpp" />
+    <ClInclude Include="UNIX_LibraryExchange_HPUX.hxx" />
+    <ClInclude Include="UNIX_LibraryExchange_LINUX.hpp" />
+    <ClInclude Include="UNIX_LibraryExchange_LINUX.hxx" />
+    <ClInclude Include="UNIX_LibraryExchange_SOLARIS.hpp" />
+    <ClInclude Include="UNIX_LibraryExchange_SOLARIS.hxx" />
+    <ClInclude Include="UNIX_LibraryExchange_STUB.hpp" />
+    <ClInclude Include="UNIX_LibraryExchange_STUB.hxx" />
+    <ClInclude Include="UNIX_LibraryExchange_TRU64.hpp" />
+    <ClInclude Include="UNIX_LibraryExchange_TRU64.hxx" />
+    <ClInclude Include="UNIX_LibraryExchange_VMS.hpp" />
+    <ClInclude Include="UNIX_LibraryExchange_VMS.hxx" />
+    <ClInclude Include="UNIX_LibraryExchange_WIN32.hpp" />
+    <ClInclude Include="UNIX_LibraryExchange_ZOS.hpp" />
+    <ClInclude Include="UNIX_LibraryExchange_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5623c2fb-f1b3-4579-8ec6-0e92e305ae13}</ProjectGuid>
+    <RootNamespace>UNIX_LibraryExchangeLib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>C:\mdtool-plink $(ProjectName)</NMakeBuildCommandLine>
+    <IncludePath>$(ProjectDir)/..;$(VisualStudioDir)\Includes;$(VisualStudioDir)\Includes\c++\v1</IncludePath>
+    <AdditionalOptions>/D__extension__="" /D__RUNETYPE_INTERNAL /D_LIBCPP_HAS_NO_LONG_LONG /D__GNUC_VA_LIST /D__GNUCLIKE_BUILTIN_STDARG /D_BSD_SOURCE /D_XLOCALE_H_ /D_GNU_SOURCE /DTHREAD_SAFE /D_REENTRANT /DPEGASUS_COMMON_INTERNAL /DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU /DPEGASUS_OS_FREEBSD /DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG /DPEGASUS_USE_SYSLOGS /DPEGASUS_ARCH_LIB="lib" /DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION /DPEGASUS_ENABLE_CQL /DPEGASUS_DEFAULT_ENABLE_OOP /DPEGASUS_ENABLE_EXECQUERY /DPEGASUS_HAS_SSL /DPEGASUS_SSL_RANDOMFILE /DPEGASUS_ENABLE_SSL_CRL_VERIFICATION /DPEGASUS_ENABLE_AUDIT_LOGGER /DPEGASUS_ENABLE_IPV6 /DPEGASUS_ENABLE_INDICATION_COUNT /DPEGASUS_ENABLE_SLP /DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 /DPEGASUS_ENABLE_INTEROP_PROVIDER /DPEGASUS_USE_EXPERIMENTAL_INTERFACES /DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER /DPEGASUS_DEST_LIB_DIR="lib" /DPEGASUS_ENABLE_PROTOCOL_WSMAN /DPEGASUS_PAM_AUTHENTICATION /DPEGASUS_NO_PASSWORDFILE /DPEGASUS_ENABLE_PROTOCOL_BINARY /DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" /DPROVIDER_LIB_NS="UNIX_LibraryExchangeLib" /DPROVIDER_LIB_NS_BEGIN="namespace UNIX_LibraryExchangeLib {"</AdditionalOptions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>C:\mdtool-plink $(ProjectName)</NMakeBuildCommandLine>
+    <IncludePath>$(ProjectDir)/..;$(VisualStudioDir)\Includes;$(VisualStudioDir)\Includes\c++\v1</IncludePath>
+    <AdditionalOptions>/D__extension__="" /D__RUNETYPE_INTERNAL /D_LIBCPP_HAS_NO_LONG_LONG /D__GNUC_VA_LIST /D__GNUCLIKE_BUILTIN_STDARG /D_BSD_SOURCE /D_XLOCALE_H_ /D_GNU_SOURCE /DTHREAD_SAFE /D_REENTRANT /DPEGASUS_COMMON_INTERNAL /DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU /DPEGASUS_OS_FREEBSD /DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG /DPEGASUS_USE_SYSLOGS /DPEGASUS_ARCH_LIB="lib" /DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION /DPEGASUS_ENABLE_CQL /DPEGASUS_DEFAULT_ENABLE_OOP /DPEGASUS_ENABLE_EXECQUERY /DPEGASUS_HAS_SSL /DPEGASUS_SSL_RANDOMFILE /DPEGASUS_ENABLE_SSL_CRL_VERIFICATION /DPEGASUS_ENABLE_AUDIT_LOGGER /DPEGASUS_ENABLE_IPV6 /DPEGASUS_ENABLE_INDICATION_COUNT /DPEGASUS_ENABLE_SLP /DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 /DPEGASUS_ENABLE_INTEROP_PROVIDER /DPEGASUS_USE_EXPERIMENTAL_INTERFACES /DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER /DPEGASUS_DEST_LIB_DIR="lib" /DPEGASUS_ENABLE_PROTOCOL_WSMAN /DPEGASUS_PAM_AUTHENTICATION /DPEGASUS_NO_PASSWORDFILE /DPEGASUS_ENABLE_PROTOCOL_BINARY /DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" /DPROVIDER_LIB_NS="UNIX_LibraryExchangeLib" /DPROVIDER_LIB_NS_BEGIN="namespace UNIX_LibraryExchangeLib {"</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,911 @@
+//%LICENSE////////////////////////////////////////////////////////////////
+//
+// Licensed to The Open Group (TOG) under one or more contributor license
+// agreements.  Refer to the OpenPegasusNOTICE.txt file distributed with
+// this work for additional information regarding copyright ownership.
+// Each contributor licenses this file to you under the OpenPegasus Open
+// Source License; you may not use this file except in compliance with the
+// License.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//////////////////////////////////////////////////////////////////////////
+//
+//%/////////////////////////////////////////////////////////////////////////
+
+
+
+// Copyright (c) 2009 DMTF.  All rights reserved.
+   [Abstract, Version ( "2.19.0" ), 
+    UMLPackagePath ( "CIM::Core::CoreElements" ), 
+    Description ( 
+       "ManagedElement is an abstract class that provides a common "
+       "superclass (or top of the inheritance tree) for the "
+       "non-association classes in the CIM Schema." )]
+class CIM_ManagedElement {
+
+      [Description ( 
+          "InstanceID is an optional property that may be used to "
+          "opaquely and uniquely identify an instance of this class "
+          "within the scope of the instantiating Namespace. Various "
+          "subclasses of this class may override this property to "
+          "make it required, or a key. Such subclasses may also "
+          "modify the preferred algorithms for ensuring uniqueness "
+          "that are defined below.\n"
+          "To ensure uniqueness within the NameSpace, the value of "
+          "InstanceID should be constructed using the following "
+          "\"preferred\" algorithm: \n"
+          "<OrgID>:<LocalID> \n"
+          "Where <OrgID> and <LocalID> are separated by a colon "
+          "(:), and where <OrgID> must include a copyrighted, "
+          "trademarked, or otherwise unique name that is owned by "
+          "the business entity that is creating or defining the "
+          "InstanceID or that is a registered ID assigned to the "
+          "business entity by a recognized global authority. (This "
+          "requirement is similar to the <Schema Name>_<Class Name> "
+          "structure of Schema class names.) In addition, to ensure "
+          "uniqueness, <OrgID> must not contain a colon (:). When "
+          "using this algorithm, the first colon to appear in "
+          "InstanceID must appear between <OrgID> and <LocalID>. \n"
+          "<LocalID> is chosen by the business entity and should "
+          "not be reused to identify different underlying "
+          "(real-world) elements. If not null and the above "
+          "\"preferred\" algorithm is not used, the defining entity "
+          "must assure that the resulting InstanceID is not reused "
+          "across any InstanceIDs produced by this or other "
+          "providers for the NameSpace of this instance. \n"
+          "If not set to null for DMTF-defined instances, the "
+          "\"preferred\" algorithm must be used with the <OrgID> "
+          "set to CIM." )]
+   string InstanceID;
+
+      [Description ( 
+          "The Caption property is a short textual description "
+          "(one- line string) of the object." ), 
+       MaxLen ( 64 )]
+   string Caption;
+
+      [Description ( 
+          "The Description property provides a textual description "
+          "of the object." )]
+   string Description;
+
+      [Description ( 
+          "A user-friendly name for the object. This property "
+          "allows each instance to define a user-friendly name in "
+          "addition to its key properties, identity data, and "
+          "description information. \n"
+          "Note that the Name property of ManagedSystemElement is "
+          "also defined as a user-friendly name. But, it is often "
+          "subclassed to be a Key. It is not reasonable that the "
+          "same property can convey both identity and a "
+          "user-friendly name, without inconsistencies. Where Name "
+          "exists and is not a Key (such as for instances of "
+          "LogicalDevice), the same information can be present in "
+          "both the Name and ElementName properties. Note that if "
+          "there is an associated instance of "
+          "CIM_EnabledLogicalElementCapabilities, restrictions on "
+          "this properties may exist as defined in ElementNameMask "
+          "and MaxElementNameLen properties defined in that class." )]
+   string ElementName;
+
+      [Experimental, Description ( 
+          "Generation is an optional, monotonically increasing "
+          "property that may be used to identify a particular "
+          "generation of the resource represented by this class.\n"
+          "If Generation is supported by the implementation, its "
+          "value shall not be null. \n"
+          "Except as otherwise specified, a value (including null) "
+          "of Generation specified at creation time shall be "
+          "replaced by null if Generation is not supported by the "
+          "implementation or shall be a, (possibly different), "
+          "non-null value if the implementation does support Generation.\n"
+          "After creation and if supported, Generation shall be "
+          "updated, at least once per access, whenever the "
+          "represented resource is modified, regardless of the "
+          "source of the modification.\n"
+          "Note: the Generation value only needs to be updated once "
+          "between references, even if the resource is updated many "
+          "times. The key point is to assure that it will be "
+          "different if there have been updates, not to count each update.\n"
+          "Note: unless otherwise specified, the value of "
+          "Generation within one instance is not required to be "
+          "coordinated with the value of Generation in any other instance.\n"
+          "Note:the semantics of the instance, (as defined by its "
+          "creation class), define the underlying resource. That "
+          "underlying resource may be a collection or aggregation "
+          "of resources. And, in that case, the semantics of the "
+          "instance further define when updates to constituent "
+          "resources also require updates to the Generation of the "
+          "collective resource. Default behavior of composite "
+          "aggregations should be to update the Generation of the "
+          "composite whenever the Generation of a component is updated.\n"
+          "Subclasses may define additional requirements for "
+          "updates on some or all of related instances.\n"
+          "For a particular instance, the value of Generation may "
+          "wrap through zero, but the elapsed time between wraps "
+          "shall be greater than 10\'s of years.\n"
+          "This class does not require Generation to be unique "
+          "across instances of other classes nor across instances "
+          "of the same class that have different keys. Generation "
+          "shall be different across power cycles, resets, or "
+          "reboots if any of those actions results in an update. "
+          "Generation may be different across power cycles, resets, "
+          "or reboots if those actions do not result in an update. "
+          "If the Generation property of an instance is non-null, "
+          "and if any attempt to update the instance includes the "
+          "Generation property, then if it doesn\'t match the "
+          "current value, the update shall fail.\n"
+          "The usage of this property is intended to be further "
+          "specified by applicable management profiles. \n"
+          "Typically, a client will read the value of this property "
+          "and then supply that value as input to an operation that "
+          "modifies the instance in some means. This may be via an "
+          "explicit parameter in an extrinsic method or via an "
+          "embedded value in an extrinsic method or intrinsic operation.\n"
+          "For example: a profile may require that an intrinsic "
+          "instance modification supply the Generation property and "
+          "that it must match for the modification to succeed." )]
+   uint64 Generation;
+
+
+};
+
+
+
+// Copyright (c) 2008 DMTF.  All rights reserved.
+   [Abstract, Version ( "2.19.0" ), 
+    UMLPackagePath ( "CIM::Core::Capabilities" ), 
+    Description ( 
+       "Capabilities is an abstract class whose subclasses describe "
+       "abilities and/or potential for use. For example, one may "
+       "describe the maximum number of VLANs that can be supported on "
+       "a system using a subclass of Capabilities. Capabilities are "
+       "tied to the elements which they describe using the "
+       "ElementCapabilities association. Note that the cardinality of "
+       "the ManagedElement reference is Min(1). This cardinality "
+       "mandates the instantiation of the ElementCapabilities "
+       "association for the referenced instance of Capabilities. "
+       "ElementCapabilities describes the existence requirements for "
+       "the referenced instance of ManagedElement. Specifically, the "
+       "ManagedElement MUST exist and provide the context for the "
+       "Capabilities. Note that Capabilities do not indicate what IS "
+       "configured or operational, but what CAN or CANNOT exist, be "
+       "defined or be used. Note that it is possible to describe both "
+       "supported and excluded abilities and functions (both "
+       "capabilities and limitations) using this class." )]
+class CIM_Capabilities : CIM_ManagedElement {
+
+      [Key, Override ( "InstanceID" ), 
+       Description ( 
+          "Within the scope of the instantiating Namespace, "
+          "InstanceID opaquely and uniquely identifies an instance "
+          "of this class. In order to ensure uniqueness within the "
+          "NameSpace, the value of InstanceID SHOULD be constructed "
+          "using the following \'preferred\' algorithm: \n"
+          "<OrgID>:<LocalID> \n"
+          "Where <OrgID> and <LocalID> are separated by a colon "
+          "\':\', and where <OrgID> MUST include a copyrighted, "
+          "trademarked or otherwise unique name that is owned by "
+          "the business entity creating/defining the InstanceID, or "
+          "is a registered ID that is assigned to the business "
+          "entity by a recognized global authority (This is similar "
+          "to the <Schema Name>_<Class Name> structure of Schema "
+          "class names.) In addition, to ensure uniqueness <OrgID> "
+          "MUST NOT contain a colon (\':\'). When using this "
+          "algorithm, the first colon to appear in InstanceID MUST "
+          "appear between <OrgID> and <LocalID>. \n"
+          "<LocalID> is chosen by the business entity and SHOULD "
+          "not be re-used to identify different underlying "
+          "(real-world) elements. If the above \'preferred\' "
+          "algorithm is not used, the defining entity MUST assure "
+          "that the resultant InstanceID is not re-used across any "
+          "InstanceIDs produced by this or other providers for this "
+          "instance\'s NameSpace. \n"
+          "For DMTF defined instances, the \'preferred\' algorithm "
+          "MUST be used with the <OrgID> set to \'CIM\'." )]
+   string InstanceID;
+
+      [Required, Override ( "ElementName" ), 
+       Description ( 
+          "The user friendly name for this instance of "
+          "Capabilities. In addition, the user friendly name can be "
+          "used as a index property for a search of query. (Note: "
+          "Name does not have to be unique within a namespace.)" )]
+   string ElementName;
+
+
+      [Experimental, Description ( 
+          "Method to create a set of supported SettingData "
+          "elements, from two sets of SettingData elements, "
+          "provided by the caller. \n"
+          "CreateGoal should be used when the SettingData instances "
+          "that represents the goal will not persist beyond the "
+          "execution of the client and where those instances are "
+          "not intended to be shared with other, non-cooperating "
+          "clients. \n"
+          "Both TemplateGoalSettings and SupportedGoalSettings are "
+          "represented as strings containing EmbeddedInstances of a "
+          "CIM_SettingData subclass. These embedded instances do "
+          "not exist in the infrastructure supporting this method "
+          "but are maintained by the caller/client. \n"
+          "This method should return CIM_Error(s) representing that "
+          "a single named property of a setting (or other) "
+          "parameter (either reference or embedded object) has an "
+          "invalid value or that an invalid combination of named "
+          "properties of a setting (or other) parameter (either "
+          "reference or embedded object) has been requested. \n"
+          "If the input TemplateGoalSettings is NULL or the empty "
+          "string, this method returns a default SettingData "
+          "element that is supported by this Capabilities element. \n"
+          "If the TemplateGoalSettings specifies values that cannot "
+          "be supported, this method shall return an appropriate "
+          "CIM_Error and should return a best match for a "
+          "SupportedGoalSettings. \n"
+          "The client proposes a goal using the "
+          "TemplateGoalSettings parameter and gets back Success if "
+          "the TemplateGoalSettings is exactly supportable. It gets "
+          "back \"Alternative Proposed\" if the output "
+          "SupportedGoalSettings represents a supported "
+          "alternative. This alternative should be a best match, as "
+          "defined by the implementation. \n"
+          "If the implementation is conformant to a "
+          "RegisteredProfile, then that profile may specify the "
+          "algorithms used to determine best match. A client may "
+          "compare the returned value of each property against the "
+          "requested value to determine if it is left unchanged, "
+          "degraded or upgraded. \n"
+          "\n"
+          "Otherwise, if the TemplateGoalSettings is not applicable "
+          "an \"Invalid Parameter\" error is returned. \n"
+          "\n"
+          "When a mutually acceptable SupportedGoalSettings has "
+          "been achieved, the client may use the contained "
+          "SettingData instances as input to methods for creating a "
+          "new object ormodifying an existing object. Also the "
+          "embedded SettingData instances returned in the "
+          "SupportedGoalSettings may be instantiated via "
+          "CreateInstance, either by a client or as a side-effect "
+          "of the execution of an extrinsic method for which the "
+          "returned SupportedGoalSettings is passed as an embedded "
+          "instance." ), 
+       ValueMap { "0", "1", "2", "3", "4", "5", "6", "..", 
+          "32768..65535" }, 
+       Values { "Success", "Not Supported", "Unknown", "Timeout", 
+          "Failed", "Invalid Parameter", "Alternative Proposed", 
+          "DMTF Reserved", "Vendor Specific" }]
+   uint16 CreateGoalSettings(
+         [IN, Description ( 
+             "If provided, TemplateGoalSettings are elements of "
+             "class CIM_SettingData, or a derived class, that is "
+             "used as the template to be matched. . \n"
+             "At most, one instance of each SettingData subclass "
+             "may be supplied. \n"
+             "All SettingData instances provided by this "
+             "property are interpreted as a set, relative to "
+             "this Capabilities instance. \n"
+             "SettingData instances that are not relevant to "
+             "this instance are ignored. \n"
+             "If not provided, it shall be set to NULL. In that "
+             "case, a SettingData instance representing the "
+             "default settings of the associated ManagedElement "
+             "is used." ), 
+          EmbeddedInstance ( "CIM_SettingData" )]
+      string TemplateGoalSettings[], 
+         [IN, OUT, Description ( 
+             "SupportedGoalSettings are elements of class "
+             "CIM_SettingData, or a derived class. \n"
+             "At most, one instance of each SettingData subclass "
+             "may be supplied. \n"
+             "All SettingData instances provided by this "
+             "property are interpreted as a set, relative to "
+             "this Capabilities instance. \n"
+             "\n"
+             "To enable a client to provide additional "
+             "information towards achieving the "
+             "TemplateGoalSettings, an input set of SettingData "
+             "instances may be provided. If not provided, this "
+             "property shall be set to NULL on input.. Note that "
+             "when provided, what property values are changed, "
+             "and how, is implementation dependent and may be "
+             "the subject of other standards. \n"
+             "If provided, the input SettingData instances must "
+             "be ones that the implementation is able to support "
+             "relative to the ManagedElement associated via "
+             "ElementCapabilities. Typically, the input "
+             "SettingData instances are created by a previous "
+             "instantiation of CreateGoalSettings. \n"
+             "If the input SupportedGoalSettings is not "
+             "supported by the implementation, then an \"Invalid "
+             "Parameter\" (5) error is returned by this call. In "
+             "this case, a corresponding CIM_ERROR should also "
+             "be returned. \n"
+             "On output, this property is used to return the "
+             "best supported match to the TemplateGoalSettings. \n"
+             "If the output SupportedGoalSettings matches the "
+             "input SupportedGoalSettings, then the "
+             "implementation is unable to improve further "
+             "towards meeting the TemplateGoalSettings." ), 
+          EmbeddedInstance ( "CIM_SettingData" )]
+      string SupportedGoalSettings[]);
+
+};
+
+
+
+// Copyright (c) 2012 DMTF.  All rights reserved.
+   [Version ( "2.32.0" ), 
+    UMLPackagePath ( "CIM::Device::StorageServices" ), 
+    Description ( 
+       "A subclass of Capabilities that defines the Capabilities of a "
+       "StorageService or StoragePool. For example, an instance of "
+       "StorageCapabilities could be associated with either a "
+       "StorageConfigurationService or StoragePool by using "
+       "ElementCapabilities." )]
+class CIM_StorageCapabilities : CIM_Capabilities {
+
+      [Description ( 
+          "Enumeration indicating the type of element to which this "
+          "StorageCapabilities applies." ), 
+       ValueMap { "0", "1", "2", "3", "4", "5", "6", "7", "8" }, 
+       Values { "Unknown", "Reserved", "Any Type", "StorageVolume", 
+          "StorageExtent", "StoragePool", 
+          "StorageConfigurationService", "LogicalDisk", "StorageTier" }]
+   uint16 ElementType;
+
+      [Description ( 
+          "Indicates whether or not the associated element supports "
+          "no single point of failure. Values are: FALSE = does not "
+          "support no single point of failure, and TRUE = supports "
+          "no single point of failure." ), 
+       ModelCorrespondence { 
+          "CIM_StorageCapabilities.NoSinglePointOfFailureDefault" }]
+   boolean NoSinglePointOfFailure;
+
+      [Description ( 
+          "Indicates the default value for the "
+          "NoSinglePointOfFailure property." ), 
+       ModelCorrespondence { 
+          "CIM_StorageCapabilities.NoSinglePointOfFailure" }]
+   boolean NoSinglePointOfFailureDefault;
+
+      [Description ( 
+          "DataRedundancyMax describes the maximum number of "
+          "complete copies of data that can be maintained. Examples "
+          "would be RAID 5 (where 1 copy is maintained) and RAID 1 "
+          "(where 2 or more copies are maintained). Possible values "
+          "are 1 to n. The default redundancy is specified using "
+          "DataRedundancyDefault, while the minimum is defined by "
+          "DataRedundancyMin." ), 
+       MinValue ( 1 ), 
+       ModelCorrespondence { 
+          "CIM_StorageCapabilities.DataRedundancyMin", 
+          "CIM_StorageCapabilities.DataRedundancyDefault" }]
+   uint16 DataRedundancyMax;
+
+      [Description ( 
+          "DataRedundancyMin describes the minimum number of "
+          "complete copies of data that can be maintained. Examples "
+          "would be RAID 5 where 1 copy is maintained and RAID 1 "
+          "where 2 or more copies are maintained). Possible values "
+          "are 1 to n. The default redundancy is specified using "
+          "DataRedundancyDefault, while the maximum is defined by "
+          "DataRedundancyMax." ), 
+       MinValue ( 1 ), 
+       ModelCorrespondence { 
+          "CIM_StorageCapabilities.DataRedundancyMax", 
+          "CIM_StorageCapabilities.DataRedundancyDefault" }]
+   uint16 DataRedundancyMin;
+
+      [Description ( 
+          "DataRedundancyDefault describes the default number of "
+          "complete copies of data that can be maintained. Examples "
+          "would be RAID 5 where 1 copy is maintained and RAID 1 "
+          "where 2 or more copies are maintained. Possible values "
+          "are 1 to n. The bounds for the redundancy (max and min) "
+          "are defined by DataRedundancyMax and DataRedundancyMin." ), 
+       MinValue ( 1 ), 
+       ModelCorrespondence { 
+          "CIM_StorageCapabilities.DataRedundancyMax", 
+          "CIM_StorageCapabilities.DataRedundancyMin" }]
+   uint16 DataRedundancyDefault;
+
+      [Description ( 
+          "PackageRedundancyMax describes the maximum number of "
+          "redundant packages that can be used. For example, in the "
+          "storage domain, package redundancy describes how many "
+          "disk spindles can fail without data loss including, at "
+          "most, one spare. An example would be RAID5 with a spare "
+          "disk which would have a PackageRedundancy of 2. Possible "
+          "values are 0 to n. The default redundancy is specified "
+          "using PackageRedundancyDefault, while the maximum is "
+          "defined by PackageRedundancyMax." ), 
+       ModelCorrespondence { 
+          "CIM_StorageCapabilities.PackageRedundancyMin", 
+          "CIM_StorageCapabilities.PackageRedundancyDefault" }]
+   uint16 PackageRedundancyMax;
+
+      [Description ( 
+          "PackageRedundancyMin describes the minimum number of "
+          "redundant packages that can be used. For example, in the "
+          "storage domain, package redundancy describes how many "
+          "disk spindles can fail without data loss including, at "
+          "most, one spare. An example would be RAID5 with a spare "
+          "disk which would have a PackageRedundancy of 2. Possible "
+          "values are 0 to n. The default redundancy is specified "
+          "using PackageRedundancyDefault, while the minimum is "
+          "defined by PackageRedundancyMin." ), 
+       ModelCorrespondence { 
+          "CIM_StorageCapabilities.PackageRedundancyMax", 
+          "CIM_StorageCapabilities.PackageRedundancyDefault" }]
+   uint16 PackageRedundancyMin;
+
+      [Description ( 
+          "PackageRedundancyDefault describes the default number of "
+          "redundant packages that will be used. For example, in "
+          "the storage domain, package redundancy describes how "
+          "many disk spindles can fail without data loss including, "
+          "at most, one spare. An example would be RAID5 with a "
+          "spare disk which would have a PackageRedundancy of 2. "
+          "Possible values are 0 to n. The bounds for redundancy "
+          "are specified using the properties, PackageRedundancyMax "
+          "and PackageRedundancyMin." ), 
+       ModelCorrespondence { 
+          "CIM_StorageCapabilities.PackageRedundancyMin", 
+          "CIM_StorageCapabilities.PackageRedundancyMax" }]
+   uint16 PackageRedundancyDefault;
+
+      [Description ( 
+          "DeltaReservatioMax is a number between 1 (1%) and a 100 "
+          "(100%) that specifies the maximum amount of space "
+          "reserved in a replica for caching changes. For a "
+          "complete copy this would be 100%, but it can be lower in "
+          "some implementations. This parameter sets the upper "
+          "limit, while DeltaReservationMin sets the lower limit." ), 
+       Units ( "Percentage" ), 
+       MinValue ( 0 ), 
+       MaxValue ( 100 ), 
+       ModelCorrespondence { 
+          "CIM_StorageCapabilities.DeltaReservationMin", 
+          "CIM_StorageCapabilities.DeltaReservationDefault" }, 
+       PUnit ( "percent" )]
+   uint16 DeltaReservationMax;
+
+      [Description ( 
+          "DeltaReservationMin is a number between 1 (1%) and a 100 "
+          "(100%) that specifies the minimum amount of space that "
+          "should be reserved in a replica for caching changes. For "
+          "a complete copy this would be 100%, but it can be lower "
+          "in some implementations. This parameter sets the lower "
+          "limit, while DeltaReservationMax sets the upper limit." ), 
+       Units ( "Percentage" ), 
+       MinValue ( 0 ), 
+       MaxValue ( 100 ), 
+       ModelCorrespondence { 
+          "CIM_StorageCapabilities.DeltaReservationMax", 
+          "CIM_StorageCapabilities.DeltaReservationDefault" }, 
+       PUnit ( "percent" )]
+   uint16 DeltaReservationMin;
+
+      [Description ( 
+          "Delta reservation is a number between 1 (1%) and a 100 "
+          "(100%) that specifies how much space should be reserved "
+          "by default in a replica for caching changes. For a "
+          "complete copy this would be 100%, but it can be lower in "
+          "some implementations. This parameter sets the default "
+          "value, while DeletaReservationMax and DeltReservationMin "
+          "set the upper and lower bounds." ), 
+       Units ( "Percentage" ), 
+       MinValue ( 0 ), 
+       MaxValue ( 100 ), 
+       ModelCorrespondence { 
+          "CIM_StorageCapabilities.DeltaReservationMax", 
+          "CIM_StorageCapabilities.DeltaReservationMin" }, 
+       PUnit ( "percent" )]
+   uint16 DeltaReservationDefault;
+
+      [Description ( 
+          "Extent Stripe Length describes the number of underlying "
+          "StorageExtents across which data is striped in the "
+          "common striping-based storage organizations. This is "
+          "also known as the number of \'members\' or \'columns\'. \n"
+          "A NULL value for ExtentStripeLengthDefault indicates "
+          "that the system does not support configuration of "
+          "storage by specifying Stripe Length. \n"
+          "If Extent Stripe Length is supported, and this "
+          "Capabilities instance is associated with a pool that was "
+          "created with a range of QOS then "
+          "ExtentStripeLengthDefault represents the default value. "
+          "Other available values(such as min, max, and discrete "
+          "values) can be determined by using the "
+          "\'GetSupportedStripeLengths\' and "
+          "\'GetSupportedStripeLengthRange\' methods. \n"
+          "If Extent Stripe Length is supported and the pool was "
+          "created with a single specific QOS, representing a Raid "
+          "group, set, or rank, then this property represents the "
+          "current/fixed value for the pool, and Extent Stripe "
+          "Length is not supported in subsequent creation of "
+          "elements from this pool. Consequently, the "
+          "\'GetSupportedStripeLength\' methods cannot be used, and "
+          "in a StorageSetting instance used as a goal when "
+          "creating or modifying a child element of the pool, "
+          "ExtentStripeLengthGoal, ExtentStripeLengthMin, and "
+          "ExtentStripeLengthMax MUST be set to NULL." ), 
+       MinValue ( 1 )]
+   uint16 ExtentStripeLengthDefault;
+
+      [Description ( 
+          "ParityLayout specifies whether a parity-based storage "
+          "organization is using rotated or non-rotated parity. If "
+          "this capabilities instance is associated with a pool "
+          "that was created with a range of QOS then "
+          "ParityLayoutDefault represents the default value. Other "
+          "available values can be determined by using the "
+          "\'GetSupportedParityLayouts\' method. If the pool was "
+          "created with a single specific QOS, representing a Raid "
+          "group, set, or rank, then this property represents the "
+          "current/fixed value for the pool, and ParityLayout is "
+          "not supported in subsequent creation of elements from "
+          "this pool. Consequently, the \'GetSupportedParityLayouts\' "
+          "method cannot be used, and the ParityLayoutGoal property "
+          "in StorageSetting instances used in child element "
+          "operations on this pool MUST be set to NULL. A NULL "
+          "value for ParityLayoutDefault indicates that the system "
+          "does not support configuration of storage by specifying "
+          "ParityLayout." ), 
+       ValueMap { "2", "3" }, 
+       Values { "Non-Rotated Parity", "Rotated Parity" }]
+   uint16 ParityLayoutDefault;
+
+      [Description ( 
+          "User Data Stripe Depth describes the number of bytes "
+          "forming a strip in common striping-based storage "
+          "organizations. The strip is defined as the size of the "
+          "portion of a stripe that lies on one extent. Thus, "
+          "ExtentStripeLength * UserDataStripeDepth will yield the "
+          "size of one stripe of user data. A NULL value for "
+          "UserDataStripeDepthDefault indicates that the system "
+          "does not support configuration of storage by specifying "
+          "Stripe Depth. \n"
+          "If User Data Stripe Depth is supported, and this "
+          "Capabilities instance is associated with a pool that was "
+          "created with a range of QOS then "
+          "UserDataStripeDepthDefault represents the default value. "
+          "Other available values(such as min, max, and discrete "
+          "values) can be determined by using the "
+          "\'GetSupportedStripeDepths\' and "
+          "\'GetSupportedStripeDepthRange\' methods. \n"
+          "If User Data Stripe Depth is supported and the pool was "
+          "created with a single specific QOS, representing a Raid "
+          "group, set, or rank, then this property represents the "
+          "current/fixed value for the pool, and User Data Stripe "
+          "Depth is not supported in subsequent creation of "
+          "elements from this pool. Consequently, the "
+          "\'GetSupportedStripeDepth\' methods cannot be used, and "
+          "in a StorageSetting instance used as a goal when "
+          "creating or modifying a child element of the pool, "
+          "UserDataStripeDepthGoal, UserDataStripeDepthMin, and "
+          "UserDataStripeDepthMax MUST be set to NULL." ), 
+       Units ( "Bytes" ), 
+       MinValue ( 1 ), 
+       PUnit ( "byte" )]
+   uint64 UserDataStripeDepthDefault;
+
+      [Experimental, Description ( 
+          "Enumeration indicating the type of DiskDrives which may "
+          "be available." ), 
+       ValueMap { "0", "1", "2", "3", "4" }, 
+       Values { "Unknown", "Other", "Hard Disk Drive", 
+          "Solid State Drive", "Hybrid" }]
+   uint16 AvailableDiskType[];
+
+      [Experimental, Description ( 
+          "Enumeration indicating the types of disk form factors "
+          "which may be available." ), 
+       ValueMap { "0", "1", "2", "3", "4", "5", "6" }, 
+       Values { "Unknown", "Other", "Not Reported", "5.25 inch", 
+          "3.5 inch", "2.5 inch", "1.8 inch" }]
+   uint16 AvailableFormFactorType[];
+
+      [Experimental, Description ( 
+          "This property reflects support of the encryption feature "
+          "implemented by some disk drives." ), 
+       ValueMap { "0", "1", "2" }, 
+       Values { "Unknown", "Not Supported", "Supported" }]
+   uint16 Encryption;
+
+      [Experimental, Description ( 
+          "Types of volume data organizations supported." ), 
+       ValueMap { "0", "1", "2", "3", "4" }, 
+       Values { "Other", "Unknown", "Fixed Block", "Variable Block", 
+          "Count Key Data" }]
+   uint16 SupportedDataOrganizations[];
+
+      [Experimental, Description ( 
+          "The speed of disk interfaces which are be available. "
+          "Values are in bits/second." ), 
+       PUnit ( "bit / second" )]
+   uint64 AvailableInterconnectSpeed[];
+
+      [Experimental, Description ( 
+          "Enumeration indicating the type of disk interfaces which "
+          "may be available." ), 
+       ValueMap { "0", "1", "2", "3", "4", "5", "6" }, 
+       Values { "Unknown", "other", "SAS", "SATA", "SAS/SATA", "FC", 
+          "SOP" }]
+   uint16 AvailableInterconnectType[];
+
+      [Experimental, Description ( 
+          "The rotational speed of disk media which are be "
+          "available. Values are in revolutions per minute. SSD "
+          "devices shall report 0." ), 
+       PUnit ( "revolution / minute" )]
+   uint32 AvailableRPM[];
+
+      [Experimental, Description ( 
+          "The SupportedCompressionRates identifies the compression "
+          "rates that are supported by the implementation, "
+          "including \"None\". If \"None\" is specified, then no "
+          "other rate may be identified." ), 
+       ValueMap { "1", "2", "3", "4", "5", "..", "32768..65535" }, 
+       Values { "None", "High", "Medium", "Low", "DMTF Reserved", 
+          "Implementation Decides", "Vendor Specific" }]
+   uint16 SupportedCompressionRates[];
+
+
+      [Description ( 
+          "Method to create and populate a StorageSetting instance "
+          "from a StorageCapability instance. This removes the need "
+          "to populate default settings and other settings in the "
+          "context of each StorageCapabilities (which could be "
+          "numerous). If the underlying instrumentation supports "
+          "the StorageSettingWithHints subclass, then an instance "
+          "of that class will be created instead." ), 
+       ValueMap { "0", "1", "2", "3", "4", "5", "..", "32768..65535" }, 
+       Values { "Success", "Not Supported", "Unspecified Error", 
+          "Timeout", "Failed", "Invalid Parameter", "DMTF Reserved", 
+          "Vendor Specific" }]
+   uint32 CreateSetting(
+         [IN, Description ( 
+             "If \'Default\' is passed for the CreateDefault "
+             "parameter, the Max, Goal, and Min setting "
+             "attributes are set to the Default values of the "
+             "parent StorageCapabilities when the instance is "
+             "created. \n"
+             "If set to \'Goal\' the new StorageSetting "
+             "attributes are set to the related attributes of "
+             "the parent StorageCapabilities, e.g. Min to Min, "
+             "Goal to Default, and Max to Max. \n"
+             "\n"
+             "This method maybe deprecated in lieu of intrinsics "
+             "once limitations in the CIM Operations are "
+             "addressed." ), 
+          ValueMap { "2", "3" }, 
+          Values { "Default", "Goal" }]
+      uint16 SettingType, 
+         [IN ( false ), OUT, Description ( 
+             "Reference to the created StorageSetting instance." )]
+      CIM_StorageSetting REF NewSetting);
+
+      [Experimental, Description ( 
+          "For systems that support discrete ExtentStripeLengths "
+          "for volume or pool creation, this method can be used to "
+          "retrieve a list of supported values. Note that different "
+          "implementations may support either the "
+          "GetSupportedStripeLengths or the "
+          "GetSupportedStripeLengthRange method. Also note that the "
+          "advertised sizes may change after the call due to "
+          "requests from other clients. If the system only supports "
+          "a range of sizes, then the return value will be set to "
+          "3." ), 
+       ValueMap { "0", "1", "2", "3" }, 
+       Values { "Method completed OK", "Method not supported", 
+          "Choices not available for this Capability", 
+          "Use GetSupportedStripeLengthRange instead" }]
+   uint32 GetSupportedStripeLengths(
+         [IN ( false ), OUT, Description ( 
+             "List of supported ExtentStripeLengths for a "
+             "Volume/Pool creation or modification." ), 
+          ArrayType ( "Indexed" )]
+      uint16 StripeLengths[]);
+
+      [Experimental, Description ( 
+          "For systems that support a range of ExtentStripeLengths "
+          "for volume or pool creation, this method can be used to "
+          "retrieve the supported range. Note that different "
+          "implementations may support either the "
+          "GetSupportedExtentLengths or the "
+          "GetSupportedExtentLengthRange method. Also note that the "
+          "advertised sizes may change after the call due to "
+          "requests from other clients. If the system only supports "
+          "discrete values, then the return value will be set to 3." ), 
+       ValueMap { "0", "1", "2", "3" }, 
+       Values { "Method completed OK", "Method not supported", 
+          "Choices not available for this Capability", 
+          "Use GetSupportedStripeLengths instead" }]
+   uint32 GetSupportedStripeLengthRange(
+         [IN ( false ), OUT, Description ( 
+             "The minimum ExtentStripeDepth for a volume/pool in bytes."
+              )]
+      uint16 MinimumStripeLength, 
+         [IN ( false ), OUT, Description ( 
+             "The maximum ExtentStripeLength for a volume/pool in bytes."
+              )]
+      uint16 MaximumStripeLength, 
+         [IN ( false ), OUT, Description ( 
+             "A volume/pool ExtentStripeLength must be a "
+             "multiple of this value which is specified in "
+             "bytes." )]
+      uint32 StripeLengthDivisor);
+
+      [Description ( 
+          "For systems that support Parity-based storage "
+          "organizations for volume or pool creation, this method "
+          "can be used to the supported parity layouts." ), 
+       ValueMap { "0", "1", "2" }, 
+       Values { "Method completed OK", "Method not supported", 
+          "Choice not aavailable for this capability" }]
+   uint32 GetSupportedParityLayouts(
+         [IN ( false ), OUT, Description ( 
+             "List of supported Parity for a Volume/Pool "
+             "creation or modification." ), 
+          ValueMap { "2", "3" }, 
+          Values { "Non-Rotated Parity", "Rotated Parity" }, 
+          ArrayType ( "Indexed" )]
+      uint16 ParityLayout[]);
+
+      [Experimental, Description ( 
+          "For systems that support discrete UserDataStripeDepths "
+          "for volume or pool creation, this method can be used to "
+          "retrieve a list of supported values. Note that different "
+          "implementations may support either the "
+          "GetSupportedStripeDepths or the "
+          "GetSupportedStripeDepthRange method. If the system only "
+          "supports a range of sizes, then the return value will be "
+          "set to 2." ), 
+       ValueMap { "0", "1", "2" }, 
+       Values { "Method completed OK", "Method not supported", 
+          "Use GetSupportedStripeDepthRange instead" }]
+   uint32 GetSupportedStripeDepths(
+         [IN ( false ), OUT, Description ( 
+             "List of supported UserDataStripeDepths for a "
+             "Volume/Pool creation or modification." ), 
+          Units ( "Bytes" ), 
+          ArrayType ( "Indexed" ), 
+          PUnit ( "byte" )]
+      uint64 StripeDepths[]);
+
+      [Experimental, Description ( 
+          "For systems that support a range of UserDataStripeDepths "
+          "for volume or pool creation, this method can be used to "
+          "retrieve the supported range. Note that different "
+          "implementations may support either the "
+          "GetSupportedStripeDepths or the "
+          "GetSupportedStripeDepthRange method. If the system only "
+          "supports discrete values, then the return value will be "
+          "set to 2." ), 
+       ValueMap { "0", "1", "2" }, 
+       Values { "Method completed OK", "Method not supported", 
+          "Use GetSupportedStripeDepths instead" }]
+   uint32 GetSupportedStripeDepthRange(
+         [IN ( false ), OUT, Description ( 
+             "The minimum UserDataStripeDepth for a volume/pool in bytes."
+              ), 
+          Units ( "Bytes" ), 
+          PUnit ( "byte" )]
+      uint64 MinimumStripeDepth, 
+         [IN ( false ), OUT, Description ( 
+             "The maximum UserDataStripeDepth for a volume/pool in bytes."
+              ), 
+          Units ( "Bytes" ), 
+          PUnit ( "byte" )]
+      uint64 MaximumStripeDepth, 
+         [IN ( false ), OUT, Description ( 
+             "A volume/pool UserDataStripeDepth must be a "
+             "multiple of this value which is specified in "
+             "bytes." ), 
+          Units ( "Bytes" ), 
+          PUnit ( "byte" )]
+      uint64 StripeDepthDivisor);
+
+};
+
+
+
+// Copyright (c) 2011 DMTF.  All rights reserved.
+   [Experimental, Version ( "2.28.0" ), 
+    UMLPackagePath ( "CIM::Device::StorageServices" ), 
+    Description ( 
+       "A subclass of StorageCapabilities that defines the "
+       "Capabilities of a storage tier." )]
+class CIM_StorageTierCapabilities : CIM_StorageCapabilities {
+
+      [Description ( 
+          "Indicates the storage tier charateristics. Performance "
+          "generally relates to the underlying technology, for "
+          "example, Solid State versus Fibre Channel drives. QoS "
+          "refers to the Quality of Service, for example, RAID "
+          "protected versus unprotected." ), 
+       ValueMap { "0", "1", "2", "3", "4", "..", "0x8000.." }, 
+       Values { "Unknown", "Other", "BasedOnPerformance Only", 
+          "BasedOnQOS Only", "BasedOnPerformance And BasedOnQOS", 
+          "DMTF Reserved", "Vendor Specific" }]
+   uint16 StorageTierCharacteristics[];
+
+      [Description ( 
+          "Indicates the minimum value for RelativePerformanceOrder "
+          "that this storage tier can have.\n"
+          "The minimum value for RelativePerformanceOrder that this "
+          "storage tier can have, which represents the highest "
+          "level of performance." ), 
+       ModelCorrespondence { 
+          "CIM_StorageTierCapabilities.RelativePerformanceOrderMax", 
+          "CIM_StorageTierCapabilities.RelativePerformanceOrderDefault", 
+          "CIM_StorageTier.RelativePerformanceOrder" }]
+   uint16 RelativePerformanceOrderMin;
+
+      [Description ( 
+          "Indicates the maxmimum value for "
+          "RelativePerformanceOrder that this storage tier can have.\n"
+          "The maximum value for RelativePerformanceOrder that this "
+          "storage tier can have, which represents the lowest level "
+          "of performance." ), 
+       ModelCorrespondence { 
+          "CIM_StorageTierCapabilities.RelativePerformanceOrderMin", 
+          "CIM_StorageTierCapabilities.RelativePerformanceOrderDefault", 
+          "CIM_StorageTier.RelativePerformanceOrder" }]
+   uint16 RelativePerformanceOrderMax;
+
+      [Description ( 
+          "Indicates the default value of RelativePerformanceOrder "
+          "for the storage tier -- the smaller the "
+          "RelativePerformanceOrder, the more performant the "
+          "storage tier." ), 
+       ModelCorrespondence { 
+          "CIM_StorageTierCapabilities.RelativePerformanceOrderMin", 
+          "CIM_StorageTierCapabilities.RelativePerformanceOrderMax", 
+          "CIM_StorageTier.RelativePerformanceOrder" }]
+   uint16 RelativePerformanceOrderDefault;
+
+      [Description ( 
+          "An array indicating the supported storage tier "
+          "methodologies. StorageTierMethodologies are useful for "
+          "use cases where client wants to place an element in a "
+          "storage tier without specifying a specific storage tier, "
+          "and let the implementation select an appropriate storage "
+          "tier. None: This storage tier should not be considered." ), 
+       ValueMap { "2", "3", "4", "5", "6", "7", "..", "0x8000.." }, 
+       Values { "None", "Implementation Decides", 
+          "Highest Performance", "Lowest Performance", 
+          "Highest Availability", "Lowest Availability", 
+          "DMTF Reserved", "Vendor Specific" }]
+   uint16 SupportedStorageTierMethodologies[];
+
+
+};
+
+
+
+   [Version( "2.40.0" ), Description("{0}")]
+class UNIX_StorageTierCapabilities : CIM_StorageTierCapabilities
+{
+
+
+};
+

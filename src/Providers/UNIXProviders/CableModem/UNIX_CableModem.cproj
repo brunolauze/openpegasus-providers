@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FBBE7EB1-95A1-4095-ADAF-62B34140F6AA}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_CableModemProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_CableModemLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_CableModemLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_CableModemProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_CableModemLib" -DPROVIDER_LIB_NS="namespace UNIX_CableModemLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_CableModem.cpp" />
+    <Compile Include="UNIX_CableModemMain.cpp" />
+    <Compile Include="UNIX_CableModemProvider.cpp" />
+    <Compile Include="UNIX_CableModem_AIX.cpp" />
+    <Compile Include="UNIX_CableModem_DARWIN.cpp" />
+    <Compile Include="UNIX_CableModem_FREEBSD.cpp" />
+    <Compile Include="UNIX_CableModem_HPUX.cpp" />
+    <Compile Include="UNIX_CableModem_LINUX.cpp" />
+    <Compile Include="UNIX_CableModem_SOLARIS.cpp" />
+    <Compile Include="UNIX_CableModem_STUB.cpp" />
+    <Compile Include="UNIX_CableModem_TRU64.cpp" />
+    <Compile Include="UNIX_CableModem_VMS.cpp" />
+    <Compile Include="UNIX_CableModem_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_CableModem.h" />
+    <Node Include="UNIX_CableModemDeps.h" />
+    <Node Include="UNIX_CableModemDeps_AIX.h" />
+    <Node Include="UNIX_CableModemDeps_DARWIN.h" />
+    <Node Include="UNIX_CableModemDeps_FREEBSD.h" />
+    <Node Include="UNIX_CableModemDeps_HPUX.h" />
+    <Node Include="UNIX_CableModemDeps_LINUX.h" />
+    <Node Include="UNIX_CableModemDeps_SOLARIS.h" />
+    <Node Include="UNIX_CableModemDeps_STUB.h" />
+    <Node Include="UNIX_CableModemDeps_TRU64.h" />
+    <Node Include="UNIX_CableModemDeps_VMS.h" />
+    <Node Include="UNIX_CableModemDeps_ZOS.h" />
+    <Node Include="UNIX_CableModemPrivate.h" />
+    <Node Include="UNIX_CableModemPrivate_AIX.h" />
+    <Node Include="UNIX_CableModemPrivate_DARWIN.h" />
+    <Node Include="UNIX_CableModemPrivate_FREEBSD.h" />
+    <Node Include="UNIX_CableModemPrivate_HPUX.h" />
+    <Node Include="UNIX_CableModemPrivate_LINUX.h" />
+    <Node Include="UNIX_CableModemPrivate_SOLARIS.h" />
+    <Node Include="UNIX_CableModemPrivate_STUB.h" />
+    <Node Include="UNIX_CableModemPrivate_TRU64.h" />
+    <Node Include="UNIX_CableModemPrivate_VMS.h" />
+    <Node Include="UNIX_CableModemPrivate_ZOS.h" />
+    <Node Include="UNIX_CableModemProvider.h" />
+    <Node Include="UNIX_CableModem_AIX.hpp" />
+    <Node Include="UNIX_CableModem_AIX.hxx" />
+    <Node Include="UNIX_CableModem_DARWIN.hpp" />
+    <Node Include="UNIX_CableModem_DARWIN.hxx" />
+    <Node Include="UNIX_CableModem_FREEBSD.hpp" />
+    <Node Include="UNIX_CableModem_FREEBSD.hxx" />
+    <Node Include="UNIX_CableModem_HPUX.hpp" />
+    <Node Include="UNIX_CableModem_HPUX.hxx" />
+    <Node Include="UNIX_CableModem_LINUX.hpp" />
+    <Node Include="UNIX_CableModem_LINUX.hxx" />
+    <Node Include="UNIX_CableModem_SOLARIS.hpp" />
+    <Node Include="UNIX_CableModem_SOLARIS.hxx" />
+    <Node Include="UNIX_CableModem_STUB.hpp" />
+    <Node Include="UNIX_CableModem_STUB.hxx" />
+    <Node Include="UNIX_CableModem_TRU64.hpp" />
+    <Node Include="UNIX_CableModem_TRU64.hxx" />
+    <Node Include="UNIX_CableModem_VMS.hpp" />
+    <Node Include="UNIX_CableModem_VMS.hxx" />
+    <Node Include="UNIX_CableModem_WIN32.hpp" />
+    <Node Include="UNIX_CableModem_ZOS.hpp" />
+    <Node Include="UNIX_CableModem_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

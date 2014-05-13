@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>bf1aea94-6e43-46c5-9ecb-729b4a2cce97</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../../UNIX_NetworkServicesInAdminDomain.md.pc" name="UNIX_NetworkServicesInAdminDomain" IsProject="True" />
+        <Package file="../../../ReusablePolicyContainer/UNIX_ReusablePolicyContainer.md.pc" name="UNIX_ReusablePolicyContainer" IsProject="True" />
+        <Package file="../../../PolicyRepository/UNIX_PolicyRepository.md.pc" name="UNIX_PolicyRepository" IsProject="True" />
+        <Package file="../../../AutonomousSystem/UNIX_AutonomousSystem.md.pc" name="UNIX_AutonomousSystem" IsProject="True" />
+        <Package file="../../../RoutingProtocolDomain/UNIX_RoutingProtocolDomain.md.pc" name="UNIX_RoutingProtocolDomain" IsProject="True" />
+        <Package file="../../../OSPFArea/UNIX_OSPFArea.md.pc" name="UNIX_OSPFArea" IsProject="True" />
+        <Package file="../../../Network/UNIX_Network.md.pc" name="UNIX_Network" IsProject="True" />
+        <Package file="../../../VLANNetwork/UNIX_VLANNetwork.md.pc" name="UNIX_VLANNetwork" IsProject="True" />
+        <Package file="../../../TierDomain/UNIX_TierDomain.md.pc" name="UNIX_TierDomain" IsProject="True" />
+        <Package file="../../../BGPService/UNIX_BGPService.md.pc" name="UNIX_BGPService" IsProject="True" />
+        <Package file="../../../OSPFService/UNIX_OSPFService.md.pc" name="UNIX_OSPFService" IsProject="True" />
+        <Package file="../../../NATService/UNIX_NATService.md.pc" name="UNIX_NATService" IsProject="True" />
+        <Package file="../../../TransparentBridgingService/UNIX_TransparentBridgingService.md.pc" name="UNIX_TransparentBridgingService" IsProject="True" />
+        <Package file="../../../SourceRoutingService/UNIX_SourceRoutingService.md.pc" name="UNIX_SourceRoutingService" IsProject="True" />
+        <Package file="../../../SpanningTreeService/UNIX_SpanningTreeService.md.pc" name="UNIX_SpanningTreeService" IsProject="True" />
+        <Package file="../../../SwitchService/UNIX_SwitchService.md.pc" name="UNIX_SwitchService" IsProject="True" />
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>TestUNIX_NetworkServicesInAdminDomain</OutputName>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/*</Include>
+        <Include>${ProjectDir}/../../..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_NetworkServicesInAdminDomainLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_NetworkServicesInAdminDomainLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_NetworkServicesInAdminDomainProvider -lUNIX_ReusablePolicyContainerProvider -lUNIX_PolicyRepositoryProvider -lUNIX_AutonomousSystemProvider -lUNIX_RoutingProtocolDomainProvider -lUNIX_OSPFAreaProvider -lUNIX_NetworkProvider -lUNIX_VLANNetworkProvider -lUNIX_TierDomainProvider -lUNIX_BGPServiceProvider -lUNIX_OSPFServiceProvider -lUNIX_NATServiceProvider -lUNIX_TransparentBridgingServiceProvider -lUNIX_SourceRoutingServiceProvider -lUNIX_SpanningTreeServiceProvider -lUNIX_SwitchServiceProvider</ExtraLinkerArguments>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="LD_LIBRARY_PATH" value="../../../../bin/Debug:../../../../../ReusablePolicyContainer/bin/Debug:../../../../../PolicyRepository/bin/Debug:../../../../../AutonomousSystem/bin/Debug:../../../../../RoutingProtocolDomain/bin/Debug:../../../../../OSPFArea/bin/Debug:../../../../../Network/bin/Debug:../../../../../VLANNetwork/bin/Debug:../../../../../TierDomain/bin/Debug:../../../../../BGPService/bin/Debug:../../../../../OSPFService/bin/Debug:../../../../../NATService/bin/Debug:../../../../../TransparentBridgingService/bin/Debug:../../../../../SourceRoutingService/bin/Debug:../../../../../SpanningTreeService/bin/Debug:../../../../../SwitchService/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
+    <Commandlineparameters></Commandlineparameters>
+    <ConsolePause>false</ConsolePause>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../../bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ReusablePolicyContainer/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PolicyRepository/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AutonomousSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../RoutingProtocolDomain/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../OSPFArea/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../Network/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VLANNetwork/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TierDomain/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../BGPService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../OSPFService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NATService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TransparentBridgingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SourceRoutingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SpanningTreeService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SwitchService/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>TestUNIX_NetworkServicesInAdminDomain</OutputName>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_NetworkServicesInAdminDomainLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_NetworkServicesInAdminDomainLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_NetworkServicesInAdminDomainProvider -lUNIX_ReusablePolicyContainerProvider -lUNIX_PolicyRepositoryProvider -lUNIX_AutonomousSystemProvider -lUNIX_RoutingProtocolDomainProvider -lUNIX_OSPFAreaProvider -lUNIX_NetworkProvider -lUNIX_VLANNetworkProvider -lUNIX_TierDomainProvider -lUNIX_BGPServiceProvider -lUNIX_OSPFServiceProvider -lUNIX_NATServiceProvider -lUNIX_TransparentBridgingServiceProvider -lUNIX_SourceRoutingServiceProvider -lUNIX_SpanningTreeServiceProvider -lUNIX_SwitchServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../MockResponseHandler.cpp">
+        <Link>MockResponseHandler.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_NetworkServicesInAdminDomainFixture.cpp" />
+    <Compile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="RunTestUNIX_NetworkServicesInAdminDomain.sh" />
+    <Node Include="UNIX_NetworkServicesInAdminDomainFixture.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{76642A71-0861-47DF-929E-0BB8E87AB6A2}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../BGPService/UNIX_BGPService.md.pc" name="UNIX_BGPService" IsProject="True" />
+        <Package file="../OSPFService/UNIX_OSPFService.md.pc" name="UNIX_OSPFService" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../BGPService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OSPFService/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_EGPRouteCalcDependencyProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_EGPRouteCalcDependencyLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_EGPRouteCalcDependencyLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_BGPServiceProvider -lUNIX_OSPFServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_EGPRouteCalcDependencyProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_EGPRouteCalcDependencyLib" -DPROVIDER_LIB_NS="namespace UNIX_EGPRouteCalcDependencyLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_BGPServiceProvider -lUNIX_OSPFServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_EGPRouteCalcDependency.cpp" />
+    <Compile Include="UNIX_EGPRouteCalcDependencyMain.cpp" />
+    <Compile Include="UNIX_EGPRouteCalcDependencyProvider.cpp" />
+    <Compile Include="UNIX_EGPRouteCalcDependency_AIX.cpp" />
+    <Compile Include="UNIX_EGPRouteCalcDependency_DARWIN.cpp" />
+    <Compile Include="UNIX_EGPRouteCalcDependency_FREEBSD.cpp" />
+    <Compile Include="UNIX_EGPRouteCalcDependency_HPUX.cpp" />
+    <Compile Include="UNIX_EGPRouteCalcDependency_LINUX.cpp" />
+    <Compile Include="UNIX_EGPRouteCalcDependency_SOLARIS.cpp" />
+    <Compile Include="UNIX_EGPRouteCalcDependency_STUB.cpp" />
+    <Compile Include="UNIX_EGPRouteCalcDependency_TRU64.cpp" />
+    <Compile Include="UNIX_EGPRouteCalcDependency_VMS.cpp" />
+    <Compile Include="UNIX_EGPRouteCalcDependency_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_EGPRouteCalcDependency.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyDeps.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyDeps_AIX.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyDeps_DARWIN.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyDeps_FREEBSD.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyDeps_HPUX.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyDeps_LINUX.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyDeps_SOLARIS.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyDeps_STUB.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyDeps_TRU64.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyDeps_VMS.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyDeps_ZOS.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyPrivate.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyPrivate_AIX.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyPrivate_DARWIN.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyPrivate_FREEBSD.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyPrivate_HPUX.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyPrivate_LINUX.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyPrivate_SOLARIS.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyPrivate_STUB.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyPrivate_TRU64.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyPrivate_VMS.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyPrivate_ZOS.h" />
+    <Node Include="UNIX_EGPRouteCalcDependencyProvider.h" />
+    <Node Include="UNIX_EGPRouteCalcDependency_AIX.hpp" />
+    <Node Include="UNIX_EGPRouteCalcDependency_AIX.hxx" />
+    <Node Include="UNIX_EGPRouteCalcDependency_DARWIN.hpp" />
+    <Node Include="UNIX_EGPRouteCalcDependency_DARWIN.hxx" />
+    <Node Include="UNIX_EGPRouteCalcDependency_FREEBSD.hpp" />
+    <Node Include="UNIX_EGPRouteCalcDependency_FREEBSD.hxx" />
+    <Node Include="UNIX_EGPRouteCalcDependency_HPUX.hpp" />
+    <Node Include="UNIX_EGPRouteCalcDependency_HPUX.hxx" />
+    <Node Include="UNIX_EGPRouteCalcDependency_LINUX.hpp" />
+    <Node Include="UNIX_EGPRouteCalcDependency_LINUX.hxx" />
+    <Node Include="UNIX_EGPRouteCalcDependency_SOLARIS.hpp" />
+    <Node Include="UNIX_EGPRouteCalcDependency_SOLARIS.hxx" />
+    <Node Include="UNIX_EGPRouteCalcDependency_STUB.hpp" />
+    <Node Include="UNIX_EGPRouteCalcDependency_STUB.hxx" />
+    <Node Include="UNIX_EGPRouteCalcDependency_TRU64.hpp" />
+    <Node Include="UNIX_EGPRouteCalcDependency_TRU64.hxx" />
+    <Node Include="UNIX_EGPRouteCalcDependency_VMS.hpp" />
+    <Node Include="UNIX_EGPRouteCalcDependency_VMS.hxx" />
+    <Node Include="UNIX_EGPRouteCalcDependency_WIN32.hpp" />
+    <Node Include="UNIX_EGPRouteCalcDependency_ZOS.hpp" />
+    <Node Include="UNIX_EGPRouteCalcDependency_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

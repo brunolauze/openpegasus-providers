@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D751BDCF-2BF6-4746-8A1D-41EDA990482F}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_SqlCharacterSetProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SqlCharacterSetLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SqlCharacterSetLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_SqlCharacterSetProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SqlCharacterSetLib" -DPROVIDER_LIB_NS="namespace UNIX_SqlCharacterSetLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SqlCharacterSet.cpp" />
+    <Compile Include="UNIX_SqlCharacterSetMain.cpp" />
+    <Compile Include="UNIX_SqlCharacterSetProvider.cpp" />
+    <Compile Include="UNIX_SqlCharacterSet_AIX.cpp" />
+    <Compile Include="UNIX_SqlCharacterSet_DARWIN.cpp" />
+    <Compile Include="UNIX_SqlCharacterSet_FREEBSD.cpp" />
+    <Compile Include="UNIX_SqlCharacterSet_HPUX.cpp" />
+    <Compile Include="UNIX_SqlCharacterSet_LINUX.cpp" />
+    <Compile Include="UNIX_SqlCharacterSet_SOLARIS.cpp" />
+    <Compile Include="UNIX_SqlCharacterSet_STUB.cpp" />
+    <Compile Include="UNIX_SqlCharacterSet_TRU64.cpp" />
+    <Compile Include="UNIX_SqlCharacterSet_VMS.cpp" />
+    <Compile Include="UNIX_SqlCharacterSet_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_SqlCharacterSet.h" />
+    <Node Include="UNIX_SqlCharacterSetDeps.h" />
+    <Node Include="UNIX_SqlCharacterSetDeps_AIX.h" />
+    <Node Include="UNIX_SqlCharacterSetDeps_DARWIN.h" />
+    <Node Include="UNIX_SqlCharacterSetDeps_FREEBSD.h" />
+    <Node Include="UNIX_SqlCharacterSetDeps_HPUX.h" />
+    <Node Include="UNIX_SqlCharacterSetDeps_LINUX.h" />
+    <Node Include="UNIX_SqlCharacterSetDeps_SOLARIS.h" />
+    <Node Include="UNIX_SqlCharacterSetDeps_STUB.h" />
+    <Node Include="UNIX_SqlCharacterSetDeps_TRU64.h" />
+    <Node Include="UNIX_SqlCharacterSetDeps_VMS.h" />
+    <Node Include="UNIX_SqlCharacterSetDeps_ZOS.h" />
+    <Node Include="UNIX_SqlCharacterSetPrivate.h" />
+    <Node Include="UNIX_SqlCharacterSetPrivate_AIX.h" />
+    <Node Include="UNIX_SqlCharacterSetPrivate_DARWIN.h" />
+    <Node Include="UNIX_SqlCharacterSetPrivate_FREEBSD.h" />
+    <Node Include="UNIX_SqlCharacterSetPrivate_HPUX.h" />
+    <Node Include="UNIX_SqlCharacterSetPrivate_LINUX.h" />
+    <Node Include="UNIX_SqlCharacterSetPrivate_SOLARIS.h" />
+    <Node Include="UNIX_SqlCharacterSetPrivate_STUB.h" />
+    <Node Include="UNIX_SqlCharacterSetPrivate_TRU64.h" />
+    <Node Include="UNIX_SqlCharacterSetPrivate_VMS.h" />
+    <Node Include="UNIX_SqlCharacterSetPrivate_ZOS.h" />
+    <Node Include="UNIX_SqlCharacterSetProvider.h" />
+    <Node Include="UNIX_SqlCharacterSet_AIX.hpp" />
+    <Node Include="UNIX_SqlCharacterSet_AIX.hxx" />
+    <Node Include="UNIX_SqlCharacterSet_DARWIN.hpp" />
+    <Node Include="UNIX_SqlCharacterSet_DARWIN.hxx" />
+    <Node Include="UNIX_SqlCharacterSet_FREEBSD.hpp" />
+    <Node Include="UNIX_SqlCharacterSet_FREEBSD.hxx" />
+    <Node Include="UNIX_SqlCharacterSet_HPUX.hpp" />
+    <Node Include="UNIX_SqlCharacterSet_HPUX.hxx" />
+    <Node Include="UNIX_SqlCharacterSet_LINUX.hpp" />
+    <Node Include="UNIX_SqlCharacterSet_LINUX.hxx" />
+    <Node Include="UNIX_SqlCharacterSet_SOLARIS.hpp" />
+    <Node Include="UNIX_SqlCharacterSet_SOLARIS.hxx" />
+    <Node Include="UNIX_SqlCharacterSet_STUB.hpp" />
+    <Node Include="UNIX_SqlCharacterSet_STUB.hxx" />
+    <Node Include="UNIX_SqlCharacterSet_TRU64.hpp" />
+    <Node Include="UNIX_SqlCharacterSet_TRU64.hxx" />
+    <Node Include="UNIX_SqlCharacterSet_VMS.hpp" />
+    <Node Include="UNIX_SqlCharacterSet_VMS.hxx" />
+    <Node Include="UNIX_SqlCharacterSet_WIN32.hpp" />
+    <Node Include="UNIX_SqlCharacterSet_ZOS.hpp" />
+    <Node Include="UNIX_SqlCharacterSet_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

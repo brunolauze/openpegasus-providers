@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C22CD3DD-96C6-471F-8772-23C8A649EB0C}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../OperatingSystem/UNIX_OperatingSystem.md.pc" name="UNIX_OperatingSystem" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../OperatingSystem/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_OperatingSystemSoftwareFeatureProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_OperatingSystemSoftwareFeatureLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_OperatingSystemSoftwareFeatureLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_OperatingSystemProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_OperatingSystemSoftwareFeatureProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_OperatingSystemSoftwareFeatureLib" -DPROVIDER_LIB_NS="namespace UNIX_OperatingSystemSoftwareFeatureLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_OperatingSystemProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_OperatingSystemSoftwareFeature.cpp" />
+    <Compile Include="UNIX_OperatingSystemSoftwareFeatureMain.cpp" />
+    <Compile Include="UNIX_OperatingSystemSoftwareFeatureProvider.cpp" />
+    <Compile Include="UNIX_OperatingSystemSoftwareFeature_AIX.cpp" />
+    <Compile Include="UNIX_OperatingSystemSoftwareFeature_DARWIN.cpp" />
+    <Compile Include="UNIX_OperatingSystemSoftwareFeature_FREEBSD.cpp" />
+    <Compile Include="UNIX_OperatingSystemSoftwareFeature_HPUX.cpp" />
+    <Compile Include="UNIX_OperatingSystemSoftwareFeature_LINUX.cpp" />
+    <Compile Include="UNIX_OperatingSystemSoftwareFeature_SOLARIS.cpp" />
+    <Compile Include="UNIX_OperatingSystemSoftwareFeature_STUB.cpp" />
+    <Compile Include="UNIX_OperatingSystemSoftwareFeature_TRU64.cpp" />
+    <Compile Include="UNIX_OperatingSystemSoftwareFeature_VMS.cpp" />
+    <Compile Include="UNIX_OperatingSystemSoftwareFeature_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeatureDeps.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeatureDeps_AIX.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeatureDeps_DARWIN.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeatureDeps_FREEBSD.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeatureDeps_HPUX.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeatureDeps_LINUX.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeatureDeps_SOLARIS.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeatureDeps_STUB.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeatureDeps_TRU64.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeatureDeps_VMS.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeatureDeps_ZOS.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeaturePrivate.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeaturePrivate_AIX.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeaturePrivate_DARWIN.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeaturePrivate_FREEBSD.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeaturePrivate_HPUX.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeaturePrivate_LINUX.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeaturePrivate_SOLARIS.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeaturePrivate_STUB.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeaturePrivate_TRU64.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeaturePrivate_VMS.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeaturePrivate_ZOS.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeatureProvider.h" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_AIX.hpp" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_AIX.hxx" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_DARWIN.hpp" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_DARWIN.hxx" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_FREEBSD.hpp" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_FREEBSD.hxx" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_HPUX.hpp" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_HPUX.hxx" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_LINUX.hpp" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_LINUX.hxx" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_SOLARIS.hpp" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_SOLARIS.hxx" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_STUB.hpp" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_STUB.hxx" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_TRU64.hpp" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_TRU64.hxx" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_VMS.hpp" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_VMS.hxx" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_WIN32.hpp" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_ZOS.hpp" />
+    <Node Include="UNIX_OperatingSystemSoftwareFeature_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E813C55-AEFB-4925-B4A3-265CE1E5B6C7}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_TimeZoneSettingDataProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TimeZoneSettingDataLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_TimeZoneSettingDataLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_TimeZoneSettingDataProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TimeZoneSettingDataLib" -DPROVIDER_LIB_NS="namespace UNIX_TimeZoneSettingDataLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_TimeZoneSettingData.cpp" />
+    <Compile Include="UNIX_TimeZoneSettingDataMain.cpp" />
+    <Compile Include="UNIX_TimeZoneSettingDataProvider.cpp" />
+    <Compile Include="UNIX_TimeZoneSettingData_AIX.cpp" />
+    <Compile Include="UNIX_TimeZoneSettingData_DARWIN.cpp" />
+    <Compile Include="UNIX_TimeZoneSettingData_FREEBSD.cpp" />
+    <Compile Include="UNIX_TimeZoneSettingData_HPUX.cpp" />
+    <Compile Include="UNIX_TimeZoneSettingData_LINUX.cpp" />
+    <Compile Include="UNIX_TimeZoneSettingData_SOLARIS.cpp" />
+    <Compile Include="UNIX_TimeZoneSettingData_STUB.cpp" />
+    <Compile Include="UNIX_TimeZoneSettingData_TRU64.cpp" />
+    <Compile Include="UNIX_TimeZoneSettingData_VMS.cpp" />
+    <Compile Include="UNIX_TimeZoneSettingData_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_TimeZoneSettingData.h" />
+    <Node Include="UNIX_TimeZoneSettingDataDeps.h" />
+    <Node Include="UNIX_TimeZoneSettingDataDeps_AIX.h" />
+    <Node Include="UNIX_TimeZoneSettingDataDeps_DARWIN.h" />
+    <Node Include="UNIX_TimeZoneSettingDataDeps_FREEBSD.h" />
+    <Node Include="UNIX_TimeZoneSettingDataDeps_HPUX.h" />
+    <Node Include="UNIX_TimeZoneSettingDataDeps_LINUX.h" />
+    <Node Include="UNIX_TimeZoneSettingDataDeps_SOLARIS.h" />
+    <Node Include="UNIX_TimeZoneSettingDataDeps_STUB.h" />
+    <Node Include="UNIX_TimeZoneSettingDataDeps_TRU64.h" />
+    <Node Include="UNIX_TimeZoneSettingDataDeps_VMS.h" />
+    <Node Include="UNIX_TimeZoneSettingDataDeps_ZOS.h" />
+    <Node Include="UNIX_TimeZoneSettingDataPrivate.h" />
+    <Node Include="UNIX_TimeZoneSettingDataPrivate_AIX.h" />
+    <Node Include="UNIX_TimeZoneSettingDataPrivate_DARWIN.h" />
+    <Node Include="UNIX_TimeZoneSettingDataPrivate_FREEBSD.h" />
+    <Node Include="UNIX_TimeZoneSettingDataPrivate_HPUX.h" />
+    <Node Include="UNIX_TimeZoneSettingDataPrivate_LINUX.h" />
+    <Node Include="UNIX_TimeZoneSettingDataPrivate_SOLARIS.h" />
+    <Node Include="UNIX_TimeZoneSettingDataPrivate_STUB.h" />
+    <Node Include="UNIX_TimeZoneSettingDataPrivate_TRU64.h" />
+    <Node Include="UNIX_TimeZoneSettingDataPrivate_VMS.h" />
+    <Node Include="UNIX_TimeZoneSettingDataPrivate_ZOS.h" />
+    <Node Include="UNIX_TimeZoneSettingDataProvider.h" />
+    <Node Include="UNIX_TimeZoneSettingData_AIX.hpp" />
+    <Node Include="UNIX_TimeZoneSettingData_AIX.hxx" />
+    <Node Include="UNIX_TimeZoneSettingData_DARWIN.hpp" />
+    <Node Include="UNIX_TimeZoneSettingData_DARWIN.hxx" />
+    <Node Include="UNIX_TimeZoneSettingData_FREEBSD.hpp" />
+    <Node Include="UNIX_TimeZoneSettingData_FREEBSD.hxx" />
+    <Node Include="UNIX_TimeZoneSettingData_HPUX.hpp" />
+    <Node Include="UNIX_TimeZoneSettingData_HPUX.hxx" />
+    <Node Include="UNIX_TimeZoneSettingData_LINUX.hpp" />
+    <Node Include="UNIX_TimeZoneSettingData_LINUX.hxx" />
+    <Node Include="UNIX_TimeZoneSettingData_SOLARIS.hpp" />
+    <Node Include="UNIX_TimeZoneSettingData_SOLARIS.hxx" />
+    <Node Include="UNIX_TimeZoneSettingData_STUB.hpp" />
+    <Node Include="UNIX_TimeZoneSettingData_STUB.hxx" />
+    <Node Include="UNIX_TimeZoneSettingData_TRU64.hpp" />
+    <Node Include="UNIX_TimeZoneSettingData_TRU64.hxx" />
+    <Node Include="UNIX_TimeZoneSettingData_VMS.hpp" />
+    <Node Include="UNIX_TimeZoneSettingData_VMS.hxx" />
+    <Node Include="UNIX_TimeZoneSettingData_WIN32.hpp" />
+    <Node Include="UNIX_TimeZoneSettingData_ZOS.hpp" />
+    <Node Include="UNIX_TimeZoneSettingData_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,108 @@
+//%LICENSE////////////////////////////////////////////////////////////////
+//
+// Licensed to The Open Group (TOG) under one or more contributor license
+// agreements.  Refer to the OpenPegasusNOTICE.txt file distributed with
+// this work for additional information regarding copyright ownership.
+// Each contributor licenses this file to you under the OpenPegasus Open
+// Source License; you may not use this file except in compliance with the
+// License.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//////////////////////////////////////////////////////////////////////////
+//
+//%/////////////////////////////////////////////////////////////////////////
+
+
+#include "UNIX_TransformOfSecurityAssociationProvider.h"
+
+using PROVIDER_LIB_NS::CIMHelper;
+
+UNIX_TransformOfSecurityAssociationProvider::UNIX_TransformOfSecurityAssociationProvider()
+{
+}
+
+UNIX_TransformOfSecurityAssociationProvider::~UNIX_TransformOfSecurityAssociationProvider()
+{
+}
+
+CIMInstance UNIX_TransformOfSecurityAssociationProvider::constructInstance(
+	const CIMName &className,
+	const CIMNamespaceName &nameSpace,
+	const UNIX_TransformOfSecurityAssociation &instanceObject) const
+{
+	CIMProperty p;
+
+	CIMInstance inst(className);
+
+	// Set path
+	inst.setPath(CIMObjectPath(String(""), // hostname
+			nameSpace,
+			className,
+			constructKeyBindings(instanceObject)));
+
+	//CIM_ElementSettingData Properties
+	if (instanceObject.getManagedElement(p)) inst.addProperty(p);
+	if (instanceObject.getSettingData(p)) inst.addProperty(p);
+	if (instanceObject.getIsDefault(p)) inst.addProperty(p);
+	if (instanceObject.getIsCurrent(p)) inst.addProperty(p);
+	if (instanceObject.getIsNext(p)) inst.addProperty(p);
+	if (instanceObject.getIsMinimum(p)) inst.addProperty(p);
+	if (instanceObject.getIsMaximum(p)) inst.addProperty(p);
+	if (instanceObject.getIsPending(p)) inst.addProperty(p);
+	if (className.equal("CIM_ElementSettingData")) return inst;
+	
+	//CIM_TransformOfSecurityAssociation Properties
+	
+
+	return inst;
+}
+
+Array<CIMKeyBinding> UNIX_TransformOfSecurityAssociationProvider::constructKeyBindings(const UNIX_TransformOfSecurityAssociation& instanceObject) const
+{
+
+	Array<CIMKeyBinding> keys;
+
+	CIMKeyBinding ManagedElementKey(
+		PROPERTY_MANAGED_ELEMENT,
+		CIMValue(instanceObject.getManagedElement().getPath()));
+	ManagedElementKey.setType(CIMKeyBinding::REFERENCE);
+	keys.append(ManagedElementKey);
+	CIMKeyBinding SettingDataKey(
+		PROPERTY_SETTING_DATA,
+		CIMValue(instanceObject.getSettingData().getPath()));
+	SettingDataKey.setType(CIMKeyBinding::REFERENCE);
+	keys.append(SettingDataKey);
+
+
+	return keys;
+}
+
+
+
+#define UNIX_PROVIDER UNIX_TransformOfSecurityAssociationProvider
+#define UNIX_PROVIDER_NAME "UNIX_TransformOfSecurityAssociationProvider"
+#define CLASS_IMPLEMENTATION UNIX_TransformOfSecurityAssociation
+#define CLASS_IMPLEMENTATION_NAME "UNIX_TransformOfSecurityAssociation"
+#define BASE_CLASS_NAME "CIM_TransformOfSecurityAssociation"
+#define NUMKEYS_CLASS_IMPLEMENTATION 2
+
+
+#include "UNIXProviderBase.hpp"
+

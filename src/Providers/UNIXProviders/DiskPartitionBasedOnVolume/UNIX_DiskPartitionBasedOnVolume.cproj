@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BC142411-E3E4-419D-97BF-C1CEC0AB3969}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../VolumeSet/UNIX_VolumeSet.md.pc" name="UNIX_VolumeSet" IsProject="True" />
+        <Package file="../VTOCDiskPartition/UNIX_VTOCDiskPartition.md.pc" name="UNIX_VTOCDiskPartition" IsProject="True" />
+        <Package file="../GPTDiskPartition/UNIX_GPTDiskPartition.md.pc" name="UNIX_GPTDiskPartition" IsProject="True" />
+        <Package file="../DiskPartition/UNIX_DiskPartition.md.pc" name="UNIX_DiskPartition" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../VolumeSet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VTOCDiskPartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../GPTDiskPartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiskPartition/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_DiskPartitionBasedOnVolumeProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DiskPartitionBasedOnVolumeLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_DiskPartitionBasedOnVolumeLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VolumeSetProvider -lUNIX_VTOCDiskPartitionProvider -lUNIX_GPTDiskPartitionProvider -lUNIX_DiskPartitionProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_DiskPartitionBasedOnVolumeProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DiskPartitionBasedOnVolumeLib" -DPROVIDER_LIB_NS="namespace UNIX_DiskPartitionBasedOnVolumeLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VolumeSetProvider -lUNIX_VTOCDiskPartitionProvider -lUNIX_GPTDiskPartitionProvider -lUNIX_DiskPartitionProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_DiskPartitionBasedOnVolume.cpp" />
+    <Compile Include="UNIX_DiskPartitionBasedOnVolumeMain.cpp" />
+    <Compile Include="UNIX_DiskPartitionBasedOnVolumeProvider.cpp" />
+    <Compile Include="UNIX_DiskPartitionBasedOnVolume_AIX.cpp" />
+    <Compile Include="UNIX_DiskPartitionBasedOnVolume_DARWIN.cpp" />
+    <Compile Include="UNIX_DiskPartitionBasedOnVolume_FREEBSD.cpp" />
+    <Compile Include="UNIX_DiskPartitionBasedOnVolume_HPUX.cpp" />
+    <Compile Include="UNIX_DiskPartitionBasedOnVolume_LINUX.cpp" />
+    <Compile Include="UNIX_DiskPartitionBasedOnVolume_SOLARIS.cpp" />
+    <Compile Include="UNIX_DiskPartitionBasedOnVolume_STUB.cpp" />
+    <Compile Include="UNIX_DiskPartitionBasedOnVolume_TRU64.cpp" />
+    <Compile Include="UNIX_DiskPartitionBasedOnVolume_VMS.cpp" />
+    <Compile Include="UNIX_DiskPartitionBasedOnVolume_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumeDeps.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumeDeps_AIX.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumeDeps_DARWIN.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumeDeps_FREEBSD.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumeDeps_HPUX.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumeDeps_LINUX.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumeDeps_SOLARIS.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumeDeps_STUB.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumeDeps_TRU64.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumeDeps_VMS.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumeDeps_ZOS.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumePrivate.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumePrivate_AIX.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumePrivate_DARWIN.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumePrivate_FREEBSD.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumePrivate_HPUX.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumePrivate_LINUX.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumePrivate_SOLARIS.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumePrivate_STUB.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumePrivate_TRU64.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumePrivate_VMS.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumePrivate_ZOS.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolumeProvider.h" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_AIX.hpp" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_AIX.hxx" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_DARWIN.hpp" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_DARWIN.hxx" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_FREEBSD.hpp" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_FREEBSD.hxx" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_HPUX.hpp" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_HPUX.hxx" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_LINUX.hpp" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_LINUX.hxx" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_SOLARIS.hpp" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_SOLARIS.hxx" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_STUB.hpp" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_STUB.hxx" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_TRU64.hpp" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_TRU64.hxx" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_VMS.hpp" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_VMS.hxx" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_WIN32.hpp" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_ZOS.hpp" />
+    <Node Include="UNIX_DiskPartitionBasedOnVolume_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

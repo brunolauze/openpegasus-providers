@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>99625177-1972-491c-91e5-67cc8beed24a</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../../UNIX_HostedCollection.md.pc" name="UNIX_HostedCollection" IsProject="True" />
+        <Package file="../../../ComputerSystem/UNIX_ComputerSystem.md.pc" name="UNIX_ComputerSystem" IsProject="True" />
+        <Package file="../../../StatisticsCollection/UNIX_StatisticsCollection.md.pc" name="UNIX_StatisticsCollection" IsProject="True" />
+        <Package file="../../../QueryStatisticsCollection/UNIX_QueryStatisticsCollection.md.pc" name="UNIX_QueryStatisticsCollection" IsProject="True" />
+        <Package file="../../../TargetPortGroup/UNIX_TargetPortGroup.md.pc" name="UNIX_TargetPortGroup" IsProject="True" />
+        <Package file="../../../Zone/UNIX_Zone.md.pc" name="UNIX_Zone" IsProject="True" />
+        <Package file="../../../ZoneSet/UNIX_ZoneSet.md.pc" name="UNIX_ZoneSet" IsProject="True" />
+        <Package file="../../../LANConnectivitySegment/UNIX_LANConnectivitySegment.md.pc" name="UNIX_LANConnectivitySegment" IsProject="True" />
+        <Package file="../../../IPXConnectivityNetwork/UNIX_IPXConnectivityNetwork.md.pc" name="UNIX_IPXConnectivityNetwork" IsProject="True" />
+        <Package file="../../../OSPFLink/UNIX_OSPFLink.md.pc" name="UNIX_OSPFLink" IsProject="True" />
+        <Package file="../../../NetworkVLAN/UNIX_NetworkVLAN.md.pc" name="UNIX_NetworkVLAN" IsProject="True" />
+        <Package file="../../../IPConnectivitySubnet/UNIX_IPConnectivitySubnet.md.pc" name="UNIX_IPConnectivitySubnet" IsProject="True" />
+        <Package file="../../../DeviceConnectivityCollection/UNIX_DeviceConnectivityCollection.md.pc" name="UNIX_DeviceConnectivityCollection" IsProject="True" />
+        <Package file="../../../RemoteReplicationCollection/UNIX_RemoteReplicationCollection.md.pc" name="UNIX_RemoteReplicationCollection" IsProject="True" />
+        <Package file="../../../StorageTier/UNIX_StorageTier.md.pc" name="UNIX_StorageTier" IsProject="True" />
+        <Package file="../../../FileSystemStatisticsManifestCollection/UNIX_FileSystemStatisticsManifestCollection.md.pc" name="UNIX_FileSystemStatisticsManifestCollection" IsProject="True" />
+        <Package file="../../../LogicalPortGroup/UNIX_LogicalPortGroup.md.pc" name="UNIX_LogicalPortGroup" IsProject="True" />
+        <Package file="../../../PCIPortGroup/UNIX_PCIPortGroup.md.pc" name="UNIX_PCIPortGroup" IsProject="True" />
+        <Package file="../../../SCSITargetPortGroup/UNIX_SCSITargetPortGroup.md.pc" name="UNIX_SCSITargetPortGroup" IsProject="True" />
+        <Package file="../../../VirtualRoutingAndForwardingTable/UNIX_VirtualRoutingAndForwardingTable.md.pc" name="UNIX_VirtualRoutingAndForwardingTable" IsProject="True" />
+        <Package file="../../../StorageResourceLoadGroup/UNIX_StorageResourceLoadGroup.md.pc" name="UNIX_StorageResourceLoadGroup" IsProject="True" />
+        <Package file="../../../InitiatorMaskingGroup/UNIX_InitiatorMaskingGroup.md.pc" name="UNIX_InitiatorMaskingGroup" IsProject="True" />
+        <Package file="../../../TargetMaskingGroup/UNIX_TargetMaskingGroup.md.pc" name="UNIX_TargetMaskingGroup" IsProject="True" />
+        <Package file="../../../DeviceMaskingGroup/UNIX_DeviceMaskingGroup.md.pc" name="UNIX_DeviceMaskingGroup" IsProject="True" />
+        <Package file="../../../FailoverStorageExtentsCollection/UNIX_FailoverStorageExtentsCollection.md.pc" name="UNIX_FailoverStorageExtentsCollection" IsProject="True" />
+        <Package file="../../../PolicyRoleCollection/UNIX_PolicyRoleCollection.md.pc" name="UNIX_PolicyRoleCollection" IsProject="True" />
+        <Package file="../../../BlockStatisticsManifestCollection/UNIX_BlockStatisticsManifestCollection.md.pc" name="UNIX_BlockStatisticsManifestCollection" IsProject="True" />
+        <Package file="../../../RedundancySet/UNIX_RedundancySet.md.pc" name="UNIX_RedundancySet" IsProject="True" />
+        <Package file="../../../StorageRedundancySet/UNIX_StorageRedundancySet.md.pc" name="UNIX_StorageRedundancySet" IsProject="True" />
+        <Package file="../../../RangeOfIPAddresses/UNIX_RangeOfIPAddresses.md.pc" name="UNIX_RangeOfIPAddresses" IsProject="True" />
+        <Package file="../../../NamedAddressCollection/UNIX_NamedAddressCollection.md.pc" name="UNIX_NamedAddressCollection" IsProject="True" />
+        <Package file="../../../ReplicationGroup/UNIX_ReplicationGroup.md.pc" name="UNIX_ReplicationGroup" IsProject="True" />
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>TestUNIX_HostedCollection</OutputName>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/*</Include>
+        <Include>${ProjectDir}/../../..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_HostedCollectionLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_HostedCollectionLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_HostedCollectionProvider -lUNIX_ComputerSystemProvider -lUNIX_StatisticsCollectionProvider -lUNIX_QueryStatisticsCollectionProvider -lUNIX_TargetPortGroupProvider -lUNIX_ZoneProvider -lUNIX_ZoneSetProvider -lUNIX_LANConnectivitySegmentProvider -lUNIX_IPXConnectivityNetworkProvider -lUNIX_OSPFLinkProvider -lUNIX_NetworkVLANProvider -lUNIX_IPConnectivitySubnetProvider -lUNIX_DeviceConnectivityCollectionProvider -lUNIX_RemoteReplicationCollectionProvider -lUNIX_StorageTierProvider -lUNIX_FileSystemStatisticsManifestCollectionProvider -lUNIX_LogicalPortGroupProvider -lUNIX_PCIPortGroupProvider -lUNIX_SCSITargetPortGroupProvider -lUNIX_VirtualRoutingAndForwardingTableProvider -lUNIX_StorageResourceLoadGroupProvider -lUNIX_InitiatorMaskingGroupProvider -lUNIX_TargetMaskingGroupProvider -lUNIX_DeviceMaskingGroupProvider -lUNIX_FailoverStorageExtentsCollectionProvider -lUNIX_PolicyRoleCollectionProvider -lUNIX_BlockStatisticsManifestCollectionProvider -lUNIX_RedundancySetProvider -lUNIX_StorageRedundancySetProvider -lUNIX_RangeOfIPAddressesProvider -lUNIX_NamedAddressCollectionProvider -lUNIX_ReplicationGroupProvider</ExtraLinkerArguments>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="LD_LIBRARY_PATH" value="../../../../bin/Debug:../../../../../ComputerSystem/bin/Debug:../../../../../StatisticsCollection/bin/Debug:../../../../../QueryStatisticsCollection/bin/Debug:../../../../../TargetPortGroup/bin/Debug:../../../../../Zone/bin/Debug:../../../../../ZoneSet/bin/Debug:../../../../../LANConnectivitySegment/bin/Debug:../../../../../IPXConnectivityNetwork/bin/Debug:../../../../../OSPFLink/bin/Debug:../../../../../NetworkVLAN/bin/Debug:../../../../../IPConnectivitySubnet/bin/Debug:../../../../../DeviceConnectivityCollection/bin/Debug:../../../../../RemoteReplicationCollection/bin/Debug:../../../../../StorageTier/bin/Debug:../../../../../FileSystemStatisticsManifestCollection/bin/Debug:../../../../../LogicalPortGroup/bin/Debug:../../../../../PCIPortGroup/bin/Debug:../../../../../SCSITargetPortGroup/bin/Debug:../../../../../VirtualRoutingAndForwardingTable/bin/Debug:../../../../../StorageResourceLoadGroup/bin/Debug:../../../../../InitiatorMaskingGroup/bin/Debug:../../../../../TargetMaskingGroup/bin/Debug:../../../../../DeviceMaskingGroup/bin/Debug:../../../../../FailoverStorageExtentsCollection/bin/Debug:../../../../../PolicyRoleCollection/bin/Debug:../../../../../BlockStatisticsManifestCollection/bin/Debug:../../../../../RedundancySet/bin/Debug:../../../../../StorageRedundancySet/bin/Debug:../../../../../RangeOfIPAddresses/bin/Debug:../../../../../NamedAddressCollection/bin/Debug:../../../../../ReplicationGroup/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
+    <Commandlineparameters></Commandlineparameters>
+    <ConsolePause>false</ConsolePause>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../../bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../StatisticsCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../QueryStatisticsCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TargetPortGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../Zone/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ZoneSet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../LANConnectivitySegment/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPXConnectivityNetwork/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../OSPFLink/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NetworkVLAN/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPConnectivitySubnet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DeviceConnectivityCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../RemoteReplicationCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../StorageTier/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../FileSystemStatisticsManifestCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../LogicalPortGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PCIPortGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../SCSITargetPortGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VirtualRoutingAndForwardingTable/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../StorageResourceLoadGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../InitiatorMaskingGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TargetMaskingGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DeviceMaskingGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../FailoverStorageExtentsCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PolicyRoleCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../BlockStatisticsManifestCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../RedundancySet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../StorageRedundancySet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../RangeOfIPAddresses/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NamedAddressCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ReplicationGroup/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>TestUNIX_HostedCollection</OutputName>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_HostedCollectionLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_HostedCollectionLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_HostedCollectionProvider -lUNIX_ComputerSystemProvider -lUNIX_StatisticsCollectionProvider -lUNIX_QueryStatisticsCollectionProvider -lUNIX_TargetPortGroupProvider -lUNIX_ZoneProvider -lUNIX_ZoneSetProvider -lUNIX_LANConnectivitySegmentProvider -lUNIX_IPXConnectivityNetworkProvider -lUNIX_OSPFLinkProvider -lUNIX_NetworkVLANProvider -lUNIX_IPConnectivitySubnetProvider -lUNIX_DeviceConnectivityCollectionProvider -lUNIX_RemoteReplicationCollectionProvider -lUNIX_StorageTierProvider -lUNIX_FileSystemStatisticsManifestCollectionProvider -lUNIX_LogicalPortGroupProvider -lUNIX_PCIPortGroupProvider -lUNIX_SCSITargetPortGroupProvider -lUNIX_VirtualRoutingAndForwardingTableProvider -lUNIX_StorageResourceLoadGroupProvider -lUNIX_InitiatorMaskingGroupProvider -lUNIX_TargetMaskingGroupProvider -lUNIX_DeviceMaskingGroupProvider -lUNIX_FailoverStorageExtentsCollectionProvider -lUNIX_PolicyRoleCollectionProvider -lUNIX_BlockStatisticsManifestCollectionProvider -lUNIX_RedundancySetProvider -lUNIX_StorageRedundancySetProvider -lUNIX_RangeOfIPAddressesProvider -lUNIX_NamedAddressCollectionProvider -lUNIX_ReplicationGroupProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../MockResponseHandler.cpp">
+        <Link>MockResponseHandler.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_HostedCollectionFixture.cpp" />
+    <Compile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="RunTestUNIX_HostedCollection.sh" />
+    <Node Include="UNIX_HostedCollectionFixture.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{547AB913-6ACD-4693-84BC-7811BF86FECB}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../BGPProtocolEndpoint/UNIX_BGPProtocolEndpoint.md.pc" name="UNIX_BGPProtocolEndpoint" IsProject="True" />
+        <Package file="../BGPIPRoute/UNIX_BGPIPRoute.md.pc" name="UNIX_BGPIPRoute" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../BGPProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BGPIPRoute/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_RoutesBGPProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RoutesBGPLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_RoutesBGPLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_BGPProtocolEndpointProvider -lUNIX_BGPIPRouteProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_RoutesBGPProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RoutesBGPLib" -DPROVIDER_LIB_NS="namespace UNIX_RoutesBGPLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_BGPProtocolEndpointProvider -lUNIX_BGPIPRouteProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_RoutesBGP.cpp" />
+    <Compile Include="UNIX_RoutesBGPMain.cpp" />
+    <Compile Include="UNIX_RoutesBGPProvider.cpp" />
+    <Compile Include="UNIX_RoutesBGP_AIX.cpp" />
+    <Compile Include="UNIX_RoutesBGP_DARWIN.cpp" />
+    <Compile Include="UNIX_RoutesBGP_FREEBSD.cpp" />
+    <Compile Include="UNIX_RoutesBGP_HPUX.cpp" />
+    <Compile Include="UNIX_RoutesBGP_LINUX.cpp" />
+    <Compile Include="UNIX_RoutesBGP_SOLARIS.cpp" />
+    <Compile Include="UNIX_RoutesBGP_STUB.cpp" />
+    <Compile Include="UNIX_RoutesBGP_TRU64.cpp" />
+    <Compile Include="UNIX_RoutesBGP_VMS.cpp" />
+    <Compile Include="UNIX_RoutesBGP_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_RoutesBGP.h" />
+    <Node Include="UNIX_RoutesBGPDeps.h" />
+    <Node Include="UNIX_RoutesBGPDeps_AIX.h" />
+    <Node Include="UNIX_RoutesBGPDeps_DARWIN.h" />
+    <Node Include="UNIX_RoutesBGPDeps_FREEBSD.h" />
+    <Node Include="UNIX_RoutesBGPDeps_HPUX.h" />
+    <Node Include="UNIX_RoutesBGPDeps_LINUX.h" />
+    <Node Include="UNIX_RoutesBGPDeps_SOLARIS.h" />
+    <Node Include="UNIX_RoutesBGPDeps_STUB.h" />
+    <Node Include="UNIX_RoutesBGPDeps_TRU64.h" />
+    <Node Include="UNIX_RoutesBGPDeps_VMS.h" />
+    <Node Include="UNIX_RoutesBGPDeps_ZOS.h" />
+    <Node Include="UNIX_RoutesBGPPrivate.h" />
+    <Node Include="UNIX_RoutesBGPPrivate_AIX.h" />
+    <Node Include="UNIX_RoutesBGPPrivate_DARWIN.h" />
+    <Node Include="UNIX_RoutesBGPPrivate_FREEBSD.h" />
+    <Node Include="UNIX_RoutesBGPPrivate_HPUX.h" />
+    <Node Include="UNIX_RoutesBGPPrivate_LINUX.h" />
+    <Node Include="UNIX_RoutesBGPPrivate_SOLARIS.h" />
+    <Node Include="UNIX_RoutesBGPPrivate_STUB.h" />
+    <Node Include="UNIX_RoutesBGPPrivate_TRU64.h" />
+    <Node Include="UNIX_RoutesBGPPrivate_VMS.h" />
+    <Node Include="UNIX_RoutesBGPPrivate_ZOS.h" />
+    <Node Include="UNIX_RoutesBGPProvider.h" />
+    <Node Include="UNIX_RoutesBGP_AIX.hpp" />
+    <Node Include="UNIX_RoutesBGP_AIX.hxx" />
+    <Node Include="UNIX_RoutesBGP_DARWIN.hpp" />
+    <Node Include="UNIX_RoutesBGP_DARWIN.hxx" />
+    <Node Include="UNIX_RoutesBGP_FREEBSD.hpp" />
+    <Node Include="UNIX_RoutesBGP_FREEBSD.hxx" />
+    <Node Include="UNIX_RoutesBGP_HPUX.hpp" />
+    <Node Include="UNIX_RoutesBGP_HPUX.hxx" />
+    <Node Include="UNIX_RoutesBGP_LINUX.hpp" />
+    <Node Include="UNIX_RoutesBGP_LINUX.hxx" />
+    <Node Include="UNIX_RoutesBGP_SOLARIS.hpp" />
+    <Node Include="UNIX_RoutesBGP_SOLARIS.hxx" />
+    <Node Include="UNIX_RoutesBGP_STUB.hpp" />
+    <Node Include="UNIX_RoutesBGP_STUB.hxx" />
+    <Node Include="UNIX_RoutesBGP_TRU64.hpp" />
+    <Node Include="UNIX_RoutesBGP_TRU64.hxx" />
+    <Node Include="UNIX_RoutesBGP_VMS.hpp" />
+    <Node Include="UNIX_RoutesBGP_VMS.hxx" />
+    <Node Include="UNIX_RoutesBGP_WIN32.hpp" />
+    <Node Include="UNIX_RoutesBGP_ZOS.hpp" />
+    <Node Include="UNIX_RoutesBGP_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

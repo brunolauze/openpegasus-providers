@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{71D7CF5C-24D0-411D-BB1D-CDD518E0982B}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../SoftwareIdentity/UNIX_SoftwareIdentity.md.pc" name="UNIX_SoftwareIdentity" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../SoftwareIdentity/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ElementSoftwareIdentityProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ElementSoftwareIdentityLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ElementSoftwareIdentityLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_SoftwareIdentityProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ElementSoftwareIdentityProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ElementSoftwareIdentityLib" -DPROVIDER_LIB_NS="namespace UNIX_ElementSoftwareIdentityLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_SoftwareIdentityProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ElementSoftwareIdentity.cpp" />
+    <Compile Include="UNIX_ElementSoftwareIdentityMain.cpp" />
+    <Compile Include="UNIX_ElementSoftwareIdentityProvider.cpp" />
+    <Compile Include="UNIX_ElementSoftwareIdentity_AIX.cpp" />
+    <Compile Include="UNIX_ElementSoftwareIdentity_DARWIN.cpp" />
+    <Compile Include="UNIX_ElementSoftwareIdentity_FREEBSD.cpp" />
+    <Compile Include="UNIX_ElementSoftwareIdentity_HPUX.cpp" />
+    <Compile Include="UNIX_ElementSoftwareIdentity_LINUX.cpp" />
+    <Compile Include="UNIX_ElementSoftwareIdentity_SOLARIS.cpp" />
+    <Compile Include="UNIX_ElementSoftwareIdentity_STUB.cpp" />
+    <Compile Include="UNIX_ElementSoftwareIdentity_TRU64.cpp" />
+    <Compile Include="UNIX_ElementSoftwareIdentity_VMS.cpp" />
+    <Compile Include="UNIX_ElementSoftwareIdentity_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ElementSoftwareIdentity.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityDeps.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityDeps_AIX.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityDeps_DARWIN.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityDeps_FREEBSD.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityDeps_HPUX.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityDeps_LINUX.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityDeps_SOLARIS.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityDeps_STUB.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityDeps_TRU64.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityDeps_VMS.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityDeps_ZOS.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityPrivate.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityPrivate_AIX.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityPrivate_DARWIN.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityPrivate_HPUX.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityPrivate_LINUX.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityPrivate_STUB.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityPrivate_TRU64.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityPrivate_VMS.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityPrivate_ZOS.h" />
+    <Node Include="UNIX_ElementSoftwareIdentityProvider.h" />
+    <Node Include="UNIX_ElementSoftwareIdentity_AIX.hpp" />
+    <Node Include="UNIX_ElementSoftwareIdentity_AIX.hxx" />
+    <Node Include="UNIX_ElementSoftwareIdentity_DARWIN.hpp" />
+    <Node Include="UNIX_ElementSoftwareIdentity_DARWIN.hxx" />
+    <Node Include="UNIX_ElementSoftwareIdentity_FREEBSD.hpp" />
+    <Node Include="UNIX_ElementSoftwareIdentity_FREEBSD.hxx" />
+    <Node Include="UNIX_ElementSoftwareIdentity_HPUX.hpp" />
+    <Node Include="UNIX_ElementSoftwareIdentity_HPUX.hxx" />
+    <Node Include="UNIX_ElementSoftwareIdentity_LINUX.hpp" />
+    <Node Include="UNIX_ElementSoftwareIdentity_LINUX.hxx" />
+    <Node Include="UNIX_ElementSoftwareIdentity_SOLARIS.hpp" />
+    <Node Include="UNIX_ElementSoftwareIdentity_SOLARIS.hxx" />
+    <Node Include="UNIX_ElementSoftwareIdentity_STUB.hpp" />
+    <Node Include="UNIX_ElementSoftwareIdentity_STUB.hxx" />
+    <Node Include="UNIX_ElementSoftwareIdentity_TRU64.hpp" />
+    <Node Include="UNIX_ElementSoftwareIdentity_TRU64.hxx" />
+    <Node Include="UNIX_ElementSoftwareIdentity_VMS.hpp" />
+    <Node Include="UNIX_ElementSoftwareIdentity_VMS.hxx" />
+    <Node Include="UNIX_ElementSoftwareIdentity_WIN32.hpp" />
+    <Node Include="UNIX_ElementSoftwareIdentity_ZOS.hpp" />
+    <Node Include="UNIX_ElementSoftwareIdentity_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

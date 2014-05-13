@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D4652F96-9A04-4C37-BB82-5D3CDA70D73E}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ComputerSystem/UNIX_ComputerSystem.md.pc" name="UNIX_ComputerSystem" IsProject="True" />
+        <Package file="../NFSShare/UNIX_NFSShare.md.pc" name="UNIX_NFSShare" IsProject="True" />
+        <Package file="../CIFSShare/UNIX_CIFSShare.md.pc" name="UNIX_CIFSShare" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NFSShare/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CIFSShare/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_HostedShareProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_HostedShareLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_HostedShareLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ComputerSystemProvider -lUNIX_NFSShareProvider -lUNIX_CIFSShareProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_HostedShareProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_HostedShareLib" -DPROVIDER_LIB_NS="namespace UNIX_HostedShareLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ComputerSystemProvider -lUNIX_NFSShareProvider -lUNIX_CIFSShareProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_HostedShare.cpp" />
+    <Compile Include="UNIX_HostedShareMain.cpp" />
+    <Compile Include="UNIX_HostedShareProvider.cpp" />
+    <Compile Include="UNIX_HostedShare_AIX.cpp" />
+    <Compile Include="UNIX_HostedShare_DARWIN.cpp" />
+    <Compile Include="UNIX_HostedShare_FREEBSD.cpp" />
+    <Compile Include="UNIX_HostedShare_HPUX.cpp" />
+    <Compile Include="UNIX_HostedShare_LINUX.cpp" />
+    <Compile Include="UNIX_HostedShare_SOLARIS.cpp" />
+    <Compile Include="UNIX_HostedShare_STUB.cpp" />
+    <Compile Include="UNIX_HostedShare_TRU64.cpp" />
+    <Compile Include="UNIX_HostedShare_VMS.cpp" />
+    <Compile Include="UNIX_HostedShare_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_HostedShare.h" />
+    <Node Include="UNIX_HostedShareDeps.h" />
+    <Node Include="UNIX_HostedShareDeps_AIX.h" />
+    <Node Include="UNIX_HostedShareDeps_DARWIN.h" />
+    <Node Include="UNIX_HostedShareDeps_FREEBSD.h" />
+    <Node Include="UNIX_HostedShareDeps_HPUX.h" />
+    <Node Include="UNIX_HostedShareDeps_LINUX.h" />
+    <Node Include="UNIX_HostedShareDeps_SOLARIS.h" />
+    <Node Include="UNIX_HostedShareDeps_STUB.h" />
+    <Node Include="UNIX_HostedShareDeps_TRU64.h" />
+    <Node Include="UNIX_HostedShareDeps_VMS.h" />
+    <Node Include="UNIX_HostedShareDeps_ZOS.h" />
+    <Node Include="UNIX_HostedSharePrivate.h" />
+    <Node Include="UNIX_HostedSharePrivate_AIX.h" />
+    <Node Include="UNIX_HostedSharePrivate_DARWIN.h" />
+    <Node Include="UNIX_HostedSharePrivate_FREEBSD.h" />
+    <Node Include="UNIX_HostedSharePrivate_HPUX.h" />
+    <Node Include="UNIX_HostedSharePrivate_LINUX.h" />
+    <Node Include="UNIX_HostedSharePrivate_SOLARIS.h" />
+    <Node Include="UNIX_HostedSharePrivate_STUB.h" />
+    <Node Include="UNIX_HostedSharePrivate_TRU64.h" />
+    <Node Include="UNIX_HostedSharePrivate_VMS.h" />
+    <Node Include="UNIX_HostedSharePrivate_ZOS.h" />
+    <Node Include="UNIX_HostedShareProvider.h" />
+    <Node Include="UNIX_HostedShare_AIX.hpp" />
+    <Node Include="UNIX_HostedShare_AIX.hxx" />
+    <Node Include="UNIX_HostedShare_DARWIN.hpp" />
+    <Node Include="UNIX_HostedShare_DARWIN.hxx" />
+    <Node Include="UNIX_HostedShare_FREEBSD.hpp" />
+    <Node Include="UNIX_HostedShare_FREEBSD.hxx" />
+    <Node Include="UNIX_HostedShare_HPUX.hpp" />
+    <Node Include="UNIX_HostedShare_HPUX.hxx" />
+    <Node Include="UNIX_HostedShare_LINUX.hpp" />
+    <Node Include="UNIX_HostedShare_LINUX.hxx" />
+    <Node Include="UNIX_HostedShare_SOLARIS.hpp" />
+    <Node Include="UNIX_HostedShare_SOLARIS.hxx" />
+    <Node Include="UNIX_HostedShare_STUB.hpp" />
+    <Node Include="UNIX_HostedShare_STUB.hxx" />
+    <Node Include="UNIX_HostedShare_TRU64.hpp" />
+    <Node Include="UNIX_HostedShare_TRU64.hxx" />
+    <Node Include="UNIX_HostedShare_VMS.hpp" />
+    <Node Include="UNIX_HostedShare_VMS.hxx" />
+    <Node Include="UNIX_HostedShare_WIN32.hpp" />
+    <Node Include="UNIX_HostedShare_ZOS.hpp" />
+    <Node Include="UNIX_HostedShare_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

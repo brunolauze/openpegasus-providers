@@ -1,0 +1,218 @@
+//%LICENSE////////////////////////////////////////////////////////////////
+//
+// Licensed to The Open Group (TOG) under one or more contributor license
+// agreements.  Refer to the OpenPegasusNOTICE.txt file distributed with
+// this work for additional information regarding copyright ownership.
+// Each contributor licenses this file to you under the OpenPegasus Open
+// Source License; you may not use this file except in compliance with the
+// License.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//////////////////////////////////////////////////////////////////////////
+//
+//%/////////////////////////////////////////////////////////////////////////
+
+
+
+// Copyright (c) 2011 DMTF.  All rights reserved.
+   [Association, Experimental, Version ( "2.28.0" ), 
+    UMLPackagePath ( "CIM::Device" ), 
+    Description ( 
+       "The CIM_MaskingMappingView instance is a view that is derived "
+       "from CIM_StorageHardwareID, CIM_AuthorizedSubject, "
+       "CIM_AuthorizedPrivilege, CIM_AuthorizedTarget, "
+       "CIM_SCSIProtocolController, CIM_SAPAvailableForElement, "
+       "CIM_SCSIProtocolEndpoint, CIM_ProtocolControllerForUnit and "
+       "CIM_LogicalDevice." )]
+class CIM_MaskingMappingView {
+
+      [Key, Description ( 
+          "The CIM_StorageHardwareID instance that is associated to "
+          "the CIM_LogicalDevice and CIM_ProtocolEndpoint "
+          "instances." )]
+   CIM_StorageHardwareID REF StorageHardwareID;
+
+      [Key, Description ( 
+          "The CIM_LogicalDevice instance that is associated to the "
+          "CIM_StorageHardwareID and CIM_ProtocolEndpoint "
+          "instances." )]
+   CIM_LogicalDevice REF LogicalDevice;
+
+      [Key, Description ( 
+          "The CIM_ProtocolEndpoint instance that is associated to "
+          "the CIM_StorageHardwareID and CIM_LogicalDevice "
+          "instances." )]
+   CIM_ProtocolEndpoint REF ProtocolEndpoint;
+
+      [Description ( 
+          "The StorageID from the referenced CIM_StorageHardwareID instance."
+           ), 
+       MaxLen ( 256 ), 
+       ModelCorrespondence { "CIM_StorageHardwareID.StorageID" }]
+   string SHIDStorageID;
+
+      [Description ( 
+          "The IDType from the referenced CIM_StorageHardwareID instance."
+           ), 
+       ModelCorrespondence { "CIM_StorageHardwareID.IDType" }]
+   uint16 SHIDIDType;
+
+      [Description ( 
+          "The DeviceID from the referenced CIM_LogicalDevice instance."
+           ), 
+       ModelCorrespondence { "CIM_LogicalDevice.DeviceID" }]
+   string LDDeviceID;
+
+      [Description ( 
+          "The SystemCreationClassName from the referenced "
+          "CIM_SCSIProtocolEndpoint instance." ), 
+       ModelCorrespondence { 
+          "CIM_SCSIProtocolEndpoint.SystemCreationClassName" }]
+   string SPEPSystemCreationClassName;
+
+      [Description ( 
+          "The CreationClassName from the referenced "
+          "CIM_SCSIProtocolEndpoint instance." ), 
+       ModelCorrespondence { 
+          "CIM_SCSIProtocolEndpoint.CreationClassName" }]
+   string SPEPCreationClassName;
+
+      [Description ( 
+          "The SystemName from the referenced "
+          "CIM_SCSIProtocolEndpoint instance." ), 
+       ModelCorrespondence { "CIM_SCSIProtocolEndpoint.SystemName" }]
+   string SPEPSystemName;
+
+      [Description ( 
+          "The Name from the referenced CIM_SCSIProtocolEndpoint instance."
+           ), 
+       ModelCorrespondence { "CIM_SCSIProtocolEndpoint.Name" }]
+   string SPEPName;
+
+      [Description ( 
+          "The ProtocolIFType value for the "
+          "CIM_SCSIProtocolEndpoint used with the CIM_LogicalPort "
+          "as reported in the underlying CIM_SCSIProtocolEndpoint "
+          "instance for the CIM_LogicalPort." ), 
+       ModelCorrespondence { 
+          "CIM_SCSIProtocolEndpoint.ProtocolIFType" }]
+   uint16 SPEPProtocolIFType;
+
+      [Description ( 
+          "The OtherTypeDescription value for the "
+          "CIM_SCSIProtocolEndpoint used with the CIM_LogicalPort "
+          "as reported in the underlying CIM_SCSIProtocolEndpoint "
+          "instance for the CIM_LogicalPort." ), 
+       MaxLen ( 64 ), 
+       ModelCorrespondence { 
+          "CIM_SCSIProtocolEndpoint.OtherTypeDescription" }]
+   string SPEPOtherTypeDescription;
+
+      [Description ( 
+          "The ConnectionType value for the "
+          "CIM_SCSIProtocolEndpoint used with the CIM_LogicalPort "
+          "as reported in the underlying CIM_SCSIProtocolEndpoint "
+          "instance for the CIM_LogicalPort." ), 
+       ModelCorrespondence { 
+          "CIM_SCSIProtocolEndpoint.ConnectionType" }]
+   uint16 SPEPConnectionType;
+
+      [Description ( 
+          "The Role value for the CIM_SCSIProtocolEndpoint used "
+          "with the CIM_LogicalPort as reported in the underlying "
+          "CIM_SCSIProtocolEndpointinstance for the "
+          "CIM_LogicalPort." ), 
+       ModelCorrespondence { "CIM_SCSIProtocolEndpoint.Role" }]
+   uint16 SPEPRole;
+
+      [Description ( 
+          "The InstanceID of the CIM_AuthorizedPrivilege instance." ), 
+       ModelCorrespondence { "CIM_AuthorizedPrivilege.InstanceID" }]
+   string APInstanceID;
+
+      [Description ( 
+          "The PrivilegeGranted of the CIM_AuthorizedPrivilege instance."
+           ), 
+       ModelCorrespondence { 
+          "CIM_AuthorizedPrivilege.PrivilegeGranted" }]
+   boolean APPrivilegeGranted;
+
+      [Description ( 
+          "The Activities array of the CIM_AuthorizedPrivilege instance."
+           ), 
+       ModelCorrespondence { "CIM_AuthorizedPrivilege.Activities" }]
+   uint16 APActivities[];
+
+      [Description ( 
+          "The ElementName of the CIM_AuthorizedPrivilege instance." ), 
+       ModelCorrespondence { "CIM_AuthorizedPrivilege.ElementName" }]
+   string APElementName;
+
+      [Description ( 
+          "The SystemCreationClassName of the "
+          "CIM_SCSIProtocolController instance." ), 
+       ModelCorrespondence { 
+          "CIM_SCSIProtocolController.SystemCreationClassName" }]
+   string SPCSystemCreationClassName;
+
+      [Description ( 
+          "The CreationClassName of the CIM_SCSIProtocolController instance."
+           ), 
+       ModelCorrespondence { 
+          "CIM_SCSIProtocolController.CreationClassName" }]
+   string SPCCreationClassName;
+
+      [Description ( 
+          "The SystemName of the CIM_SCSIProtocolController instance."
+           ), 
+       ModelCorrespondence { "CIM_SCSIProtocolController.SystemName" }]
+   string SPCSystemName;
+
+      [Description ( 
+          "The DeviceID of the CIM_SCSIProtocolController instance." ), 
+       ModelCorrespondence { "CIM_SCSIProtocolController.DeviceID" }]
+   string SPCDeviceID;
+
+      [Description ( 
+          "The DeviceNumber (LUN) of the "
+          "CIM_ProtocolControllerForUnit association instance." ), 
+       ModelCorrespondence { 
+          "CIM_ProtocolControllerForUnit.DeviceNumber" }]
+   string PCFUDeviceNumber;
+
+      [Description ( 
+          "The DeviceAccess value of the "
+          "CIM_ProtocolControllerForUnit association instance." ), 
+       ModelCorrespondence { 
+          "CIM_ProtocolControllerForUnit.DeviceAccess" }]
+   uint16 PCFUDeviceAccess;
+
+
+};
+
+
+
+   [Version( "2.40.0" ), Description("{0}")]
+class UNIX_MaskingMappingView : CIM_MaskingMappingView
+{
+
+
+};
+

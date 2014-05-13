@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F134B9D7-FD51-4FB7-8721-42A936771538}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ProductSoftwareFeaturesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ProductSoftwareFeaturesLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ProductSoftwareFeaturesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ProductSoftwareFeaturesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ProductSoftwareFeaturesLib" -DPROVIDER_LIB_NS="namespace UNIX_ProductSoftwareFeaturesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ProductSoftwareFeatures.cpp" />
+    <Compile Include="UNIX_ProductSoftwareFeaturesMain.cpp" />
+    <Compile Include="UNIX_ProductSoftwareFeaturesProvider.cpp" />
+    <Compile Include="UNIX_ProductSoftwareFeatures_AIX.cpp" />
+    <Compile Include="UNIX_ProductSoftwareFeatures_DARWIN.cpp" />
+    <Compile Include="UNIX_ProductSoftwareFeatures_FREEBSD.cpp" />
+    <Compile Include="UNIX_ProductSoftwareFeatures_HPUX.cpp" />
+    <Compile Include="UNIX_ProductSoftwareFeatures_LINUX.cpp" />
+    <Compile Include="UNIX_ProductSoftwareFeatures_SOLARIS.cpp" />
+    <Compile Include="UNIX_ProductSoftwareFeatures_STUB.cpp" />
+    <Compile Include="UNIX_ProductSoftwareFeatures_TRU64.cpp" />
+    <Compile Include="UNIX_ProductSoftwareFeatures_VMS.cpp" />
+    <Compile Include="UNIX_ProductSoftwareFeatures_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ProductSoftwareFeatures.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesDeps.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesDeps_AIX.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesDeps_DARWIN.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesDeps_FREEBSD.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesDeps_HPUX.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesDeps_LINUX.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesDeps_SOLARIS.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesDeps_STUB.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesDeps_TRU64.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesDeps_VMS.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesDeps_ZOS.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesPrivate.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesPrivate_AIX.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesPrivate_DARWIN.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesPrivate_HPUX.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesPrivate_LINUX.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesPrivate_STUB.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesPrivate_TRU64.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesPrivate_VMS.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesPrivate_ZOS.h" />
+    <Node Include="UNIX_ProductSoftwareFeaturesProvider.h" />
+    <Node Include="UNIX_ProductSoftwareFeatures_AIX.hpp" />
+    <Node Include="UNIX_ProductSoftwareFeatures_AIX.hxx" />
+    <Node Include="UNIX_ProductSoftwareFeatures_DARWIN.hpp" />
+    <Node Include="UNIX_ProductSoftwareFeatures_DARWIN.hxx" />
+    <Node Include="UNIX_ProductSoftwareFeatures_FREEBSD.hpp" />
+    <Node Include="UNIX_ProductSoftwareFeatures_FREEBSD.hxx" />
+    <Node Include="UNIX_ProductSoftwareFeatures_HPUX.hpp" />
+    <Node Include="UNIX_ProductSoftwareFeatures_HPUX.hxx" />
+    <Node Include="UNIX_ProductSoftwareFeatures_LINUX.hpp" />
+    <Node Include="UNIX_ProductSoftwareFeatures_LINUX.hxx" />
+    <Node Include="UNIX_ProductSoftwareFeatures_SOLARIS.hpp" />
+    <Node Include="UNIX_ProductSoftwareFeatures_SOLARIS.hxx" />
+    <Node Include="UNIX_ProductSoftwareFeatures_STUB.hpp" />
+    <Node Include="UNIX_ProductSoftwareFeatures_STUB.hxx" />
+    <Node Include="UNIX_ProductSoftwareFeatures_TRU64.hpp" />
+    <Node Include="UNIX_ProductSoftwareFeatures_TRU64.hxx" />
+    <Node Include="UNIX_ProductSoftwareFeatures_VMS.hpp" />
+    <Node Include="UNIX_ProductSoftwareFeatures_VMS.hxx" />
+    <Node Include="UNIX_ProductSoftwareFeatures_WIN32.hpp" />
+    <Node Include="UNIX_ProductSoftwareFeatures_ZOS.hpp" />
+    <Node Include="UNIX_ProductSoftwareFeatures_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6BE4EAB-C153-44EC-8EB3-88E90E011A2E}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../NetworkPolicyServiceCapabilities/UNIX_NetworkPolicyServiceCapabilities.md.pc" name="UNIX_NetworkPolicyServiceCapabilities" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../NetworkPolicyServiceCapabilities/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_LoadBalancerServiceCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LoadBalancerServiceCapabilitiesLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_LoadBalancerServiceCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_NetworkPolicyServiceCapabilitiesProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_LoadBalancerServiceCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LoadBalancerServiceCapabilitiesLib" -DPROVIDER_LIB_NS="namespace UNIX_LoadBalancerServiceCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_NetworkPolicyServiceCapabilitiesProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_LoadBalancerServiceCapabilities.cpp" />
+    <Compile Include="UNIX_LoadBalancerServiceCapabilitiesMain.cpp" />
+    <Compile Include="UNIX_LoadBalancerServiceCapabilitiesProvider.cpp" />
+    <Compile Include="UNIX_LoadBalancerServiceCapabilities_AIX.cpp" />
+    <Compile Include="UNIX_LoadBalancerServiceCapabilities_DARWIN.cpp" />
+    <Compile Include="UNIX_LoadBalancerServiceCapabilities_FREEBSD.cpp" />
+    <Compile Include="UNIX_LoadBalancerServiceCapabilities_HPUX.cpp" />
+    <Compile Include="UNIX_LoadBalancerServiceCapabilities_LINUX.cpp" />
+    <Compile Include="UNIX_LoadBalancerServiceCapabilities_SOLARIS.cpp" />
+    <Compile Include="UNIX_LoadBalancerServiceCapabilities_STUB.cpp" />
+    <Compile Include="UNIX_LoadBalancerServiceCapabilities_TRU64.cpp" />
+    <Compile Include="UNIX_LoadBalancerServiceCapabilities_VMS.cpp" />
+    <Compile Include="UNIX_LoadBalancerServiceCapabilities_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesDeps.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesDeps_AIX.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesDeps_DARWIN.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesDeps_FREEBSD.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesDeps_HPUX.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesDeps_LINUX.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesDeps_SOLARIS.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesDeps_STUB.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesDeps_TRU64.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesDeps_VMS.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesDeps_ZOS.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesPrivate.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesPrivate_AIX.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesPrivate_DARWIN.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesPrivate_FREEBSD.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesPrivate_HPUX.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesPrivate_LINUX.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesPrivate_SOLARIS.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesPrivate_STUB.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesPrivate_TRU64.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesPrivate_VMS.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesPrivate_ZOS.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilitiesProvider.h" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_AIX.hpp" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_AIX.hxx" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_DARWIN.hpp" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_DARWIN.hxx" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_FREEBSD.hpp" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_FREEBSD.hxx" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_HPUX.hpp" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_HPUX.hxx" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_LINUX.hpp" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_LINUX.hxx" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_SOLARIS.hpp" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_SOLARIS.hxx" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_STUB.hpp" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_STUB.hxx" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_TRU64.hpp" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_TRU64.hxx" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_VMS.hpp" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_VMS.hxx" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_WIN32.hpp" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_ZOS.hpp" />
+    <Node Include="UNIX_LoadBalancerServiceCapabilities_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

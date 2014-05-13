@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A335B856-B109-4C42-87B4-BBD601A43FE0}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ReusablePolicyContainer/UNIX_ReusablePolicyContainer.md.pc" name="UNIX_ReusablePolicyContainer" IsProject="True" />
+        <Package file="../PolicyRepository/UNIX_PolicyRepository.md.pc" name="UNIX_PolicyRepository" IsProject="True" />
+        <Package file="../AutonomousSystem/UNIX_AutonomousSystem.md.pc" name="UNIX_AutonomousSystem" IsProject="True" />
+        <Package file="../RoutingProtocolDomain/UNIX_RoutingProtocolDomain.md.pc" name="UNIX_RoutingProtocolDomain" IsProject="True" />
+        <Package file="../OSPFArea/UNIX_OSPFArea.md.pc" name="UNIX_OSPFArea" IsProject="True" />
+        <Package file="../Network/UNIX_Network.md.pc" name="UNIX_Network" IsProject="True" />
+        <Package file="../VLANNetwork/UNIX_VLANNetwork.md.pc" name="UNIX_VLANNetwork" IsProject="True" />
+        <Package file="../TierDomain/UNIX_TierDomain.md.pc" name="UNIX_TierDomain" IsProject="True" />
+        <Package file="../AdministrativeDistance/UNIX_AdministrativeDistance.md.pc" name="UNIX_AdministrativeDistance" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ReusablePolicyContainer/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PolicyRepository/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AutonomousSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RoutingProtocolDomain/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OSPFArea/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Network/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VLANNetwork/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TierDomain/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AdministrativeDistance/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_HostedAdminDistanceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_HostedAdminDistanceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_HostedAdminDistanceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ReusablePolicyContainerProvider -lUNIX_PolicyRepositoryProvider -lUNIX_AutonomousSystemProvider -lUNIX_RoutingProtocolDomainProvider -lUNIX_OSPFAreaProvider -lUNIX_NetworkProvider -lUNIX_VLANNetworkProvider -lUNIX_TierDomainProvider -lUNIX_AdministrativeDistanceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_HostedAdminDistanceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_HostedAdminDistanceLib" -DPROVIDER_LIB_NS="namespace UNIX_HostedAdminDistanceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ReusablePolicyContainerProvider -lUNIX_PolicyRepositoryProvider -lUNIX_AutonomousSystemProvider -lUNIX_RoutingProtocolDomainProvider -lUNIX_OSPFAreaProvider -lUNIX_NetworkProvider -lUNIX_VLANNetworkProvider -lUNIX_TierDomainProvider -lUNIX_AdministrativeDistanceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_HostedAdminDistance.cpp" />
+    <Compile Include="UNIX_HostedAdminDistanceMain.cpp" />
+    <Compile Include="UNIX_HostedAdminDistanceProvider.cpp" />
+    <Compile Include="UNIX_HostedAdminDistance_AIX.cpp" />
+    <Compile Include="UNIX_HostedAdminDistance_DARWIN.cpp" />
+    <Compile Include="UNIX_HostedAdminDistance_FREEBSD.cpp" />
+    <Compile Include="UNIX_HostedAdminDistance_HPUX.cpp" />
+    <Compile Include="UNIX_HostedAdminDistance_LINUX.cpp" />
+    <Compile Include="UNIX_HostedAdminDistance_SOLARIS.cpp" />
+    <Compile Include="UNIX_HostedAdminDistance_STUB.cpp" />
+    <Compile Include="UNIX_HostedAdminDistance_TRU64.cpp" />
+    <Compile Include="UNIX_HostedAdminDistance_VMS.cpp" />
+    <Compile Include="UNIX_HostedAdminDistance_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_HostedAdminDistance.h" />
+    <Node Include="UNIX_HostedAdminDistanceDeps.h" />
+    <Node Include="UNIX_HostedAdminDistanceDeps_AIX.h" />
+    <Node Include="UNIX_HostedAdminDistanceDeps_DARWIN.h" />
+    <Node Include="UNIX_HostedAdminDistanceDeps_FREEBSD.h" />
+    <Node Include="UNIX_HostedAdminDistanceDeps_HPUX.h" />
+    <Node Include="UNIX_HostedAdminDistanceDeps_LINUX.h" />
+    <Node Include="UNIX_HostedAdminDistanceDeps_SOLARIS.h" />
+    <Node Include="UNIX_HostedAdminDistanceDeps_STUB.h" />
+    <Node Include="UNIX_HostedAdminDistanceDeps_TRU64.h" />
+    <Node Include="UNIX_HostedAdminDistanceDeps_VMS.h" />
+    <Node Include="UNIX_HostedAdminDistanceDeps_ZOS.h" />
+    <Node Include="UNIX_HostedAdminDistancePrivate.h" />
+    <Node Include="UNIX_HostedAdminDistancePrivate_AIX.h" />
+    <Node Include="UNIX_HostedAdminDistancePrivate_DARWIN.h" />
+    <Node Include="UNIX_HostedAdminDistancePrivate_FREEBSD.h" />
+    <Node Include="UNIX_HostedAdminDistancePrivate_HPUX.h" />
+    <Node Include="UNIX_HostedAdminDistancePrivate_LINUX.h" />
+    <Node Include="UNIX_HostedAdminDistancePrivate_SOLARIS.h" />
+    <Node Include="UNIX_HostedAdminDistancePrivate_STUB.h" />
+    <Node Include="UNIX_HostedAdminDistancePrivate_TRU64.h" />
+    <Node Include="UNIX_HostedAdminDistancePrivate_VMS.h" />
+    <Node Include="UNIX_HostedAdminDistancePrivate_ZOS.h" />
+    <Node Include="UNIX_HostedAdminDistanceProvider.h" />
+    <Node Include="UNIX_HostedAdminDistance_AIX.hpp" />
+    <Node Include="UNIX_HostedAdminDistance_AIX.hxx" />
+    <Node Include="UNIX_HostedAdminDistance_DARWIN.hpp" />
+    <Node Include="UNIX_HostedAdminDistance_DARWIN.hxx" />
+    <Node Include="UNIX_HostedAdminDistance_FREEBSD.hpp" />
+    <Node Include="UNIX_HostedAdminDistance_FREEBSD.hxx" />
+    <Node Include="UNIX_HostedAdminDistance_HPUX.hpp" />
+    <Node Include="UNIX_HostedAdminDistance_HPUX.hxx" />
+    <Node Include="UNIX_HostedAdminDistance_LINUX.hpp" />
+    <Node Include="UNIX_HostedAdminDistance_LINUX.hxx" />
+    <Node Include="UNIX_HostedAdminDistance_SOLARIS.hpp" />
+    <Node Include="UNIX_HostedAdminDistance_SOLARIS.hxx" />
+    <Node Include="UNIX_HostedAdminDistance_STUB.hpp" />
+    <Node Include="UNIX_HostedAdminDistance_STUB.hxx" />
+    <Node Include="UNIX_HostedAdminDistance_TRU64.hpp" />
+    <Node Include="UNIX_HostedAdminDistance_TRU64.hxx" />
+    <Node Include="UNIX_HostedAdminDistance_VMS.hpp" />
+    <Node Include="UNIX_HostedAdminDistance_VMS.hxx" />
+    <Node Include="UNIX_HostedAdminDistance_WIN32.hpp" />
+    <Node Include="UNIX_HostedAdminDistance_ZOS.hpp" />
+    <Node Include="UNIX_HostedAdminDistance_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

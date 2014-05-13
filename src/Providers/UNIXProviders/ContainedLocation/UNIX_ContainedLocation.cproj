@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AFCE51B6-49B8-4976-855D-85F49404B47C}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../Location/UNIX_Location.md.pc" name="UNIX_Location" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../Location/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ContainedLocationProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ContainedLocationLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ContainedLocationLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_LocationProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ContainedLocationProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ContainedLocationLib" -DPROVIDER_LIB_NS="namespace UNIX_ContainedLocationLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_LocationProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ContainedLocation.cpp" />
+    <Compile Include="UNIX_ContainedLocationMain.cpp" />
+    <Compile Include="UNIX_ContainedLocationProvider.cpp" />
+    <Compile Include="UNIX_ContainedLocation_AIX.cpp" />
+    <Compile Include="UNIX_ContainedLocation_DARWIN.cpp" />
+    <Compile Include="UNIX_ContainedLocation_FREEBSD.cpp" />
+    <Compile Include="UNIX_ContainedLocation_HPUX.cpp" />
+    <Compile Include="UNIX_ContainedLocation_LINUX.cpp" />
+    <Compile Include="UNIX_ContainedLocation_SOLARIS.cpp" />
+    <Compile Include="UNIX_ContainedLocation_STUB.cpp" />
+    <Compile Include="UNIX_ContainedLocation_TRU64.cpp" />
+    <Compile Include="UNIX_ContainedLocation_VMS.cpp" />
+    <Compile Include="UNIX_ContainedLocation_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ContainedLocation.h" />
+    <Node Include="UNIX_ContainedLocationDeps.h" />
+    <Node Include="UNIX_ContainedLocationDeps_AIX.h" />
+    <Node Include="UNIX_ContainedLocationDeps_DARWIN.h" />
+    <Node Include="UNIX_ContainedLocationDeps_FREEBSD.h" />
+    <Node Include="UNIX_ContainedLocationDeps_HPUX.h" />
+    <Node Include="UNIX_ContainedLocationDeps_LINUX.h" />
+    <Node Include="UNIX_ContainedLocationDeps_SOLARIS.h" />
+    <Node Include="UNIX_ContainedLocationDeps_STUB.h" />
+    <Node Include="UNIX_ContainedLocationDeps_TRU64.h" />
+    <Node Include="UNIX_ContainedLocationDeps_VMS.h" />
+    <Node Include="UNIX_ContainedLocationDeps_ZOS.h" />
+    <Node Include="UNIX_ContainedLocationPrivate.h" />
+    <Node Include="UNIX_ContainedLocationPrivate_AIX.h" />
+    <Node Include="UNIX_ContainedLocationPrivate_DARWIN.h" />
+    <Node Include="UNIX_ContainedLocationPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ContainedLocationPrivate_HPUX.h" />
+    <Node Include="UNIX_ContainedLocationPrivate_LINUX.h" />
+    <Node Include="UNIX_ContainedLocationPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ContainedLocationPrivate_STUB.h" />
+    <Node Include="UNIX_ContainedLocationPrivate_TRU64.h" />
+    <Node Include="UNIX_ContainedLocationPrivate_VMS.h" />
+    <Node Include="UNIX_ContainedLocationPrivate_ZOS.h" />
+    <Node Include="UNIX_ContainedLocationProvider.h" />
+    <Node Include="UNIX_ContainedLocation_AIX.hpp" />
+    <Node Include="UNIX_ContainedLocation_AIX.hxx" />
+    <Node Include="UNIX_ContainedLocation_DARWIN.hpp" />
+    <Node Include="UNIX_ContainedLocation_DARWIN.hxx" />
+    <Node Include="UNIX_ContainedLocation_FREEBSD.hpp" />
+    <Node Include="UNIX_ContainedLocation_FREEBSD.hxx" />
+    <Node Include="UNIX_ContainedLocation_HPUX.hpp" />
+    <Node Include="UNIX_ContainedLocation_HPUX.hxx" />
+    <Node Include="UNIX_ContainedLocation_LINUX.hpp" />
+    <Node Include="UNIX_ContainedLocation_LINUX.hxx" />
+    <Node Include="UNIX_ContainedLocation_SOLARIS.hpp" />
+    <Node Include="UNIX_ContainedLocation_SOLARIS.hxx" />
+    <Node Include="UNIX_ContainedLocation_STUB.hpp" />
+    <Node Include="UNIX_ContainedLocation_STUB.hxx" />
+    <Node Include="UNIX_ContainedLocation_TRU64.hpp" />
+    <Node Include="UNIX_ContainedLocation_TRU64.hxx" />
+    <Node Include="UNIX_ContainedLocation_VMS.hpp" />
+    <Node Include="UNIX_ContainedLocation_VMS.hxx" />
+    <Node Include="UNIX_ContainedLocation_WIN32.hpp" />
+    <Node Include="UNIX_ContainedLocation_ZOS.hpp" />
+    <Node Include="UNIX_ContainedLocation_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7BD99BB7-3A04-4266-B645-518F62BA3BA7}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_TokenBucketMeterServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TokenBucketMeterServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_TokenBucketMeterServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_TokenBucketMeterServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TokenBucketMeterServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_TokenBucketMeterServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_TokenBucketMeterService.cpp" />
+    <Compile Include="UNIX_TokenBucketMeterServiceMain.cpp" />
+    <Compile Include="UNIX_TokenBucketMeterServiceProvider.cpp" />
+    <Compile Include="UNIX_TokenBucketMeterService_AIX.cpp" />
+    <Compile Include="UNIX_TokenBucketMeterService_DARWIN.cpp" />
+    <Compile Include="UNIX_TokenBucketMeterService_FREEBSD.cpp" />
+    <Compile Include="UNIX_TokenBucketMeterService_HPUX.cpp" />
+    <Compile Include="UNIX_TokenBucketMeterService_LINUX.cpp" />
+    <Compile Include="UNIX_TokenBucketMeterService_SOLARIS.cpp" />
+    <Compile Include="UNIX_TokenBucketMeterService_STUB.cpp" />
+    <Compile Include="UNIX_TokenBucketMeterService_TRU64.cpp" />
+    <Compile Include="UNIX_TokenBucketMeterService_VMS.cpp" />
+    <Compile Include="UNIX_TokenBucketMeterService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_TokenBucketMeterService.h" />
+    <Node Include="UNIX_TokenBucketMeterServiceDeps.h" />
+    <Node Include="UNIX_TokenBucketMeterServiceDeps_AIX.h" />
+    <Node Include="UNIX_TokenBucketMeterServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_TokenBucketMeterServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_TokenBucketMeterServiceDeps_HPUX.h" />
+    <Node Include="UNIX_TokenBucketMeterServiceDeps_LINUX.h" />
+    <Node Include="UNIX_TokenBucketMeterServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_TokenBucketMeterServiceDeps_STUB.h" />
+    <Node Include="UNIX_TokenBucketMeterServiceDeps_TRU64.h" />
+    <Node Include="UNIX_TokenBucketMeterServiceDeps_VMS.h" />
+    <Node Include="UNIX_TokenBucketMeterServiceDeps_ZOS.h" />
+    <Node Include="UNIX_TokenBucketMeterServicePrivate.h" />
+    <Node Include="UNIX_TokenBucketMeterServicePrivate_AIX.h" />
+    <Node Include="UNIX_TokenBucketMeterServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_TokenBucketMeterServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_TokenBucketMeterServicePrivate_HPUX.h" />
+    <Node Include="UNIX_TokenBucketMeterServicePrivate_LINUX.h" />
+    <Node Include="UNIX_TokenBucketMeterServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_TokenBucketMeterServicePrivate_STUB.h" />
+    <Node Include="UNIX_TokenBucketMeterServicePrivate_TRU64.h" />
+    <Node Include="UNIX_TokenBucketMeterServicePrivate_VMS.h" />
+    <Node Include="UNIX_TokenBucketMeterServicePrivate_ZOS.h" />
+    <Node Include="UNIX_TokenBucketMeterServiceProvider.h" />
+    <Node Include="UNIX_TokenBucketMeterService_AIX.hpp" />
+    <Node Include="UNIX_TokenBucketMeterService_AIX.hxx" />
+    <Node Include="UNIX_TokenBucketMeterService_DARWIN.hpp" />
+    <Node Include="UNIX_TokenBucketMeterService_DARWIN.hxx" />
+    <Node Include="UNIX_TokenBucketMeterService_FREEBSD.hpp" />
+    <Node Include="UNIX_TokenBucketMeterService_FREEBSD.hxx" />
+    <Node Include="UNIX_TokenBucketMeterService_HPUX.hpp" />
+    <Node Include="UNIX_TokenBucketMeterService_HPUX.hxx" />
+    <Node Include="UNIX_TokenBucketMeterService_LINUX.hpp" />
+    <Node Include="UNIX_TokenBucketMeterService_LINUX.hxx" />
+    <Node Include="UNIX_TokenBucketMeterService_SOLARIS.hpp" />
+    <Node Include="UNIX_TokenBucketMeterService_SOLARIS.hxx" />
+    <Node Include="UNIX_TokenBucketMeterService_STUB.hpp" />
+    <Node Include="UNIX_TokenBucketMeterService_STUB.hxx" />
+    <Node Include="UNIX_TokenBucketMeterService_TRU64.hpp" />
+    <Node Include="UNIX_TokenBucketMeterService_TRU64.hxx" />
+    <Node Include="UNIX_TokenBucketMeterService_VMS.hpp" />
+    <Node Include="UNIX_TokenBucketMeterService_VMS.hxx" />
+    <Node Include="UNIX_TokenBucketMeterService_WIN32.hpp" />
+    <Node Include="UNIX_TokenBucketMeterService_ZOS.hpp" />
+    <Node Include="UNIX_TokenBucketMeterService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

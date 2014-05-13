@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{81928A51-762C-4E2F-B98D-EECE0E029882}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../DiscreteMetricValue/UNIX_DiscreteMetricValue.md.pc" name="UNIX_DiscreteMetricValue" IsProject="True" />
+        <Package file="../AggregationMetricValue/UNIX_AggregationMetricValue.md.pc" name="UNIX_AggregationMetricValue" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../DiscreteMetricValue/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AggregationMetricValue/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_MetricForMEProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MetricForMELib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_MetricForMELib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_DiscreteMetricValueProvider -lUNIX_AggregationMetricValueProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_MetricForMEProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_MetricForMELib" -DPROVIDER_LIB_NS="namespace UNIX_MetricForMELib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_DiscreteMetricValueProvider -lUNIX_AggregationMetricValueProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_MetricForME.cpp" />
+    <Compile Include="UNIX_MetricForMEMain.cpp" />
+    <Compile Include="UNIX_MetricForMEProvider.cpp" />
+    <Compile Include="UNIX_MetricForME_AIX.cpp" />
+    <Compile Include="UNIX_MetricForME_DARWIN.cpp" />
+    <Compile Include="UNIX_MetricForME_FREEBSD.cpp" />
+    <Compile Include="UNIX_MetricForME_HPUX.cpp" />
+    <Compile Include="UNIX_MetricForME_LINUX.cpp" />
+    <Compile Include="UNIX_MetricForME_SOLARIS.cpp" />
+    <Compile Include="UNIX_MetricForME_STUB.cpp" />
+    <Compile Include="UNIX_MetricForME_TRU64.cpp" />
+    <Compile Include="UNIX_MetricForME_VMS.cpp" />
+    <Compile Include="UNIX_MetricForME_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_MetricForME.h" />
+    <Node Include="UNIX_MetricForMEDeps.h" />
+    <Node Include="UNIX_MetricForMEDeps_AIX.h" />
+    <Node Include="UNIX_MetricForMEDeps_DARWIN.h" />
+    <Node Include="UNIX_MetricForMEDeps_FREEBSD.h" />
+    <Node Include="UNIX_MetricForMEDeps_HPUX.h" />
+    <Node Include="UNIX_MetricForMEDeps_LINUX.h" />
+    <Node Include="UNIX_MetricForMEDeps_SOLARIS.h" />
+    <Node Include="UNIX_MetricForMEDeps_STUB.h" />
+    <Node Include="UNIX_MetricForMEDeps_TRU64.h" />
+    <Node Include="UNIX_MetricForMEDeps_VMS.h" />
+    <Node Include="UNIX_MetricForMEDeps_ZOS.h" />
+    <Node Include="UNIX_MetricForMEPrivate.h" />
+    <Node Include="UNIX_MetricForMEPrivate_AIX.h" />
+    <Node Include="UNIX_MetricForMEPrivate_DARWIN.h" />
+    <Node Include="UNIX_MetricForMEPrivate_FREEBSD.h" />
+    <Node Include="UNIX_MetricForMEPrivate_HPUX.h" />
+    <Node Include="UNIX_MetricForMEPrivate_LINUX.h" />
+    <Node Include="UNIX_MetricForMEPrivate_SOLARIS.h" />
+    <Node Include="UNIX_MetricForMEPrivate_STUB.h" />
+    <Node Include="UNIX_MetricForMEPrivate_TRU64.h" />
+    <Node Include="UNIX_MetricForMEPrivate_VMS.h" />
+    <Node Include="UNIX_MetricForMEPrivate_ZOS.h" />
+    <Node Include="UNIX_MetricForMEProvider.h" />
+    <Node Include="UNIX_MetricForME_AIX.hpp" />
+    <Node Include="UNIX_MetricForME_AIX.hxx" />
+    <Node Include="UNIX_MetricForME_DARWIN.hpp" />
+    <Node Include="UNIX_MetricForME_DARWIN.hxx" />
+    <Node Include="UNIX_MetricForME_FREEBSD.hpp" />
+    <Node Include="UNIX_MetricForME_FREEBSD.hxx" />
+    <Node Include="UNIX_MetricForME_HPUX.hpp" />
+    <Node Include="UNIX_MetricForME_HPUX.hxx" />
+    <Node Include="UNIX_MetricForME_LINUX.hpp" />
+    <Node Include="UNIX_MetricForME_LINUX.hxx" />
+    <Node Include="UNIX_MetricForME_SOLARIS.hpp" />
+    <Node Include="UNIX_MetricForME_SOLARIS.hxx" />
+    <Node Include="UNIX_MetricForME_STUB.hpp" />
+    <Node Include="UNIX_MetricForME_STUB.hxx" />
+    <Node Include="UNIX_MetricForME_TRU64.hpp" />
+    <Node Include="UNIX_MetricForME_TRU64.hxx" />
+    <Node Include="UNIX_MetricForME_VMS.hpp" />
+    <Node Include="UNIX_MetricForME_VMS.hxx" />
+    <Node Include="UNIX_MetricForME_WIN32.hpp" />
+    <Node Include="UNIX_MetricForME_ZOS.hpp" />
+    <Node Include="UNIX_MetricForME_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

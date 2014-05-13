@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>f272ea54-1dfa-4dbf-962f-e547c060b359</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../../UNIX_ScopedSetting.md.pc" name="UNIX_ScopedSetting" IsProject="True" />
+        <Package file="../../../NATStaticSettings/UNIX_NATStaticSettings.md.pc" name="UNIX_NATStaticSettings" IsProject="True" />
+        <Package file="../../../NATListBasedSettings/UNIX_NATListBasedSettings.md.pc" name="UNIX_NATListBasedSettings" IsProject="True" />
+        <Package file="../../../FileSystemSettingData/UNIX_FileSystemSettingData.md.pc" name="UNIX_FileSystemSettingData" IsProject="True" />
+        <Package file="../../../DatabaseSegmentSettingData/UNIX_DatabaseSegmentSettingData.md.pc" name="UNIX_DatabaseSegmentSettingData" IsProject="True" />
+        <Package file="../../../AHTransform/UNIX_AHTransform.md.pc" name="UNIX_AHTransform" IsProject="True" />
+        <Package file="../../../ESPTransform/UNIX_ESPTransform.md.pc" name="UNIX_ESPTransform" IsProject="True" />
+        <Package file="../../../IPCOMPTransform/UNIX_IPCOMPTransform.md.pc" name="UNIX_IPCOMPTransform" IsProject="True" />
+        <Package file="../../../IPsecProposal/UNIX_IPsecProposal.md.pc" name="UNIX_IPsecProposal" IsProject="True" />
+        <Package file="../../../IKEProposal/UNIX_IKEProposal.md.pc" name="UNIX_IKEProposal" IsProject="True" />
+        <Package file="../../../TimeoutsForNATTranslation/UNIX_TimeoutsForNATTranslation.md.pc" name="UNIX_TimeoutsForNATTranslation" IsProject="True" />
+        <Package file="../../../DatabaseParameter/UNIX_DatabaseParameter.md.pc" name="UNIX_DatabaseParameter" IsProject="True" />
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>TestUNIX_ScopedSetting</OutputName>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/*</Include>
+        <Include>${ProjectDir}/../../..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ScopedSettingLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ScopedSettingLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ScopedSettingProvider -lUNIX_NATStaticSettingsProvider -lUNIX_NATListBasedSettingsProvider -lUNIX_FileSystemSettingDataProvider -lUNIX_DatabaseSegmentSettingDataProvider -lUNIX_AHTransformProvider -lUNIX_ESPTransformProvider -lUNIX_IPCOMPTransformProvider -lUNIX_IPsecProposalProvider -lUNIX_IKEProposalProvider -lUNIX_TimeoutsForNATTranslationProvider -lUNIX_DatabaseParameterProvider</ExtraLinkerArguments>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="LD_LIBRARY_PATH" value="../../../../bin/Debug:../../../../../NATStaticSettings/bin/Debug:../../../../../NATListBasedSettings/bin/Debug:../../../../../FileSystemSettingData/bin/Debug:../../../../../DatabaseSegmentSettingData/bin/Debug:../../../../../AHTransform/bin/Debug:../../../../../ESPTransform/bin/Debug:../../../../../IPCOMPTransform/bin/Debug:../../../../../IPsecProposal/bin/Debug:../../../../../IKEProposal/bin/Debug:../../../../../TimeoutsForNATTranslation/bin/Debug:../../../../../DatabaseParameter/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
+    <Commandlineparameters></Commandlineparameters>
+    <ConsolePause>false</ConsolePause>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../../bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NATStaticSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NATListBasedSettings/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../FileSystemSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DatabaseSegmentSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AHTransform/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ESPTransform/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPCOMPTransform/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IPsecProposal/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../IKEProposal/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TimeoutsForNATTranslation/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DatabaseParameter/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>TestUNIX_ScopedSetting</OutputName>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ScopedSettingLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ScopedSettingLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ScopedSettingProvider -lUNIX_NATStaticSettingsProvider -lUNIX_NATListBasedSettingsProvider -lUNIX_FileSystemSettingDataProvider -lUNIX_DatabaseSegmentSettingDataProvider -lUNIX_AHTransformProvider -lUNIX_ESPTransformProvider -lUNIX_IPCOMPTransformProvider -lUNIX_IPsecProposalProvider -lUNIX_IKEProposalProvider -lUNIX_TimeoutsForNATTranslationProvider -lUNIX_DatabaseParameterProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../MockResponseHandler.cpp">
+        <Link>MockResponseHandler.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ScopedSettingFixture.cpp" />
+    <Compile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="RunTestUNIX_ScopedSetting.sh" />
+    <Node Include="UNIX_ScopedSettingFixture.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

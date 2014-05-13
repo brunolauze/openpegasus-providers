@@ -1,0 +1,127 @@
+//%LICENSE////////////////////////////////////////////////////////////////
+//
+// Licensed to The Open Group (TOG) under one or more contributor license
+// agreements.  Refer to the OpenPegasusNOTICE.txt file distributed with
+// this work for additional information regarding copyright ownership.
+// Each contributor licenses this file to you under the OpenPegasus Open
+// Source License; you may not use this file except in compliance with the
+// License.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//////////////////////////////////////////////////////////////////////////
+//
+//%/////////////////////////////////////////////////////////////////////////
+
+
+
+// Copyright (c) 2005 DMTF.  All rights reserved.
+   [Association, Abstract, Version ( "2.10.0" ), 
+    UMLPackagePath ( "CIM::Core::CoreElements" ), 
+    Description ( 
+       "CIM_Dependency is a generic association used to establish "
+       "dependency relationships between ManagedElements." )]
+class CIM_Dependency {
+
+      [Key, Description ( 
+          "Antecedent represents the independent object in this association."
+           )]
+   CIM_ManagedElement REF Antecedent;
+
+      [Key, Description ( 
+          "Dependent represents the object that is dependent on the "
+          "Antecedent." )]
+   CIM_ManagedElement REF Dependent;
+
+
+};
+
+
+
+// Copyright (c) 2006 DMTF.  All rights reserved.
+   [Association, Experimental, Version ( "2.14.0" ), 
+    UMLPackagePath ( "CIM::Core::Settings" ), 
+    Description ( 
+       "CIM_SettingsAffectSettings is used to define a relationship "
+       "between two CIM_SettingData instances where the utilization of "
+       "one CIM_SettingData has a causal relationship to the "
+       "applicability or utilization of another CIM_SettingData "
+       "instance. This class may be used to indicate that applying the "
+       "Antecedent SettingData to one ManagedElement will result in "
+       "another ManagedElement having the configuration specified by "
+       "the Dependent SettingData. It may also be used with the "
+       "SettingsDefineCapabilities association to indicate that "
+       "applying the Antecedent SettingData to one ManagedElement will "
+       "change the capabilities of another to those of the Dependent "
+       "SettingData." )]
+class CIM_SettingsAffectSettings : CIM_Dependency {
+
+      [Key, Override ( "Antecedent" ), 
+       Description ( 
+          "Antecedent represents the independent object in this association."
+           )]
+   CIM_SettingData REF Antecedent;
+
+      [Key, Override ( "Dependent" ), 
+       Description ( 
+          "Dependent represents the object that is dependent on the "
+          "Antecedent." )]
+   CIM_SettingData REF Dependent;
+
+      [Description ( 
+          "Indicates the relationship between the Antecedent and "
+          "the Dependent SettingData instances.\n"
+          "Given CIM_ManagedElement ME1 associated with "
+          "CIM_SettingData SD1 and CIM_ManagedElement ME2 "
+          "associated with CIM_SettingData SD2 where SD1 is the "
+          "value of the Antecedent property of an instance of "
+          "CIM_SettingsAffectSettings and SD2 is the value of the "
+          "Dependent property of the instance. A value of 2 shall "
+          "indicate that when each property of ME1 has the value of "
+          "the corresponding non-null property of SD1, each "
+          "property of ME2 shall have the value of the "
+          "corresponding non-null property of SD2. \n"
+          "A value of 3 shall indicate that when each property of "
+          "ME1 has the value of the corresponding non-null property "
+          "of SD1, each property of ME2 may have the value of the "
+          "corresponding non-null property of SD2. \n"
+          "It is only necessary for the properties of ME1 to have "
+          "the values of the corresponding properties of SD1. It is "
+          "not required that SD1 be explicitly applied "
+          "(CIM_ElementSettingData.IsCurrent = 1 \"Is Current\"). \n"
+          "Determination of correspondence between properties is "
+          "CIM_ManagedElement and CIM_SettingData sub-class "
+          "specific." ), 
+       ValueMap { "2", "3", "..", "32767..65535" }, 
+       Values { "Strongly Correlated", "Loosely Correlated", 
+          "DMTF reserved", "Vendor Reserved" }]
+   uint16 Affect;
+
+
+};
+
+
+
+   [Version( "2.40.0" ), Description("{0}")]
+class UNIX_SettingsAffectSettings : CIM_SettingsAffectSettings
+{
+
+
+};
+

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{27703ED2-A8E9-4959-AD22-5DF63E456155}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_AffectedJobElementProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AffectedJobElementLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_AffectedJobElementLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_AffectedJobElementProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AffectedJobElementLib" -DPROVIDER_LIB_NS="namespace UNIX_AffectedJobElementLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_AffectedJobElement.cpp" />
+    <Compile Include="UNIX_AffectedJobElementMain.cpp" />
+    <Compile Include="UNIX_AffectedJobElementProvider.cpp" />
+    <Compile Include="UNIX_AffectedJobElement_AIX.cpp" />
+    <Compile Include="UNIX_AffectedJobElement_DARWIN.cpp" />
+    <Compile Include="UNIX_AffectedJobElement_FREEBSD.cpp" />
+    <Compile Include="UNIX_AffectedJobElement_HPUX.cpp" />
+    <Compile Include="UNIX_AffectedJobElement_LINUX.cpp" />
+    <Compile Include="UNIX_AffectedJobElement_SOLARIS.cpp" />
+    <Compile Include="UNIX_AffectedJobElement_STUB.cpp" />
+    <Compile Include="UNIX_AffectedJobElement_TRU64.cpp" />
+    <Compile Include="UNIX_AffectedJobElement_VMS.cpp" />
+    <Compile Include="UNIX_AffectedJobElement_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_AffectedJobElement.h" />
+    <Node Include="UNIX_AffectedJobElementDeps.h" />
+    <Node Include="UNIX_AffectedJobElementDeps_AIX.h" />
+    <Node Include="UNIX_AffectedJobElementDeps_DARWIN.h" />
+    <Node Include="UNIX_AffectedJobElementDeps_FREEBSD.h" />
+    <Node Include="UNIX_AffectedJobElementDeps_HPUX.h" />
+    <Node Include="UNIX_AffectedJobElementDeps_LINUX.h" />
+    <Node Include="UNIX_AffectedJobElementDeps_SOLARIS.h" />
+    <Node Include="UNIX_AffectedJobElementDeps_STUB.h" />
+    <Node Include="UNIX_AffectedJobElementDeps_TRU64.h" />
+    <Node Include="UNIX_AffectedJobElementDeps_VMS.h" />
+    <Node Include="UNIX_AffectedJobElementDeps_ZOS.h" />
+    <Node Include="UNIX_AffectedJobElementPrivate.h" />
+    <Node Include="UNIX_AffectedJobElementPrivate_AIX.h" />
+    <Node Include="UNIX_AffectedJobElementPrivate_DARWIN.h" />
+    <Node Include="UNIX_AffectedJobElementPrivate_FREEBSD.h" />
+    <Node Include="UNIX_AffectedJobElementPrivate_HPUX.h" />
+    <Node Include="UNIX_AffectedJobElementPrivate_LINUX.h" />
+    <Node Include="UNIX_AffectedJobElementPrivate_SOLARIS.h" />
+    <Node Include="UNIX_AffectedJobElementPrivate_STUB.h" />
+    <Node Include="UNIX_AffectedJobElementPrivate_TRU64.h" />
+    <Node Include="UNIX_AffectedJobElementPrivate_VMS.h" />
+    <Node Include="UNIX_AffectedJobElementPrivate_ZOS.h" />
+    <Node Include="UNIX_AffectedJobElementProvider.h" />
+    <Node Include="UNIX_AffectedJobElement_AIX.hpp" />
+    <Node Include="UNIX_AffectedJobElement_AIX.hxx" />
+    <Node Include="UNIX_AffectedJobElement_DARWIN.hpp" />
+    <Node Include="UNIX_AffectedJobElement_DARWIN.hxx" />
+    <Node Include="UNIX_AffectedJobElement_FREEBSD.hpp" />
+    <Node Include="UNIX_AffectedJobElement_FREEBSD.hxx" />
+    <Node Include="UNIX_AffectedJobElement_HPUX.hpp" />
+    <Node Include="UNIX_AffectedJobElement_HPUX.hxx" />
+    <Node Include="UNIX_AffectedJobElement_LINUX.hpp" />
+    <Node Include="UNIX_AffectedJobElement_LINUX.hxx" />
+    <Node Include="UNIX_AffectedJobElement_SOLARIS.hpp" />
+    <Node Include="UNIX_AffectedJobElement_SOLARIS.hxx" />
+    <Node Include="UNIX_AffectedJobElement_STUB.hpp" />
+    <Node Include="UNIX_AffectedJobElement_STUB.hxx" />
+    <Node Include="UNIX_AffectedJobElement_TRU64.hpp" />
+    <Node Include="UNIX_AffectedJobElement_TRU64.hxx" />
+    <Node Include="UNIX_AffectedJobElement_VMS.hpp" />
+    <Node Include="UNIX_AffectedJobElement_VMS.hxx" />
+    <Node Include="UNIX_AffectedJobElement_WIN32.hpp" />
+    <Node Include="UNIX_AffectedJobElement_ZOS.hpp" />
+    <Node Include="UNIX_AffectedJobElement_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

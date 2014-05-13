@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9A5EFDFA-16B1-471E-A034-F16DF3C381C8}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_PrintChannelProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PrintChannelLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PrintChannelLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_PrintChannelProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PrintChannelLib" -DPROVIDER_LIB_NS="namespace UNIX_PrintChannelLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_PrintChannel.cpp" />
+    <Compile Include="UNIX_PrintChannelMain.cpp" />
+    <Compile Include="UNIX_PrintChannelProvider.cpp" />
+    <Compile Include="UNIX_PrintChannel_AIX.cpp" />
+    <Compile Include="UNIX_PrintChannel_DARWIN.cpp" />
+    <Compile Include="UNIX_PrintChannel_FREEBSD.cpp" />
+    <Compile Include="UNIX_PrintChannel_HPUX.cpp" />
+    <Compile Include="UNIX_PrintChannel_LINUX.cpp" />
+    <Compile Include="UNIX_PrintChannel_SOLARIS.cpp" />
+    <Compile Include="UNIX_PrintChannel_STUB.cpp" />
+    <Compile Include="UNIX_PrintChannel_TRU64.cpp" />
+    <Compile Include="UNIX_PrintChannel_VMS.cpp" />
+    <Compile Include="UNIX_PrintChannel_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_PrintChannel.h" />
+    <Node Include="UNIX_PrintChannelDeps.h" />
+    <Node Include="UNIX_PrintChannelDeps_AIX.h" />
+    <Node Include="UNIX_PrintChannelDeps_DARWIN.h" />
+    <Node Include="UNIX_PrintChannelDeps_FREEBSD.h" />
+    <Node Include="UNIX_PrintChannelDeps_HPUX.h" />
+    <Node Include="UNIX_PrintChannelDeps_LINUX.h" />
+    <Node Include="UNIX_PrintChannelDeps_SOLARIS.h" />
+    <Node Include="UNIX_PrintChannelDeps_STUB.h" />
+    <Node Include="UNIX_PrintChannelDeps_TRU64.h" />
+    <Node Include="UNIX_PrintChannelDeps_VMS.h" />
+    <Node Include="UNIX_PrintChannelDeps_ZOS.h" />
+    <Node Include="UNIX_PrintChannelPrivate.h" />
+    <Node Include="UNIX_PrintChannelPrivate_AIX.h" />
+    <Node Include="UNIX_PrintChannelPrivate_DARWIN.h" />
+    <Node Include="UNIX_PrintChannelPrivate_FREEBSD.h" />
+    <Node Include="UNIX_PrintChannelPrivate_HPUX.h" />
+    <Node Include="UNIX_PrintChannelPrivate_LINUX.h" />
+    <Node Include="UNIX_PrintChannelPrivate_SOLARIS.h" />
+    <Node Include="UNIX_PrintChannelPrivate_STUB.h" />
+    <Node Include="UNIX_PrintChannelPrivate_TRU64.h" />
+    <Node Include="UNIX_PrintChannelPrivate_VMS.h" />
+    <Node Include="UNIX_PrintChannelPrivate_ZOS.h" />
+    <Node Include="UNIX_PrintChannelProvider.h" />
+    <Node Include="UNIX_PrintChannel_AIX.hpp" />
+    <Node Include="UNIX_PrintChannel_AIX.hxx" />
+    <Node Include="UNIX_PrintChannel_DARWIN.hpp" />
+    <Node Include="UNIX_PrintChannel_DARWIN.hxx" />
+    <Node Include="UNIX_PrintChannel_FREEBSD.hpp" />
+    <Node Include="UNIX_PrintChannel_FREEBSD.hxx" />
+    <Node Include="UNIX_PrintChannel_HPUX.hpp" />
+    <Node Include="UNIX_PrintChannel_HPUX.hxx" />
+    <Node Include="UNIX_PrintChannel_LINUX.hpp" />
+    <Node Include="UNIX_PrintChannel_LINUX.hxx" />
+    <Node Include="UNIX_PrintChannel_SOLARIS.hpp" />
+    <Node Include="UNIX_PrintChannel_SOLARIS.hxx" />
+    <Node Include="UNIX_PrintChannel_STUB.hpp" />
+    <Node Include="UNIX_PrintChannel_STUB.hxx" />
+    <Node Include="UNIX_PrintChannel_TRU64.hpp" />
+    <Node Include="UNIX_PrintChannel_TRU64.hxx" />
+    <Node Include="UNIX_PrintChannel_VMS.hpp" />
+    <Node Include="UNIX_PrintChannel_VMS.hxx" />
+    <Node Include="UNIX_PrintChannel_WIN32.hpp" />
+    <Node Include="UNIX_PrintChannel_ZOS.hpp" />
+    <Node Include="UNIX_PrintChannel_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

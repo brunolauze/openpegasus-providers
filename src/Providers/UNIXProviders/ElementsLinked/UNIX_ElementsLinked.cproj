@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1C417FD3-C159-4890-B7F9-E9BCD3E7418F}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../PhysicalLink/UNIX_PhysicalLink.md.pc" name="UNIX_PhysicalLink" IsProject="True" />
+        <Package file="../PhysicalMedia/UNIX_PhysicalMedia.md.pc" name="UNIX_PhysicalMedia" IsProject="True" />
+        <Package file="../PhysicalTape/UNIX_PhysicalTape.md.pc" name="UNIX_PhysicalTape" IsProject="True" />
+        <Package file="../Chip/UNIX_Chip.md.pc" name="UNIX_Chip" IsProject="True" />
+        <Package file="../PhysicalMemory/UNIX_PhysicalMemory.md.pc" name="UNIX_PhysicalMemory" IsProject="True" />
+        <Package file="../PhysicalConnector/UNIX_PhysicalConnector.md.pc" name="UNIX_PhysicalConnector" IsProject="True" />
+        <Package file="../Slot/UNIX_Slot.md.pc" name="UNIX_Slot" IsProject="True" />
+        <Package file="../Card/UNIX_Card.md.pc" name="UNIX_Card" IsProject="True" />
+        <Package file="../SystemBusCard/UNIX_SystemBusCard.md.pc" name="UNIX_SystemBusCard" IsProject="True" />
+        <Package file="../Chassis/UNIX_Chassis.md.pc" name="UNIX_Chassis" IsProject="True" />
+        <Package file="../Rack/UNIX_Rack.md.pc" name="UNIX_Rack" IsProject="True" />
+        <Package file="../PackageLocation/UNIX_PackageLocation.md.pc" name="UNIX_PackageLocation" IsProject="True" />
+        <Package file="../StorageMediaLocation/UNIX_StorageMediaLocation.md.pc" name="UNIX_StorageMediaLocation" IsProject="True" />
+        <Package file="../Magazine/UNIX_Magazine.md.pc" name="UNIX_Magazine" IsProject="True" />
+        <Package file="../ComponentBay/UNIX_ComponentBay.md.pc" name="UNIX_ComponentBay" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../PhysicalLink/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PhysicalMedia/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PhysicalTape/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Chip/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PhysicalMemory/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PhysicalConnector/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Slot/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Card/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SystemBusCard/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Chassis/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Rack/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PackageLocation/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageMediaLocation/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Magazine/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ComponentBay/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ElementsLinkedProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ElementsLinkedLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ElementsLinkedLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PhysicalLinkProvider -lUNIX_PhysicalMediaProvider -lUNIX_PhysicalTapeProvider -lUNIX_ChipProvider -lUNIX_PhysicalMemoryProvider -lUNIX_PhysicalConnectorProvider -lUNIX_SlotProvider -lUNIX_CardProvider -lUNIX_SystemBusCardProvider -lUNIX_ChassisProvider -lUNIX_RackProvider -lUNIX_PackageLocationProvider -lUNIX_StorageMediaLocationProvider -lUNIX_MagazineProvider -lUNIX_ComponentBayProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ElementsLinkedProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ElementsLinkedLib" -DPROVIDER_LIB_NS="namespace UNIX_ElementsLinkedLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PhysicalLinkProvider -lUNIX_PhysicalMediaProvider -lUNIX_PhysicalTapeProvider -lUNIX_ChipProvider -lUNIX_PhysicalMemoryProvider -lUNIX_PhysicalConnectorProvider -lUNIX_SlotProvider -lUNIX_CardProvider -lUNIX_SystemBusCardProvider -lUNIX_ChassisProvider -lUNIX_RackProvider -lUNIX_PackageLocationProvider -lUNIX_StorageMediaLocationProvider -lUNIX_MagazineProvider -lUNIX_ComponentBayProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ElementsLinked.cpp" />
+    <Compile Include="UNIX_ElementsLinkedMain.cpp" />
+    <Compile Include="UNIX_ElementsLinkedProvider.cpp" />
+    <Compile Include="UNIX_ElementsLinked_AIX.cpp" />
+    <Compile Include="UNIX_ElementsLinked_DARWIN.cpp" />
+    <Compile Include="UNIX_ElementsLinked_FREEBSD.cpp" />
+    <Compile Include="UNIX_ElementsLinked_HPUX.cpp" />
+    <Compile Include="UNIX_ElementsLinked_LINUX.cpp" />
+    <Compile Include="UNIX_ElementsLinked_SOLARIS.cpp" />
+    <Compile Include="UNIX_ElementsLinked_STUB.cpp" />
+    <Compile Include="UNIX_ElementsLinked_TRU64.cpp" />
+    <Compile Include="UNIX_ElementsLinked_VMS.cpp" />
+    <Compile Include="UNIX_ElementsLinked_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ElementsLinked.h" />
+    <Node Include="UNIX_ElementsLinkedDeps.h" />
+    <Node Include="UNIX_ElementsLinkedDeps_AIX.h" />
+    <Node Include="UNIX_ElementsLinkedDeps_DARWIN.h" />
+    <Node Include="UNIX_ElementsLinkedDeps_FREEBSD.h" />
+    <Node Include="UNIX_ElementsLinkedDeps_HPUX.h" />
+    <Node Include="UNIX_ElementsLinkedDeps_LINUX.h" />
+    <Node Include="UNIX_ElementsLinkedDeps_SOLARIS.h" />
+    <Node Include="UNIX_ElementsLinkedDeps_STUB.h" />
+    <Node Include="UNIX_ElementsLinkedDeps_TRU64.h" />
+    <Node Include="UNIX_ElementsLinkedDeps_VMS.h" />
+    <Node Include="UNIX_ElementsLinkedDeps_ZOS.h" />
+    <Node Include="UNIX_ElementsLinkedPrivate.h" />
+    <Node Include="UNIX_ElementsLinkedPrivate_AIX.h" />
+    <Node Include="UNIX_ElementsLinkedPrivate_DARWIN.h" />
+    <Node Include="UNIX_ElementsLinkedPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ElementsLinkedPrivate_HPUX.h" />
+    <Node Include="UNIX_ElementsLinkedPrivate_LINUX.h" />
+    <Node Include="UNIX_ElementsLinkedPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ElementsLinkedPrivate_STUB.h" />
+    <Node Include="UNIX_ElementsLinkedPrivate_TRU64.h" />
+    <Node Include="UNIX_ElementsLinkedPrivate_VMS.h" />
+    <Node Include="UNIX_ElementsLinkedPrivate_ZOS.h" />
+    <Node Include="UNIX_ElementsLinkedProvider.h" />
+    <Node Include="UNIX_ElementsLinked_AIX.hpp" />
+    <Node Include="UNIX_ElementsLinked_AIX.hxx" />
+    <Node Include="UNIX_ElementsLinked_DARWIN.hpp" />
+    <Node Include="UNIX_ElementsLinked_DARWIN.hxx" />
+    <Node Include="UNIX_ElementsLinked_FREEBSD.hpp" />
+    <Node Include="UNIX_ElementsLinked_FREEBSD.hxx" />
+    <Node Include="UNIX_ElementsLinked_HPUX.hpp" />
+    <Node Include="UNIX_ElementsLinked_HPUX.hxx" />
+    <Node Include="UNIX_ElementsLinked_LINUX.hpp" />
+    <Node Include="UNIX_ElementsLinked_LINUX.hxx" />
+    <Node Include="UNIX_ElementsLinked_SOLARIS.hpp" />
+    <Node Include="UNIX_ElementsLinked_SOLARIS.hxx" />
+    <Node Include="UNIX_ElementsLinked_STUB.hpp" />
+    <Node Include="UNIX_ElementsLinked_STUB.hxx" />
+    <Node Include="UNIX_ElementsLinked_TRU64.hpp" />
+    <Node Include="UNIX_ElementsLinked_TRU64.hxx" />
+    <Node Include="UNIX_ElementsLinked_VMS.hpp" />
+    <Node Include="UNIX_ElementsLinked_VMS.hxx" />
+    <Node Include="UNIX_ElementsLinked_WIN32.hpp" />
+    <Node Include="UNIX_ElementsLinked_ZOS.hpp" />
+    <Node Include="UNIX_ElementsLinked_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

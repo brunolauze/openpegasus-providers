@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4793C567-14BE-430B-90BA-8021B6C3DC50}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_IndicatorLEDProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_IndicatorLEDLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_IndicatorLEDLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_IndicatorLEDProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_IndicatorLEDLib" -DPROVIDER_LIB_NS="namespace UNIX_IndicatorLEDLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_IndicatorLED.cpp" />
+    <Compile Include="UNIX_IndicatorLEDMain.cpp" />
+    <Compile Include="UNIX_IndicatorLEDProvider.cpp" />
+    <Compile Include="UNIX_IndicatorLED_AIX.cpp" />
+    <Compile Include="UNIX_IndicatorLED_DARWIN.cpp" />
+    <Compile Include="UNIX_IndicatorLED_FREEBSD.cpp" />
+    <Compile Include="UNIX_IndicatorLED_HPUX.cpp" />
+    <Compile Include="UNIX_IndicatorLED_LINUX.cpp" />
+    <Compile Include="UNIX_IndicatorLED_SOLARIS.cpp" />
+    <Compile Include="UNIX_IndicatorLED_STUB.cpp" />
+    <Compile Include="UNIX_IndicatorLED_TRU64.cpp" />
+    <Compile Include="UNIX_IndicatorLED_VMS.cpp" />
+    <Compile Include="UNIX_IndicatorLED_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_IndicatorLED.h" />
+    <Node Include="UNIX_IndicatorLEDDeps.h" />
+    <Node Include="UNIX_IndicatorLEDDeps_AIX.h" />
+    <Node Include="UNIX_IndicatorLEDDeps_DARWIN.h" />
+    <Node Include="UNIX_IndicatorLEDDeps_FREEBSD.h" />
+    <Node Include="UNIX_IndicatorLEDDeps_HPUX.h" />
+    <Node Include="UNIX_IndicatorLEDDeps_LINUX.h" />
+    <Node Include="UNIX_IndicatorLEDDeps_SOLARIS.h" />
+    <Node Include="UNIX_IndicatorLEDDeps_STUB.h" />
+    <Node Include="UNIX_IndicatorLEDDeps_TRU64.h" />
+    <Node Include="UNIX_IndicatorLEDDeps_VMS.h" />
+    <Node Include="UNIX_IndicatorLEDDeps_ZOS.h" />
+    <Node Include="UNIX_IndicatorLEDPrivate.h" />
+    <Node Include="UNIX_IndicatorLEDPrivate_AIX.h" />
+    <Node Include="UNIX_IndicatorLEDPrivate_DARWIN.h" />
+    <Node Include="UNIX_IndicatorLEDPrivate_FREEBSD.h" />
+    <Node Include="UNIX_IndicatorLEDPrivate_HPUX.h" />
+    <Node Include="UNIX_IndicatorLEDPrivate_LINUX.h" />
+    <Node Include="UNIX_IndicatorLEDPrivate_SOLARIS.h" />
+    <Node Include="UNIX_IndicatorLEDPrivate_STUB.h" />
+    <Node Include="UNIX_IndicatorLEDPrivate_TRU64.h" />
+    <Node Include="UNIX_IndicatorLEDPrivate_VMS.h" />
+    <Node Include="UNIX_IndicatorLEDPrivate_ZOS.h" />
+    <Node Include="UNIX_IndicatorLEDProvider.h" />
+    <Node Include="UNIX_IndicatorLED_AIX.hpp" />
+    <Node Include="UNIX_IndicatorLED_AIX.hxx" />
+    <Node Include="UNIX_IndicatorLED_DARWIN.hpp" />
+    <Node Include="UNIX_IndicatorLED_DARWIN.hxx" />
+    <Node Include="UNIX_IndicatorLED_FREEBSD.hpp" />
+    <Node Include="UNIX_IndicatorLED_FREEBSD.hxx" />
+    <Node Include="UNIX_IndicatorLED_HPUX.hpp" />
+    <Node Include="UNIX_IndicatorLED_HPUX.hxx" />
+    <Node Include="UNIX_IndicatorLED_LINUX.hpp" />
+    <Node Include="UNIX_IndicatorLED_LINUX.hxx" />
+    <Node Include="UNIX_IndicatorLED_SOLARIS.hpp" />
+    <Node Include="UNIX_IndicatorLED_SOLARIS.hxx" />
+    <Node Include="UNIX_IndicatorLED_STUB.hpp" />
+    <Node Include="UNIX_IndicatorLED_STUB.hxx" />
+    <Node Include="UNIX_IndicatorLED_TRU64.hpp" />
+    <Node Include="UNIX_IndicatorLED_TRU64.hxx" />
+    <Node Include="UNIX_IndicatorLED_VMS.hpp" />
+    <Node Include="UNIX_IndicatorLED_VMS.hxx" />
+    <Node Include="UNIX_IndicatorLED_WIN32.hpp" />
+    <Node Include="UNIX_IndicatorLED_ZOS.hpp" />
+    <Node Include="UNIX_IndicatorLED_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B3BFFD0A-EC3A-4BFE-85FE-48FD8A03F5BF}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../TopologyGraph/UNIX_TopologyGraph.md.pc" name="UNIX_TopologyGraph" IsProject="True" />
+        <Package file="../Zone/UNIX_Zone.md.pc" name="UNIX_Zone" IsProject="True" />
+        <Package file="../ZoneSet/UNIX_ZoneSet.md.pc" name="UNIX_ZoneSet" IsProject="True" />
+        <Package file="../LANConnectivitySegment/UNIX_LANConnectivitySegment.md.pc" name="UNIX_LANConnectivitySegment" IsProject="True" />
+        <Package file="../IPXConnectivityNetwork/UNIX_IPXConnectivityNetwork.md.pc" name="UNIX_IPXConnectivityNetwork" IsProject="True" />
+        <Package file="../OSPFLink/UNIX_OSPFLink.md.pc" name="UNIX_OSPFLink" IsProject="True" />
+        <Package file="../NetworkVLAN/UNIX_NetworkVLAN.md.pc" name="UNIX_NetworkVLAN" IsProject="True" />
+        <Package file="../IPConnectivitySubnet/UNIX_IPConnectivitySubnet.md.pc" name="UNIX_IPConnectivitySubnet" IsProject="True" />
+        <Package file="../DeviceConnectivityCollection/UNIX_DeviceConnectivityCollection.md.pc" name="UNIX_DeviceConnectivityCollection" IsProject="True" />
+        <Package file="../RemoteReplicationCollection/UNIX_RemoteReplicationCollection.md.pc" name="UNIX_RemoteReplicationCollection" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../TopologyGraph/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Zone/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ZoneSet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LANConnectivitySegment/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPXConnectivityNetwork/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OSPFLink/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkVLAN/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPConnectivitySubnet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DeviceConnectivityCollection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RemoteReplicationCollection/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_RelatedTopologyGraphProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RelatedTopologyGraphLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_RelatedTopologyGraphLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_TopologyGraphProvider -lUNIX_ZoneProvider -lUNIX_ZoneSetProvider -lUNIX_LANConnectivitySegmentProvider -lUNIX_IPXConnectivityNetworkProvider -lUNIX_OSPFLinkProvider -lUNIX_NetworkVLANProvider -lUNIX_IPConnectivitySubnetProvider -lUNIX_DeviceConnectivityCollectionProvider -lUNIX_RemoteReplicationCollectionProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_RelatedTopologyGraphProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RelatedTopologyGraphLib" -DPROVIDER_LIB_NS="namespace UNIX_RelatedTopologyGraphLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_TopologyGraphProvider -lUNIX_ZoneProvider -lUNIX_ZoneSetProvider -lUNIX_LANConnectivitySegmentProvider -lUNIX_IPXConnectivityNetworkProvider -lUNIX_OSPFLinkProvider -lUNIX_NetworkVLANProvider -lUNIX_IPConnectivitySubnetProvider -lUNIX_DeviceConnectivityCollectionProvider -lUNIX_RemoteReplicationCollectionProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_RelatedTopologyGraph.cpp" />
+    <Compile Include="UNIX_RelatedTopologyGraphMain.cpp" />
+    <Compile Include="UNIX_RelatedTopologyGraphProvider.cpp" />
+    <Compile Include="UNIX_RelatedTopologyGraph_AIX.cpp" />
+    <Compile Include="UNIX_RelatedTopologyGraph_DARWIN.cpp" />
+    <Compile Include="UNIX_RelatedTopologyGraph_FREEBSD.cpp" />
+    <Compile Include="UNIX_RelatedTopologyGraph_HPUX.cpp" />
+    <Compile Include="UNIX_RelatedTopologyGraph_LINUX.cpp" />
+    <Compile Include="UNIX_RelatedTopologyGraph_SOLARIS.cpp" />
+    <Compile Include="UNIX_RelatedTopologyGraph_STUB.cpp" />
+    <Compile Include="UNIX_RelatedTopologyGraph_TRU64.cpp" />
+    <Compile Include="UNIX_RelatedTopologyGraph_VMS.cpp" />
+    <Compile Include="UNIX_RelatedTopologyGraph_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_RelatedTopologyGraph.h" />
+    <Node Include="UNIX_RelatedTopologyGraphDeps.h" />
+    <Node Include="UNIX_RelatedTopologyGraphDeps_AIX.h" />
+    <Node Include="UNIX_RelatedTopologyGraphDeps_DARWIN.h" />
+    <Node Include="UNIX_RelatedTopologyGraphDeps_FREEBSD.h" />
+    <Node Include="UNIX_RelatedTopologyGraphDeps_HPUX.h" />
+    <Node Include="UNIX_RelatedTopologyGraphDeps_LINUX.h" />
+    <Node Include="UNIX_RelatedTopologyGraphDeps_SOLARIS.h" />
+    <Node Include="UNIX_RelatedTopologyGraphDeps_STUB.h" />
+    <Node Include="UNIX_RelatedTopologyGraphDeps_TRU64.h" />
+    <Node Include="UNIX_RelatedTopologyGraphDeps_VMS.h" />
+    <Node Include="UNIX_RelatedTopologyGraphDeps_ZOS.h" />
+    <Node Include="UNIX_RelatedTopologyGraphPrivate.h" />
+    <Node Include="UNIX_RelatedTopologyGraphPrivate_AIX.h" />
+    <Node Include="UNIX_RelatedTopologyGraphPrivate_DARWIN.h" />
+    <Node Include="UNIX_RelatedTopologyGraphPrivate_FREEBSD.h" />
+    <Node Include="UNIX_RelatedTopologyGraphPrivate_HPUX.h" />
+    <Node Include="UNIX_RelatedTopologyGraphPrivate_LINUX.h" />
+    <Node Include="UNIX_RelatedTopologyGraphPrivate_SOLARIS.h" />
+    <Node Include="UNIX_RelatedTopologyGraphPrivate_STUB.h" />
+    <Node Include="UNIX_RelatedTopologyGraphPrivate_TRU64.h" />
+    <Node Include="UNIX_RelatedTopologyGraphPrivate_VMS.h" />
+    <Node Include="UNIX_RelatedTopologyGraphPrivate_ZOS.h" />
+    <Node Include="UNIX_RelatedTopologyGraphProvider.h" />
+    <Node Include="UNIX_RelatedTopologyGraph_AIX.hpp" />
+    <Node Include="UNIX_RelatedTopologyGraph_AIX.hxx" />
+    <Node Include="UNIX_RelatedTopologyGraph_DARWIN.hpp" />
+    <Node Include="UNIX_RelatedTopologyGraph_DARWIN.hxx" />
+    <Node Include="UNIX_RelatedTopologyGraph_FREEBSD.hpp" />
+    <Node Include="UNIX_RelatedTopologyGraph_FREEBSD.hxx" />
+    <Node Include="UNIX_RelatedTopologyGraph_HPUX.hpp" />
+    <Node Include="UNIX_RelatedTopologyGraph_HPUX.hxx" />
+    <Node Include="UNIX_RelatedTopologyGraph_LINUX.hpp" />
+    <Node Include="UNIX_RelatedTopologyGraph_LINUX.hxx" />
+    <Node Include="UNIX_RelatedTopologyGraph_SOLARIS.hpp" />
+    <Node Include="UNIX_RelatedTopologyGraph_SOLARIS.hxx" />
+    <Node Include="UNIX_RelatedTopologyGraph_STUB.hpp" />
+    <Node Include="UNIX_RelatedTopologyGraph_STUB.hxx" />
+    <Node Include="UNIX_RelatedTopologyGraph_TRU64.hpp" />
+    <Node Include="UNIX_RelatedTopologyGraph_TRU64.hxx" />
+    <Node Include="UNIX_RelatedTopologyGraph_VMS.hpp" />
+    <Node Include="UNIX_RelatedTopologyGraph_VMS.hxx" />
+    <Node Include="UNIX_RelatedTopologyGraph_WIN32.hpp" />
+    <Node Include="UNIX_RelatedTopologyGraph_ZOS.hpp" />
+    <Node Include="UNIX_RelatedTopologyGraph_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

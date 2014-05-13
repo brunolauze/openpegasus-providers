@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5764C3B9-E0C7-4D98-BB0D-7C2A5FCF12F4}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ImagingMonitorStatisticalDataProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ImagingMonitorStatisticalDataLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ImagingMonitorStatisticalDataLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ImagingMonitorStatisticalDataProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ImagingMonitorStatisticalDataLib" -DPROVIDER_LIB_NS="namespace UNIX_ImagingMonitorStatisticalDataLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ImagingMonitorStatisticalData.cpp" />
+    <Compile Include="UNIX_ImagingMonitorStatisticalDataMain.cpp" />
+    <Compile Include="UNIX_ImagingMonitorStatisticalDataProvider.cpp" />
+    <Compile Include="UNIX_ImagingMonitorStatisticalData_AIX.cpp" />
+    <Compile Include="UNIX_ImagingMonitorStatisticalData_DARWIN.cpp" />
+    <Compile Include="UNIX_ImagingMonitorStatisticalData_FREEBSD.cpp" />
+    <Compile Include="UNIX_ImagingMonitorStatisticalData_HPUX.cpp" />
+    <Compile Include="UNIX_ImagingMonitorStatisticalData_LINUX.cpp" />
+    <Compile Include="UNIX_ImagingMonitorStatisticalData_SOLARIS.cpp" />
+    <Compile Include="UNIX_ImagingMonitorStatisticalData_STUB.cpp" />
+    <Compile Include="UNIX_ImagingMonitorStatisticalData_TRU64.cpp" />
+    <Compile Include="UNIX_ImagingMonitorStatisticalData_VMS.cpp" />
+    <Compile Include="UNIX_ImagingMonitorStatisticalData_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataDeps.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataDeps_AIX.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataDeps_DARWIN.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataDeps_FREEBSD.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataDeps_HPUX.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataDeps_LINUX.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataDeps_SOLARIS.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataDeps_STUB.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataDeps_TRU64.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataDeps_VMS.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataDeps_ZOS.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataPrivate.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataPrivate_AIX.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataPrivate_DARWIN.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataPrivate_HPUX.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataPrivate_LINUX.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataPrivate_STUB.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataPrivate_TRU64.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataPrivate_VMS.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataPrivate_ZOS.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalDataProvider.h" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_AIX.hpp" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_AIX.hxx" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_DARWIN.hpp" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_DARWIN.hxx" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_FREEBSD.hpp" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_FREEBSD.hxx" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_HPUX.hpp" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_HPUX.hxx" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_LINUX.hpp" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_LINUX.hxx" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_SOLARIS.hpp" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_SOLARIS.hxx" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_STUB.hpp" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_STUB.hxx" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_TRU64.hpp" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_TRU64.hxx" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_VMS.hpp" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_VMS.hxx" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_WIN32.hpp" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_ZOS.hpp" />
+    <Node Include="UNIX_ImagingMonitorStatisticalData_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

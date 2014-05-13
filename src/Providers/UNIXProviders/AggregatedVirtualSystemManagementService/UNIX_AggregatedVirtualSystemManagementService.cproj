@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{82FBB5C7-3E77-4BEA-905C-132D7A613031}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../VirtualComputerSystem/UNIX_VirtualComputerSystem.md.pc" name="UNIX_VirtualComputerSystem" IsProject="True" />
+        <Package file="../Cluster/UNIX_Cluster.md.pc" name="UNIX_Cluster" IsProject="True" />
+        <Package file="../ComputerSystem/UNIX_ComputerSystem.md.pc" name="UNIX_ComputerSystem" IsProject="True" />
+        <Package file="../VirtualSystemManagementService/UNIX_VirtualSystemManagementService.md.pc" name="UNIX_VirtualSystemManagementService" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../VirtualComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Cluster/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VirtualSystemManagementService/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_AggregatedVirtualSystemManagementServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AggregatedVirtualSystemManagementServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_AggregatedVirtualSystemManagementServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider -lUNIX_VirtualSystemManagementServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_AggregatedVirtualSystemManagementServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AggregatedVirtualSystemManagementServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_AggregatedVirtualSystemManagementServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider -lUNIX_VirtualSystemManagementServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_AggregatedVirtualSystemManagementService.cpp" />
+    <Compile Include="UNIX_AggregatedVirtualSystemManagementServiceMain.cpp" />
+    <Compile Include="UNIX_AggregatedVirtualSystemManagementServiceProvider.cpp" />
+    <Compile Include="UNIX_AggregatedVirtualSystemManagementService_AIX.cpp" />
+    <Compile Include="UNIX_AggregatedVirtualSystemManagementService_DARWIN.cpp" />
+    <Compile Include="UNIX_AggregatedVirtualSystemManagementService_FREEBSD.cpp" />
+    <Compile Include="UNIX_AggregatedVirtualSystemManagementService_HPUX.cpp" />
+    <Compile Include="UNIX_AggregatedVirtualSystemManagementService_LINUX.cpp" />
+    <Compile Include="UNIX_AggregatedVirtualSystemManagementService_SOLARIS.cpp" />
+    <Compile Include="UNIX_AggregatedVirtualSystemManagementService_STUB.cpp" />
+    <Compile Include="UNIX_AggregatedVirtualSystemManagementService_TRU64.cpp" />
+    <Compile Include="UNIX_AggregatedVirtualSystemManagementService_VMS.cpp" />
+    <Compile Include="UNIX_AggregatedVirtualSystemManagementService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServiceDeps.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServiceDeps_AIX.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServiceDeps_HPUX.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServiceDeps_LINUX.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServiceDeps_STUB.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServiceDeps_TRU64.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServiceDeps_VMS.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServiceDeps_ZOS.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServicePrivate.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServicePrivate_AIX.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServicePrivate_HPUX.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServicePrivate_LINUX.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServicePrivate_STUB.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServicePrivate_TRU64.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServicePrivate_VMS.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServicePrivate_ZOS.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementServiceProvider.h" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_AIX.hpp" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_AIX.hxx" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_DARWIN.hpp" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_DARWIN.hxx" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_FREEBSD.hpp" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_FREEBSD.hxx" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_HPUX.hpp" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_HPUX.hxx" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_LINUX.hpp" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_LINUX.hxx" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_SOLARIS.hpp" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_SOLARIS.hxx" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_STUB.hpp" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_STUB.hxx" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_TRU64.hpp" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_TRU64.hxx" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_VMS.hpp" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_VMS.hxx" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_WIN32.hpp" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_ZOS.hpp" />
+    <Node Include="UNIX_AggregatedVirtualSystemManagementService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

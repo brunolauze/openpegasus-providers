@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{76A25E1C-616A-4202-990E-334BC5D8ED6E}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_NetworkingIDAuthenticationProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_NetworkingIDAuthenticationLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_NetworkingIDAuthenticationLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_NetworkingIDAuthenticationProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_NetworkingIDAuthenticationLib" -DPROVIDER_LIB_NS="namespace UNIX_NetworkingIDAuthenticationLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_NetworkingIDAuthentication.cpp" />
+    <Compile Include="UNIX_NetworkingIDAuthenticationMain.cpp" />
+    <Compile Include="UNIX_NetworkingIDAuthenticationProvider.cpp" />
+    <Compile Include="UNIX_NetworkingIDAuthentication_AIX.cpp" />
+    <Compile Include="UNIX_NetworkingIDAuthentication_DARWIN.cpp" />
+    <Compile Include="UNIX_NetworkingIDAuthentication_FREEBSD.cpp" />
+    <Compile Include="UNIX_NetworkingIDAuthentication_HPUX.cpp" />
+    <Compile Include="UNIX_NetworkingIDAuthentication_LINUX.cpp" />
+    <Compile Include="UNIX_NetworkingIDAuthentication_SOLARIS.cpp" />
+    <Compile Include="UNIX_NetworkingIDAuthentication_STUB.cpp" />
+    <Compile Include="UNIX_NetworkingIDAuthentication_TRU64.cpp" />
+    <Compile Include="UNIX_NetworkingIDAuthentication_VMS.cpp" />
+    <Compile Include="UNIX_NetworkingIDAuthentication_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_NetworkingIDAuthentication.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationDeps.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationDeps_AIX.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationDeps_DARWIN.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationDeps_FREEBSD.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationDeps_HPUX.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationDeps_LINUX.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationDeps_SOLARIS.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationDeps_STUB.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationDeps_TRU64.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationDeps_VMS.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationDeps_ZOS.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationPrivate.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationPrivate_AIX.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationPrivate_DARWIN.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationPrivate_FREEBSD.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationPrivate_HPUX.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationPrivate_LINUX.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationPrivate_SOLARIS.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationPrivate_STUB.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationPrivate_TRU64.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationPrivate_VMS.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationPrivate_ZOS.h" />
+    <Node Include="UNIX_NetworkingIDAuthenticationProvider.h" />
+    <Node Include="UNIX_NetworkingIDAuthentication_AIX.hpp" />
+    <Node Include="UNIX_NetworkingIDAuthentication_AIX.hxx" />
+    <Node Include="UNIX_NetworkingIDAuthentication_DARWIN.hpp" />
+    <Node Include="UNIX_NetworkingIDAuthentication_DARWIN.hxx" />
+    <Node Include="UNIX_NetworkingIDAuthentication_FREEBSD.hpp" />
+    <Node Include="UNIX_NetworkingIDAuthentication_FREEBSD.hxx" />
+    <Node Include="UNIX_NetworkingIDAuthentication_HPUX.hpp" />
+    <Node Include="UNIX_NetworkingIDAuthentication_HPUX.hxx" />
+    <Node Include="UNIX_NetworkingIDAuthentication_LINUX.hpp" />
+    <Node Include="UNIX_NetworkingIDAuthentication_LINUX.hxx" />
+    <Node Include="UNIX_NetworkingIDAuthentication_SOLARIS.hpp" />
+    <Node Include="UNIX_NetworkingIDAuthentication_SOLARIS.hxx" />
+    <Node Include="UNIX_NetworkingIDAuthentication_STUB.hpp" />
+    <Node Include="UNIX_NetworkingIDAuthentication_STUB.hxx" />
+    <Node Include="UNIX_NetworkingIDAuthentication_TRU64.hpp" />
+    <Node Include="UNIX_NetworkingIDAuthentication_TRU64.hxx" />
+    <Node Include="UNIX_NetworkingIDAuthentication_VMS.hpp" />
+    <Node Include="UNIX_NetworkingIDAuthentication_VMS.hxx" />
+    <Node Include="UNIX_NetworkingIDAuthentication_WIN32.hpp" />
+    <Node Include="UNIX_NetworkingIDAuthentication_ZOS.hpp" />
+    <Node Include="UNIX_NetworkingIDAuthentication_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

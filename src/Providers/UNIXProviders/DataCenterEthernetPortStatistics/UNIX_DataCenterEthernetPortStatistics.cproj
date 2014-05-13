@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{98CD2046-B330-4333-97BE-F010503A3CE3}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../LLDPEthernetPortStatistics/UNIX_LLDPEthernetPortStatistics.md.pc" name="UNIX_LLDPEthernetPortStatistics" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../LLDPEthernetPortStatistics/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_DataCenterEthernetPortStatisticsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DataCenterEthernetPortStatisticsLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_DataCenterEthernetPortStatisticsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_LLDPEthernetPortStatisticsProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_DataCenterEthernetPortStatisticsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DataCenterEthernetPortStatisticsLib" -DPROVIDER_LIB_NS="namespace UNIX_DataCenterEthernetPortStatisticsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_LLDPEthernetPortStatisticsProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_DataCenterEthernetPortStatistics.cpp" />
+    <Compile Include="UNIX_DataCenterEthernetPortStatisticsMain.cpp" />
+    <Compile Include="UNIX_DataCenterEthernetPortStatisticsProvider.cpp" />
+    <Compile Include="UNIX_DataCenterEthernetPortStatistics_AIX.cpp" />
+    <Compile Include="UNIX_DataCenterEthernetPortStatistics_DARWIN.cpp" />
+    <Compile Include="UNIX_DataCenterEthernetPortStatistics_FREEBSD.cpp" />
+    <Compile Include="UNIX_DataCenterEthernetPortStatistics_HPUX.cpp" />
+    <Compile Include="UNIX_DataCenterEthernetPortStatistics_LINUX.cpp" />
+    <Compile Include="UNIX_DataCenterEthernetPortStatistics_SOLARIS.cpp" />
+    <Compile Include="UNIX_DataCenterEthernetPortStatistics_STUB.cpp" />
+    <Compile Include="UNIX_DataCenterEthernetPortStatistics_TRU64.cpp" />
+    <Compile Include="UNIX_DataCenterEthernetPortStatistics_VMS.cpp" />
+    <Compile Include="UNIX_DataCenterEthernetPortStatistics_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsDeps.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsDeps_AIX.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsDeps_DARWIN.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsDeps_FREEBSD.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsDeps_HPUX.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsDeps_LINUX.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsDeps_SOLARIS.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsDeps_STUB.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsDeps_TRU64.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsDeps_VMS.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsDeps_ZOS.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsPrivate.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsPrivate_AIX.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsPrivate_DARWIN.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsPrivate_FREEBSD.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsPrivate_HPUX.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsPrivate_LINUX.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsPrivate_SOLARIS.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsPrivate_STUB.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsPrivate_TRU64.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsPrivate_VMS.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsPrivate_ZOS.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatisticsProvider.h" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_AIX.hpp" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_AIX.hxx" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_DARWIN.hpp" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_DARWIN.hxx" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_FREEBSD.hpp" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_FREEBSD.hxx" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_HPUX.hpp" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_HPUX.hxx" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_LINUX.hpp" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_LINUX.hxx" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_SOLARIS.hpp" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_SOLARIS.hxx" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_STUB.hpp" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_STUB.hxx" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_TRU64.hpp" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_TRU64.hxx" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_VMS.hpp" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_VMS.hxx" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_WIN32.hpp" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_ZOS.hpp" />
+    <Node Include="UNIX_DataCenterEthernetPortStatistics_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

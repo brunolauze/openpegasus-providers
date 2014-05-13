@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C004B001-C0C0-48E6-BF4C-ACD93DED2C8E}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../StorageCapabilities/UNIX_StorageCapabilities.md.pc" name="UNIX_StorageCapabilities" IsProject="True" />
+        <Package file="../StorageSetting/UNIX_StorageSetting.md.pc" name="UNIX_StorageSetting" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../StorageCapabilities/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageSetting/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_StorageSettingsGeneratedFromCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_StorageSettingsGeneratedFromCapabilitiesLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_StorageSettingsGeneratedFromCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_StorageCapabilitiesProvider -lUNIX_StorageSettingProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_StorageSettingsGeneratedFromCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_StorageSettingsGeneratedFromCapabilitiesLib" -DPROVIDER_LIB_NS="namespace UNIX_StorageSettingsGeneratedFromCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_StorageCapabilitiesProvider -lUNIX_StorageSettingProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_StorageSettingsGeneratedFromCapabilities.cpp" />
+    <Compile Include="UNIX_StorageSettingsGeneratedFromCapabilitiesMain.cpp" />
+    <Compile Include="UNIX_StorageSettingsGeneratedFromCapabilitiesProvider.cpp" />
+    <Compile Include="UNIX_StorageSettingsGeneratedFromCapabilities_AIX.cpp" />
+    <Compile Include="UNIX_StorageSettingsGeneratedFromCapabilities_DARWIN.cpp" />
+    <Compile Include="UNIX_StorageSettingsGeneratedFromCapabilities_FREEBSD.cpp" />
+    <Compile Include="UNIX_StorageSettingsGeneratedFromCapabilities_HPUX.cpp" />
+    <Compile Include="UNIX_StorageSettingsGeneratedFromCapabilities_LINUX.cpp" />
+    <Compile Include="UNIX_StorageSettingsGeneratedFromCapabilities_SOLARIS.cpp" />
+    <Compile Include="UNIX_StorageSettingsGeneratedFromCapabilities_STUB.cpp" />
+    <Compile Include="UNIX_StorageSettingsGeneratedFromCapabilities_TRU64.cpp" />
+    <Compile Include="UNIX_StorageSettingsGeneratedFromCapabilities_VMS.cpp" />
+    <Compile Include="UNIX_StorageSettingsGeneratedFromCapabilities_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesDeps.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesDeps_AIX.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesDeps_DARWIN.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesDeps_FREEBSD.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesDeps_HPUX.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesDeps_LINUX.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesDeps_SOLARIS.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesDeps_STUB.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesDeps_TRU64.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesDeps_VMS.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesDeps_ZOS.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesPrivate.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesPrivate_AIX.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesPrivate_DARWIN.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesPrivate_FREEBSD.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesPrivate_HPUX.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesPrivate_LINUX.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesPrivate_SOLARIS.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesPrivate_STUB.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesPrivate_TRU64.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesPrivate_VMS.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesPrivate_ZOS.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilitiesProvider.h" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_AIX.hpp" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_AIX.hxx" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_DARWIN.hpp" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_DARWIN.hxx" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_FREEBSD.hpp" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_FREEBSD.hxx" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_HPUX.hpp" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_HPUX.hxx" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_LINUX.hpp" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_LINUX.hxx" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_SOLARIS.hpp" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_SOLARIS.hxx" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_STUB.hpp" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_STUB.hxx" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_TRU64.hpp" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_TRU64.hxx" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_VMS.hpp" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_VMS.hxx" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_WIN32.hpp" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_ZOS.hpp" />
+    <Node Include="UNIX_StorageSettingsGeneratedFromCapabilities_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2800C76D-6240-4AC4-B4BF-8932C8063F99}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_TCPEndpointStatisticsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TCPEndpointStatisticsLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_TCPEndpointStatisticsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_TCPEndpointStatisticsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TCPEndpointStatisticsLib" -DPROVIDER_LIB_NS="namespace UNIX_TCPEndpointStatisticsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_TCPEndpointStatistics.cpp" />
+    <Compile Include="UNIX_TCPEndpointStatisticsMain.cpp" />
+    <Compile Include="UNIX_TCPEndpointStatisticsProvider.cpp" />
+    <Compile Include="UNIX_TCPEndpointStatistics_AIX.cpp" />
+    <Compile Include="UNIX_TCPEndpointStatistics_DARWIN.cpp" />
+    <Compile Include="UNIX_TCPEndpointStatistics_FREEBSD.cpp" />
+    <Compile Include="UNIX_TCPEndpointStatistics_HPUX.cpp" />
+    <Compile Include="UNIX_TCPEndpointStatistics_LINUX.cpp" />
+    <Compile Include="UNIX_TCPEndpointStatistics_SOLARIS.cpp" />
+    <Compile Include="UNIX_TCPEndpointStatistics_STUB.cpp" />
+    <Compile Include="UNIX_TCPEndpointStatistics_TRU64.cpp" />
+    <Compile Include="UNIX_TCPEndpointStatistics_VMS.cpp" />
+    <Compile Include="UNIX_TCPEndpointStatistics_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_TCPEndpointStatistics.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsDeps.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsDeps_AIX.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsDeps_DARWIN.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsDeps_FREEBSD.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsDeps_HPUX.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsDeps_LINUX.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsDeps_SOLARIS.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsDeps_STUB.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsDeps_TRU64.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsDeps_VMS.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsDeps_ZOS.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsPrivate.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsPrivate_AIX.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsPrivate_DARWIN.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsPrivate_FREEBSD.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsPrivate_HPUX.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsPrivate_LINUX.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsPrivate_SOLARIS.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsPrivate_STUB.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsPrivate_TRU64.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsPrivate_VMS.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsPrivate_ZOS.h" />
+    <Node Include="UNIX_TCPEndpointStatisticsProvider.h" />
+    <Node Include="UNIX_TCPEndpointStatistics_AIX.hpp" />
+    <Node Include="UNIX_TCPEndpointStatistics_AIX.hxx" />
+    <Node Include="UNIX_TCPEndpointStatistics_DARWIN.hpp" />
+    <Node Include="UNIX_TCPEndpointStatistics_DARWIN.hxx" />
+    <Node Include="UNIX_TCPEndpointStatistics_FREEBSD.hpp" />
+    <Node Include="UNIX_TCPEndpointStatistics_FREEBSD.hxx" />
+    <Node Include="UNIX_TCPEndpointStatistics_HPUX.hpp" />
+    <Node Include="UNIX_TCPEndpointStatistics_HPUX.hxx" />
+    <Node Include="UNIX_TCPEndpointStatistics_LINUX.hpp" />
+    <Node Include="UNIX_TCPEndpointStatistics_LINUX.hxx" />
+    <Node Include="UNIX_TCPEndpointStatistics_SOLARIS.hpp" />
+    <Node Include="UNIX_TCPEndpointStatistics_SOLARIS.hxx" />
+    <Node Include="UNIX_TCPEndpointStatistics_STUB.hpp" />
+    <Node Include="UNIX_TCPEndpointStatistics_STUB.hxx" />
+    <Node Include="UNIX_TCPEndpointStatistics_TRU64.hpp" />
+    <Node Include="UNIX_TCPEndpointStatistics_TRU64.hxx" />
+    <Node Include="UNIX_TCPEndpointStatistics_VMS.hpp" />
+    <Node Include="UNIX_TCPEndpointStatistics_VMS.hxx" />
+    <Node Include="UNIX_TCPEndpointStatistics_WIN32.hpp" />
+    <Node Include="UNIX_TCPEndpointStatistics_ZOS.hpp" />
+    <Node Include="UNIX_TCPEndpointStatistics_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

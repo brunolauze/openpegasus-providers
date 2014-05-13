@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70049C06-C5BA-4874-B352-A85BBB546DD7}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../SqlDomain/UNIX_SqlDomain.md.pc" name="UNIX_SqlDomain" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../SqlDomain/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_SqlDomainConstraintProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SqlDomainConstraintLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SqlDomainConstraintLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_SqlDomainProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_SqlDomainConstraintProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SqlDomainConstraintLib" -DPROVIDER_LIB_NS="namespace UNIX_SqlDomainConstraintLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_SqlDomainProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SqlDomainConstraint.cpp" />
+    <Compile Include="UNIX_SqlDomainConstraintMain.cpp" />
+    <Compile Include="UNIX_SqlDomainConstraintProvider.cpp" />
+    <Compile Include="UNIX_SqlDomainConstraint_AIX.cpp" />
+    <Compile Include="UNIX_SqlDomainConstraint_DARWIN.cpp" />
+    <Compile Include="UNIX_SqlDomainConstraint_FREEBSD.cpp" />
+    <Compile Include="UNIX_SqlDomainConstraint_HPUX.cpp" />
+    <Compile Include="UNIX_SqlDomainConstraint_LINUX.cpp" />
+    <Compile Include="UNIX_SqlDomainConstraint_SOLARIS.cpp" />
+    <Compile Include="UNIX_SqlDomainConstraint_STUB.cpp" />
+    <Compile Include="UNIX_SqlDomainConstraint_TRU64.cpp" />
+    <Compile Include="UNIX_SqlDomainConstraint_VMS.cpp" />
+    <Compile Include="UNIX_SqlDomainConstraint_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_SqlDomainConstraint.h" />
+    <Node Include="UNIX_SqlDomainConstraintDeps.h" />
+    <Node Include="UNIX_SqlDomainConstraintDeps_AIX.h" />
+    <Node Include="UNIX_SqlDomainConstraintDeps_DARWIN.h" />
+    <Node Include="UNIX_SqlDomainConstraintDeps_FREEBSD.h" />
+    <Node Include="UNIX_SqlDomainConstraintDeps_HPUX.h" />
+    <Node Include="UNIX_SqlDomainConstraintDeps_LINUX.h" />
+    <Node Include="UNIX_SqlDomainConstraintDeps_SOLARIS.h" />
+    <Node Include="UNIX_SqlDomainConstraintDeps_STUB.h" />
+    <Node Include="UNIX_SqlDomainConstraintDeps_TRU64.h" />
+    <Node Include="UNIX_SqlDomainConstraintDeps_VMS.h" />
+    <Node Include="UNIX_SqlDomainConstraintDeps_ZOS.h" />
+    <Node Include="UNIX_SqlDomainConstraintPrivate.h" />
+    <Node Include="UNIX_SqlDomainConstraintPrivate_AIX.h" />
+    <Node Include="UNIX_SqlDomainConstraintPrivate_DARWIN.h" />
+    <Node Include="UNIX_SqlDomainConstraintPrivate_FREEBSD.h" />
+    <Node Include="UNIX_SqlDomainConstraintPrivate_HPUX.h" />
+    <Node Include="UNIX_SqlDomainConstraintPrivate_LINUX.h" />
+    <Node Include="UNIX_SqlDomainConstraintPrivate_SOLARIS.h" />
+    <Node Include="UNIX_SqlDomainConstraintPrivate_STUB.h" />
+    <Node Include="UNIX_SqlDomainConstraintPrivate_TRU64.h" />
+    <Node Include="UNIX_SqlDomainConstraintPrivate_VMS.h" />
+    <Node Include="UNIX_SqlDomainConstraintPrivate_ZOS.h" />
+    <Node Include="UNIX_SqlDomainConstraintProvider.h" />
+    <Node Include="UNIX_SqlDomainConstraint_AIX.hpp" />
+    <Node Include="UNIX_SqlDomainConstraint_AIX.hxx" />
+    <Node Include="UNIX_SqlDomainConstraint_DARWIN.hpp" />
+    <Node Include="UNIX_SqlDomainConstraint_DARWIN.hxx" />
+    <Node Include="UNIX_SqlDomainConstraint_FREEBSD.hpp" />
+    <Node Include="UNIX_SqlDomainConstraint_FREEBSD.hxx" />
+    <Node Include="UNIX_SqlDomainConstraint_HPUX.hpp" />
+    <Node Include="UNIX_SqlDomainConstraint_HPUX.hxx" />
+    <Node Include="UNIX_SqlDomainConstraint_LINUX.hpp" />
+    <Node Include="UNIX_SqlDomainConstraint_LINUX.hxx" />
+    <Node Include="UNIX_SqlDomainConstraint_SOLARIS.hpp" />
+    <Node Include="UNIX_SqlDomainConstraint_SOLARIS.hxx" />
+    <Node Include="UNIX_SqlDomainConstraint_STUB.hpp" />
+    <Node Include="UNIX_SqlDomainConstraint_STUB.hxx" />
+    <Node Include="UNIX_SqlDomainConstraint_TRU64.hpp" />
+    <Node Include="UNIX_SqlDomainConstraint_TRU64.hxx" />
+    <Node Include="UNIX_SqlDomainConstraint_VMS.hpp" />
+    <Node Include="UNIX_SqlDomainConstraint_VMS.hxx" />
+    <Node Include="UNIX_SqlDomainConstraint_WIN32.hpp" />
+    <Node Include="UNIX_SqlDomainConstraint_ZOS.hpp" />
+    <Node Include="UNIX_SqlDomainConstraint_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

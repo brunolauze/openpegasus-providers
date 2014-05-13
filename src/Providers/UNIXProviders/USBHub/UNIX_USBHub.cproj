@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D608BAAD-677F-4D8C-A67A-D222A73C6937}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../USBDevice/UNIX_USBDevice.md.pc" name="UNIX_USBDevice" IsProject="True" />
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../USBDevice/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_USBHubProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_USBHubLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_USBHubLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_USBDeviceProvider -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_USBHubProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_USBHubLib" -DPROVIDER_LIB_NS="namespace UNIX_USBHubLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_USBDeviceProvider -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_USBHub.cpp" />
+    <Compile Include="UNIX_USBHubMain.cpp" />
+    <Compile Include="UNIX_USBHubProvider.cpp" />
+    <Compile Include="UNIX_USBHub_AIX.cpp" />
+    <Compile Include="UNIX_USBHub_DARWIN.cpp" />
+    <Compile Include="UNIX_USBHub_FREEBSD.cpp" />
+    <Compile Include="UNIX_USBHub_HPUX.cpp" />
+    <Compile Include="UNIX_USBHub_LINUX.cpp" />
+    <Compile Include="UNIX_USBHub_SOLARIS.cpp" />
+    <Compile Include="UNIX_USBHub_STUB.cpp" />
+    <Compile Include="UNIX_USBHub_TRU64.cpp" />
+    <Compile Include="UNIX_USBHub_VMS.cpp" />
+    <Compile Include="UNIX_USBHub_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_USBHub.h" />
+    <Node Include="UNIX_USBHubDeps.h" />
+    <Node Include="UNIX_USBHubDeps_AIX.h" />
+    <Node Include="UNIX_USBHubDeps_DARWIN.h" />
+    <Node Include="UNIX_USBHubDeps_FREEBSD.h" />
+    <Node Include="UNIX_USBHubDeps_HPUX.h" />
+    <Node Include="UNIX_USBHubDeps_LINUX.h" />
+    <Node Include="UNIX_USBHubDeps_SOLARIS.h" />
+    <Node Include="UNIX_USBHubDeps_STUB.h" />
+    <Node Include="UNIX_USBHubDeps_TRU64.h" />
+    <Node Include="UNIX_USBHubDeps_VMS.h" />
+    <Node Include="UNIX_USBHubDeps_ZOS.h" />
+    <Node Include="UNIX_USBHubPrivate.h" />
+    <Node Include="UNIX_USBHubPrivate_AIX.h" />
+    <Node Include="UNIX_USBHubPrivate_DARWIN.h" />
+    <Node Include="UNIX_USBHubPrivate_FREEBSD.h" />
+    <Node Include="UNIX_USBHubPrivate_HPUX.h" />
+    <Node Include="UNIX_USBHubPrivate_LINUX.h" />
+    <Node Include="UNIX_USBHubPrivate_SOLARIS.h" />
+    <Node Include="UNIX_USBHubPrivate_STUB.h" />
+    <Node Include="UNIX_USBHubPrivate_TRU64.h" />
+    <Node Include="UNIX_USBHubPrivate_VMS.h" />
+    <Node Include="UNIX_USBHubPrivate_ZOS.h" />
+    <Node Include="UNIX_USBHubProvider.h" />
+    <Node Include="UNIX_USBHub_AIX.hpp" />
+    <Node Include="UNIX_USBHub_AIX.hxx" />
+    <Node Include="UNIX_USBHub_DARWIN.hpp" />
+    <Node Include="UNIX_USBHub_DARWIN.hxx" />
+    <Node Include="UNIX_USBHub_FREEBSD.hpp" />
+    <Node Include="UNIX_USBHub_FREEBSD.hxx" />
+    <Node Include="UNIX_USBHub_HPUX.hpp" />
+    <Node Include="UNIX_USBHub_HPUX.hxx" />
+    <Node Include="UNIX_USBHub_LINUX.hpp" />
+    <Node Include="UNIX_USBHub_LINUX.hxx" />
+    <Node Include="UNIX_USBHub_SOLARIS.hpp" />
+    <Node Include="UNIX_USBHub_SOLARIS.hxx" />
+    <Node Include="UNIX_USBHub_STUB.hpp" />
+    <Node Include="UNIX_USBHub_STUB.hxx" />
+    <Node Include="UNIX_USBHub_TRU64.hpp" />
+    <Node Include="UNIX_USBHub_TRU64.hxx" />
+    <Node Include="UNIX_USBHub_VMS.hpp" />
+    <Node Include="UNIX_USBHub_VMS.hxx" />
+    <Node Include="UNIX_USBHub_WIN32.hpp" />
+    <Node Include="UNIX_USBHub_ZOS.hpp" />
+    <Node Include="UNIX_USBHub_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

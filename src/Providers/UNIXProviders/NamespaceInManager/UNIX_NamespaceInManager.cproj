@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E72B7B9-26D9-4162-9E05-2A06604E2ED7}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ObjectManager/UNIX_ObjectManager.md.pc" name="UNIX_ObjectManager" IsProject="True" />
+        <Package file="../Namespace/UNIX_Namespace.md.pc" name="UNIX_Namespace" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ObjectManager/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Namespace/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_NamespaceInManagerProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_NamespaceInManagerLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_NamespaceInManagerLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ObjectManagerProvider -lUNIX_NamespaceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_NamespaceInManagerProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_NamespaceInManagerLib" -DPROVIDER_LIB_NS="namespace UNIX_NamespaceInManagerLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ObjectManagerProvider -lUNIX_NamespaceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_NamespaceInManager.cpp" />
+    <Compile Include="UNIX_NamespaceInManagerMain.cpp" />
+    <Compile Include="UNIX_NamespaceInManagerProvider.cpp" />
+    <Compile Include="UNIX_NamespaceInManager_AIX.cpp" />
+    <Compile Include="UNIX_NamespaceInManager_DARWIN.cpp" />
+    <Compile Include="UNIX_NamespaceInManager_FREEBSD.cpp" />
+    <Compile Include="UNIX_NamespaceInManager_HPUX.cpp" />
+    <Compile Include="UNIX_NamespaceInManager_LINUX.cpp" />
+    <Compile Include="UNIX_NamespaceInManager_SOLARIS.cpp" />
+    <Compile Include="UNIX_NamespaceInManager_STUB.cpp" />
+    <Compile Include="UNIX_NamespaceInManager_TRU64.cpp" />
+    <Compile Include="UNIX_NamespaceInManager_VMS.cpp" />
+    <Compile Include="UNIX_NamespaceInManager_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_NamespaceInManager.h" />
+    <Node Include="UNIX_NamespaceInManagerDeps.h" />
+    <Node Include="UNIX_NamespaceInManagerDeps_AIX.h" />
+    <Node Include="UNIX_NamespaceInManagerDeps_DARWIN.h" />
+    <Node Include="UNIX_NamespaceInManagerDeps_FREEBSD.h" />
+    <Node Include="UNIX_NamespaceInManagerDeps_HPUX.h" />
+    <Node Include="UNIX_NamespaceInManagerDeps_LINUX.h" />
+    <Node Include="UNIX_NamespaceInManagerDeps_SOLARIS.h" />
+    <Node Include="UNIX_NamespaceInManagerDeps_STUB.h" />
+    <Node Include="UNIX_NamespaceInManagerDeps_TRU64.h" />
+    <Node Include="UNIX_NamespaceInManagerDeps_VMS.h" />
+    <Node Include="UNIX_NamespaceInManagerDeps_ZOS.h" />
+    <Node Include="UNIX_NamespaceInManagerPrivate.h" />
+    <Node Include="UNIX_NamespaceInManagerPrivate_AIX.h" />
+    <Node Include="UNIX_NamespaceInManagerPrivate_DARWIN.h" />
+    <Node Include="UNIX_NamespaceInManagerPrivate_FREEBSD.h" />
+    <Node Include="UNIX_NamespaceInManagerPrivate_HPUX.h" />
+    <Node Include="UNIX_NamespaceInManagerPrivate_LINUX.h" />
+    <Node Include="UNIX_NamespaceInManagerPrivate_SOLARIS.h" />
+    <Node Include="UNIX_NamespaceInManagerPrivate_STUB.h" />
+    <Node Include="UNIX_NamespaceInManagerPrivate_TRU64.h" />
+    <Node Include="UNIX_NamespaceInManagerPrivate_VMS.h" />
+    <Node Include="UNIX_NamespaceInManagerPrivate_ZOS.h" />
+    <Node Include="UNIX_NamespaceInManagerProvider.h" />
+    <Node Include="UNIX_NamespaceInManager_AIX.hpp" />
+    <Node Include="UNIX_NamespaceInManager_AIX.hxx" />
+    <Node Include="UNIX_NamespaceInManager_DARWIN.hpp" />
+    <Node Include="UNIX_NamespaceInManager_DARWIN.hxx" />
+    <Node Include="UNIX_NamespaceInManager_FREEBSD.hpp" />
+    <Node Include="UNIX_NamespaceInManager_FREEBSD.hxx" />
+    <Node Include="UNIX_NamespaceInManager_HPUX.hpp" />
+    <Node Include="UNIX_NamespaceInManager_HPUX.hxx" />
+    <Node Include="UNIX_NamespaceInManager_LINUX.hpp" />
+    <Node Include="UNIX_NamespaceInManager_LINUX.hxx" />
+    <Node Include="UNIX_NamespaceInManager_SOLARIS.hpp" />
+    <Node Include="UNIX_NamespaceInManager_SOLARIS.hxx" />
+    <Node Include="UNIX_NamespaceInManager_STUB.hpp" />
+    <Node Include="UNIX_NamespaceInManager_STUB.hxx" />
+    <Node Include="UNIX_NamespaceInManager_TRU64.hpp" />
+    <Node Include="UNIX_NamespaceInManager_TRU64.hxx" />
+    <Node Include="UNIX_NamespaceInManager_VMS.hpp" />
+    <Node Include="UNIX_NamespaceInManager_VMS.hxx" />
+    <Node Include="UNIX_NamespaceInManager_WIN32.hpp" />
+    <Node Include="UNIX_NamespaceInManager_ZOS.hpp" />
+    <Node Include="UNIX_NamespaceInManager_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

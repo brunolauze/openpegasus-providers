@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1133928D-2D52-4A00-8985-FC9794247D59}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ExtraCapacityGroupProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ExtraCapacityGroupLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ExtraCapacityGroupLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ExtraCapacityGroupProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ExtraCapacityGroupLib" -DPROVIDER_LIB_NS="namespace UNIX_ExtraCapacityGroupLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ExtraCapacityGroup.cpp" />
+    <Compile Include="UNIX_ExtraCapacityGroupMain.cpp" />
+    <Compile Include="UNIX_ExtraCapacityGroupProvider.cpp" />
+    <Compile Include="UNIX_ExtraCapacityGroup_AIX.cpp" />
+    <Compile Include="UNIX_ExtraCapacityGroup_DARWIN.cpp" />
+    <Compile Include="UNIX_ExtraCapacityGroup_FREEBSD.cpp" />
+    <Compile Include="UNIX_ExtraCapacityGroup_HPUX.cpp" />
+    <Compile Include="UNIX_ExtraCapacityGroup_LINUX.cpp" />
+    <Compile Include="UNIX_ExtraCapacityGroup_SOLARIS.cpp" />
+    <Compile Include="UNIX_ExtraCapacityGroup_STUB.cpp" />
+    <Compile Include="UNIX_ExtraCapacityGroup_TRU64.cpp" />
+    <Compile Include="UNIX_ExtraCapacityGroup_VMS.cpp" />
+    <Compile Include="UNIX_ExtraCapacityGroup_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ExtraCapacityGroup.h" />
+    <Node Include="UNIX_ExtraCapacityGroupDeps.h" />
+    <Node Include="UNIX_ExtraCapacityGroupDeps_AIX.h" />
+    <Node Include="UNIX_ExtraCapacityGroupDeps_DARWIN.h" />
+    <Node Include="UNIX_ExtraCapacityGroupDeps_FREEBSD.h" />
+    <Node Include="UNIX_ExtraCapacityGroupDeps_HPUX.h" />
+    <Node Include="UNIX_ExtraCapacityGroupDeps_LINUX.h" />
+    <Node Include="UNIX_ExtraCapacityGroupDeps_SOLARIS.h" />
+    <Node Include="UNIX_ExtraCapacityGroupDeps_STUB.h" />
+    <Node Include="UNIX_ExtraCapacityGroupDeps_TRU64.h" />
+    <Node Include="UNIX_ExtraCapacityGroupDeps_VMS.h" />
+    <Node Include="UNIX_ExtraCapacityGroupDeps_ZOS.h" />
+    <Node Include="UNIX_ExtraCapacityGroupPrivate.h" />
+    <Node Include="UNIX_ExtraCapacityGroupPrivate_AIX.h" />
+    <Node Include="UNIX_ExtraCapacityGroupPrivate_DARWIN.h" />
+    <Node Include="UNIX_ExtraCapacityGroupPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ExtraCapacityGroupPrivate_HPUX.h" />
+    <Node Include="UNIX_ExtraCapacityGroupPrivate_LINUX.h" />
+    <Node Include="UNIX_ExtraCapacityGroupPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ExtraCapacityGroupPrivate_STUB.h" />
+    <Node Include="UNIX_ExtraCapacityGroupPrivate_TRU64.h" />
+    <Node Include="UNIX_ExtraCapacityGroupPrivate_VMS.h" />
+    <Node Include="UNIX_ExtraCapacityGroupPrivate_ZOS.h" />
+    <Node Include="UNIX_ExtraCapacityGroupProvider.h" />
+    <Node Include="UNIX_ExtraCapacityGroup_AIX.hpp" />
+    <Node Include="UNIX_ExtraCapacityGroup_AIX.hxx" />
+    <Node Include="UNIX_ExtraCapacityGroup_DARWIN.hpp" />
+    <Node Include="UNIX_ExtraCapacityGroup_DARWIN.hxx" />
+    <Node Include="UNIX_ExtraCapacityGroup_FREEBSD.hpp" />
+    <Node Include="UNIX_ExtraCapacityGroup_FREEBSD.hxx" />
+    <Node Include="UNIX_ExtraCapacityGroup_HPUX.hpp" />
+    <Node Include="UNIX_ExtraCapacityGroup_HPUX.hxx" />
+    <Node Include="UNIX_ExtraCapacityGroup_LINUX.hpp" />
+    <Node Include="UNIX_ExtraCapacityGroup_LINUX.hxx" />
+    <Node Include="UNIX_ExtraCapacityGroup_SOLARIS.hpp" />
+    <Node Include="UNIX_ExtraCapacityGroup_SOLARIS.hxx" />
+    <Node Include="UNIX_ExtraCapacityGroup_STUB.hpp" />
+    <Node Include="UNIX_ExtraCapacityGroup_STUB.hxx" />
+    <Node Include="UNIX_ExtraCapacityGroup_TRU64.hpp" />
+    <Node Include="UNIX_ExtraCapacityGroup_TRU64.hxx" />
+    <Node Include="UNIX_ExtraCapacityGroup_VMS.hpp" />
+    <Node Include="UNIX_ExtraCapacityGroup_VMS.hxx" />
+    <Node Include="UNIX_ExtraCapacityGroup_WIN32.hpp" />
+    <Node Include="UNIX_ExtraCapacityGroup_ZOS.hpp" />
+    <Node Include="UNIX_ExtraCapacityGroup_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

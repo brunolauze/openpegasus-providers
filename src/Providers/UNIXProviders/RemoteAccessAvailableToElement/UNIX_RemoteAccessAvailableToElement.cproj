@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F831D793-D1D0-419B-A79E-39FAB3ACD36C}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../PolicyTransferServiceAccessPoint/UNIX_PolicyTransferServiceAccessPoint.md.pc" name="UNIX_PolicyTransferServiceAccessPoint" IsProject="True" />
+        <Package file="../LaunchInContextSAP/UNIX_LaunchInContextSAP.md.pc" name="UNIX_LaunchInContextSAP" IsProject="True" />
+        <Package file="../RemotePort/UNIX_RemotePort.md.pc" name="UNIX_RemotePort" IsProject="True" />
+        <Package file="../MPLSTunnelHop/UNIX_MPLSTunnelHop.md.pc" name="UNIX_MPLSTunnelHop" IsProject="True" />
+        <Package file="../SoftwareIdentityResource/UNIX_SoftwareIdentityResource.md.pc" name="UNIX_SoftwareIdentityResource" IsProject="True" />
+        <Package file="../MPLSLSP/UNIX_MPLSLSP.md.pc" name="UNIX_MPLSLSP" IsProject="True" />
+        <Package file="../CommonDatabase/UNIX_CommonDatabase.md.pc" name="UNIX_CommonDatabase" IsProject="True" />
+        <Package file="../MPLSTunnel/UNIX_MPLSTunnel.md.pc" name="UNIX_MPLSTunnel" IsProject="True" />
+        <Package file="../ReplicationEntity/UNIX_ReplicationEntity.md.pc" name="UNIX_ReplicationEntity" IsProject="True" />
+        <Package file="../PrintQueue/UNIX_PrintQueue.md.pc" name="UNIX_PrintQueue" IsProject="True" />
+        <Package file="../JobQueue/UNIX_JobQueue.md.pc" name="UNIX_JobQueue" IsProject="True" />
+        <Package file="../ReusablePolicyContainer/UNIX_ReusablePolicyContainer.md.pc" name="UNIX_ReusablePolicyContainer" IsProject="True" />
+        <Package file="../PolicyRepository/UNIX_PolicyRepository.md.pc" name="UNIX_PolicyRepository" IsProject="True" />
+        <Package file="../AutonomousSystem/UNIX_AutonomousSystem.md.pc" name="UNIX_AutonomousSystem" IsProject="True" />
+        <Package file="../RoutingProtocolDomain/UNIX_RoutingProtocolDomain.md.pc" name="UNIX_RoutingProtocolDomain" IsProject="True" />
+        <Package file="../OSPFArea/UNIX_OSPFArea.md.pc" name="UNIX_OSPFArea" IsProject="True" />
+        <Package file="../Network/UNIX_Network.md.pc" name="UNIX_Network" IsProject="True" />
+        <Package file="../VLANNetwork/UNIX_VLANNetwork.md.pc" name="UNIX_VLANNetwork" IsProject="True" />
+        <Package file="../TierDomain/UNIX_TierDomain.md.pc" name="UNIX_TierDomain" IsProject="True" />
+        <Package file="../ApplicationSystem/UNIX_ApplicationSystem.md.pc" name="UNIX_ApplicationSystem" IsProject="True" />
+        <Package file="../DatabaseSystem/UNIX_DatabaseSystem.md.pc" name="UNIX_DatabaseSystem" IsProject="True" />
+        <Package file="../StorageLibrary/UNIX_StorageLibrary.md.pc" name="UNIX_StorageLibrary" IsProject="True" />
+        <Package file="../VirtualComputerSystem/UNIX_VirtualComputerSystem.md.pc" name="UNIX_VirtualComputerSystem" IsProject="True" />
+        <Package file="../Cluster/UNIX_Cluster.md.pc" name="UNIX_Cluster" IsProject="True" />
+        <Package file="../ComputerSystem/UNIX_ComputerSystem.md.pc" name="UNIX_ComputerSystem" IsProject="True" />
+        <Package file="../SCSIArbitraryLogicalUnit/UNIX_SCSIArbitraryLogicalUnit.md.pc" name="UNIX_SCSIArbitraryLogicalUnit" IsProject="True" />
+        <Package file="../Button/UNIX_Button.md.pc" name="UNIX_Button" IsProject="True" />
+        <Package file="../PowerSupply/UNIX_PowerSupply.md.pc" name="UNIX_PowerSupply" IsProject="True" />
+        <Package file="../UninterruptiblePowerSupply/UNIX_UninterruptiblePowerSupply.md.pc" name="UNIX_UninterruptiblePowerSupply" IsProject="True" />
+        <Package file="../Battery/UNIX_Battery.md.pc" name="UNIX_Battery" IsProject="True" />
+        <Package file="../TapeDrive/UNIX_TapeDrive.md.pc" name="UNIX_TapeDrive" IsProject="True" />
+        <Package file="../CDROMDrive/UNIX_CDROMDrive.md.pc" name="UNIX_CDROMDrive" IsProject="True" />
+        <Package file="../WORMDrive/UNIX_WORMDrive.md.pc" name="UNIX_WORMDrive" IsProject="True" />
+        <Package file="../DiskDrive/UNIX_DiskDrive.md.pc" name="UNIX_DiskDrive" IsProject="True" />
+        <Package file="../DVDDrive/UNIX_DVDDrive.md.pc" name="UNIX_DVDDrive" IsProject="True" />
+        <Package file="../DisketteDrive/UNIX_DisketteDrive.md.pc" name="UNIX_DisketteDrive" IsProject="True" />
+        <Package file="../MagnetoOpticalDrive/UNIX_MagnetoOpticalDrive.md.pc" name="UNIX_MagnetoOpticalDrive" IsProject="True" />
+        <Package file="../USBDevice/UNIX_USBDevice.md.pc" name="UNIX_USBDevice" IsProject="True" />
+        <Package file="../USBHub/UNIX_USBHub.md.pc" name="UNIX_USBHub" IsProject="True" />
+        <Package file="../PowerConnectionPoint/UNIX_PowerConnectionPoint.md.pc" name="UNIX_PowerConnectionPoint" IsProject="True" />
+        <Package file="../LabelReader/UNIX_LabelReader.md.pc" name="UNIX_LabelReader" IsProject="True" />
+        <Package file="../LogicalDisk/UNIX_LogicalDisk.md.pc" name="UNIX_LogicalDisk" IsProject="True" />
+        <Package file="../Snapshot/UNIX_Snapshot.md.pc" name="UNIX_Snapshot" IsProject="True" />
+        <Package file="../VTOCDiskPartition/UNIX_VTOCDiskPartition.md.pc" name="UNIX_VTOCDiskPartition" IsProject="True" />
+        <Package file="../GPTDiskPartition/UNIX_GPTDiskPartition.md.pc" name="UNIX_GPTDiskPartition" IsProject="True" />
+        <Package file="../DiskPartition/UNIX_DiskPartition.md.pc" name="UNIX_DiskPartition" IsProject="True" />
+        <Package file="../TapePartition/UNIX_TapePartition.md.pc" name="UNIX_TapePartition" IsProject="True" />
+        <Package file="../CompositeExtent/UNIX_CompositeExtent.md.pc" name="UNIX_CompositeExtent" IsProject="True" />
+        <Package file="../ProtectedSpaceExtent/UNIX_ProtectedSpaceExtent.md.pc" name="UNIX_ProtectedSpaceExtent" IsProject="True" />
+        <Package file="../PhysicalExtent/UNIX_PhysicalExtent.md.pc" name="UNIX_PhysicalExtent" IsProject="True" />
+        <Package file="../DatabaseSegment/UNIX_DatabaseSegment.md.pc" name="UNIX_DatabaseSegment" IsProject="True" />
+        <Package file="../AggregatePExtent/UNIX_AggregatePExtent.md.pc" name="UNIX_AggregatePExtent" IsProject="True" />
+        <Package file="../VolumeSet/UNIX_VolumeSet.md.pc" name="UNIX_VolumeSet" IsProject="True" />
+        <Package file="../OpaqueManagementData/UNIX_OpaqueManagementData.md.pc" name="UNIX_OpaqueManagementData" IsProject="True" />
+        <Package file="../AggregatePSExtent/UNIX_AggregatePSExtent.md.pc" name="UNIX_AggregatePSExtent" IsProject="True" />
+        <Package file="../CacheMemory/UNIX_CacheMemory.md.pc" name="UNIX_CacheMemory" IsProject="True" />
+        <Package file="../VolatileStorage/UNIX_VolatileStorage.md.pc" name="UNIX_VolatileStorage" IsProject="True" />
+        <Package file="../NonVolatileStorage/UNIX_NonVolatileStorage.md.pc" name="UNIX_NonVolatileStorage" IsProject="True" />
+        <Package file="../Printer/UNIX_Printer.md.pc" name="UNIX_Printer" IsProject="True" />
+        <Package file="../CurrentSensor/UNIX_CurrentSensor.md.pc" name="UNIX_CurrentSensor" IsProject="True" />
+        <Package file="../TemperatureSensor/UNIX_TemperatureSensor.md.pc" name="UNIX_TemperatureSensor" IsProject="True" />
+        <Package file="../VoltageSensor/UNIX_VoltageSensor.md.pc" name="UNIX_VoltageSensor" IsProject="True" />
+        <Package file="../Tachometer/UNIX_Tachometer.md.pc" name="UNIX_Tachometer" IsProject="True" />
+        <Package file="../MultiStateSensor/UNIX_MultiStateSensor.md.pc" name="UNIX_MultiStateSensor" IsProject="True" />
+        <Package file="../BinarySensor/UNIX_BinarySensor.md.pc" name="UNIX_BinarySensor" IsProject="True" />
+        <Package file="../DiscreteSensor/UNIX_DiscreteSensor.md.pc" name="UNIX_DiscreteSensor" IsProject="True" />
+        <Package file="../CableModem/UNIX_CableModem.md.pc" name="UNIX_CableModem" IsProject="True" />
+        <Package file="../ADSLModem/UNIX_ADSLModem.md.pc" name="UNIX_ADSLModem" IsProject="True" />
+        <Package file="../VDSLModem/UNIX_VDSLModem.md.pc" name="UNIX_VDSLModem" IsProject="True" />
+        <Package file="../HDSLModem/UNIX_HDSLModem.md.pc" name="UNIX_HDSLModem" IsProject="True" />
+        <Package file="../SDSLModem/UNIX_SDSLModem.md.pc" name="UNIX_SDSLModem" IsProject="True" />
+        <Package file="../Unimodem/UNIX_Unimodem.md.pc" name="UNIX_Unimodem" IsProject="True" />
+        <Package file="../ISDNModem/UNIX_ISDNModem.md.pc" name="UNIX_ISDNModem" IsProject="True" />
+        <Package file="../Keyboard/UNIX_Keyboard.md.pc" name="UNIX_Keyboard" IsProject="True" />
+        <Package file="../PointingDevice/UNIX_PointingDevice.md.pc" name="UNIX_PointingDevice" IsProject="True" />
+        <Package file="../DesktopMonitor/UNIX_DesktopMonitor.md.pc" name="UNIX_DesktopMonitor" IsProject="True" />
+        <Package file="../FlatPanel/UNIX_FlatPanel.md.pc" name="UNIX_FlatPanel" IsProject="True" />
+        <Package file="../Processor/UNIX_Processor.md.pc" name="UNIX_Processor" IsProject="True" />
+        <Package file="../VideoHead/UNIX_VideoHead.md.pc" name="UNIX_VideoHead" IsProject="True" />
+        <Package file="../FingerprintReader/UNIX_FingerprintReader.md.pc" name="UNIX_FingerprintReader" IsProject="True" />
+        <Package file="../Door/UNIX_Door.md.pc" name="UNIX_Door" IsProject="True" />
+        <Package file="../SmartCard/UNIX_SmartCard.md.pc" name="UNIX_SmartCard" IsProject="True" />
+        <Package file="../NetworkPort/UNIX_NetworkPort.md.pc" name="UNIX_NetworkPort" IsProject="True" />
+        <Package file="../WiFiPort/UNIX_WiFiPort.md.pc" name="UNIX_WiFiPort" IsProject="True" />
+        <Package file="../EthernetPort/UNIX_EthernetPort.md.pc" name="UNIX_EthernetPort" IsProject="True" />
+        <Package file="../LLDPEthernetPort/UNIX_LLDPEthernetPort.md.pc" name="UNIX_LLDPEthernetPort" IsProject="True" />
+        <Package file="../DataCenterEthernetPort/UNIX_DataCenterEthernetPort.md.pc" name="UNIX_DataCenterEthernetPort" IsProject="True" />
+        <Package file="../SASPort/UNIX_SASPort.md.pc" name="UNIX_SASPort" IsProject="True" />
+        <Package file="../IBPort/UNIX_IBPort.md.pc" name="UNIX_IBPort" IsProject="True" />
+        <Package file="../FCPort/UNIX_FCPort.md.pc" name="UNIX_FCPort" IsProject="True" />
+        <Package file="../WirelessPort/UNIX_WirelessPort.md.pc" name="UNIX_WirelessPort" IsProject="True" />
+        <Package file="../TokenRingPort/UNIX_TokenRingPort.md.pc" name="UNIX_TokenRingPort" IsProject="True" />
+        <Package file="../DAPort/UNIX_DAPort.md.pc" name="UNIX_DAPort" IsProject="True" />
+        <Package file="../SerialPort/UNIX_SerialPort.md.pc" name="UNIX_SerialPort" IsProject="True" />
+        <Package file="../ATAPort/UNIX_ATAPort.md.pc" name="UNIX_ATAPort" IsProject="True" />
+        <Package file="../USBPort/UNIX_USBPort.md.pc" name="UNIX_USBPort" IsProject="True" />
+        <Package file="../PCIPort/UNIX_PCIPort.md.pc" name="UNIX_PCIPort" IsProject="True" />
+        <Package file="../SPIPort/UNIX_SPIPort.md.pc" name="UNIX_SPIPort" IsProject="True" />
+        <Package file="../ParallelPort/UNIX_ParallelPort.md.pc" name="UNIX_ParallelPort" IsProject="True" />
+        <Package file="../FibrePort/UNIX_FibrePort.md.pc" name="UNIX_FibrePort" IsProject="True" />
+        <Package file="../Watchdog/UNIX_Watchdog.md.pc" name="UNIX_Watchdog" IsProject="True" />
+        <Package file="../EthernetAdapter/UNIX_EthernetAdapter.md.pc" name="UNIX_EthernetAdapter" IsProject="True" />
+        <Package file="../TokenRingAdapter/UNIX_TokenRingAdapter.md.pc" name="UNIX_TokenRingAdapter" IsProject="True" />
+        <Package file="../FibreChannelAdapter/UNIX_FibreChannelAdapter.md.pc" name="UNIX_FibreChannelAdapter" IsProject="True" />
+        <Package file="../IndicatorLED/UNIX_IndicatorLED.md.pc" name="UNIX_IndicatorLED" IsProject="True" />
+        <Package file="../ElectricalSwitch/UNIX_ElectricalSwitch.md.pc" name="UNIX_ElectricalSwitch" IsProject="True" />
+        <Package file="../ProtocolController/UNIX_ProtocolController.md.pc" name="UNIX_ProtocolController" IsProject="True" />
+        <Package file="../SCSIProtocolController/UNIX_SCSIProtocolController.md.pc" name="UNIX_SCSIProtocolController" IsProject="True" />
+        <Package file="../WiFiRadio/UNIX_WiFiRadio.md.pc" name="UNIX_WiFiRadio" IsProject="True" />
+        <Package file="../InterLibraryPort/UNIX_InterLibraryPort.md.pc" name="UNIX_InterLibraryPort" IsProject="True" />
+        <Package file="../LimitedAccessPort/UNIX_LimitedAccessPort.md.pc" name="UNIX_LimitedAccessPort" IsProject="True" />
+        <Package file="../SmartCardReader/UNIX_SmartCardReader.md.pc" name="UNIX_SmartCardReader" IsProject="True" />
+        <Package file="../PCIBridge/UNIX_PCIBridge.md.pc" name="UNIX_PCIBridge" IsProject="True" />
+        <Package file="../PCIeSwitch/UNIX_PCIeSwitch.md.pc" name="UNIX_PCIeSwitch" IsProject="True" />
+        <Package file="../PortController/UNIX_PortController.md.pc" name="UNIX_PortController" IsProject="True" />
+        <Package file="../IBPortController/UNIX_IBPortController.md.pc" name="UNIX_IBPortController" IsProject="True" />
+        <Package file="../ParallelController/UNIX_ParallelController.md.pc" name="UNIX_ParallelController" IsProject="True" />
+        <Package file="../InfraredController/UNIX_InfraredController.md.pc" name="UNIX_InfraredController" IsProject="True" />
+        <Package file="../ManagementController/UNIX_ManagementController.md.pc" name="UNIX_ManagementController" IsProject="True" />
+        <Package file="../SSAController/UNIX_SSAController.md.pc" name="UNIX_SSAController" IsProject="True" />
+        <Package file="../AGPVideoController/UNIX_AGPVideoController.md.pc" name="UNIX_AGPVideoController" IsProject="True" />
+        <Package file="../PCVideoController/UNIX_PCVideoController.md.pc" name="UNIX_PCVideoController" IsProject="True" />
+        <Package file="../SerialController/UNIX_SerialController.md.pc" name="UNIX_SerialController" IsProject="True" />
+        <Package file="../DisplayController/UNIX_DisplayController.md.pc" name="UNIX_DisplayController" IsProject="True" />
+        <Package file="../AGPVideoDisplayController/UNIX_AGPVideoDisplayController.md.pc" name="UNIX_AGPVideoDisplayController" IsProject="True" />
+        <Package file="../USBController/UNIX_USBController.md.pc" name="UNIX_USBController" IsProject="True" />
+        <Package file="../IDEController/UNIX_IDEController.md.pc" name="UNIX_IDEController" IsProject="True" />
+        <Package file="../PCMCIAController/UNIX_PCMCIAController.md.pc" name="UNIX_PCMCIAController" IsProject="True" />
+        <Package file="../SCSIController/UNIX_SCSIController.md.pc" name="UNIX_SCSIController" IsProject="True" />
+        <Package file="../ESCONController/UNIX_ESCONController.md.pc" name="UNIX_ESCONController" IsProject="True" />
+        <Package file="../DeviceTray/UNIX_DeviceTray.md.pc" name="UNIX_DeviceTray" IsProject="True" />
+        <Package file="../PassThroughModule/UNIX_PassThroughModule.md.pc" name="UNIX_PassThroughModule" IsProject="True" />
+        <Package file="../AlarmDevice/UNIX_AlarmDevice.md.pc" name="UNIX_AlarmDevice" IsProject="True" />
+        <Package file="../Fan/UNIX_Fan.md.pc" name="UNIX_Fan" IsProject="True" />
+        <Package file="../Refrigeration/UNIX_Refrigeration.md.pc" name="UNIX_Refrigeration" IsProject="True" />
+        <Package file="../HeatPipe/UNIX_HeatPipe.md.pc" name="UNIX_HeatPipe" IsProject="True" />
+        <Package file="../TPM/UNIX_TPM.md.pc" name="UNIX_TPM" IsProject="True" />
+        <Package file="../Scanner/UNIX_Scanner.md.pc" name="UNIX_Scanner" IsProject="True" />
+        <Package file="../Provider/UNIX_Provider.md.pc" name="UNIX_Provider" IsProject="True" />
+        <Package file="../IRQ/UNIX_IRQ.md.pc" name="UNIX_IRQ" IsProject="True" />
+        <Package file="../PortResource/UNIX_PortResource.md.pc" name="UNIX_PortResource" IsProject="True" />
+        <Package file="../MemoryResource/UNIX_MemoryResource.md.pc" name="UNIX_MemoryResource" IsProject="True" />
+        <Package file="../DMA/UNIX_DMA.md.pc" name="UNIX_DMA" IsProject="True" />
+        <Package file="../NFSShare/UNIX_NFSShare.md.pc" name="UNIX_NFSShare" IsProject="True" />
+        <Package file="../CIFSShare/UNIX_CIFSShare.md.pc" name="UNIX_CIFSShare" IsProject="True" />
+        <Package file="../MessageLog/UNIX_MessageLog.md.pc" name="UNIX_MessageLog" IsProject="True" />
+        <Package file="../DiagnosticLog/UNIX_DiagnosticLog.md.pc" name="UNIX_DiagnosticLog" IsProject="True" />
+        <Package file="../DiagnosticsLog/UNIX_DiagnosticsLog.md.pc" name="UNIX_DiagnosticsLog" IsProject="True" />
+        <Package file="../FibreProtocolService/UNIX_FibreProtocolService.md.pc" name="UNIX_FibreProtocolService" IsProject="True" />
+        <Package file="../WakeUpService/UNIX_WakeUpService.md.pc" name="UNIX_WakeUpService" IsProject="True" />
+        <Package file="../VirtualSystemSnapshotService/UNIX_VirtualSystemSnapshotService.md.pc" name="UNIX_VirtualSystemSnapshotService" IsProject="True" />
+        <Package file="../ResourcePoolConfigurationService/UNIX_ResourcePoolConfigurationService.md.pc" name="UNIX_ResourcePoolConfigurationService" IsProject="True" />
+        <Package file="../FileSystemConfigurationService/UNIX_FileSystemConfigurationService.md.pc" name="UNIX_FileSystemConfigurationService" IsProject="True" />
+        <Package file="../HelpService/UNIX_HelpService.md.pc" name="UNIX_HelpService" IsProject="True" />
+        <Package file="../StorageRelocationService/UNIX_StorageRelocationService.md.pc" name="UNIX_StorageRelocationService" IsProject="True" />
+        <Package file="../MPLSService/UNIX_MPLSService.md.pc" name="UNIX_MPLSService" IsProject="True" />
+        <Package file="../PolicyActivationService/UNIX_PolicyActivationService.md.pc" name="UNIX_PolicyActivationService" IsProject="True" />
+        <Package file="../SCSIPathConfigurationService/UNIX_SCSIPathConfigurationService.md.pc" name="UNIX_SCSIPathConfigurationService" IsProject="True" />
+        <Package file="../BIOSService/UNIX_BIOSService.md.pc" name="UNIX_BIOSService" IsProject="True" />
+        <Package file="../PowerManagementService/UNIX_PowerManagementService.md.pc" name="UNIX_PowerManagementService" IsProject="True" />
+        <Package file="../NetworkPortConfigurationService/UNIX_NetworkPortConfigurationService.md.pc" name="UNIX_NetworkPortConfigurationService" IsProject="True" />
+        <Package file="../WiFiPortConfigurationService/UNIX_WiFiPortConfigurationService.md.pc" name="UNIX_WiFiPortConfigurationService" IsProject="True" />
+        <Package file="../VRFConfigurationService/UNIX_VRFConfigurationService.md.pc" name="UNIX_VRFConfigurationService" IsProject="True" />
+        <Package file="../ReplicationService/UNIX_ReplicationService.md.pc" name="UNIX_ReplicationService" IsProject="True" />
+        <Package file="../AccountManagementService/UNIX_AccountManagementService.md.pc" name="UNIX_AccountManagementService" IsProject="True" />
+        <Package file="../VerificationService/UNIX_VerificationService.md.pc" name="UNIX_VerificationService" IsProject="True" />
+        <Package file="../CertificateAuthority/UNIX_CertificateAuthority.md.pc" name="UNIX_CertificateAuthority" IsProject="True" />
+        <Package file="../Notary/UNIX_Notary.md.pc" name="UNIX_Notary" IsProject="True" />
+        <Package file="../KeyBasedCredentialManagementService/UNIX_KeyBasedCredentialManagementService.md.pc" name="UNIX_KeyBasedCredentialManagementService" IsProject="True" />
+        <Package file="../CertificateManagementService/UNIX_CertificateManagementService.md.pc" name="UNIX_CertificateManagementService" IsProject="True" />
+        <Package file="../KerberosKeyDistributionCenter/UNIX_KerberosKeyDistributionCenter.md.pc" name="UNIX_KerberosKeyDistributionCenter" IsProject="True" />
+        <Package file="../PublicKeyManagementService/UNIX_PublicKeyManagementService.md.pc" name="UNIX_PublicKeyManagementService" IsProject="True" />
+        <Package file="../SharedSecretService/UNIX_SharedSecretService.md.pc" name="UNIX_SharedSecretService" IsProject="True" />
+        <Package file="../IdentityManagementService/UNIX_IdentityManagementService.md.pc" name="UNIX_IdentityManagementService" IsProject="True" />
+        <Package file="../StorageHardwareIDManagementService/UNIX_StorageHardwareIDManagementService.md.pc" name="UNIX_StorageHardwareIDManagementService" IsProject="True" />
+        <Package file="../AuthorizationService/UNIX_AuthorizationService.md.pc" name="UNIX_AuthorizationService" IsProject="True" />
+        <Package file="../PrivilegeManagementService/UNIX_PrivilegeManagementService.md.pc" name="UNIX_PrivilegeManagementService" IsProject="True" />
+        <Package file="../RoleBasedAuthorizationService/UNIX_RoleBasedAuthorizationService.md.pc" name="UNIX_RoleBasedAuthorizationService" IsProject="True" />
+        <Package file="../AccessControlService/UNIX_AccessControlService.md.pc" name="UNIX_AccessControlService" IsProject="True" />
+        <Package file="../WBEMServer/UNIX_WBEMServer.md.pc" name="UNIX_WBEMServer" IsProject="True" />
+        <Package file="../LaunchInContextService/UNIX_LaunchInContextService.md.pc" name="UNIX_LaunchInContextService" IsProject="True" />
+        <Package file="../VirtualSystemManagementService/UNIX_VirtualSystemManagementService.md.pc" name="UNIX_VirtualSystemManagementService" IsProject="True" />
+        <Package file="../MetricService/UNIX_MetricService.md.pc" name="UNIX_MetricService" IsProject="True" />
+        <Package file="../StorageNameBindingService/UNIX_StorageNameBindingService.md.pc" name="UNIX_StorageNameBindingService" IsProject="True" />
+        <Package file="../ZoneService/UNIX_ZoneService.md.pc" name="UNIX_ZoneService" IsProject="True" />
+        <Package file="../ControllerConfigurationService/UNIX_ControllerConfigurationService.md.pc" name="UNIX_ControllerConfigurationService" IsProject="True" />
+        <Package file="../GroupMaskingMappingService/UNIX_GroupMaskingMappingService.md.pc" name="UNIX_GroupMaskingMappingService" IsProject="True" />
+        <Package file="../DatabaseService/UNIX_DatabaseService.md.pc" name="UNIX_DatabaseService" IsProject="True" />
+        <Package file="../DiskPartitionConfigurationService/UNIX_DiskPartitionConfigurationService.md.pc" name="UNIX_DiskPartitionConfigurationService" IsProject="True" />
+        <Package file="../ConfigurationReportingService/UNIX_ConfigurationReportingService.md.pc" name="UNIX_ConfigurationReportingService" IsProject="True" />
+        <Package file="../PowerTopologyService/UNIX_PowerTopologyService.md.pc" name="UNIX_PowerTopologyService" IsProject="True" />
+        <Package file="../NetworkPolicyService/UNIX_NetworkPolicyService.md.pc" name="UNIX_NetworkPolicyService" IsProject="True" />
+        <Package file="../BasicExecutionService/UNIX_BasicExecutionService.md.pc" name="UNIX_BasicExecutionService" IsProject="True" />
+        <Package file="../SpareConfigurationService/UNIX_SpareConfigurationService.md.pc" name="UNIX_SpareConfigurationService" IsProject="True" />
+        <Package file="../StorageElementCompositionService/UNIX_StorageElementCompositionService.md.pc" name="UNIX_StorageElementCompositionService" IsProject="True" />
+        <Package file="../OpaqueManagementDataService/UNIX_OpaqueManagementDataService.md.pc" name="UNIX_OpaqueManagementDataService" IsProject="True" />
+        <Package file="../FingerprintMatchingService/UNIX_FingerprintMatchingService.md.pc" name="UNIX_FingerprintMatchingService" IsProject="True" />
+        <Package file="../ProtocolService/UNIX_ProtocolService.md.pc" name="UNIX_ProtocolService" IsProject="True" />
+        <Package file="../WBEMProtocolService/UNIX_WBEMProtocolService.md.pc" name="UNIX_WBEMProtocolService" IsProject="True" />
+        <Package file="../TierService/UNIX_TierService.md.pc" name="UNIX_TierService" IsProject="True" />
+        <Package file="../TierPolicyService/UNIX_TierPolicyService.md.pc" name="UNIX_TierPolicyService" IsProject="True" />
+        <Package file="../IndicationService/UNIX_IndicationService.md.pc" name="UNIX_IndicationService" IsProject="True" />
+        <Package file="../FileImportService/UNIX_FileImportService.md.pc" name="UNIX_FileImportService" IsProject="True" />
+        <Package file="../VTLStatisticalDataService/UNIX_VTLStatisticalDataService.md.pc" name="UNIX_VTLStatisticalDataService" IsProject="True" />
+        <Package file="../DropThresholdCalculationService/UNIX_DropThresholdCalculationService.md.pc" name="UNIX_DropThresholdCalculationService" IsProject="True" />
+        <Package file="../TokenBucketMeterService/UNIX_TokenBucketMeterService.md.pc" name="UNIX_TokenBucketMeterService" IsProject="True" />
+        <Package file="../EWMAMeterService/UNIX_EWMAMeterService.md.pc" name="UNIX_EWMAMeterService" IsProject="True" />
+        <Package file="../AverageRateMeterService/UNIX_AverageRateMeterService.md.pc" name="UNIX_AverageRateMeterService" IsProject="True" />
+        <Package file="../ToSMarkerService/UNIX_ToSMarkerService.md.pc" name="UNIX_ToSMarkerService" IsProject="True" />
+        <Package file="../Priority8021QMarkerService/UNIX_Priority8021QMarkerService.md.pc" name="UNIX_Priority8021QMarkerService" IsProject="True" />
+        <Package file="../DSCPMarkerService/UNIX_DSCPMarkerService.md.pc" name="UNIX_DSCPMarkerService" IsProject="True" />
+        <Package file="../PreambleMarkerService/UNIX_PreambleMarkerService.md.pc" name="UNIX_PreambleMarkerService" IsProject="True" />
+        <Package file="../ClassifierService/UNIX_ClassifierService.md.pc" name="UNIX_ClassifierService" IsProject="True" />
+        <Package file="../ClassifierElement/UNIX_ClassifierElement.md.pc" name="UNIX_ClassifierElement" IsProject="True" />
+        <Package file="../PacketSchedulingService/UNIX_PacketSchedulingService.md.pc" name="UNIX_PacketSchedulingService" IsProject="True" />
+        <Package file="../NonWorkConservingSchedulingService/UNIX_NonWorkConservingSchedulingService.md.pc" name="UNIX_NonWorkConservingSchedulingService" IsProject="True" />
+        <Package file="../REDDropperService/UNIX_REDDropperService.md.pc" name="UNIX_REDDropperService" IsProject="True" />
+        <Package file="../HeadTailDropper/UNIX_HeadTailDropper.md.pc" name="UNIX_HeadTailDropper" IsProject="True" />
+        <Package file="../WeightedREDDropperService/UNIX_WeightedREDDropperService.md.pc" name="UNIX_WeightedREDDropperService" IsProject="True" />
+        <Package file="../QueuingService/UNIX_QueuingService.md.pc" name="UNIX_QueuingService" IsProject="True" />
+        <Package file="../BootService/UNIX_BootService.md.pc" name="UNIX_BootService" IsProject="True" />
+        <Package file="../AFService/UNIX_AFService.md.pc" name="UNIX_AFService" IsProject="True" />
+        <Package file="../EFService/UNIX_EFService.md.pc" name="UNIX_EFService" IsProject="True" />
+        <Package file="../FlowService/UNIX_FlowService.md.pc" name="UNIX_FlowService" IsProject="True" />
+        <Package file="../Hdr8021PService/UNIX_Hdr8021PService.md.pc" name="UNIX_Hdr8021PService" IsProject="True" />
+        <Package file="../PrecedenceService/UNIX_PrecedenceService.md.pc" name="UNIX_PrecedenceService" IsProject="True" />
+        <Package file="../PrintService/UNIX_PrintService.md.pc" name="UNIX_PrintService" IsProject="True" />
+        <Package file="../TimeService/UNIX_TimeService.md.pc" name="UNIX_TimeService" IsProject="True" />
+        <Package file="../SoftwareInstallationService/UNIX_SoftwareInstallationService.md.pc" name="UNIX_SoftwareInstallationService" IsProject="True" />
+        <Package file="../VLANService/UNIX_VLANService.md.pc" name="UNIX_VLANService" IsProject="True" />
+        <Package file="../Specific802dot1QVLANService/UNIX_Specific802dot1QVLANService.md.pc" name="UNIX_Specific802dot1QVLANService" IsProject="True" />
+        <Package file="../PowerUtilizationManagementService/UNIX_PowerUtilizationManagementService.md.pc" name="UNIX_PowerUtilizationManagementService" IsProject="True" />
+        <Package file="../ClusteringService/UNIX_ClusteringService.md.pc" name="UNIX_ClusteringService" IsProject="True" />
+        <Package file="../SharedDeviceManagementService/UNIX_SharedDeviceManagementService.md.pc" name="UNIX_SharedDeviceManagementService" IsProject="True" />
+        <Package file="../BatchService/UNIX_BatchService.md.pc" name="UNIX_BatchService" IsProject="True" />
+        <Package file="../iSCSIConfigurationService/UNIX_iSCSIConfigurationService.md.pc" name="UNIX_iSCSIConfigurationService" IsProject="True" />
+        <Package file="../OOBAlertService/UNIX_OOBAlertService.md.pc" name="UNIX_OOBAlertService" IsProject="True" />
+        <Package file="../StorageConfigurationService/UNIX_StorageConfigurationService.md.pc" name="UNIX_StorageConfigurationService" IsProject="True" />
+        <Package file="../IPConfigurationService/UNIX_IPConfigurationService.md.pc" name="UNIX_IPConfigurationService" IsProject="True" />
+        <Package file="../VirtualSystemMigrationService/UNIX_VirtualSystemMigrationService.md.pc" name="UNIX_VirtualSystemMigrationService" IsProject="True" />
+        <Package file="../MPLSCrossConnect/UNIX_MPLSCrossConnect.md.pc" name="UNIX_MPLSCrossConnect" IsProject="True" />
+        <Package file="../PlatformWatchdogService/UNIX_PlatformWatchdogService.md.pc" name="UNIX_PlatformWatchdogService" IsProject="True" />
+        <Package file="../FCHBADiagnosticTest/UNIX_FCHBADiagnosticTest.md.pc" name="UNIX_FCHBADiagnosticTest" IsProject="True" />
+        <Package file="../RAIDDiagnosticTest/UNIX_RAIDDiagnosticTest.md.pc" name="UNIX_RAIDDiagnosticTest" IsProject="True" />
+        <Package file="../CPUDiagnosticTest/UNIX_CPUDiagnosticTest.md.pc" name="UNIX_CPUDiagnosticTest" IsProject="True" />
+        <Package file="../EthernetNICDiagnosticTest/UNIX_EthernetNICDiagnosticTest.md.pc" name="UNIX_EthernetNICDiagnosticTest" IsProject="True" />
+        <Package file="../OpticalDriveDiagnosticTest/UNIX_OpticalDriveDiagnosticTest.md.pc" name="UNIX_OpticalDriveDiagnosticTest" IsProject="True" />
+        <Package file="../OpticalDriveDiagnosticSettingData/UNIX_OpticalDriveDiagnosticSettingData.md.pc" name="UNIX_OpticalDriveDiagnosticSettingData" IsProject="True" />
+        <Package file="../DiskDriveDiagnosticTest/UNIX_DiskDriveDiagnosticTest.md.pc" name="UNIX_DiskDriveDiagnosticTest" IsProject="True" />
+        <Package file="../IBSubnetManager/UNIX_IBSubnetManager.md.pc" name="UNIX_IBSubnetManager" IsProject="True" />
+        <Package file="../ObjectManager/UNIX_ObjectManager.md.pc" name="UNIX_ObjectManager" IsProject="True" />
+        <Package file="../ObjectManagerAdapter/UNIX_ObjectManagerAdapter.md.pc" name="UNIX_ObjectManagerAdapter" IsProject="True" />
+        <Package file="../ProviderObjectManagerAdapter/UNIX_ProviderObjectManagerAdapter.md.pc" name="UNIX_ProviderObjectManagerAdapter" IsProject="True" />
+        <Package file="../ProtocolAdapter/UNIX_ProtocolAdapter.md.pc" name="UNIX_ProtocolAdapter" IsProject="True" />
+        <Package file="../FileSystemStatisticsService/UNIX_FileSystemStatisticsService.md.pc" name="UNIX_FileSystemStatisticsService" IsProject="True" />
+        <Package file="../BlockStatisticsService/UNIX_BlockStatisticsService.md.pc" name="UNIX_BlockStatisticsService" IsProject="True" />
+        <Package file="../USBRedirectionService/UNIX_USBRedirectionService.md.pc" name="UNIX_USBRedirectionService" IsProject="True" />
+        <Package file="../TextRedirectionService/UNIX_TextRedirectionService.md.pc" name="UNIX_TextRedirectionService" IsProject="True" />
+        <Package file="../BGPService/UNIX_BGPService.md.pc" name="UNIX_BGPService" IsProject="True" />
+        <Package file="../OSPFService/UNIX_OSPFService.md.pc" name="UNIX_OSPFService" IsProject="True" />
+        <Package file="../NATService/UNIX_NATService.md.pc" name="UNIX_NATService" IsProject="True" />
+        <Package file="../TransparentBridgingService/UNIX_TransparentBridgingService.md.pc" name="UNIX_TransparentBridgingService" IsProject="True" />
+        <Package file="../SourceRoutingService/UNIX_SourceRoutingService.md.pc" name="UNIX_SourceRoutingService" IsProject="True" />
+        <Package file="../SpanningTreeService/UNIX_SpanningTreeService.md.pc" name="UNIX_SpanningTreeService" IsProject="True" />
+        <Package file="../SwitchService/UNIX_SwitchService.md.pc" name="UNIX_SwitchService" IsProject="True" />
+        <Package file="../FileExportService/UNIX_FileExportService.md.pc" name="UNIX_FileExportService" IsProject="True" />
+        <Package file="../OperatingSystem/UNIX_OperatingSystem.md.pc" name="UNIX_OperatingSystem" IsProject="True" />
+        <Package file="../SWRFile/UNIX_SWRFile.md.pc" name="UNIX_SWRFile" IsProject="True" />
+        <Package file="../SWRPEP/UNIX_SWRPEP.md.pc" name="UNIX_SWRPEP" IsProject="True" />
+        <Package file="../SWRDatabase/UNIX_SWRDatabase.md.pc" name="UNIX_SWRDatabase" IsProject="True" />
+        <Package file="../ProviderLibrary/UNIX_ProviderLibrary.md.pc" name="UNIX_ProviderLibrary" IsProject="True" />
+        <Package file="../ClusteringSAP/UNIX_ClusteringSAP.md.pc" name="UNIX_ClusteringSAP" IsProject="True" />
+        <Package file="../CredentialManagementSAP/UNIX_CredentialManagementSAP.md.pc" name="UNIX_CredentialManagementSAP" IsProject="True" />
+        <Package file="../USBRedirectionSAP/UNIX_USBRedirectionSAP.md.pc" name="UNIX_USBRedirectionSAP" IsProject="True" />
+        <Package file="../IPNetworkConnection/UNIX_IPNetworkConnection.md.pc" name="UNIX_IPNetworkConnection" IsProject="True" />
+        <Package file="../KVMRedirectionSAP/UNIX_KVMRedirectionSAP.md.pc" name="UNIX_KVMRedirectionSAP" IsProject="True" />
+        <Package file="../DHCPProtocolEndpoint/UNIX_DHCPProtocolEndpoint.md.pc" name="UNIX_DHCPProtocolEndpoint" IsProject="True" />
+        <Package file="../SSHProtocolEndpoint/UNIX_SSHProtocolEndpoint.md.pc" name="UNIX_SSHProtocolEndpoint" IsProject="True" />
+        <Package file="../SCSIProtocolEndpoint/UNIX_SCSIProtocolEndpoint.md.pc" name="UNIX_SCSIProtocolEndpoint" IsProject="True" />
+        <Package file="../iSCSIProtocolEndpoint/UNIX_iSCSIProtocolEndpoint.md.pc" name="UNIX_iSCSIProtocolEndpoint" IsProject="True" />
+        <Package file="../CLPProtocolEndpoint/UNIX_CLPProtocolEndpoint.md.pc" name="UNIX_CLPProtocolEndpoint" IsProject="True" />
+        <Package file="../IPXProtocolEndpoint/UNIX_IPXProtocolEndpoint.md.pc" name="UNIX_IPXProtocolEndpoint" IsProject="True" />
+        <Package file="../IPsecSAEndpoint/UNIX_IPsecSAEndpoint.md.pc" name="UNIX_IPsecSAEndpoint" IsProject="True" />
+        <Package file="../IKESAEndpoint/UNIX_IKESAEndpoint.md.pc" name="UNIX_IKESAEndpoint" IsProject="True" />
+        <Package file="../LANEndpoint/UNIX_LANEndpoint.md.pc" name="UNIX_LANEndpoint" IsProject="True" />
+        <Package file="../WiFiEndpoint/UNIX_WiFiEndpoint.md.pc" name="UNIX_WiFiEndpoint" IsProject="True" />
+        <Package file="../MPLSProtocolEndpoint/UNIX_MPLSProtocolEndpoint.md.pc" name="UNIX_MPLSProtocolEndpoint" IsProject="True" />
+        <Package file="../WirelessLANEndpoint/UNIX_WirelessLANEndpoint.md.pc" name="UNIX_WirelessLANEndpoint" IsProject="True" />
+        <Package file="../UDPProtocolEndpoint/UNIX_UDPProtocolEndpoint.md.pc" name="UNIX_UDPProtocolEndpoint" IsProject="True" />
+        <Package file="../TCPProtocolEndpoint/UNIX_TCPProtocolEndpoint.md.pc" name="UNIX_TCPProtocolEndpoint" IsProject="True" />
+        <Package file="../OSPFVirtualInterface/UNIX_OSPFVirtualInterface.md.pc" name="UNIX_OSPFVirtualInterface" IsProject="True" />
+        <Package file="../OSPFProtocolEndpoint/UNIX_OSPFProtocolEndpoint.md.pc" name="UNIX_OSPFProtocolEndpoint" IsProject="True" />
+        <Package file="../VLANEndpoint/UNIX_VLANEndpoint.md.pc" name="UNIX_VLANEndpoint" IsProject="True" />
+        <Package file="../LinkAggregator8023ad/UNIX_LinkAggregator8023ad.md.pc" name="UNIX_LinkAggregator8023ad" IsProject="True" />
+        <Package file="../ATAProtocolEndpoint/UNIX_ATAProtocolEndpoint.md.pc" name="UNIX_ATAProtocolEndpoint" IsProject="True" />
+        <Package file="../IPEncapsulationInterface/UNIX_IPEncapsulationInterface.md.pc" name="UNIX_IPEncapsulationInterface" IsProject="True" />
+        <Package file="../IPSubinterface/UNIX_IPSubinterface.md.pc" name="UNIX_IPSubinterface" IsProject="True" />
+        <Package file="../SwitchVirtualInterface/UNIX_SwitchVirtualInterface.md.pc" name="UNIX_SwitchVirtualInterface" IsProject="True" />
+        <Package file="../IPLoopback/UNIX_IPLoopback.md.pc" name="UNIX_IPLoopback" IsProject="True" />
+        <Package file="../BGPProtocolEndpoint/UNIX_BGPProtocolEndpoint.md.pc" name="UNIX_BGPProtocolEndpoint" IsProject="True" />
+        <Package file="../SwitchPort/UNIX_SwitchPort.md.pc" name="UNIX_SwitchPort" IsProject="True" />
+        <Package file="../DNSProtocolEndpoint/UNIX_DNSProtocolEndpoint.md.pc" name="UNIX_DNSProtocolEndpoint" IsProject="True" />
+        <Package file="../LAGPort8023ad/UNIX_LAGPort8023ad.md.pc" name="UNIX_LAGPort8023ad" IsProject="True" />
+        <Package file="../BatchSAP/UNIX_BatchSAP.md.pc" name="UNIX_BatchSAP" IsProject="True" />
+        <Package file="../TextRedirectionSAP/UNIX_TextRedirectionSAP.md.pc" name="UNIX_TextRedirectionSAP" IsProject="True" />
+        <Package file="../MediaRedirectionSAP/UNIX_MediaRedirectionSAP.md.pc" name="UNIX_MediaRedirectionSAP" IsProject="True" />
+        <Package file="../PrintSAP/UNIX_PrintSAP.md.pc" name="UNIX_PrintSAP" IsProject="True" />
+        <Package file="../ServiceAccessURI/UNIX_ServiceAccessURI.md.pc" name="UNIX_ServiceAccessURI" IsProject="True" />
+        <Package file="../ObjectManagerCommunicationMechanism/UNIX_ObjectManagerCommunicationMechanism.md.pc" name="UNIX_ObjectManagerCommunicationMechanism" IsProject="True" />
+        <Package file="../CIMXMLCommunicationMechanism/UNIX_CIMXMLCommunicationMechanism.md.pc" name="UNIX_CIMXMLCommunicationMechanism" IsProject="True" />
+        <Package file="../VLAN/UNIX_VLAN.md.pc" name="UNIX_VLAN" IsProject="True" />
+        <Package file="../BootSAP/UNIX_BootSAP.md.pc" name="UNIX_BootSAP" IsProject="True" />
+        <Package file="../Process/UNIX_Process.md.pc" name="UNIX_Process" IsProject="True" />
+        <Package file="../ProcessorCore/UNIX_ProcessorCore.md.pc" name="UNIX_ProcessorCore" IsProject="True" />
+        <Package file="../iSCSISession/UNIX_iSCSISession.md.pc" name="UNIX_iSCSISession" IsProject="True" />
+        <Package file="../iSCSIConnection/UNIX_iSCSIConnection.md.pc" name="UNIX_iSCSIConnection" IsProject="True" />
+        <Package file="../HardwareThread/UNIX_HardwareThread.md.pc" name="UNIX_HardwareThread" IsProject="True" />
+        <Package file="../FileSystem/UNIX_FileSystem.md.pc" name="UNIX_FileSystem" IsProject="True" />
+        <Package file="../DatabaseStorageArea/UNIX_DatabaseStorageArea.md.pc" name="UNIX_DatabaseStorageArea" IsProject="True" />
+        <Package file="../LocalFileSystem/UNIX_LocalFileSystem.md.pc" name="UNIX_LocalFileSystem" IsProject="True" />
+        <Package file="../RemoteFileSystem/UNIX_RemoteFileSystem.md.pc" name="UNIX_RemoteFileSystem" IsProject="True" />
+        <Package file="../NFS/UNIX_NFS.md.pc" name="UNIX_NFS" IsProject="True" />
+        <Package file="../Thread/UNIX_Thread.md.pc" name="UNIX_Thread" IsProject="True" />
+        <Package file="../Account/UNIX_Account.md.pc" name="UNIX_Account" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../PolicyTransferServiceAccessPoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LaunchInContextSAP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RemotePort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSTunnelHop/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SoftwareIdentityResource/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSLSP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CommonDatabase/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSTunnel/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ReplicationEntity/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PrintQueue/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../JobQueue/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ReusablePolicyContainer/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PolicyRepository/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AutonomousSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RoutingProtocolDomain/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OSPFArea/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Network/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VLANNetwork/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TierDomain/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ApplicationSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DatabaseSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageLibrary/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VirtualComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Cluster/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SCSIArbitraryLogicalUnit/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Button/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PowerSupply/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../UninterruptiblePowerSupply/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Battery/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TapeDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CDROMDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WORMDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiskDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DVDDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DisketteDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MagnetoOpticalDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../USBDevice/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../USBHub/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PowerConnectionPoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LabelReader/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LogicalDisk/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Snapshot/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VTOCDiskPartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../GPTDiskPartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiskPartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TapePartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CompositeExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ProtectedSpaceExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PhysicalExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DatabaseSegment/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AggregatePExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VolumeSet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OpaqueManagementData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AggregatePSExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CacheMemory/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VolatileStorage/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NonVolatileStorage/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Printer/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CurrentSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TemperatureSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VoltageSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Tachometer/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MultiStateSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BinarySensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiscreteSensor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CableModem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ADSLModem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VDSLModem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../HDSLModem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SDSLModem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Unimodem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ISDNModem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Keyboard/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PointingDevice/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DesktopMonitor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FlatPanel/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Processor/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VideoHead/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FingerprintReader/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Door/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SmartCard/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WiFiPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EthernetPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LLDPEthernetPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DataCenterEthernetPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SASPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IBPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FCPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WirelessPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TokenRingPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DAPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SerialPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ATAPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../USBPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PCIPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SPIPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ParallelPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FibrePort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Watchdog/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EthernetAdapter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TokenRingAdapter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FibreChannelAdapter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IndicatorLED/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ElectricalSwitch/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ProtocolController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SCSIProtocolController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WiFiRadio/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../InterLibraryPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LimitedAccessPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SmartCardReader/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PCIBridge/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PCIeSwitch/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PortController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IBPortController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ParallelController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../InfraredController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ManagementController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SSAController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AGPVideoController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PCVideoController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SerialController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DisplayController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AGPVideoDisplayController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../USBController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IDEController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PCMCIAController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SCSIController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ESCONController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DeviceTray/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PassThroughModule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AlarmDevice/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Fan/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Refrigeration/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../HeatPipe/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TPM/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Scanner/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Provider/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IRQ/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PortResource/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MemoryResource/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DMA/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NFSShare/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CIFSShare/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MessageLog/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiagnosticLog/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiagnosticsLog/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FibreProtocolService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WakeUpService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VirtualSystemSnapshotService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ResourcePoolConfigurationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FileSystemConfigurationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../HelpService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageRelocationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PolicyActivationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SCSIPathConfigurationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BIOSService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PowerManagementService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkPortConfigurationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WiFiPortConfigurationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VRFConfigurationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ReplicationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AccountManagementService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VerificationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CertificateAuthority/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Notary/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../KeyBasedCredentialManagementService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CertificateManagementService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../KerberosKeyDistributionCenter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PublicKeyManagementService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SharedSecretService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IdentityManagementService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageHardwareIDManagementService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AuthorizationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PrivilegeManagementService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RoleBasedAuthorizationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AccessControlService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WBEMServer/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LaunchInContextService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VirtualSystemManagementService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MetricService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageNameBindingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ZoneService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ControllerConfigurationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../GroupMaskingMappingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DatabaseService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiskPartitionConfigurationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ConfigurationReportingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PowerTopologyService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkPolicyService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BasicExecutionService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SpareConfigurationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageElementCompositionService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OpaqueManagementDataService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FingerprintMatchingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ProtocolService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WBEMProtocolService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TierService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TierPolicyService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IndicationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FileImportService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VTLStatisticalDataService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DropThresholdCalculationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TokenBucketMeterService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EWMAMeterService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AverageRateMeterService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ToSMarkerService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Priority8021QMarkerService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DSCPMarkerService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PreambleMarkerService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ClassifierService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ClassifierElement/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PacketSchedulingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NonWorkConservingSchedulingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../REDDropperService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../HeadTailDropper/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WeightedREDDropperService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../QueuingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BootService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AFService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EFService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FlowService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Hdr8021PService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PrecedenceService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PrintService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TimeService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SoftwareInstallationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VLANService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Specific802dot1QVLANService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PowerUtilizationManagementService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ClusteringService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SharedDeviceManagementService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BatchService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../iSCSIConfigurationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OOBAlertService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageConfigurationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPConfigurationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VirtualSystemMigrationService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSCrossConnect/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PlatformWatchdogService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FCHBADiagnosticTest/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RAIDDiagnosticTest/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CPUDiagnosticTest/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EthernetNICDiagnosticTest/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OpticalDriveDiagnosticTest/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OpticalDriveDiagnosticSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiskDriveDiagnosticTest/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IBSubnetManager/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ObjectManager/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ObjectManagerAdapter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ProviderObjectManagerAdapter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ProtocolAdapter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FileSystemStatisticsService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BlockStatisticsService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../USBRedirectionService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TextRedirectionService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BGPService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OSPFService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NATService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TransparentBridgingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SourceRoutingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SpanningTreeService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SwitchService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FileExportService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OperatingSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SWRFile/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SWRPEP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SWRDatabase/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ProviderLibrary/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ClusteringSAP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CredentialManagementSAP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../USBRedirectionSAP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPNetworkConnection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../KVMRedirectionSAP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DHCPProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SSHProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SCSIProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../iSCSIProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CLPProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPXProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPsecSAEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IKESAEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LANEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WiFiEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WirelessLANEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../UDPProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TCPProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OSPFVirtualInterface/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OSPFProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VLANEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LinkAggregator8023ad/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ATAProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPEncapsulationInterface/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPSubinterface/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SwitchVirtualInterface/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPLoopback/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BGPProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SwitchPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DNSProtocolEndpoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LAGPort8023ad/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BatchSAP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TextRedirectionSAP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MediaRedirectionSAP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PrintSAP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ServiceAccessURI/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ObjectManagerCommunicationMechanism/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CIMXMLCommunicationMechanism/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VLAN/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BootSAP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Process/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ProcessorCore/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../iSCSISession/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../iSCSIConnection/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../HardwareThread/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FileSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DatabaseStorageArea/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LocalFileSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RemoteFileSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NFS/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Thread/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Account/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_RemoteAccessAvailableToElementProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RemoteAccessAvailableToElementLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_RemoteAccessAvailableToElementLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PolicyTransferServiceAccessPointProvider -lUNIX_LaunchInContextSAPProvider -lUNIX_RemotePortProvider -lUNIX_MPLSTunnelHopProvider -lUNIX_SoftwareIdentityResourceProvider -lUNIX_MPLSLSPProvider -lUNIX_CommonDatabaseProvider -lUNIX_MPLSTunnelProvider -lUNIX_ReplicationEntityProvider -lUNIX_PrintQueueProvider -lUNIX_JobQueueProvider -lUNIX_ReusablePolicyContainerProvider -lUNIX_PolicyRepositoryProvider -lUNIX_AutonomousSystemProvider -lUNIX_RoutingProtocolDomainProvider -lUNIX_OSPFAreaProvider -lUNIX_NetworkProvider -lUNIX_VLANNetworkProvider -lUNIX_TierDomainProvider -lUNIX_ApplicationSystemProvider -lUNIX_DatabaseSystemProvider -lUNIX_StorageLibraryProvider -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider -lUNIX_SCSIArbitraryLogicalUnitProvider -lUNIX_ButtonProvider -lUNIX_PowerSupplyProvider -lUNIX_UninterruptiblePowerSupplyProvider -lUNIX_BatteryProvider -lUNIX_TapeDriveProvider -lUNIX_CDROMDriveProvider -lUNIX_WORMDriveProvider -lUNIX_DiskDriveProvider -lUNIX_DVDDriveProvider -lUNIX_DisketteDriveProvider -lUNIX_MagnetoOpticalDriveProvider -lUNIX_USBDeviceProvider -lUNIX_USBHubProvider -lUNIX_PowerConnectionPointProvider -lUNIX_LabelReaderProvider -lUNIX_LogicalDiskProvider -lUNIX_SnapshotProvider -lUNIX_VTOCDiskPartitionProvider -lUNIX_GPTDiskPartitionProvider -lUNIX_DiskPartitionProvider -lUNIX_TapePartitionProvider -lUNIX_CompositeExtentProvider -lUNIX_ProtectedSpaceExtentProvider -lUNIX_PhysicalExtentProvider -lUNIX_DatabaseSegmentProvider -lUNIX_AggregatePExtentProvider -lUNIX_VolumeSetProvider -lUNIX_OpaqueManagementDataProvider -lUNIX_AggregatePSExtentProvider -lUNIX_CacheMemoryProvider -lUNIX_VolatileStorageProvider -lUNIX_NonVolatileStorageProvider -lUNIX_PrinterProvider -lUNIX_CurrentSensorProvider -lUNIX_TemperatureSensorProvider -lUNIX_VoltageSensorProvider -lUNIX_TachometerProvider -lUNIX_MultiStateSensorProvider -lUNIX_BinarySensorProvider -lUNIX_DiscreteSensorProvider -lUNIX_CableModemProvider -lUNIX_ADSLModemProvider -lUNIX_VDSLModemProvider -lUNIX_HDSLModemProvider -lUNIX_SDSLModemProvider -lUNIX_UnimodemProvider -lUNIX_ISDNModemProvider -lUNIX_KeyboardProvider -lUNIX_PointingDeviceProvider -lUNIX_DesktopMonitorProvider -lUNIX_FlatPanelProvider -lUNIX_ProcessorProvider -lUNIX_VideoHeadProvider -lUNIX_FingerprintReaderProvider -lUNIX_DoorProvider -lUNIX_SmartCardProvider -lUNIX_NetworkPortProvider -lUNIX_WiFiPortProvider -lUNIX_EthernetPortProvider -lUNIX_LLDPEthernetPortProvider -lUNIX_DataCenterEthernetPortProvider -lUNIX_SASPortProvider -lUNIX_IBPortProvider -lUNIX_FCPortProvider -lUNIX_WirelessPortProvider -lUNIX_TokenRingPortProvider -lUNIX_DAPortProvider -lUNIX_SerialPortProvider -lUNIX_ATAPortProvider -lUNIX_USBPortProvider -lUNIX_PCIPortProvider -lUNIX_SPIPortProvider -lUNIX_ParallelPortProvider -lUNIX_FibrePortProvider -lUNIX_WatchdogProvider -lUNIX_EthernetAdapterProvider -lUNIX_TokenRingAdapterProvider -lUNIX_FibreChannelAdapterProvider -lUNIX_IndicatorLEDProvider -lUNIX_ElectricalSwitchProvider -lUNIX_ProtocolControllerProvider -lUNIX_SCSIProtocolControllerProvider -lUNIX_WiFiRadioProvider -lUNIX_InterLibraryPortProvider -lUNIX_LimitedAccessPortProvider -lUNIX_SmartCardReaderProvider -lUNIX_PCIBridgeProvider -lUNIX_PCIeSwitchProvider -lUNIX_PortControllerProvider -lUNIX_IBPortControllerProvider -lUNIX_ParallelControllerProvider -lUNIX_InfraredControllerProvider -lUNIX_ManagementControllerProvider -lUNIX_SSAControllerProvider -lUNIX_AGPVideoControllerProvider -lUNIX_PCVideoControllerProvider -lUNIX_SerialControllerProvider -lUNIX_DisplayControllerProvider -lUNIX_AGPVideoDisplayControllerProvider -lUNIX_USBControllerProvider -lUNIX_IDEControllerProvider -lUNIX_PCMCIAControllerProvider -lUNIX_SCSIControllerProvider -lUNIX_ESCONControllerProvider -lUNIX_DeviceTrayProvider -lUNIX_PassThroughModuleProvider -lUNIX_AlarmDeviceProvider -lUNIX_FanProvider -lUNIX_RefrigerationProvider -lUNIX_HeatPipeProvider -lUNIX_TPMProvider -lUNIX_ScannerProvider -lUNIX_ProviderProvider -lUNIX_IRQProvider -lUNIX_PortResourceProvider -lUNIX_MemoryResourceProvider -lUNIX_DMAProvider -lUNIX_NFSShareProvider -lUNIX_CIFSShareProvider -lUNIX_MessageLogProvider -lUNIX_DiagnosticLogProvider -lUNIX_DiagnosticsLogProvider -lUNIX_FibreProtocolServiceProvider -lUNIX_WakeUpServiceProvider -lUNIX_VirtualSystemSnapshotServiceProvider -lUNIX_ResourcePoolConfigurationServiceProvider -lUNIX_FileSystemConfigurationServiceProvider -lUNIX_HelpServiceProvider -lUNIX_StorageRelocationServiceProvider -lUNIX_MPLSServiceProvider -lUNIX_PolicyActivationServiceProvider -lUNIX_SCSIPathConfigurationServiceProvider -lUNIX_BIOSServiceProvider -lUNIX_PowerManagementServiceProvider -lUNIX_NetworkPortConfigurationServiceProvider -lUNIX_WiFiPortConfigurationServiceProvider -lUNIX_VRFConfigurationServiceProvider -lUNIX_ReplicationServiceProvider -lUNIX_AccountManagementServiceProvider -lUNIX_VerificationServiceProvider -lUNIX_CertificateAuthorityProvider -lUNIX_NotaryProvider -lUNIX_KeyBasedCredentialManagementServiceProvider -lUNIX_CertificateManagementServiceProvider -lUNIX_KerberosKeyDistributionCenterProvider -lUNIX_PublicKeyManagementServiceProvider -lUNIX_SharedSecretServiceProvider -lUNIX_IdentityManagementServiceProvider -lUNIX_StorageHardwareIDManagementServiceProvider -lUNIX_AuthorizationServiceProvider -lUNIX_PrivilegeManagementServiceProvider -lUNIX_RoleBasedAuthorizationServiceProvider -lUNIX_AccessControlServiceProvider -lUNIX_WBEMServerProvider -lUNIX_LaunchInContextServiceProvider -lUNIX_VirtualSystemManagementServiceProvider -lUNIX_MetricServiceProvider -lUNIX_StorageNameBindingServiceProvider -lUNIX_ZoneServiceProvider -lUNIX_ControllerConfigurationServiceProvider -lUNIX_GroupMaskingMappingServiceProvider -lUNIX_DatabaseServiceProvider -lUNIX_DiskPartitionConfigurationServiceProvider -lUNIX_ConfigurationReportingServiceProvider -lUNIX_PowerTopologyServiceProvider -lUNIX_NetworkPolicyServiceProvider -lUNIX_BasicExecutionServiceProvider -lUNIX_SpareConfigurationServiceProvider -lUNIX_StorageElementCompositionServiceProvider -lUNIX_OpaqueManagementDataServiceProvider -lUNIX_FingerprintMatchingServiceProvider -lUNIX_ProtocolServiceProvider -lUNIX_WBEMProtocolServiceProvider -lUNIX_TierServiceProvider -lUNIX_TierPolicyServiceProvider -lUNIX_IndicationServiceProvider -lUNIX_FileImportServiceProvider -lUNIX_VTLStatisticalDataServiceProvider -lUNIX_DropThresholdCalculationServiceProvider -lUNIX_TokenBucketMeterServiceProvider -lUNIX_EWMAMeterServiceProvider -lUNIX_AverageRateMeterServiceProvider -lUNIX_ToSMarkerServiceProvider -lUNIX_Priority8021QMarkerServiceProvider -lUNIX_DSCPMarkerServiceProvider -lUNIX_PreambleMarkerServiceProvider -lUNIX_ClassifierServiceProvider -lUNIX_ClassifierElementProvider -lUNIX_PacketSchedulingServiceProvider -lUNIX_NonWorkConservingSchedulingServiceProvider -lUNIX_REDDropperServiceProvider -lUNIX_HeadTailDropperProvider -lUNIX_WeightedREDDropperServiceProvider -lUNIX_QueuingServiceProvider -lUNIX_BootServiceProvider -lUNIX_AFServiceProvider -lUNIX_EFServiceProvider -lUNIX_FlowServiceProvider -lUNIX_Hdr8021PServiceProvider -lUNIX_PrecedenceServiceProvider -lUNIX_PrintServiceProvider -lUNIX_TimeServiceProvider -lUNIX_SoftwareInstallationServiceProvider -lUNIX_VLANServiceProvider -lUNIX_Specific802dot1QVLANServiceProvider -lUNIX_PowerUtilizationManagementServiceProvider -lUNIX_ClusteringServiceProvider -lUNIX_SharedDeviceManagementServiceProvider -lUNIX_BatchServiceProvider -lUNIX_iSCSIConfigurationServiceProvider -lUNIX_OOBAlertServiceProvider -lUNIX_StorageConfigurationServiceProvider -lUNIX_IPConfigurationServiceProvider -lUNIX_VirtualSystemMigrationServiceProvider -lUNIX_MPLSCrossConnectProvider -lUNIX_PlatformWatchdogServiceProvider -lUNIX_FCHBADiagnosticTestProvider -lUNIX_RAIDDiagnosticTestProvider -lUNIX_CPUDiagnosticTestProvider -lUNIX_EthernetNICDiagnosticTestProvider -lUNIX_OpticalDriveDiagnosticTestProvider -lUNIX_OpticalDriveDiagnosticSettingDataProvider -lUNIX_DiskDriveDiagnosticTestProvider -lUNIX_IBSubnetManagerProvider -lUNIX_ObjectManagerProvider -lUNIX_ObjectManagerAdapterProvider -lUNIX_ProviderObjectManagerAdapterProvider -lUNIX_ProtocolAdapterProvider -lUNIX_FileSystemStatisticsServiceProvider -lUNIX_BlockStatisticsServiceProvider -lUNIX_USBRedirectionServiceProvider -lUNIX_TextRedirectionServiceProvider -lUNIX_BGPServiceProvider -lUNIX_OSPFServiceProvider -lUNIX_NATServiceProvider -lUNIX_TransparentBridgingServiceProvider -lUNIX_SourceRoutingServiceProvider -lUNIX_SpanningTreeServiceProvider -lUNIX_SwitchServiceProvider -lUNIX_FileExportServiceProvider -lUNIX_OperatingSystemProvider -lUNIX_SWRFileProvider -lUNIX_SWRPEPProvider -lUNIX_SWRDatabaseProvider -lUNIX_ProviderLibraryProvider -lUNIX_ClusteringSAPProvider -lUNIX_CredentialManagementSAPProvider -lUNIX_USBRedirectionSAPProvider -lUNIX_IPNetworkConnectionProvider -lUNIX_KVMRedirectionSAPProvider -lUNIX_DHCPProtocolEndpointProvider -lUNIX_SSHProtocolEndpointProvider -lUNIX_SCSIProtocolEndpointProvider -lUNIX_iSCSIProtocolEndpointProvider -lUNIX_CLPProtocolEndpointProvider -lUNIX_IPXProtocolEndpointProvider -lUNIX_IPsecSAEndpointProvider -lUNIX_IKESAEndpointProvider -lUNIX_LANEndpointProvider -lUNIX_WiFiEndpointProvider -lUNIX_MPLSProtocolEndpointProvider -lUNIX_WirelessLANEndpointProvider -lUNIX_UDPProtocolEndpointProvider -lUNIX_TCPProtocolEndpointProvider -lUNIX_OSPFVirtualInterfaceProvider -lUNIX_OSPFProtocolEndpointProvider -lUNIX_VLANEndpointProvider -lUNIX_LinkAggregator8023adProvider -lUNIX_ATAProtocolEndpointProvider -lUNIX_IPEncapsulationInterfaceProvider -lUNIX_IPSubinterfaceProvider -lUNIX_SwitchVirtualInterfaceProvider -lUNIX_IPLoopbackProvider -lUNIX_BGPProtocolEndpointProvider -lUNIX_SwitchPortProvider -lUNIX_DNSProtocolEndpointProvider -lUNIX_LAGPort8023adProvider -lUNIX_BatchSAPProvider -lUNIX_TextRedirectionSAPProvider -lUNIX_MediaRedirectionSAPProvider -lUNIX_PrintSAPProvider -lUNIX_ServiceAccessURIProvider -lUNIX_ObjectManagerCommunicationMechanismProvider -lUNIX_CIMXMLCommunicationMechanismProvider -lUNIX_VLANProvider -lUNIX_BootSAPProvider -lUNIX_ProcessProvider -lUNIX_ProcessorCoreProvider -lUNIX_iSCSISessionProvider -lUNIX_iSCSIConnectionProvider -lUNIX_HardwareThreadProvider -lUNIX_FileSystemProvider -lUNIX_DatabaseStorageAreaProvider -lUNIX_LocalFileSystemProvider -lUNIX_RemoteFileSystemProvider -lUNIX_NFSProvider -lUNIX_ThreadProvider -lUNIX_AccountProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_RemoteAccessAvailableToElementProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RemoteAccessAvailableToElementLib" -DPROVIDER_LIB_NS="namespace UNIX_RemoteAccessAvailableToElementLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PolicyTransferServiceAccessPointProvider -lUNIX_LaunchInContextSAPProvider -lUNIX_RemotePortProvider -lUNIX_MPLSTunnelHopProvider -lUNIX_SoftwareIdentityResourceProvider -lUNIX_MPLSLSPProvider -lUNIX_CommonDatabaseProvider -lUNIX_MPLSTunnelProvider -lUNIX_ReplicationEntityProvider -lUNIX_PrintQueueProvider -lUNIX_JobQueueProvider -lUNIX_ReusablePolicyContainerProvider -lUNIX_PolicyRepositoryProvider -lUNIX_AutonomousSystemProvider -lUNIX_RoutingProtocolDomainProvider -lUNIX_OSPFAreaProvider -lUNIX_NetworkProvider -lUNIX_VLANNetworkProvider -lUNIX_TierDomainProvider -lUNIX_ApplicationSystemProvider -lUNIX_DatabaseSystemProvider -lUNIX_StorageLibraryProvider -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider -lUNIX_SCSIArbitraryLogicalUnitProvider -lUNIX_ButtonProvider -lUNIX_PowerSupplyProvider -lUNIX_UninterruptiblePowerSupplyProvider -lUNIX_BatteryProvider -lUNIX_TapeDriveProvider -lUNIX_CDROMDriveProvider -lUNIX_WORMDriveProvider -lUNIX_DiskDriveProvider -lUNIX_DVDDriveProvider -lUNIX_DisketteDriveProvider -lUNIX_MagnetoOpticalDriveProvider -lUNIX_USBDeviceProvider -lUNIX_USBHubProvider -lUNIX_PowerConnectionPointProvider -lUNIX_LabelReaderProvider -lUNIX_LogicalDiskProvider -lUNIX_SnapshotProvider -lUNIX_VTOCDiskPartitionProvider -lUNIX_GPTDiskPartitionProvider -lUNIX_DiskPartitionProvider -lUNIX_TapePartitionProvider -lUNIX_CompositeExtentProvider -lUNIX_ProtectedSpaceExtentProvider -lUNIX_PhysicalExtentProvider -lUNIX_DatabaseSegmentProvider -lUNIX_AggregatePExtentProvider -lUNIX_VolumeSetProvider -lUNIX_OpaqueManagementDataProvider -lUNIX_AggregatePSExtentProvider -lUNIX_CacheMemoryProvider -lUNIX_VolatileStorageProvider -lUNIX_NonVolatileStorageProvider -lUNIX_PrinterProvider -lUNIX_CurrentSensorProvider -lUNIX_TemperatureSensorProvider -lUNIX_VoltageSensorProvider -lUNIX_TachometerProvider -lUNIX_MultiStateSensorProvider -lUNIX_BinarySensorProvider -lUNIX_DiscreteSensorProvider -lUNIX_CableModemProvider -lUNIX_ADSLModemProvider -lUNIX_VDSLModemProvider -lUNIX_HDSLModemProvider -lUNIX_SDSLModemProvider -lUNIX_UnimodemProvider -lUNIX_ISDNModemProvider -lUNIX_KeyboardProvider -lUNIX_PointingDeviceProvider -lUNIX_DesktopMonitorProvider -lUNIX_FlatPanelProvider -lUNIX_ProcessorProvider -lUNIX_VideoHeadProvider -lUNIX_FingerprintReaderProvider -lUNIX_DoorProvider -lUNIX_SmartCardProvider -lUNIX_NetworkPortProvider -lUNIX_WiFiPortProvider -lUNIX_EthernetPortProvider -lUNIX_LLDPEthernetPortProvider -lUNIX_DataCenterEthernetPortProvider -lUNIX_SASPortProvider -lUNIX_IBPortProvider -lUNIX_FCPortProvider -lUNIX_WirelessPortProvider -lUNIX_TokenRingPortProvider -lUNIX_DAPortProvider -lUNIX_SerialPortProvider -lUNIX_ATAPortProvider -lUNIX_USBPortProvider -lUNIX_PCIPortProvider -lUNIX_SPIPortProvider -lUNIX_ParallelPortProvider -lUNIX_FibrePortProvider -lUNIX_WatchdogProvider -lUNIX_EthernetAdapterProvider -lUNIX_TokenRingAdapterProvider -lUNIX_FibreChannelAdapterProvider -lUNIX_IndicatorLEDProvider -lUNIX_ElectricalSwitchProvider -lUNIX_ProtocolControllerProvider -lUNIX_SCSIProtocolControllerProvider -lUNIX_WiFiRadioProvider -lUNIX_InterLibraryPortProvider -lUNIX_LimitedAccessPortProvider -lUNIX_SmartCardReaderProvider -lUNIX_PCIBridgeProvider -lUNIX_PCIeSwitchProvider -lUNIX_PortControllerProvider -lUNIX_IBPortControllerProvider -lUNIX_ParallelControllerProvider -lUNIX_InfraredControllerProvider -lUNIX_ManagementControllerProvider -lUNIX_SSAControllerProvider -lUNIX_AGPVideoControllerProvider -lUNIX_PCVideoControllerProvider -lUNIX_SerialControllerProvider -lUNIX_DisplayControllerProvider -lUNIX_AGPVideoDisplayControllerProvider -lUNIX_USBControllerProvider -lUNIX_IDEControllerProvider -lUNIX_PCMCIAControllerProvider -lUNIX_SCSIControllerProvider -lUNIX_ESCONControllerProvider -lUNIX_DeviceTrayProvider -lUNIX_PassThroughModuleProvider -lUNIX_AlarmDeviceProvider -lUNIX_FanProvider -lUNIX_RefrigerationProvider -lUNIX_HeatPipeProvider -lUNIX_TPMProvider -lUNIX_ScannerProvider -lUNIX_ProviderProvider -lUNIX_IRQProvider -lUNIX_PortResourceProvider -lUNIX_MemoryResourceProvider -lUNIX_DMAProvider -lUNIX_NFSShareProvider -lUNIX_CIFSShareProvider -lUNIX_MessageLogProvider -lUNIX_DiagnosticLogProvider -lUNIX_DiagnosticsLogProvider -lUNIX_FibreProtocolServiceProvider -lUNIX_WakeUpServiceProvider -lUNIX_VirtualSystemSnapshotServiceProvider -lUNIX_ResourcePoolConfigurationServiceProvider -lUNIX_FileSystemConfigurationServiceProvider -lUNIX_HelpServiceProvider -lUNIX_StorageRelocationServiceProvider -lUNIX_MPLSServiceProvider -lUNIX_PolicyActivationServiceProvider -lUNIX_SCSIPathConfigurationServiceProvider -lUNIX_BIOSServiceProvider -lUNIX_PowerManagementServiceProvider -lUNIX_NetworkPortConfigurationServiceProvider -lUNIX_WiFiPortConfigurationServiceProvider -lUNIX_VRFConfigurationServiceProvider -lUNIX_ReplicationServiceProvider -lUNIX_AccountManagementServiceProvider -lUNIX_VerificationServiceProvider -lUNIX_CertificateAuthorityProvider -lUNIX_NotaryProvider -lUNIX_KeyBasedCredentialManagementServiceProvider -lUNIX_CertificateManagementServiceProvider -lUNIX_KerberosKeyDistributionCenterProvider -lUNIX_PublicKeyManagementServiceProvider -lUNIX_SharedSecretServiceProvider -lUNIX_IdentityManagementServiceProvider -lUNIX_StorageHardwareIDManagementServiceProvider -lUNIX_AuthorizationServiceProvider -lUNIX_PrivilegeManagementServiceProvider -lUNIX_RoleBasedAuthorizationServiceProvider -lUNIX_AccessControlServiceProvider -lUNIX_WBEMServerProvider -lUNIX_LaunchInContextServiceProvider -lUNIX_VirtualSystemManagementServiceProvider -lUNIX_MetricServiceProvider -lUNIX_StorageNameBindingServiceProvider -lUNIX_ZoneServiceProvider -lUNIX_ControllerConfigurationServiceProvider -lUNIX_GroupMaskingMappingServiceProvider -lUNIX_DatabaseServiceProvider -lUNIX_DiskPartitionConfigurationServiceProvider -lUNIX_ConfigurationReportingServiceProvider -lUNIX_PowerTopologyServiceProvider -lUNIX_NetworkPolicyServiceProvider -lUNIX_BasicExecutionServiceProvider -lUNIX_SpareConfigurationServiceProvider -lUNIX_StorageElementCompositionServiceProvider -lUNIX_OpaqueManagementDataServiceProvider -lUNIX_FingerprintMatchingServiceProvider -lUNIX_ProtocolServiceProvider -lUNIX_WBEMProtocolServiceProvider -lUNIX_TierServiceProvider -lUNIX_TierPolicyServiceProvider -lUNIX_IndicationServiceProvider -lUNIX_FileImportServiceProvider -lUNIX_VTLStatisticalDataServiceProvider -lUNIX_DropThresholdCalculationServiceProvider -lUNIX_TokenBucketMeterServiceProvider -lUNIX_EWMAMeterServiceProvider -lUNIX_AverageRateMeterServiceProvider -lUNIX_ToSMarkerServiceProvider -lUNIX_Priority8021QMarkerServiceProvider -lUNIX_DSCPMarkerServiceProvider -lUNIX_PreambleMarkerServiceProvider -lUNIX_ClassifierServiceProvider -lUNIX_ClassifierElementProvider -lUNIX_PacketSchedulingServiceProvider -lUNIX_NonWorkConservingSchedulingServiceProvider -lUNIX_REDDropperServiceProvider -lUNIX_HeadTailDropperProvider -lUNIX_WeightedREDDropperServiceProvider -lUNIX_QueuingServiceProvider -lUNIX_BootServiceProvider -lUNIX_AFServiceProvider -lUNIX_EFServiceProvider -lUNIX_FlowServiceProvider -lUNIX_Hdr8021PServiceProvider -lUNIX_PrecedenceServiceProvider -lUNIX_PrintServiceProvider -lUNIX_TimeServiceProvider -lUNIX_SoftwareInstallationServiceProvider -lUNIX_VLANServiceProvider -lUNIX_Specific802dot1QVLANServiceProvider -lUNIX_PowerUtilizationManagementServiceProvider -lUNIX_ClusteringServiceProvider -lUNIX_SharedDeviceManagementServiceProvider -lUNIX_BatchServiceProvider -lUNIX_iSCSIConfigurationServiceProvider -lUNIX_OOBAlertServiceProvider -lUNIX_StorageConfigurationServiceProvider -lUNIX_IPConfigurationServiceProvider -lUNIX_VirtualSystemMigrationServiceProvider -lUNIX_MPLSCrossConnectProvider -lUNIX_PlatformWatchdogServiceProvider -lUNIX_FCHBADiagnosticTestProvider -lUNIX_RAIDDiagnosticTestProvider -lUNIX_CPUDiagnosticTestProvider -lUNIX_EthernetNICDiagnosticTestProvider -lUNIX_OpticalDriveDiagnosticTestProvider -lUNIX_OpticalDriveDiagnosticSettingDataProvider -lUNIX_DiskDriveDiagnosticTestProvider -lUNIX_IBSubnetManagerProvider -lUNIX_ObjectManagerProvider -lUNIX_ObjectManagerAdapterProvider -lUNIX_ProviderObjectManagerAdapterProvider -lUNIX_ProtocolAdapterProvider -lUNIX_FileSystemStatisticsServiceProvider -lUNIX_BlockStatisticsServiceProvider -lUNIX_USBRedirectionServiceProvider -lUNIX_TextRedirectionServiceProvider -lUNIX_BGPServiceProvider -lUNIX_OSPFServiceProvider -lUNIX_NATServiceProvider -lUNIX_TransparentBridgingServiceProvider -lUNIX_SourceRoutingServiceProvider -lUNIX_SpanningTreeServiceProvider -lUNIX_SwitchServiceProvider -lUNIX_FileExportServiceProvider -lUNIX_OperatingSystemProvider -lUNIX_SWRFileProvider -lUNIX_SWRPEPProvider -lUNIX_SWRDatabaseProvider -lUNIX_ProviderLibraryProvider -lUNIX_ClusteringSAPProvider -lUNIX_CredentialManagementSAPProvider -lUNIX_USBRedirectionSAPProvider -lUNIX_IPNetworkConnectionProvider -lUNIX_KVMRedirectionSAPProvider -lUNIX_DHCPProtocolEndpointProvider -lUNIX_SSHProtocolEndpointProvider -lUNIX_SCSIProtocolEndpointProvider -lUNIX_iSCSIProtocolEndpointProvider -lUNIX_CLPProtocolEndpointProvider -lUNIX_IPXProtocolEndpointProvider -lUNIX_IPsecSAEndpointProvider -lUNIX_IKESAEndpointProvider -lUNIX_LANEndpointProvider -lUNIX_WiFiEndpointProvider -lUNIX_MPLSProtocolEndpointProvider -lUNIX_WirelessLANEndpointProvider -lUNIX_UDPProtocolEndpointProvider -lUNIX_TCPProtocolEndpointProvider -lUNIX_OSPFVirtualInterfaceProvider -lUNIX_OSPFProtocolEndpointProvider -lUNIX_VLANEndpointProvider -lUNIX_LinkAggregator8023adProvider -lUNIX_ATAProtocolEndpointProvider -lUNIX_IPEncapsulationInterfaceProvider -lUNIX_IPSubinterfaceProvider -lUNIX_SwitchVirtualInterfaceProvider -lUNIX_IPLoopbackProvider -lUNIX_BGPProtocolEndpointProvider -lUNIX_SwitchPortProvider -lUNIX_DNSProtocolEndpointProvider -lUNIX_LAGPort8023adProvider -lUNIX_BatchSAPProvider -lUNIX_TextRedirectionSAPProvider -lUNIX_MediaRedirectionSAPProvider -lUNIX_PrintSAPProvider -lUNIX_ServiceAccessURIProvider -lUNIX_ObjectManagerCommunicationMechanismProvider -lUNIX_CIMXMLCommunicationMechanismProvider -lUNIX_VLANProvider -lUNIX_BootSAPProvider -lUNIX_ProcessProvider -lUNIX_ProcessorCoreProvider -lUNIX_iSCSISessionProvider -lUNIX_iSCSIConnectionProvider -lUNIX_HardwareThreadProvider -lUNIX_FileSystemProvider -lUNIX_DatabaseStorageAreaProvider -lUNIX_LocalFileSystemProvider -lUNIX_RemoteFileSystemProvider -lUNIX_NFSProvider -lUNIX_ThreadProvider -lUNIX_AccountProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_RemoteAccessAvailableToElement.cpp" />
+    <Compile Include="UNIX_RemoteAccessAvailableToElementMain.cpp" />
+    <Compile Include="UNIX_RemoteAccessAvailableToElementProvider.cpp" />
+    <Compile Include="UNIX_RemoteAccessAvailableToElement_AIX.cpp" />
+    <Compile Include="UNIX_RemoteAccessAvailableToElement_DARWIN.cpp" />
+    <Compile Include="UNIX_RemoteAccessAvailableToElement_FREEBSD.cpp" />
+    <Compile Include="UNIX_RemoteAccessAvailableToElement_HPUX.cpp" />
+    <Compile Include="UNIX_RemoteAccessAvailableToElement_LINUX.cpp" />
+    <Compile Include="UNIX_RemoteAccessAvailableToElement_SOLARIS.cpp" />
+    <Compile Include="UNIX_RemoteAccessAvailableToElement_STUB.cpp" />
+    <Compile Include="UNIX_RemoteAccessAvailableToElement_TRU64.cpp" />
+    <Compile Include="UNIX_RemoteAccessAvailableToElement_VMS.cpp" />
+    <Compile Include="UNIX_RemoteAccessAvailableToElement_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementDeps.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementDeps_AIX.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementDeps_DARWIN.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementDeps_FREEBSD.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementDeps_HPUX.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementDeps_LINUX.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementDeps_SOLARIS.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementDeps_STUB.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementDeps_TRU64.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementDeps_VMS.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementDeps_ZOS.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementPrivate.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementPrivate_AIX.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementPrivate_DARWIN.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementPrivate_FREEBSD.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementPrivate_HPUX.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementPrivate_LINUX.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementPrivate_SOLARIS.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementPrivate_STUB.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementPrivate_TRU64.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementPrivate_VMS.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementPrivate_ZOS.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElementProvider.h" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_AIX.hpp" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_AIX.hxx" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_DARWIN.hpp" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_DARWIN.hxx" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_FREEBSD.hpp" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_FREEBSD.hxx" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_HPUX.hpp" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_HPUX.hxx" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_LINUX.hpp" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_LINUX.hxx" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_SOLARIS.hpp" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_SOLARIS.hxx" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_STUB.hpp" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_STUB.hxx" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_TRU64.hpp" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_TRU64.hxx" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_VMS.hpp" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_VMS.hxx" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_WIN32.hpp" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_ZOS.hpp" />
+    <Node Include="UNIX_RemoteAccessAvailableToElement_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

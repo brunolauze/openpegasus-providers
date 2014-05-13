@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{61D62C97-3241-424E-B765-45893BCB022D}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../VirtualComputerSystem/UNIX_VirtualComputerSystem.md.pc" name="UNIX_VirtualComputerSystem" IsProject="True" />
+        <Package file="../Cluster/UNIX_Cluster.md.pc" name="UNIX_Cluster" IsProject="True" />
+        <Package file="../ComputerSystem/UNIX_ComputerSystem.md.pc" name="UNIX_ComputerSystem" IsProject="True" />
+        <Package file="../ClusteringService/UNIX_ClusteringService.md.pc" name="UNIX_ClusteringService" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../VirtualComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Cluster/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ClusteringService/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_HostedClusterServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_HostedClusterServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_HostedClusterServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider -lUNIX_ClusteringServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_HostedClusterServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_HostedClusterServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_HostedClusterServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualComputerSystemProvider -lUNIX_ClusterProvider -lUNIX_ComputerSystemProvider -lUNIX_ClusteringServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_HostedClusterService.cpp" />
+    <Compile Include="UNIX_HostedClusterServiceMain.cpp" />
+    <Compile Include="UNIX_HostedClusterServiceProvider.cpp" />
+    <Compile Include="UNIX_HostedClusterService_AIX.cpp" />
+    <Compile Include="UNIX_HostedClusterService_DARWIN.cpp" />
+    <Compile Include="UNIX_HostedClusterService_FREEBSD.cpp" />
+    <Compile Include="UNIX_HostedClusterService_HPUX.cpp" />
+    <Compile Include="UNIX_HostedClusterService_LINUX.cpp" />
+    <Compile Include="UNIX_HostedClusterService_SOLARIS.cpp" />
+    <Compile Include="UNIX_HostedClusterService_STUB.cpp" />
+    <Compile Include="UNIX_HostedClusterService_TRU64.cpp" />
+    <Compile Include="UNIX_HostedClusterService_VMS.cpp" />
+    <Compile Include="UNIX_HostedClusterService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_HostedClusterService.h" />
+    <Node Include="UNIX_HostedClusterServiceDeps.h" />
+    <Node Include="UNIX_HostedClusterServiceDeps_AIX.h" />
+    <Node Include="UNIX_HostedClusterServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_HostedClusterServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_HostedClusterServiceDeps_HPUX.h" />
+    <Node Include="UNIX_HostedClusterServiceDeps_LINUX.h" />
+    <Node Include="UNIX_HostedClusterServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_HostedClusterServiceDeps_STUB.h" />
+    <Node Include="UNIX_HostedClusterServiceDeps_TRU64.h" />
+    <Node Include="UNIX_HostedClusterServiceDeps_VMS.h" />
+    <Node Include="UNIX_HostedClusterServiceDeps_ZOS.h" />
+    <Node Include="UNIX_HostedClusterServicePrivate.h" />
+    <Node Include="UNIX_HostedClusterServicePrivate_AIX.h" />
+    <Node Include="UNIX_HostedClusterServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_HostedClusterServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_HostedClusterServicePrivate_HPUX.h" />
+    <Node Include="UNIX_HostedClusterServicePrivate_LINUX.h" />
+    <Node Include="UNIX_HostedClusterServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_HostedClusterServicePrivate_STUB.h" />
+    <Node Include="UNIX_HostedClusterServicePrivate_TRU64.h" />
+    <Node Include="UNIX_HostedClusterServicePrivate_VMS.h" />
+    <Node Include="UNIX_HostedClusterServicePrivate_ZOS.h" />
+    <Node Include="UNIX_HostedClusterServiceProvider.h" />
+    <Node Include="UNIX_HostedClusterService_AIX.hpp" />
+    <Node Include="UNIX_HostedClusterService_AIX.hxx" />
+    <Node Include="UNIX_HostedClusterService_DARWIN.hpp" />
+    <Node Include="UNIX_HostedClusterService_DARWIN.hxx" />
+    <Node Include="UNIX_HostedClusterService_FREEBSD.hpp" />
+    <Node Include="UNIX_HostedClusterService_FREEBSD.hxx" />
+    <Node Include="UNIX_HostedClusterService_HPUX.hpp" />
+    <Node Include="UNIX_HostedClusterService_HPUX.hxx" />
+    <Node Include="UNIX_HostedClusterService_LINUX.hpp" />
+    <Node Include="UNIX_HostedClusterService_LINUX.hxx" />
+    <Node Include="UNIX_HostedClusterService_SOLARIS.hpp" />
+    <Node Include="UNIX_HostedClusterService_SOLARIS.hxx" />
+    <Node Include="UNIX_HostedClusterService_STUB.hpp" />
+    <Node Include="UNIX_HostedClusterService_STUB.hxx" />
+    <Node Include="UNIX_HostedClusterService_TRU64.hpp" />
+    <Node Include="UNIX_HostedClusterService_TRU64.hxx" />
+    <Node Include="UNIX_HostedClusterService_VMS.hpp" />
+    <Node Include="UNIX_HostedClusterService_VMS.hxx" />
+    <Node Include="UNIX_HostedClusterService_WIN32.hpp" />
+    <Node Include="UNIX_HostedClusterService_ZOS.hpp" />
+    <Node Include="UNIX_HostedClusterService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

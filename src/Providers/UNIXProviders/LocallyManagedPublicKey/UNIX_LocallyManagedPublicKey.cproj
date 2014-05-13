@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DA7AC818-A628-4920-A04B-AE6E2F58632F}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../PublicKeyManagementService/UNIX_PublicKeyManagementService.md.pc" name="UNIX_PublicKeyManagementService" IsProject="True" />
+        <Package file="../UnsignedPublicKey/UNIX_UnsignedPublicKey.md.pc" name="UNIX_UnsignedPublicKey" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../PublicKeyManagementService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../UnsignedPublicKey/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_LocallyManagedPublicKeyProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LocallyManagedPublicKeyLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_LocallyManagedPublicKeyLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PublicKeyManagementServiceProvider -lUNIX_UnsignedPublicKeyProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_LocallyManagedPublicKeyProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LocallyManagedPublicKeyLib" -DPROVIDER_LIB_NS="namespace UNIX_LocallyManagedPublicKeyLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PublicKeyManagementServiceProvider -lUNIX_UnsignedPublicKeyProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_LocallyManagedPublicKey.cpp" />
+    <Compile Include="UNIX_LocallyManagedPublicKeyMain.cpp" />
+    <Compile Include="UNIX_LocallyManagedPublicKeyProvider.cpp" />
+    <Compile Include="UNIX_LocallyManagedPublicKey_AIX.cpp" />
+    <Compile Include="UNIX_LocallyManagedPublicKey_DARWIN.cpp" />
+    <Compile Include="UNIX_LocallyManagedPublicKey_FREEBSD.cpp" />
+    <Compile Include="UNIX_LocallyManagedPublicKey_HPUX.cpp" />
+    <Compile Include="UNIX_LocallyManagedPublicKey_LINUX.cpp" />
+    <Compile Include="UNIX_LocallyManagedPublicKey_SOLARIS.cpp" />
+    <Compile Include="UNIX_LocallyManagedPublicKey_STUB.cpp" />
+    <Compile Include="UNIX_LocallyManagedPublicKey_TRU64.cpp" />
+    <Compile Include="UNIX_LocallyManagedPublicKey_VMS.cpp" />
+    <Compile Include="UNIX_LocallyManagedPublicKey_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_LocallyManagedPublicKey.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyDeps.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyDeps_AIX.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyDeps_DARWIN.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyDeps_FREEBSD.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyDeps_HPUX.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyDeps_LINUX.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyDeps_SOLARIS.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyDeps_STUB.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyDeps_TRU64.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyDeps_VMS.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyDeps_ZOS.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyPrivate.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyPrivate_AIX.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyPrivate_DARWIN.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyPrivate_FREEBSD.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyPrivate_HPUX.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyPrivate_LINUX.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyPrivate_SOLARIS.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyPrivate_STUB.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyPrivate_TRU64.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyPrivate_VMS.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyPrivate_ZOS.h" />
+    <Node Include="UNIX_LocallyManagedPublicKeyProvider.h" />
+    <Node Include="UNIX_LocallyManagedPublicKey_AIX.hpp" />
+    <Node Include="UNIX_LocallyManagedPublicKey_AIX.hxx" />
+    <Node Include="UNIX_LocallyManagedPublicKey_DARWIN.hpp" />
+    <Node Include="UNIX_LocallyManagedPublicKey_DARWIN.hxx" />
+    <Node Include="UNIX_LocallyManagedPublicKey_FREEBSD.hpp" />
+    <Node Include="UNIX_LocallyManagedPublicKey_FREEBSD.hxx" />
+    <Node Include="UNIX_LocallyManagedPublicKey_HPUX.hpp" />
+    <Node Include="UNIX_LocallyManagedPublicKey_HPUX.hxx" />
+    <Node Include="UNIX_LocallyManagedPublicKey_LINUX.hpp" />
+    <Node Include="UNIX_LocallyManagedPublicKey_LINUX.hxx" />
+    <Node Include="UNIX_LocallyManagedPublicKey_SOLARIS.hpp" />
+    <Node Include="UNIX_LocallyManagedPublicKey_SOLARIS.hxx" />
+    <Node Include="UNIX_LocallyManagedPublicKey_STUB.hpp" />
+    <Node Include="UNIX_LocallyManagedPublicKey_STUB.hxx" />
+    <Node Include="UNIX_LocallyManagedPublicKey_TRU64.hpp" />
+    <Node Include="UNIX_LocallyManagedPublicKey_TRU64.hxx" />
+    <Node Include="UNIX_LocallyManagedPublicKey_VMS.hpp" />
+    <Node Include="UNIX_LocallyManagedPublicKey_VMS.hxx" />
+    <Node Include="UNIX_LocallyManagedPublicKey_WIN32.hpp" />
+    <Node Include="UNIX_LocallyManagedPublicKey_ZOS.hpp" />
+    <Node Include="UNIX_LocallyManagedPublicKey_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

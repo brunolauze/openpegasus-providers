@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>189d4e15-e945-4238-ac18-c9b09b523982</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../../UNIX_ProtectedExtentBasedOn.md.pc" name="UNIX_ProtectedExtentBasedOn" IsProject="True" />
+        <Package file="../../../LogicalDisk/UNIX_LogicalDisk.md.pc" name="UNIX_LogicalDisk" IsProject="True" />
+        <Package file="../../../Snapshot/UNIX_Snapshot.md.pc" name="UNIX_Snapshot" IsProject="True" />
+        <Package file="../../../VTOCDiskPartition/UNIX_VTOCDiskPartition.md.pc" name="UNIX_VTOCDiskPartition" IsProject="True" />
+        <Package file="../../../GPTDiskPartition/UNIX_GPTDiskPartition.md.pc" name="UNIX_GPTDiskPartition" IsProject="True" />
+        <Package file="../../../DiskPartition/UNIX_DiskPartition.md.pc" name="UNIX_DiskPartition" IsProject="True" />
+        <Package file="../../../TapePartition/UNIX_TapePartition.md.pc" name="UNIX_TapePartition" IsProject="True" />
+        <Package file="../../../CompositeExtent/UNIX_CompositeExtent.md.pc" name="UNIX_CompositeExtent" IsProject="True" />
+        <Package file="../../../ProtectedSpaceExtent/UNIX_ProtectedSpaceExtent.md.pc" name="UNIX_ProtectedSpaceExtent" IsProject="True" />
+        <Package file="../../../PhysicalExtent/UNIX_PhysicalExtent.md.pc" name="UNIX_PhysicalExtent" IsProject="True" />
+        <Package file="../../../DatabaseSegment/UNIX_DatabaseSegment.md.pc" name="UNIX_DatabaseSegment" IsProject="True" />
+        <Package file="../../../AggregatePExtent/UNIX_AggregatePExtent.md.pc" name="UNIX_AggregatePExtent" IsProject="True" />
+        <Package file="../../../VolumeSet/UNIX_VolumeSet.md.pc" name="UNIX_VolumeSet" IsProject="True" />
+        <Package file="../../../OpaqueManagementData/UNIX_OpaqueManagementData.md.pc" name="UNIX_OpaqueManagementData" IsProject="True" />
+        <Package file="../../../AggregatePSExtent/UNIX_AggregatePSExtent.md.pc" name="UNIX_AggregatePSExtent" IsProject="True" />
+        <Package file="../../../CacheMemory/UNIX_CacheMemory.md.pc" name="UNIX_CacheMemory" IsProject="True" />
+        <Package file="../../../VolatileStorage/UNIX_VolatileStorage.md.pc" name="UNIX_VolatileStorage" IsProject="True" />
+        <Package file="../../../NonVolatileStorage/UNIX_NonVolatileStorage.md.pc" name="UNIX_NonVolatileStorage" IsProject="True" />
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>TestUNIX_ProtectedExtentBasedOn</OutputName>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/*</Include>
+        <Include>${ProjectDir}/../../..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ProtectedExtentBasedOnLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ProtectedExtentBasedOnLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ProtectedExtentBasedOnProvider -lUNIX_LogicalDiskProvider -lUNIX_SnapshotProvider -lUNIX_VTOCDiskPartitionProvider -lUNIX_GPTDiskPartitionProvider -lUNIX_DiskPartitionProvider -lUNIX_TapePartitionProvider -lUNIX_CompositeExtentProvider -lUNIX_ProtectedSpaceExtentProvider -lUNIX_PhysicalExtentProvider -lUNIX_DatabaseSegmentProvider -lUNIX_AggregatePExtentProvider -lUNIX_VolumeSetProvider -lUNIX_OpaqueManagementDataProvider -lUNIX_AggregatePSExtentProvider -lUNIX_CacheMemoryProvider -lUNIX_VolatileStorageProvider -lUNIX_NonVolatileStorageProvider</ExtraLinkerArguments>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="LD_LIBRARY_PATH" value="../../../../bin/Debug:../../../../../LogicalDisk/bin/Debug:../../../../../Snapshot/bin/Debug:../../../../../VTOCDiskPartition/bin/Debug:../../../../../GPTDiskPartition/bin/Debug:../../../../../DiskPartition/bin/Debug:../../../../../TapePartition/bin/Debug:../../../../../CompositeExtent/bin/Debug:../../../../../ProtectedSpaceExtent/bin/Debug:../../../../../PhysicalExtent/bin/Debug:../../../../../DatabaseSegment/bin/Debug:../../../../../AggregatePExtent/bin/Debug:../../../../../VolumeSet/bin/Debug:../../../../../OpaqueManagementData/bin/Debug:../../../../../AggregatePSExtent/bin/Debug:../../../../../CacheMemory/bin/Debug:../../../../../VolatileStorage/bin/Debug:../../../../../NonVolatileStorage/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
+    <Commandlineparameters></Commandlineparameters>
+    <ConsolePause>false</ConsolePause>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../../bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../LogicalDisk/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../Snapshot/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VTOCDiskPartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../GPTDiskPartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DiskPartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TapePartition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../CompositeExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../ProtectedSpaceExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../PhysicalExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DatabaseSegment/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AggregatePExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VolumeSet/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../OpaqueManagementData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../AggregatePSExtent/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../CacheMemory/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../VolatileStorage/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../NonVolatileStorage/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>TestUNIX_ProtectedExtentBasedOn</OutputName>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ProtectedExtentBasedOnLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ProtectedExtentBasedOnLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ProtectedExtentBasedOnProvider -lUNIX_LogicalDiskProvider -lUNIX_SnapshotProvider -lUNIX_VTOCDiskPartitionProvider -lUNIX_GPTDiskPartitionProvider -lUNIX_DiskPartitionProvider -lUNIX_TapePartitionProvider -lUNIX_CompositeExtentProvider -lUNIX_ProtectedSpaceExtentProvider -lUNIX_PhysicalExtentProvider -lUNIX_DatabaseSegmentProvider -lUNIX_AggregatePExtentProvider -lUNIX_VolumeSetProvider -lUNIX_OpaqueManagementDataProvider -lUNIX_AggregatePSExtentProvider -lUNIX_CacheMemoryProvider -lUNIX_VolatileStorageProvider -lUNIX_NonVolatileStorageProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../MockResponseHandler.cpp">
+        <Link>MockResponseHandler.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ProtectedExtentBasedOnFixture.cpp" />
+    <Compile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="RunTestUNIX_ProtectedExtentBasedOn.sh" />
+    <Node Include="UNIX_ProtectedExtentBasedOnFixture.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

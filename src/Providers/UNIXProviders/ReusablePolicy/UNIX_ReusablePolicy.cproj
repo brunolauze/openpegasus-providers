@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1138CA5-4F47-4990-91BD-6694CD872166}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ReusablePolicyContainer/UNIX_ReusablePolicyContainer.md.pc" name="UNIX_ReusablePolicyContainer" IsProject="True" />
+        <Package file="../NetworkPolicyAction/UNIX_NetworkPolicyAction.md.pc" name="UNIX_NetworkPolicyAction" IsProject="True" />
+        <Package file="../VendorPolicyAction/UNIX_VendorPolicyAction.md.pc" name="UNIX_VendorPolicyAction" IsProject="True" />
+        <Package file="../IKEAction/UNIX_IKEAction.md.pc" name="UNIX_IKEAction" IsProject="True" />
+        <Package file="../IPsecTransportAction/UNIX_IPsecTransportAction.md.pc" name="UNIX_IPsecTransportAction" IsProject="True" />
+        <Package file="../IPsecTunnelAction/UNIX_IPsecTunnelAction.md.pc" name="UNIX_IPsecTunnelAction" IsProject="True" />
+        <Package file="../PreconfiguredTransportAction/UNIX_PreconfiguredTransportAction.md.pc" name="UNIX_PreconfiguredTransportAction" IsProject="True" />
+        <Package file="../PreconfiguredTunnelAction/UNIX_PreconfiguredTunnelAction.md.pc" name="UNIX_PreconfiguredTunnelAction" IsProject="True" />
+        <Package file="../RejectConnectionAction/UNIX_RejectConnectionAction.md.pc" name="UNIX_RejectConnectionAction" IsProject="True" />
+        <Package file="../MethodAction/UNIX_MethodAction.md.pc" name="UNIX_MethodAction" IsProject="True" />
+        <Package file="../NetworkPacketAction/UNIX_NetworkPacketAction.md.pc" name="UNIX_NetworkPacketAction" IsProject="True" />
+        <Package file="../CompoundPolicyAction/UNIX_CompoundPolicyAction.md.pc" name="UNIX_CompoundPolicyAction" IsProject="True" />
+        <Package file="../PacketFilterCondition/UNIX_PacketFilterCondition.md.pc" name="UNIX_PacketFilterCondition" IsProject="True" />
+        <Package file="../CompoundPolicyCondition/UNIX_CompoundPolicyCondition.md.pc" name="UNIX_CompoundPolicyCondition" IsProject="True" />
+        <Package file="../QueryCondition/UNIX_QueryCondition.md.pc" name="UNIX_QueryCondition" IsProject="True" />
+        <Package file="../DocumentAuthentication/UNIX_DocumentAuthentication.md.pc" name="UNIX_DocumentAuthentication" IsProject="True" />
+        <Package file="../NetworkingIDAuthentication/UNIX_NetworkingIDAuthentication.md.pc" name="UNIX_NetworkingIDAuthentication" IsProject="True" />
+        <Package file="../KerberosAuthentication/UNIX_KerberosAuthentication.md.pc" name="UNIX_KerberosAuthentication" IsProject="True" />
+        <Package file="../BiometricAuthentication/UNIX_BiometricAuthentication.md.pc" name="UNIX_BiometricAuthentication" IsProject="True" />
+        <Package file="../PublicPrivateKeyAuthentication/UNIX_PublicPrivateKeyAuthentication.md.pc" name="UNIX_PublicPrivateKeyAuthentication" IsProject="True" />
+        <Package file="../PhysicalCredentialAuthentication/UNIX_PhysicalCredentialAuthentication.md.pc" name="UNIX_PhysicalCredentialAuthentication" IsProject="True" />
+        <Package file="../SharedSecretAuthentication/UNIX_SharedSecretAuthentication.md.pc" name="UNIX_SharedSecretAuthentication" IsProject="True" />
+        <Package file="../AccountAuthentication/UNIX_AccountAuthentication.md.pc" name="UNIX_AccountAuthentication" IsProject="True" />
+        <Package file="../PolicyTimePeriodCondition/UNIX_PolicyTimePeriodCondition.md.pc" name="UNIX_PolicyTimePeriodCondition" IsProject="True" />
+        <Package file="../VendorPolicyCondition/UNIX_VendorPolicyCondition.md.pc" name="UNIX_VendorPolicyCondition" IsProject="True" />
+        <Package file="../NetworkPolicyCondition/UNIX_NetworkPolicyCondition.md.pc" name="UNIX_NetworkPolicyCondition" IsProject="True" />
+        <Package file="../AccessControlPolicy/UNIX_AccessControlPolicy.md.pc" name="UNIX_AccessControlPolicy" IsProject="True" />
+        <Package file="../PolicyGroup/UNIX_PolicyGroup.md.pc" name="UNIX_PolicyGroup" IsProject="True" />
+        <Package file="../AccessControlPolicyGroup/UNIX_AccessControlPolicyGroup.md.pc" name="UNIX_AccessControlPolicyGroup" IsProject="True" />
+        <Package file="../AuthorizationRule/UNIX_AuthorizationRule.md.pc" name="UNIX_AuthorizationRule" IsProject="True" />
+        <Package file="../NetworkPolicyRule/UNIX_NetworkPolicyRule.md.pc" name="UNIX_NetworkPolicyRule" IsProject="True" />
+        <Package file="../IPsecRule/UNIX_IPsecRule.md.pc" name="UNIX_IPsecRule" IsProject="True" />
+        <Package file="../IKERule/UNIX_IKERule.md.pc" name="UNIX_IKERule" IsProject="True" />
+        <Package file="../AuthenticationRule/UNIX_AuthenticationRule.md.pc" name="UNIX_AuthenticationRule" IsProject="True" />
+        <Package file="../TierPolicyRule/UNIX_TierPolicyRule.md.pc" name="UNIX_TierPolicyRule" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ReusablePolicyContainer/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkPolicyAction/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VendorPolicyAction/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IKEAction/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPsecTransportAction/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPsecTunnelAction/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PreconfiguredTransportAction/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PreconfiguredTunnelAction/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RejectConnectionAction/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MethodAction/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkPacketAction/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CompoundPolicyAction/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PacketFilterCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CompoundPolicyCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../QueryCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DocumentAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkingIDAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../KerberosAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BiometricAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PublicPrivateKeyAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PhysicalCredentialAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SharedSecretAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AccountAuthentication/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PolicyTimePeriodCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VendorPolicyCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkPolicyCondition/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AccessControlPolicy/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PolicyGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AccessControlPolicyGroup/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AuthorizationRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NetworkPolicyRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPsecRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IKERule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AuthenticationRule/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TierPolicyRule/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ReusablePolicyProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ReusablePolicyLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ReusablePolicyLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ReusablePolicyContainerProvider -lUNIX_NetworkPolicyActionProvider -lUNIX_VendorPolicyActionProvider -lUNIX_IKEActionProvider -lUNIX_IPsecTransportActionProvider -lUNIX_IPsecTunnelActionProvider -lUNIX_PreconfiguredTransportActionProvider -lUNIX_PreconfiguredTunnelActionProvider -lUNIX_RejectConnectionActionProvider -lUNIX_MethodActionProvider -lUNIX_NetworkPacketActionProvider -lUNIX_CompoundPolicyActionProvider -lUNIX_PacketFilterConditionProvider -lUNIX_CompoundPolicyConditionProvider -lUNIX_QueryConditionProvider -lUNIX_DocumentAuthenticationProvider -lUNIX_NetworkingIDAuthenticationProvider -lUNIX_KerberosAuthenticationProvider -lUNIX_BiometricAuthenticationProvider -lUNIX_PublicPrivateKeyAuthenticationProvider -lUNIX_PhysicalCredentialAuthenticationProvider -lUNIX_SharedSecretAuthenticationProvider -lUNIX_AccountAuthenticationProvider -lUNIX_PolicyTimePeriodConditionProvider -lUNIX_VendorPolicyConditionProvider -lUNIX_NetworkPolicyConditionProvider -lUNIX_AccessControlPolicyProvider -lUNIX_PolicyGroupProvider -lUNIX_AccessControlPolicyGroupProvider -lUNIX_AuthorizationRuleProvider -lUNIX_NetworkPolicyRuleProvider -lUNIX_IPsecRuleProvider -lUNIX_IKERuleProvider -lUNIX_AuthenticationRuleProvider -lUNIX_TierPolicyRuleProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ReusablePolicyProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ReusablePolicyLib" -DPROVIDER_LIB_NS="namespace UNIX_ReusablePolicyLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ReusablePolicyContainerProvider -lUNIX_NetworkPolicyActionProvider -lUNIX_VendorPolicyActionProvider -lUNIX_IKEActionProvider -lUNIX_IPsecTransportActionProvider -lUNIX_IPsecTunnelActionProvider -lUNIX_PreconfiguredTransportActionProvider -lUNIX_PreconfiguredTunnelActionProvider -lUNIX_RejectConnectionActionProvider -lUNIX_MethodActionProvider -lUNIX_NetworkPacketActionProvider -lUNIX_CompoundPolicyActionProvider -lUNIX_PacketFilterConditionProvider -lUNIX_CompoundPolicyConditionProvider -lUNIX_QueryConditionProvider -lUNIX_DocumentAuthenticationProvider -lUNIX_NetworkingIDAuthenticationProvider -lUNIX_KerberosAuthenticationProvider -lUNIX_BiometricAuthenticationProvider -lUNIX_PublicPrivateKeyAuthenticationProvider -lUNIX_PhysicalCredentialAuthenticationProvider -lUNIX_SharedSecretAuthenticationProvider -lUNIX_AccountAuthenticationProvider -lUNIX_PolicyTimePeriodConditionProvider -lUNIX_VendorPolicyConditionProvider -lUNIX_NetworkPolicyConditionProvider -lUNIX_AccessControlPolicyProvider -lUNIX_PolicyGroupProvider -lUNIX_AccessControlPolicyGroupProvider -lUNIX_AuthorizationRuleProvider -lUNIX_NetworkPolicyRuleProvider -lUNIX_IPsecRuleProvider -lUNIX_IKERuleProvider -lUNIX_AuthenticationRuleProvider -lUNIX_TierPolicyRuleProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ReusablePolicy.cpp" />
+    <Compile Include="UNIX_ReusablePolicyMain.cpp" />
+    <Compile Include="UNIX_ReusablePolicyProvider.cpp" />
+    <Compile Include="UNIX_ReusablePolicy_AIX.cpp" />
+    <Compile Include="UNIX_ReusablePolicy_DARWIN.cpp" />
+    <Compile Include="UNIX_ReusablePolicy_FREEBSD.cpp" />
+    <Compile Include="UNIX_ReusablePolicy_HPUX.cpp" />
+    <Compile Include="UNIX_ReusablePolicy_LINUX.cpp" />
+    <Compile Include="UNIX_ReusablePolicy_SOLARIS.cpp" />
+    <Compile Include="UNIX_ReusablePolicy_STUB.cpp" />
+    <Compile Include="UNIX_ReusablePolicy_TRU64.cpp" />
+    <Compile Include="UNIX_ReusablePolicy_VMS.cpp" />
+    <Compile Include="UNIX_ReusablePolicy_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ReusablePolicy.h" />
+    <Node Include="UNIX_ReusablePolicyDeps.h" />
+    <Node Include="UNIX_ReusablePolicyDeps_AIX.h" />
+    <Node Include="UNIX_ReusablePolicyDeps_DARWIN.h" />
+    <Node Include="UNIX_ReusablePolicyDeps_FREEBSD.h" />
+    <Node Include="UNIX_ReusablePolicyDeps_HPUX.h" />
+    <Node Include="UNIX_ReusablePolicyDeps_LINUX.h" />
+    <Node Include="UNIX_ReusablePolicyDeps_SOLARIS.h" />
+    <Node Include="UNIX_ReusablePolicyDeps_STUB.h" />
+    <Node Include="UNIX_ReusablePolicyDeps_TRU64.h" />
+    <Node Include="UNIX_ReusablePolicyDeps_VMS.h" />
+    <Node Include="UNIX_ReusablePolicyDeps_ZOS.h" />
+    <Node Include="UNIX_ReusablePolicyPrivate.h" />
+    <Node Include="UNIX_ReusablePolicyPrivate_AIX.h" />
+    <Node Include="UNIX_ReusablePolicyPrivate_DARWIN.h" />
+    <Node Include="UNIX_ReusablePolicyPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ReusablePolicyPrivate_HPUX.h" />
+    <Node Include="UNIX_ReusablePolicyPrivate_LINUX.h" />
+    <Node Include="UNIX_ReusablePolicyPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ReusablePolicyPrivate_STUB.h" />
+    <Node Include="UNIX_ReusablePolicyPrivate_TRU64.h" />
+    <Node Include="UNIX_ReusablePolicyPrivate_VMS.h" />
+    <Node Include="UNIX_ReusablePolicyPrivate_ZOS.h" />
+    <Node Include="UNIX_ReusablePolicyProvider.h" />
+    <Node Include="UNIX_ReusablePolicy_AIX.hpp" />
+    <Node Include="UNIX_ReusablePolicy_AIX.hxx" />
+    <Node Include="UNIX_ReusablePolicy_DARWIN.hpp" />
+    <Node Include="UNIX_ReusablePolicy_DARWIN.hxx" />
+    <Node Include="UNIX_ReusablePolicy_FREEBSD.hpp" />
+    <Node Include="UNIX_ReusablePolicy_FREEBSD.hxx" />
+    <Node Include="UNIX_ReusablePolicy_HPUX.hpp" />
+    <Node Include="UNIX_ReusablePolicy_HPUX.hxx" />
+    <Node Include="UNIX_ReusablePolicy_LINUX.hpp" />
+    <Node Include="UNIX_ReusablePolicy_LINUX.hxx" />
+    <Node Include="UNIX_ReusablePolicy_SOLARIS.hpp" />
+    <Node Include="UNIX_ReusablePolicy_SOLARIS.hxx" />
+    <Node Include="UNIX_ReusablePolicy_STUB.hpp" />
+    <Node Include="UNIX_ReusablePolicy_STUB.hxx" />
+    <Node Include="UNIX_ReusablePolicy_TRU64.hpp" />
+    <Node Include="UNIX_ReusablePolicy_TRU64.hxx" />
+    <Node Include="UNIX_ReusablePolicy_VMS.hpp" />
+    <Node Include="UNIX_ReusablePolicy_VMS.hxx" />
+    <Node Include="UNIX_ReusablePolicy_WIN32.hpp" />
+    <Node Include="UNIX_ReusablePolicy_ZOS.hpp" />
+    <Node Include="UNIX_ReusablePolicy_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

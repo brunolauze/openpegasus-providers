@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D81F6474-1F31-4D22-8322-9E4E93F7ABA4}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../LogicalPortSettings/UNIX_LogicalPortSettings.md.pc" name="UNIX_LogicalPortSettings" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../LogicalPortSettings/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_NetworkPortSettingsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_NetworkPortSettingsLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_NetworkPortSettingsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_LogicalPortSettingsProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_NetworkPortSettingsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_NetworkPortSettingsLib" -DPROVIDER_LIB_NS="namespace UNIX_NetworkPortSettingsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_LogicalPortSettingsProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_NetworkPortSettings.cpp" />
+    <Compile Include="UNIX_NetworkPortSettingsMain.cpp" />
+    <Compile Include="UNIX_NetworkPortSettingsProvider.cpp" />
+    <Compile Include="UNIX_NetworkPortSettings_AIX.cpp" />
+    <Compile Include="UNIX_NetworkPortSettings_DARWIN.cpp" />
+    <Compile Include="UNIX_NetworkPortSettings_FREEBSD.cpp" />
+    <Compile Include="UNIX_NetworkPortSettings_HPUX.cpp" />
+    <Compile Include="UNIX_NetworkPortSettings_LINUX.cpp" />
+    <Compile Include="UNIX_NetworkPortSettings_SOLARIS.cpp" />
+    <Compile Include="UNIX_NetworkPortSettings_STUB.cpp" />
+    <Compile Include="UNIX_NetworkPortSettings_TRU64.cpp" />
+    <Compile Include="UNIX_NetworkPortSettings_VMS.cpp" />
+    <Compile Include="UNIX_NetworkPortSettings_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_NetworkPortSettings.h" />
+    <Node Include="UNIX_NetworkPortSettingsDeps.h" />
+    <Node Include="UNIX_NetworkPortSettingsDeps_AIX.h" />
+    <Node Include="UNIX_NetworkPortSettingsDeps_DARWIN.h" />
+    <Node Include="UNIX_NetworkPortSettingsDeps_FREEBSD.h" />
+    <Node Include="UNIX_NetworkPortSettingsDeps_HPUX.h" />
+    <Node Include="UNIX_NetworkPortSettingsDeps_LINUX.h" />
+    <Node Include="UNIX_NetworkPortSettingsDeps_SOLARIS.h" />
+    <Node Include="UNIX_NetworkPortSettingsDeps_STUB.h" />
+    <Node Include="UNIX_NetworkPortSettingsDeps_TRU64.h" />
+    <Node Include="UNIX_NetworkPortSettingsDeps_VMS.h" />
+    <Node Include="UNIX_NetworkPortSettingsDeps_ZOS.h" />
+    <Node Include="UNIX_NetworkPortSettingsPrivate.h" />
+    <Node Include="UNIX_NetworkPortSettingsPrivate_AIX.h" />
+    <Node Include="UNIX_NetworkPortSettingsPrivate_DARWIN.h" />
+    <Node Include="UNIX_NetworkPortSettingsPrivate_FREEBSD.h" />
+    <Node Include="UNIX_NetworkPortSettingsPrivate_HPUX.h" />
+    <Node Include="UNIX_NetworkPortSettingsPrivate_LINUX.h" />
+    <Node Include="UNIX_NetworkPortSettingsPrivate_SOLARIS.h" />
+    <Node Include="UNIX_NetworkPortSettingsPrivate_STUB.h" />
+    <Node Include="UNIX_NetworkPortSettingsPrivate_TRU64.h" />
+    <Node Include="UNIX_NetworkPortSettingsPrivate_VMS.h" />
+    <Node Include="UNIX_NetworkPortSettingsPrivate_ZOS.h" />
+    <Node Include="UNIX_NetworkPortSettingsProvider.h" />
+    <Node Include="UNIX_NetworkPortSettings_AIX.hpp" />
+    <Node Include="UNIX_NetworkPortSettings_AIX.hxx" />
+    <Node Include="UNIX_NetworkPortSettings_DARWIN.hpp" />
+    <Node Include="UNIX_NetworkPortSettings_DARWIN.hxx" />
+    <Node Include="UNIX_NetworkPortSettings_FREEBSD.hpp" />
+    <Node Include="UNIX_NetworkPortSettings_FREEBSD.hxx" />
+    <Node Include="UNIX_NetworkPortSettings_HPUX.hpp" />
+    <Node Include="UNIX_NetworkPortSettings_HPUX.hxx" />
+    <Node Include="UNIX_NetworkPortSettings_LINUX.hpp" />
+    <Node Include="UNIX_NetworkPortSettings_LINUX.hxx" />
+    <Node Include="UNIX_NetworkPortSettings_SOLARIS.hpp" />
+    <Node Include="UNIX_NetworkPortSettings_SOLARIS.hxx" />
+    <Node Include="UNIX_NetworkPortSettings_STUB.hpp" />
+    <Node Include="UNIX_NetworkPortSettings_STUB.hxx" />
+    <Node Include="UNIX_NetworkPortSettings_TRU64.hpp" />
+    <Node Include="UNIX_NetworkPortSettings_TRU64.hxx" />
+    <Node Include="UNIX_NetworkPortSettings_VMS.hpp" />
+    <Node Include="UNIX_NetworkPortSettings_VMS.hxx" />
+    <Node Include="UNIX_NetworkPortSettings_WIN32.hpp" />
+    <Node Include="UNIX_NetworkPortSettings_ZOS.hpp" />
+    <Node Include="UNIX_NetworkPortSettings_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

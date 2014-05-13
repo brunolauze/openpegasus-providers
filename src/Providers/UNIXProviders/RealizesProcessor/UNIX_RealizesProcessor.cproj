@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B0D8189D-3D95-4E4D-A4C8-18796BBA2E4E}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../Card/UNIX_Card.md.pc" name="UNIX_Card" IsProject="True" />
+        <Package file="../SystemBusCard/UNIX_SystemBusCard.md.pc" name="UNIX_SystemBusCard" IsProject="True" />
+        <Package file="../Chassis/UNIX_Chassis.md.pc" name="UNIX_Chassis" IsProject="True" />
+        <Package file="../Rack/UNIX_Rack.md.pc" name="UNIX_Rack" IsProject="True" />
+        <Package file="../PackageLocation/UNIX_PackageLocation.md.pc" name="UNIX_PackageLocation" IsProject="True" />
+        <Package file="../StorageMediaLocation/UNIX_StorageMediaLocation.md.pc" name="UNIX_StorageMediaLocation" IsProject="True" />
+        <Package file="../Magazine/UNIX_Magazine.md.pc" name="UNIX_Magazine" IsProject="True" />
+        <Package file="../Processor/UNIX_Processor.md.pc" name="UNIX_Processor" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../Card/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SystemBusCard/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Chassis/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Rack/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PackageLocation/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageMediaLocation/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Magazine/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Processor/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_RealizesProcessorProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RealizesProcessorLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_RealizesProcessorLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_CardProvider -lUNIX_SystemBusCardProvider -lUNIX_ChassisProvider -lUNIX_RackProvider -lUNIX_PackageLocationProvider -lUNIX_StorageMediaLocationProvider -lUNIX_MagazineProvider -lUNIX_ProcessorProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_RealizesProcessorProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_RealizesProcessorLib" -DPROVIDER_LIB_NS="namespace UNIX_RealizesProcessorLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_CardProvider -lUNIX_SystemBusCardProvider -lUNIX_ChassisProvider -lUNIX_RackProvider -lUNIX_PackageLocationProvider -lUNIX_StorageMediaLocationProvider -lUNIX_MagazineProvider -lUNIX_ProcessorProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_RealizesProcessor.cpp" />
+    <Compile Include="UNIX_RealizesProcessorMain.cpp" />
+    <Compile Include="UNIX_RealizesProcessorProvider.cpp" />
+    <Compile Include="UNIX_RealizesProcessor_AIX.cpp" />
+    <Compile Include="UNIX_RealizesProcessor_DARWIN.cpp" />
+    <Compile Include="UNIX_RealizesProcessor_FREEBSD.cpp" />
+    <Compile Include="UNIX_RealizesProcessor_HPUX.cpp" />
+    <Compile Include="UNIX_RealizesProcessor_LINUX.cpp" />
+    <Compile Include="UNIX_RealizesProcessor_SOLARIS.cpp" />
+    <Compile Include="UNIX_RealizesProcessor_STUB.cpp" />
+    <Compile Include="UNIX_RealizesProcessor_TRU64.cpp" />
+    <Compile Include="UNIX_RealizesProcessor_VMS.cpp" />
+    <Compile Include="UNIX_RealizesProcessor_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_RealizesProcessor.h" />
+    <Node Include="UNIX_RealizesProcessorDeps.h" />
+    <Node Include="UNIX_RealizesProcessorDeps_AIX.h" />
+    <Node Include="UNIX_RealizesProcessorDeps_DARWIN.h" />
+    <Node Include="UNIX_RealizesProcessorDeps_FREEBSD.h" />
+    <Node Include="UNIX_RealizesProcessorDeps_HPUX.h" />
+    <Node Include="UNIX_RealizesProcessorDeps_LINUX.h" />
+    <Node Include="UNIX_RealizesProcessorDeps_SOLARIS.h" />
+    <Node Include="UNIX_RealizesProcessorDeps_STUB.h" />
+    <Node Include="UNIX_RealizesProcessorDeps_TRU64.h" />
+    <Node Include="UNIX_RealizesProcessorDeps_VMS.h" />
+    <Node Include="UNIX_RealizesProcessorDeps_ZOS.h" />
+    <Node Include="UNIX_RealizesProcessorPrivate.h" />
+    <Node Include="UNIX_RealizesProcessorPrivate_AIX.h" />
+    <Node Include="UNIX_RealizesProcessorPrivate_DARWIN.h" />
+    <Node Include="UNIX_RealizesProcessorPrivate_FREEBSD.h" />
+    <Node Include="UNIX_RealizesProcessorPrivate_HPUX.h" />
+    <Node Include="UNIX_RealizesProcessorPrivate_LINUX.h" />
+    <Node Include="UNIX_RealizesProcessorPrivate_SOLARIS.h" />
+    <Node Include="UNIX_RealizesProcessorPrivate_STUB.h" />
+    <Node Include="UNIX_RealizesProcessorPrivate_TRU64.h" />
+    <Node Include="UNIX_RealizesProcessorPrivate_VMS.h" />
+    <Node Include="UNIX_RealizesProcessorPrivate_ZOS.h" />
+    <Node Include="UNIX_RealizesProcessorProvider.h" />
+    <Node Include="UNIX_RealizesProcessor_AIX.hpp" />
+    <Node Include="UNIX_RealizesProcessor_AIX.hxx" />
+    <Node Include="UNIX_RealizesProcessor_DARWIN.hpp" />
+    <Node Include="UNIX_RealizesProcessor_DARWIN.hxx" />
+    <Node Include="UNIX_RealizesProcessor_FREEBSD.hpp" />
+    <Node Include="UNIX_RealizesProcessor_FREEBSD.hxx" />
+    <Node Include="UNIX_RealizesProcessor_HPUX.hpp" />
+    <Node Include="UNIX_RealizesProcessor_HPUX.hxx" />
+    <Node Include="UNIX_RealizesProcessor_LINUX.hpp" />
+    <Node Include="UNIX_RealizesProcessor_LINUX.hxx" />
+    <Node Include="UNIX_RealizesProcessor_SOLARIS.hpp" />
+    <Node Include="UNIX_RealizesProcessor_SOLARIS.hxx" />
+    <Node Include="UNIX_RealizesProcessor_STUB.hpp" />
+    <Node Include="UNIX_RealizesProcessor_STUB.hxx" />
+    <Node Include="UNIX_RealizesProcessor_TRU64.hpp" />
+    <Node Include="UNIX_RealizesProcessor_TRU64.hxx" />
+    <Node Include="UNIX_RealizesProcessor_VMS.hpp" />
+    <Node Include="UNIX_RealizesProcessor_VMS.hxx" />
+    <Node Include="UNIX_RealizesProcessor_WIN32.hpp" />
+    <Node Include="UNIX_RealizesProcessor_ZOS.hpp" />
+    <Node Include="UNIX_RealizesProcessor_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{89292D54-85CC-45BD-9B4D-9E7C4142D804}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_FileExportCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_FileExportCapabilitiesLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_FileExportCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_FileExportCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_FileExportCapabilitiesLib" -DPROVIDER_LIB_NS="namespace UNIX_FileExportCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_FileExportCapabilities.cpp" />
+    <Compile Include="UNIX_FileExportCapabilitiesMain.cpp" />
+    <Compile Include="UNIX_FileExportCapabilitiesProvider.cpp" />
+    <Compile Include="UNIX_FileExportCapabilities_AIX.cpp" />
+    <Compile Include="UNIX_FileExportCapabilities_DARWIN.cpp" />
+    <Compile Include="UNIX_FileExportCapabilities_FREEBSD.cpp" />
+    <Compile Include="UNIX_FileExportCapabilities_HPUX.cpp" />
+    <Compile Include="UNIX_FileExportCapabilities_LINUX.cpp" />
+    <Compile Include="UNIX_FileExportCapabilities_SOLARIS.cpp" />
+    <Compile Include="UNIX_FileExportCapabilities_STUB.cpp" />
+    <Compile Include="UNIX_FileExportCapabilities_TRU64.cpp" />
+    <Compile Include="UNIX_FileExportCapabilities_VMS.cpp" />
+    <Compile Include="UNIX_FileExportCapabilities_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_FileExportCapabilities.h" />
+    <Node Include="UNIX_FileExportCapabilitiesDeps.h" />
+    <Node Include="UNIX_FileExportCapabilitiesDeps_AIX.h" />
+    <Node Include="UNIX_FileExportCapabilitiesDeps_DARWIN.h" />
+    <Node Include="UNIX_FileExportCapabilitiesDeps_FREEBSD.h" />
+    <Node Include="UNIX_FileExportCapabilitiesDeps_HPUX.h" />
+    <Node Include="UNIX_FileExportCapabilitiesDeps_LINUX.h" />
+    <Node Include="UNIX_FileExportCapabilitiesDeps_SOLARIS.h" />
+    <Node Include="UNIX_FileExportCapabilitiesDeps_STUB.h" />
+    <Node Include="UNIX_FileExportCapabilitiesDeps_TRU64.h" />
+    <Node Include="UNIX_FileExportCapabilitiesDeps_VMS.h" />
+    <Node Include="UNIX_FileExportCapabilitiesDeps_ZOS.h" />
+    <Node Include="UNIX_FileExportCapabilitiesPrivate.h" />
+    <Node Include="UNIX_FileExportCapabilitiesPrivate_AIX.h" />
+    <Node Include="UNIX_FileExportCapabilitiesPrivate_DARWIN.h" />
+    <Node Include="UNIX_FileExportCapabilitiesPrivate_FREEBSD.h" />
+    <Node Include="UNIX_FileExportCapabilitiesPrivate_HPUX.h" />
+    <Node Include="UNIX_FileExportCapabilitiesPrivate_LINUX.h" />
+    <Node Include="UNIX_FileExportCapabilitiesPrivate_SOLARIS.h" />
+    <Node Include="UNIX_FileExportCapabilitiesPrivate_STUB.h" />
+    <Node Include="UNIX_FileExportCapabilitiesPrivate_TRU64.h" />
+    <Node Include="UNIX_FileExportCapabilitiesPrivate_VMS.h" />
+    <Node Include="UNIX_FileExportCapabilitiesPrivate_ZOS.h" />
+    <Node Include="UNIX_FileExportCapabilitiesProvider.h" />
+    <Node Include="UNIX_FileExportCapabilities_AIX.hpp" />
+    <Node Include="UNIX_FileExportCapabilities_AIX.hxx" />
+    <Node Include="UNIX_FileExportCapabilities_DARWIN.hpp" />
+    <Node Include="UNIX_FileExportCapabilities_DARWIN.hxx" />
+    <Node Include="UNIX_FileExportCapabilities_FREEBSD.hpp" />
+    <Node Include="UNIX_FileExportCapabilities_FREEBSD.hxx" />
+    <Node Include="UNIX_FileExportCapabilities_HPUX.hpp" />
+    <Node Include="UNIX_FileExportCapabilities_HPUX.hxx" />
+    <Node Include="UNIX_FileExportCapabilities_LINUX.hpp" />
+    <Node Include="UNIX_FileExportCapabilities_LINUX.hxx" />
+    <Node Include="UNIX_FileExportCapabilities_SOLARIS.hpp" />
+    <Node Include="UNIX_FileExportCapabilities_SOLARIS.hxx" />
+    <Node Include="UNIX_FileExportCapabilities_STUB.hpp" />
+    <Node Include="UNIX_FileExportCapabilities_STUB.hxx" />
+    <Node Include="UNIX_FileExportCapabilities_TRU64.hpp" />
+    <Node Include="UNIX_FileExportCapabilities_TRU64.hxx" />
+    <Node Include="UNIX_FileExportCapabilities_VMS.hpp" />
+    <Node Include="UNIX_FileExportCapabilities_VMS.hxx" />
+    <Node Include="UNIX_FileExportCapabilities_WIN32.hpp" />
+    <Node Include="UNIX_FileExportCapabilities_ZOS.hpp" />
+    <Node Include="UNIX_FileExportCapabilities_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

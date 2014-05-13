@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7D11CC3F-1AE9-4E5A-A6E0-40F0764BEEA4}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_WiFiRadioProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_WiFiRadioLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_WiFiRadioLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_WiFiRadioProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_WiFiRadioLib" -DPROVIDER_LIB_NS="namespace UNIX_WiFiRadioLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_WiFiRadio.cpp" />
+    <Compile Include="UNIX_WiFiRadioMain.cpp" />
+    <Compile Include="UNIX_WiFiRadioProvider.cpp" />
+    <Compile Include="UNIX_WiFiRadio_AIX.cpp" />
+    <Compile Include="UNIX_WiFiRadio_DARWIN.cpp" />
+    <Compile Include="UNIX_WiFiRadio_FREEBSD.cpp" />
+    <Compile Include="UNIX_WiFiRadio_HPUX.cpp" />
+    <Compile Include="UNIX_WiFiRadio_LINUX.cpp" />
+    <Compile Include="UNIX_WiFiRadio_SOLARIS.cpp" />
+    <Compile Include="UNIX_WiFiRadio_STUB.cpp" />
+    <Compile Include="UNIX_WiFiRadio_TRU64.cpp" />
+    <Compile Include="UNIX_WiFiRadio_VMS.cpp" />
+    <Compile Include="UNIX_WiFiRadio_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_WiFiRadio.h" />
+    <Node Include="UNIX_WiFiRadioDeps.h" />
+    <Node Include="UNIX_WiFiRadioDeps_AIX.h" />
+    <Node Include="UNIX_WiFiRadioDeps_DARWIN.h" />
+    <Node Include="UNIX_WiFiRadioDeps_FREEBSD.h" />
+    <Node Include="UNIX_WiFiRadioDeps_HPUX.h" />
+    <Node Include="UNIX_WiFiRadioDeps_LINUX.h" />
+    <Node Include="UNIX_WiFiRadioDeps_SOLARIS.h" />
+    <Node Include="UNIX_WiFiRadioDeps_STUB.h" />
+    <Node Include="UNIX_WiFiRadioDeps_TRU64.h" />
+    <Node Include="UNIX_WiFiRadioDeps_VMS.h" />
+    <Node Include="UNIX_WiFiRadioDeps_ZOS.h" />
+    <Node Include="UNIX_WiFiRadioPrivate.h" />
+    <Node Include="UNIX_WiFiRadioPrivate_AIX.h" />
+    <Node Include="UNIX_WiFiRadioPrivate_DARWIN.h" />
+    <Node Include="UNIX_WiFiRadioPrivate_FREEBSD.h" />
+    <Node Include="UNIX_WiFiRadioPrivate_HPUX.h" />
+    <Node Include="UNIX_WiFiRadioPrivate_LINUX.h" />
+    <Node Include="UNIX_WiFiRadioPrivate_SOLARIS.h" />
+    <Node Include="UNIX_WiFiRadioPrivate_STUB.h" />
+    <Node Include="UNIX_WiFiRadioPrivate_TRU64.h" />
+    <Node Include="UNIX_WiFiRadioPrivate_VMS.h" />
+    <Node Include="UNIX_WiFiRadioPrivate_ZOS.h" />
+    <Node Include="UNIX_WiFiRadioProvider.h" />
+    <Node Include="UNIX_WiFiRadio_AIX.hpp" />
+    <Node Include="UNIX_WiFiRadio_AIX.hxx" />
+    <Node Include="UNIX_WiFiRadio_DARWIN.hpp" />
+    <Node Include="UNIX_WiFiRadio_DARWIN.hxx" />
+    <Node Include="UNIX_WiFiRadio_FREEBSD.hpp" />
+    <Node Include="UNIX_WiFiRadio_FREEBSD.hxx" />
+    <Node Include="UNIX_WiFiRadio_HPUX.hpp" />
+    <Node Include="UNIX_WiFiRadio_HPUX.hxx" />
+    <Node Include="UNIX_WiFiRadio_LINUX.hpp" />
+    <Node Include="UNIX_WiFiRadio_LINUX.hxx" />
+    <Node Include="UNIX_WiFiRadio_SOLARIS.hpp" />
+    <Node Include="UNIX_WiFiRadio_SOLARIS.hxx" />
+    <Node Include="UNIX_WiFiRadio_STUB.hpp" />
+    <Node Include="UNIX_WiFiRadio_STUB.hxx" />
+    <Node Include="UNIX_WiFiRadio_TRU64.hpp" />
+    <Node Include="UNIX_WiFiRadio_TRU64.hxx" />
+    <Node Include="UNIX_WiFiRadio_VMS.hpp" />
+    <Node Include="UNIX_WiFiRadio_VMS.hxx" />
+    <Node Include="UNIX_WiFiRadio_WIN32.hpp" />
+    <Node Include="UNIX_WiFiRadio_ZOS.hpp" />
+    <Node Include="UNIX_WiFiRadio_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

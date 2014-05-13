@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1CB71080-9B16-40F1-B4C5-B9E5512C0F3B}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_TransformOfSecurityAssociationProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TransformOfSecurityAssociationLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_TransformOfSecurityAssociationLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_TransformOfSecurityAssociationProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_TransformOfSecurityAssociationLib" -DPROVIDER_LIB_NS="namespace UNIX_TransformOfSecurityAssociationLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_TransformOfSecurityAssociation.cpp" />
+    <Compile Include="UNIX_TransformOfSecurityAssociationMain.cpp" />
+    <Compile Include="UNIX_TransformOfSecurityAssociationProvider.cpp" />
+    <Compile Include="UNIX_TransformOfSecurityAssociation_AIX.cpp" />
+    <Compile Include="UNIX_TransformOfSecurityAssociation_DARWIN.cpp" />
+    <Compile Include="UNIX_TransformOfSecurityAssociation_FREEBSD.cpp" />
+    <Compile Include="UNIX_TransformOfSecurityAssociation_HPUX.cpp" />
+    <Compile Include="UNIX_TransformOfSecurityAssociation_LINUX.cpp" />
+    <Compile Include="UNIX_TransformOfSecurityAssociation_SOLARIS.cpp" />
+    <Compile Include="UNIX_TransformOfSecurityAssociation_STUB.cpp" />
+    <Compile Include="UNIX_TransformOfSecurityAssociation_TRU64.cpp" />
+    <Compile Include="UNIX_TransformOfSecurityAssociation_VMS.cpp" />
+    <Compile Include="UNIX_TransformOfSecurityAssociation_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_TransformOfSecurityAssociation.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationDeps.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationDeps_AIX.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationDeps_DARWIN.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationDeps_FREEBSD.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationDeps_HPUX.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationDeps_LINUX.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationDeps_SOLARIS.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationDeps_STUB.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationDeps_TRU64.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationDeps_VMS.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationDeps_ZOS.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationPrivate.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationPrivate_AIX.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationPrivate_DARWIN.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationPrivate_FREEBSD.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationPrivate_HPUX.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationPrivate_LINUX.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationPrivate_SOLARIS.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationPrivate_STUB.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationPrivate_TRU64.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationPrivate_VMS.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationPrivate_ZOS.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociationProvider.h" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_AIX.hpp" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_AIX.hxx" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_DARWIN.hpp" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_DARWIN.hxx" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_FREEBSD.hpp" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_FREEBSD.hxx" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_HPUX.hpp" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_HPUX.hxx" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_LINUX.hpp" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_LINUX.hxx" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_SOLARIS.hpp" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_SOLARIS.hxx" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_STUB.hpp" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_STUB.hxx" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_TRU64.hpp" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_TRU64.hxx" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_VMS.hpp" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_VMS.hxx" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_WIN32.hpp" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_ZOS.hpp" />
+    <Node Include="UNIX_TransformOfSecurityAssociation_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

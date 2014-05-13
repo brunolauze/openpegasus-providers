@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A825AE4-2DF7-41D1-AB32-838D8D7D29B3}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../PolicyTransferServiceAccessPoint/UNIX_PolicyTransferServiceAccessPoint.md.pc" name="UNIX_PolicyTransferServiceAccessPoint" IsProject="True" />
+        <Package file="../LaunchInContextSAP/UNIX_LaunchInContextSAP.md.pc" name="UNIX_LaunchInContextSAP" IsProject="True" />
+        <Package file="../RemotePort/UNIX_RemotePort.md.pc" name="UNIX_RemotePort" IsProject="True" />
+        <Package file="../MPLSTunnelHop/UNIX_MPLSTunnelHop.md.pc" name="UNIX_MPLSTunnelHop" IsProject="True" />
+        <Package file="../SoftwareIdentityResource/UNIX_SoftwareIdentityResource.md.pc" name="UNIX_SoftwareIdentityResource" IsProject="True" />
+        <Package file="../IPsecSAEndpoint/UNIX_IPsecSAEndpoint.md.pc" name="UNIX_IPsecSAEndpoint" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../PolicyTransferServiceAccessPoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LaunchInContextSAP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RemotePort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSTunnelHop/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SoftwareIdentityResource/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPsecSAEndpoint/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_PeerOfSAEndpointProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PeerOfSAEndpointLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PeerOfSAEndpointLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PolicyTransferServiceAccessPointProvider -lUNIX_LaunchInContextSAPProvider -lUNIX_RemotePortProvider -lUNIX_MPLSTunnelHopProvider -lUNIX_SoftwareIdentityResourceProvider -lUNIX_IPsecSAEndpointProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_PeerOfSAEndpointProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PeerOfSAEndpointLib" -DPROVIDER_LIB_NS="namespace UNIX_PeerOfSAEndpointLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PolicyTransferServiceAccessPointProvider -lUNIX_LaunchInContextSAPProvider -lUNIX_RemotePortProvider -lUNIX_MPLSTunnelHopProvider -lUNIX_SoftwareIdentityResourceProvider -lUNIX_IPsecSAEndpointProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_PeerOfSAEndpoint.cpp" />
+    <Compile Include="UNIX_PeerOfSAEndpointMain.cpp" />
+    <Compile Include="UNIX_PeerOfSAEndpointProvider.cpp" />
+    <Compile Include="UNIX_PeerOfSAEndpoint_AIX.cpp" />
+    <Compile Include="UNIX_PeerOfSAEndpoint_DARWIN.cpp" />
+    <Compile Include="UNIX_PeerOfSAEndpoint_FREEBSD.cpp" />
+    <Compile Include="UNIX_PeerOfSAEndpoint_HPUX.cpp" />
+    <Compile Include="UNIX_PeerOfSAEndpoint_LINUX.cpp" />
+    <Compile Include="UNIX_PeerOfSAEndpoint_SOLARIS.cpp" />
+    <Compile Include="UNIX_PeerOfSAEndpoint_STUB.cpp" />
+    <Compile Include="UNIX_PeerOfSAEndpoint_TRU64.cpp" />
+    <Compile Include="UNIX_PeerOfSAEndpoint_VMS.cpp" />
+    <Compile Include="UNIX_PeerOfSAEndpoint_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_PeerOfSAEndpoint.h" />
+    <Node Include="UNIX_PeerOfSAEndpointDeps.h" />
+    <Node Include="UNIX_PeerOfSAEndpointDeps_AIX.h" />
+    <Node Include="UNIX_PeerOfSAEndpointDeps_DARWIN.h" />
+    <Node Include="UNIX_PeerOfSAEndpointDeps_FREEBSD.h" />
+    <Node Include="UNIX_PeerOfSAEndpointDeps_HPUX.h" />
+    <Node Include="UNIX_PeerOfSAEndpointDeps_LINUX.h" />
+    <Node Include="UNIX_PeerOfSAEndpointDeps_SOLARIS.h" />
+    <Node Include="UNIX_PeerOfSAEndpointDeps_STUB.h" />
+    <Node Include="UNIX_PeerOfSAEndpointDeps_TRU64.h" />
+    <Node Include="UNIX_PeerOfSAEndpointDeps_VMS.h" />
+    <Node Include="UNIX_PeerOfSAEndpointDeps_ZOS.h" />
+    <Node Include="UNIX_PeerOfSAEndpointPrivate.h" />
+    <Node Include="UNIX_PeerOfSAEndpointPrivate_AIX.h" />
+    <Node Include="UNIX_PeerOfSAEndpointPrivate_DARWIN.h" />
+    <Node Include="UNIX_PeerOfSAEndpointPrivate_FREEBSD.h" />
+    <Node Include="UNIX_PeerOfSAEndpointPrivate_HPUX.h" />
+    <Node Include="UNIX_PeerOfSAEndpointPrivate_LINUX.h" />
+    <Node Include="UNIX_PeerOfSAEndpointPrivate_SOLARIS.h" />
+    <Node Include="UNIX_PeerOfSAEndpointPrivate_STUB.h" />
+    <Node Include="UNIX_PeerOfSAEndpointPrivate_TRU64.h" />
+    <Node Include="UNIX_PeerOfSAEndpointPrivate_VMS.h" />
+    <Node Include="UNIX_PeerOfSAEndpointPrivate_ZOS.h" />
+    <Node Include="UNIX_PeerOfSAEndpointProvider.h" />
+    <Node Include="UNIX_PeerOfSAEndpoint_AIX.hpp" />
+    <Node Include="UNIX_PeerOfSAEndpoint_AIX.hxx" />
+    <Node Include="UNIX_PeerOfSAEndpoint_DARWIN.hpp" />
+    <Node Include="UNIX_PeerOfSAEndpoint_DARWIN.hxx" />
+    <Node Include="UNIX_PeerOfSAEndpoint_FREEBSD.hpp" />
+    <Node Include="UNIX_PeerOfSAEndpoint_FREEBSD.hxx" />
+    <Node Include="UNIX_PeerOfSAEndpoint_HPUX.hpp" />
+    <Node Include="UNIX_PeerOfSAEndpoint_HPUX.hxx" />
+    <Node Include="UNIX_PeerOfSAEndpoint_LINUX.hpp" />
+    <Node Include="UNIX_PeerOfSAEndpoint_LINUX.hxx" />
+    <Node Include="UNIX_PeerOfSAEndpoint_SOLARIS.hpp" />
+    <Node Include="UNIX_PeerOfSAEndpoint_SOLARIS.hxx" />
+    <Node Include="UNIX_PeerOfSAEndpoint_STUB.hpp" />
+    <Node Include="UNIX_PeerOfSAEndpoint_STUB.hxx" />
+    <Node Include="UNIX_PeerOfSAEndpoint_TRU64.hpp" />
+    <Node Include="UNIX_PeerOfSAEndpoint_TRU64.hxx" />
+    <Node Include="UNIX_PeerOfSAEndpoint_VMS.hpp" />
+    <Node Include="UNIX_PeerOfSAEndpoint_VMS.hxx" />
+    <Node Include="UNIX_PeerOfSAEndpoint_WIN32.hpp" />
+    <Node Include="UNIX_PeerOfSAEndpoint_ZOS.hpp" />
+    <Node Include="UNIX_PeerOfSAEndpoint_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

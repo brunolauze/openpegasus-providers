@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0878D6A1-44CA-4F22-A17B-B4F4801B5FFE}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../Account/UNIX_Account.md.pc" name="UNIX_Account" IsProject="True" />
+        <Package file="../UsersAccess/UNIX_UsersAccess.md.pc" name="UNIX_UsersAccess" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../Account/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../UsersAccess/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_UsersAccountProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_UsersAccountLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_UsersAccountLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AccountProvider -lUNIX_UsersAccessProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_UsersAccountProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_UsersAccountLib" -DPROVIDER_LIB_NS="namespace UNIX_UsersAccountLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AccountProvider -lUNIX_UsersAccessProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_UsersAccount.cpp" />
+    <Compile Include="UNIX_UsersAccountMain.cpp" />
+    <Compile Include="UNIX_UsersAccountProvider.cpp" />
+    <Compile Include="UNIX_UsersAccount_AIX.cpp" />
+    <Compile Include="UNIX_UsersAccount_DARWIN.cpp" />
+    <Compile Include="UNIX_UsersAccount_FREEBSD.cpp" />
+    <Compile Include="UNIX_UsersAccount_HPUX.cpp" />
+    <Compile Include="UNIX_UsersAccount_LINUX.cpp" />
+    <Compile Include="UNIX_UsersAccount_SOLARIS.cpp" />
+    <Compile Include="UNIX_UsersAccount_STUB.cpp" />
+    <Compile Include="UNIX_UsersAccount_TRU64.cpp" />
+    <Compile Include="UNIX_UsersAccount_VMS.cpp" />
+    <Compile Include="UNIX_UsersAccount_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_UsersAccount.h" />
+    <Node Include="UNIX_UsersAccountDeps.h" />
+    <Node Include="UNIX_UsersAccountDeps_AIX.h" />
+    <Node Include="UNIX_UsersAccountDeps_DARWIN.h" />
+    <Node Include="UNIX_UsersAccountDeps_FREEBSD.h" />
+    <Node Include="UNIX_UsersAccountDeps_HPUX.h" />
+    <Node Include="UNIX_UsersAccountDeps_LINUX.h" />
+    <Node Include="UNIX_UsersAccountDeps_SOLARIS.h" />
+    <Node Include="UNIX_UsersAccountDeps_STUB.h" />
+    <Node Include="UNIX_UsersAccountDeps_TRU64.h" />
+    <Node Include="UNIX_UsersAccountDeps_VMS.h" />
+    <Node Include="UNIX_UsersAccountDeps_ZOS.h" />
+    <Node Include="UNIX_UsersAccountPrivate.h" />
+    <Node Include="UNIX_UsersAccountPrivate_AIX.h" />
+    <Node Include="UNIX_UsersAccountPrivate_DARWIN.h" />
+    <Node Include="UNIX_UsersAccountPrivate_FREEBSD.h" />
+    <Node Include="UNIX_UsersAccountPrivate_HPUX.h" />
+    <Node Include="UNIX_UsersAccountPrivate_LINUX.h" />
+    <Node Include="UNIX_UsersAccountPrivate_SOLARIS.h" />
+    <Node Include="UNIX_UsersAccountPrivate_STUB.h" />
+    <Node Include="UNIX_UsersAccountPrivate_TRU64.h" />
+    <Node Include="UNIX_UsersAccountPrivate_VMS.h" />
+    <Node Include="UNIX_UsersAccountPrivate_ZOS.h" />
+    <Node Include="UNIX_UsersAccountProvider.h" />
+    <Node Include="UNIX_UsersAccount_AIX.hpp" />
+    <Node Include="UNIX_UsersAccount_AIX.hxx" />
+    <Node Include="UNIX_UsersAccount_DARWIN.hpp" />
+    <Node Include="UNIX_UsersAccount_DARWIN.hxx" />
+    <Node Include="UNIX_UsersAccount_FREEBSD.hpp" />
+    <Node Include="UNIX_UsersAccount_FREEBSD.hxx" />
+    <Node Include="UNIX_UsersAccount_HPUX.hpp" />
+    <Node Include="UNIX_UsersAccount_HPUX.hxx" />
+    <Node Include="UNIX_UsersAccount_LINUX.hpp" />
+    <Node Include="UNIX_UsersAccount_LINUX.hxx" />
+    <Node Include="UNIX_UsersAccount_SOLARIS.hpp" />
+    <Node Include="UNIX_UsersAccount_SOLARIS.hxx" />
+    <Node Include="UNIX_UsersAccount_STUB.hpp" />
+    <Node Include="UNIX_UsersAccount_STUB.hxx" />
+    <Node Include="UNIX_UsersAccount_TRU64.hpp" />
+    <Node Include="UNIX_UsersAccount_TRU64.hxx" />
+    <Node Include="UNIX_UsersAccount_VMS.hpp" />
+    <Node Include="UNIX_UsersAccount_VMS.hxx" />
+    <Node Include="UNIX_UsersAccount_WIN32.hpp" />
+    <Node Include="UNIX_UsersAccount_ZOS.hpp" />
+    <Node Include="UNIX_UsersAccount_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

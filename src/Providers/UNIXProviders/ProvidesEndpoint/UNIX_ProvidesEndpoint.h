@@ -1,0 +1,573 @@
+//%LICENSE////////////////////////////////////////////////////////////////
+//
+// Licensed to The Open Group (TOG) under one or more contributor license
+// agreements.  Refer to the OpenPegasusNOTICE.txt file distributed with
+// this work for additional information regarding copyright ownership.
+// Each contributor licenses this file to you under the OpenPegasus Open
+// Source License; you may not use this file except in compliance with the
+// License.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//////////////////////////////////////////////////////////////////////////
+//
+//%/////////////////////////////////////////////////////////////////////////
+
+
+/* **** Association *** */
+/*
+TRUE
+*/
+
+
+/* **** Version *** */
+/*
+2.10.0
+*/
+
+
+/* **** UMLPackagePath *** */
+/*
+CIM::Core::Service
+*/
+
+
+/* **** Description *** */
+/*
+This association represents a ProtocolEndpoint that is provided by a Service to allow access to the Service.
+*/
+
+
+/*
+			 *** Properties ***
+
+			CIM_Dependency:
+				Antecedent Reference
+				Dependent Reference
+
+			CIM_ServiceAccessBySAP:
+
+			UNIX_ProvidesEndpoint:
+
+
+*/
+
+
+/*
+			 *** Methods ***
+
+			CIM_Dependency:
+
+			CIM_ServiceAccessBySAP:
+
+			UNIX_ProvidesEndpoint:
+
+
+*/
+
+#ifndef __UNIX_PROVIDESENDPOINT_H
+#define __UNIX_PROVIDESENDPOINT_H
+
+
+#include "CIM_ServiceAccessBySAP.h"
+#include <FibreProtocolService/UNIX_FibreProtocolServiceProvider.h>
+#include <WakeUpService/UNIX_WakeUpServiceProvider.h>
+#include <VirtualSystemSnapshotService/UNIX_VirtualSystemSnapshotServiceProvider.h>
+#include <ResourcePoolConfigurationService/UNIX_ResourcePoolConfigurationServiceProvider.h>
+#include <FileSystemConfigurationService/UNIX_FileSystemConfigurationServiceProvider.h>
+#include <HelpService/UNIX_HelpServiceProvider.h>
+#include <StorageRelocationService/UNIX_StorageRelocationServiceProvider.h>
+#include <MPLSService/UNIX_MPLSServiceProvider.h>
+#include <PolicyActivationService/UNIX_PolicyActivationServiceProvider.h>
+#include <SCSIPathConfigurationService/UNIX_SCSIPathConfigurationServiceProvider.h>
+#include <BIOSService/UNIX_BIOSServiceProvider.h>
+#include <PowerManagementService/UNIX_PowerManagementServiceProvider.h>
+#include <NetworkPortConfigurationService/UNIX_NetworkPortConfigurationServiceProvider.h>
+#include <WiFiPortConfigurationService/UNIX_WiFiPortConfigurationServiceProvider.h>
+#include <VRFConfigurationService/UNIX_VRFConfigurationServiceProvider.h>
+#include <ReplicationService/UNIX_ReplicationServiceProvider.h>
+#include <AccountManagementService/UNIX_AccountManagementServiceProvider.h>
+#include <VerificationService/UNIX_VerificationServiceProvider.h>
+#include <CertificateAuthority/UNIX_CertificateAuthorityProvider.h>
+#include <Notary/UNIX_NotaryProvider.h>
+#include <KeyBasedCredentialManagementService/UNIX_KeyBasedCredentialManagementServiceProvider.h>
+#include <CertificateManagementService/UNIX_CertificateManagementServiceProvider.h>
+#include <KerberosKeyDistributionCenter/UNIX_KerberosKeyDistributionCenterProvider.h>
+#include <PublicKeyManagementService/UNIX_PublicKeyManagementServiceProvider.h>
+#include <SharedSecretService/UNIX_SharedSecretServiceProvider.h>
+#include <IdentityManagementService/UNIX_IdentityManagementServiceProvider.h>
+#include <StorageHardwareIDManagementService/UNIX_StorageHardwareIDManagementServiceProvider.h>
+#include <AuthorizationService/UNIX_AuthorizationServiceProvider.h>
+#include <PrivilegeManagementService/UNIX_PrivilegeManagementServiceProvider.h>
+#include <RoleBasedAuthorizationService/UNIX_RoleBasedAuthorizationServiceProvider.h>
+#include <AccessControlService/UNIX_AccessControlServiceProvider.h>
+#include <WBEMServer/UNIX_WBEMServerProvider.h>
+#include <LaunchInContextService/UNIX_LaunchInContextServiceProvider.h>
+#include <VirtualSystemManagementService/UNIX_VirtualSystemManagementServiceProvider.h>
+#include <MetricService/UNIX_MetricServiceProvider.h>
+#include <StorageNameBindingService/UNIX_StorageNameBindingServiceProvider.h>
+#include <ZoneService/UNIX_ZoneServiceProvider.h>
+#include <ControllerConfigurationService/UNIX_ControllerConfigurationServiceProvider.h>
+#include <GroupMaskingMappingService/UNIX_GroupMaskingMappingServiceProvider.h>
+#include <DatabaseService/UNIX_DatabaseServiceProvider.h>
+#include <DiskPartitionConfigurationService/UNIX_DiskPartitionConfigurationServiceProvider.h>
+#include <ConfigurationReportingService/UNIX_ConfigurationReportingServiceProvider.h>
+#include <PowerTopologyService/UNIX_PowerTopologyServiceProvider.h>
+#include <NetworkPolicyService/UNIX_NetworkPolicyServiceProvider.h>
+#include <BasicExecutionService/UNIX_BasicExecutionServiceProvider.h>
+#include <SpareConfigurationService/UNIX_SpareConfigurationServiceProvider.h>
+#include <StorageElementCompositionService/UNIX_StorageElementCompositionServiceProvider.h>
+#include <OpaqueManagementDataService/UNIX_OpaqueManagementDataServiceProvider.h>
+#include <FingerprintMatchingService/UNIX_FingerprintMatchingServiceProvider.h>
+#include <ProtocolService/UNIX_ProtocolServiceProvider.h>
+#include <WBEMProtocolService/UNIX_WBEMProtocolServiceProvider.h>
+#include <TierService/UNIX_TierServiceProvider.h>
+#include <TierPolicyService/UNIX_TierPolicyServiceProvider.h>
+#include <IndicationService/UNIX_IndicationServiceProvider.h>
+#include <FileImportService/UNIX_FileImportServiceProvider.h>
+#include <VTLStatisticalDataService/UNIX_VTLStatisticalDataServiceProvider.h>
+#include <DropThresholdCalculationService/UNIX_DropThresholdCalculationServiceProvider.h>
+#include <TokenBucketMeterService/UNIX_TokenBucketMeterServiceProvider.h>
+#include <EWMAMeterService/UNIX_EWMAMeterServiceProvider.h>
+#include <AverageRateMeterService/UNIX_AverageRateMeterServiceProvider.h>
+#include <ToSMarkerService/UNIX_ToSMarkerServiceProvider.h>
+#include <Priority8021QMarkerService/UNIX_Priority8021QMarkerServiceProvider.h>
+#include <DSCPMarkerService/UNIX_DSCPMarkerServiceProvider.h>
+#include <PreambleMarkerService/UNIX_PreambleMarkerServiceProvider.h>
+#include <ClassifierService/UNIX_ClassifierServiceProvider.h>
+#include <ClassifierElement/UNIX_ClassifierElementProvider.h>
+#include <PacketSchedulingService/UNIX_PacketSchedulingServiceProvider.h>
+#include <NonWorkConservingSchedulingService/UNIX_NonWorkConservingSchedulingServiceProvider.h>
+#include <REDDropperService/UNIX_REDDropperServiceProvider.h>
+#include <HeadTailDropper/UNIX_HeadTailDropperProvider.h>
+#include <WeightedREDDropperService/UNIX_WeightedREDDropperServiceProvider.h>
+#include <QueuingService/UNIX_QueuingServiceProvider.h>
+#include <BootService/UNIX_BootServiceProvider.h>
+#include <AFService/UNIX_AFServiceProvider.h>
+#include <EFService/UNIX_EFServiceProvider.h>
+#include <FlowService/UNIX_FlowServiceProvider.h>
+#include <Hdr8021PService/UNIX_Hdr8021PServiceProvider.h>
+#include <PrecedenceService/UNIX_PrecedenceServiceProvider.h>
+#include <PrintService/UNIX_PrintServiceProvider.h>
+#include <TimeService/UNIX_TimeServiceProvider.h>
+#include <SoftwareInstallationService/UNIX_SoftwareInstallationServiceProvider.h>
+#include <VLANService/UNIX_VLANServiceProvider.h>
+#include <Specific802dot1QVLANService/UNIX_Specific802dot1QVLANServiceProvider.h>
+#include <PowerUtilizationManagementService/UNIX_PowerUtilizationManagementServiceProvider.h>
+#include <ClusteringService/UNIX_ClusteringServiceProvider.h>
+#include <SharedDeviceManagementService/UNIX_SharedDeviceManagementServiceProvider.h>
+#include <BatchService/UNIX_BatchServiceProvider.h>
+#include <iSCSIConfigurationService/UNIX_iSCSIConfigurationServiceProvider.h>
+#include <OOBAlertService/UNIX_OOBAlertServiceProvider.h>
+#include <StorageConfigurationService/UNIX_StorageConfigurationServiceProvider.h>
+#include <IPConfigurationService/UNIX_IPConfigurationServiceProvider.h>
+#include <VirtualSystemMigrationService/UNIX_VirtualSystemMigrationServiceProvider.h>
+#include <MPLSCrossConnect/UNIX_MPLSCrossConnectProvider.h>
+#include <PlatformWatchdogService/UNIX_PlatformWatchdogServiceProvider.h>
+#include <FCHBADiagnosticTest/UNIX_FCHBADiagnosticTestProvider.h>
+#include <RAIDDiagnosticTest/UNIX_RAIDDiagnosticTestProvider.h>
+#include <CPUDiagnosticTest/UNIX_CPUDiagnosticTestProvider.h>
+#include <EthernetNICDiagnosticTest/UNIX_EthernetNICDiagnosticTestProvider.h>
+#include <OpticalDriveDiagnosticTest/UNIX_OpticalDriveDiagnosticTestProvider.h>
+#include <OpticalDriveDiagnosticSettingData/UNIX_OpticalDriveDiagnosticSettingDataProvider.h>
+#include <DiskDriveDiagnosticTest/UNIX_DiskDriveDiagnosticTestProvider.h>
+#include <IBSubnetManager/UNIX_IBSubnetManagerProvider.h>
+#include <ObjectManager/UNIX_ObjectManagerProvider.h>
+#include <ObjectManagerAdapter/UNIX_ObjectManagerAdapterProvider.h>
+#include <ProviderObjectManagerAdapter/UNIX_ProviderObjectManagerAdapterProvider.h>
+#include <ProtocolAdapter/UNIX_ProtocolAdapterProvider.h>
+#include <FileSystemStatisticsService/UNIX_FileSystemStatisticsServiceProvider.h>
+#include <BlockStatisticsService/UNIX_BlockStatisticsServiceProvider.h>
+#include <USBRedirectionService/UNIX_USBRedirectionServiceProvider.h>
+#include <TextRedirectionService/UNIX_TextRedirectionServiceProvider.h>
+#include <BGPService/UNIX_BGPServiceProvider.h>
+#include <OSPFService/UNIX_OSPFServiceProvider.h>
+#include <NATService/UNIX_NATServiceProvider.h>
+#include <TransparentBridgingService/UNIX_TransparentBridgingServiceProvider.h>
+#include <SourceRoutingService/UNIX_SourceRoutingServiceProvider.h>
+#include <SpanningTreeService/UNIX_SpanningTreeServiceProvider.h>
+#include <SwitchService/UNIX_SwitchServiceProvider.h>
+#include <FileExportService/UNIX_FileExportServiceProvider.h>
+#include <DHCPProtocolEndpoint/UNIX_DHCPProtocolEndpointProvider.h>
+#include <SSHProtocolEndpoint/UNIX_SSHProtocolEndpointProvider.h>
+#include <SCSIProtocolEndpoint/UNIX_SCSIProtocolEndpointProvider.h>
+#include <iSCSIProtocolEndpoint/UNIX_iSCSIProtocolEndpointProvider.h>
+#include <CLPProtocolEndpoint/UNIX_CLPProtocolEndpointProvider.h>
+#include <IPXProtocolEndpoint/UNIX_IPXProtocolEndpointProvider.h>
+#include <IPsecSAEndpoint/UNIX_IPsecSAEndpointProvider.h>
+#include <IKESAEndpoint/UNIX_IKESAEndpointProvider.h>
+#include <LANEndpoint/UNIX_LANEndpointProvider.h>
+#include <WiFiEndpoint/UNIX_WiFiEndpointProvider.h>
+#include <MPLSProtocolEndpoint/UNIX_MPLSProtocolEndpointProvider.h>
+#include <WirelessLANEndpoint/UNIX_WirelessLANEndpointProvider.h>
+#include <UDPProtocolEndpoint/UNIX_UDPProtocolEndpointProvider.h>
+#include <TCPProtocolEndpoint/UNIX_TCPProtocolEndpointProvider.h>
+#include <OSPFVirtualInterface/UNIX_OSPFVirtualInterfaceProvider.h>
+#include <OSPFProtocolEndpoint/UNIX_OSPFProtocolEndpointProvider.h>
+#include <VLANEndpoint/UNIX_VLANEndpointProvider.h>
+#include <LinkAggregator8023ad/UNIX_LinkAggregator8023adProvider.h>
+#include <ATAProtocolEndpoint/UNIX_ATAProtocolEndpointProvider.h>
+#include <IPEncapsulationInterface/UNIX_IPEncapsulationInterfaceProvider.h>
+#include <IPSubinterface/UNIX_IPSubinterfaceProvider.h>
+#include <SwitchVirtualInterface/UNIX_SwitchVirtualInterfaceProvider.h>
+#include <IPLoopback/UNIX_IPLoopbackProvider.h>
+#include <BGPProtocolEndpoint/UNIX_BGPProtocolEndpointProvider.h>
+#include <SwitchPort/UNIX_SwitchPortProvider.h>
+#include <DNSProtocolEndpoint/UNIX_DNSProtocolEndpointProvider.h>
+#include <LAGPort8023ad/UNIX_LAGPort8023adProvider.h>
+
+#include "UNIX_ProvidesEndpointDeps.h"
+
+
+
+
+class UNIX_ProvidesEndpoint :
+	public CIM_ServiceAccessBySAP
+{
+public:
+
+	UNIX_ProvidesEndpoint();
+	~UNIX_ProvidesEndpoint();
+
+	virtual Boolean initialize();
+	virtual Boolean load(int&);
+	virtual Boolean finalize();
+	virtual Boolean find(const Array<CIMKeyBinding>&);
+	virtual Boolean validateKey(CIMKeyBinding&) const;
+	virtual void setScope(CIMName);
+	virtual void setCIMOMHandle(CIMOMHandle&);
+	virtual void clearInstance();
+	virtual Boolean loadInstance(const CIMInstance&);
+	virtual Boolean createInstance(const OperationContext&);
+	virtual Boolean modifyInstance(const OperationContext&);
+	virtual Boolean deleteInstance(const OperationContext&);
+	virtual Boolean validateInstance();
+
+	virtual Boolean getAntecedent(CIMProperty&) const;
+	virtual CIMInstance getAntecedent() const;
+	virtual void setAntecedent(CIMInstance&);
+	virtual Boolean getDependent(CIMProperty&) const;
+	virtual CIMInstance getDependent() const;
+	virtual void setDependent(CIMInstance&);
+
+
+private:
+	CIMName currentScope;
+	CIMOMHandle _cimomHandle;
+	CIMInstance _antecedent;
+	CIMInstance _dependent;
+
+UNIX_FibreProtocolService _antecedentFibreProtocolService;
+UNIX_FibreProtocolServiceProvider _antecedentFibreProtocolServiceProvider;
+UNIX_WakeUpService _antecedentWakeUpService;
+UNIX_WakeUpServiceProvider _antecedentWakeUpServiceProvider;
+UNIX_VirtualSystemSnapshotService _antecedentVirtualSystemSnapshotService;
+UNIX_VirtualSystemSnapshotServiceProvider _antecedentVirtualSystemSnapshotServiceProvider;
+UNIX_ResourcePoolConfigurationService _antecedentResourcePoolConfigurationService;
+UNIX_ResourcePoolConfigurationServiceProvider _antecedentResourcePoolConfigurationServiceProvider;
+UNIX_FileSystemConfigurationService _antecedentFileSystemConfigurationService;
+UNIX_FileSystemConfigurationServiceProvider _antecedentFileSystemConfigurationServiceProvider;
+UNIX_HelpService _antecedentHelpService;
+UNIX_HelpServiceProvider _antecedentHelpServiceProvider;
+UNIX_StorageRelocationService _antecedentStorageRelocationService;
+UNIX_StorageRelocationServiceProvider _antecedentStorageRelocationServiceProvider;
+UNIX_MPLSService _antecedentMPLSService;
+UNIX_MPLSServiceProvider _antecedentMPLSServiceProvider;
+UNIX_PolicyActivationService _antecedentPolicyActivationService;
+UNIX_PolicyActivationServiceProvider _antecedentPolicyActivationServiceProvider;
+UNIX_SCSIPathConfigurationService _antecedentSCSIPathConfigurationService;
+UNIX_SCSIPathConfigurationServiceProvider _antecedentSCSIPathConfigurationServiceProvider;
+UNIX_BIOSService _antecedentBIOSService;
+UNIX_BIOSServiceProvider _antecedentBIOSServiceProvider;
+UNIX_PowerManagementService _antecedentPowerManagementService;
+UNIX_PowerManagementServiceProvider _antecedentPowerManagementServiceProvider;
+UNIX_NetworkPortConfigurationService _antecedentNetworkPortConfigurationService;
+UNIX_NetworkPortConfigurationServiceProvider _antecedentNetworkPortConfigurationServiceProvider;
+UNIX_WiFiPortConfigurationService _antecedentWiFiPortConfigurationService;
+UNIX_WiFiPortConfigurationServiceProvider _antecedentWiFiPortConfigurationServiceProvider;
+UNIX_VRFConfigurationService _antecedentVRFConfigurationService;
+UNIX_VRFConfigurationServiceProvider _antecedentVRFConfigurationServiceProvider;
+UNIX_ReplicationService _antecedentReplicationService;
+UNIX_ReplicationServiceProvider _antecedentReplicationServiceProvider;
+UNIX_AccountManagementService _antecedentAccountManagementService;
+UNIX_AccountManagementServiceProvider _antecedentAccountManagementServiceProvider;
+UNIX_VerificationService _antecedentVerificationService;
+UNIX_VerificationServiceProvider _antecedentVerificationServiceProvider;
+UNIX_CertificateAuthority _antecedentCertificateAuthority;
+UNIX_CertificateAuthorityProvider _antecedentCertificateAuthorityProvider;
+UNIX_Notary _antecedentNotary;
+UNIX_NotaryProvider _antecedentNotaryProvider;
+UNIX_KeyBasedCredentialManagementService _antecedentKeyBasedCredentialManagementService;
+UNIX_KeyBasedCredentialManagementServiceProvider _antecedentKeyBasedCredentialManagementServiceProvider;
+UNIX_CertificateManagementService _antecedentCertificateManagementService;
+UNIX_CertificateManagementServiceProvider _antecedentCertificateManagementServiceProvider;
+UNIX_KerberosKeyDistributionCenter _antecedentKerberosKeyDistributionCenter;
+UNIX_KerberosKeyDistributionCenterProvider _antecedentKerberosKeyDistributionCenterProvider;
+UNIX_PublicKeyManagementService _antecedentPublicKeyManagementService;
+UNIX_PublicKeyManagementServiceProvider _antecedentPublicKeyManagementServiceProvider;
+UNIX_SharedSecretService _antecedentSharedSecretService;
+UNIX_SharedSecretServiceProvider _antecedentSharedSecretServiceProvider;
+UNIX_IdentityManagementService _antecedentIdentityManagementService;
+UNIX_IdentityManagementServiceProvider _antecedentIdentityManagementServiceProvider;
+UNIX_StorageHardwareIDManagementService _antecedentStorageHardwareIDManagementService;
+UNIX_StorageHardwareIDManagementServiceProvider _antecedentStorageHardwareIDManagementServiceProvider;
+UNIX_AuthorizationService _antecedentAuthorizationService;
+UNIX_AuthorizationServiceProvider _antecedentAuthorizationServiceProvider;
+UNIX_PrivilegeManagementService _antecedentPrivilegeManagementService;
+UNIX_PrivilegeManagementServiceProvider _antecedentPrivilegeManagementServiceProvider;
+UNIX_RoleBasedAuthorizationService _antecedentRoleBasedAuthorizationService;
+UNIX_RoleBasedAuthorizationServiceProvider _antecedentRoleBasedAuthorizationServiceProvider;
+UNIX_AccessControlService _antecedentAccessControlService;
+UNIX_AccessControlServiceProvider _antecedentAccessControlServiceProvider;
+UNIX_WBEMServer _antecedentWBEMServer;
+UNIX_WBEMServerProvider _antecedentWBEMServerProvider;
+UNIX_LaunchInContextService _antecedentLaunchInContextService;
+UNIX_LaunchInContextServiceProvider _antecedentLaunchInContextServiceProvider;
+UNIX_VirtualSystemManagementService _antecedentVirtualSystemManagementService;
+UNIX_VirtualSystemManagementServiceProvider _antecedentVirtualSystemManagementServiceProvider;
+UNIX_MetricService _antecedentMetricService;
+UNIX_MetricServiceProvider _antecedentMetricServiceProvider;
+UNIX_StorageNameBindingService _antecedentStorageNameBindingService;
+UNIX_StorageNameBindingServiceProvider _antecedentStorageNameBindingServiceProvider;
+UNIX_ZoneService _antecedentZoneService;
+UNIX_ZoneServiceProvider _antecedentZoneServiceProvider;
+UNIX_ControllerConfigurationService _antecedentControllerConfigurationService;
+UNIX_ControllerConfigurationServiceProvider _antecedentControllerConfigurationServiceProvider;
+UNIX_GroupMaskingMappingService _antecedentGroupMaskingMappingService;
+UNIX_GroupMaskingMappingServiceProvider _antecedentGroupMaskingMappingServiceProvider;
+UNIX_DatabaseService _antecedentDatabaseService;
+UNIX_DatabaseServiceProvider _antecedentDatabaseServiceProvider;
+UNIX_DiskPartitionConfigurationService _antecedentDiskPartitionConfigurationService;
+UNIX_DiskPartitionConfigurationServiceProvider _antecedentDiskPartitionConfigurationServiceProvider;
+UNIX_ConfigurationReportingService _antecedentConfigurationReportingService;
+UNIX_ConfigurationReportingServiceProvider _antecedentConfigurationReportingServiceProvider;
+UNIX_PowerTopologyService _antecedentPowerTopologyService;
+UNIX_PowerTopologyServiceProvider _antecedentPowerTopologyServiceProvider;
+UNIX_NetworkPolicyService _antecedentNetworkPolicyService;
+UNIX_NetworkPolicyServiceProvider _antecedentNetworkPolicyServiceProvider;
+UNIX_BasicExecutionService _antecedentBasicExecutionService;
+UNIX_BasicExecutionServiceProvider _antecedentBasicExecutionServiceProvider;
+UNIX_SpareConfigurationService _antecedentSpareConfigurationService;
+UNIX_SpareConfigurationServiceProvider _antecedentSpareConfigurationServiceProvider;
+UNIX_StorageElementCompositionService _antecedentStorageElementCompositionService;
+UNIX_StorageElementCompositionServiceProvider _antecedentStorageElementCompositionServiceProvider;
+UNIX_OpaqueManagementDataService _antecedentOpaqueManagementDataService;
+UNIX_OpaqueManagementDataServiceProvider _antecedentOpaqueManagementDataServiceProvider;
+UNIX_FingerprintMatchingService _antecedentFingerprintMatchingService;
+UNIX_FingerprintMatchingServiceProvider _antecedentFingerprintMatchingServiceProvider;
+UNIX_ProtocolService _antecedentProtocolService;
+UNIX_ProtocolServiceProvider _antecedentProtocolServiceProvider;
+UNIX_WBEMProtocolService _antecedentWBEMProtocolService;
+UNIX_WBEMProtocolServiceProvider _antecedentWBEMProtocolServiceProvider;
+UNIX_TierService _antecedentTierService;
+UNIX_TierServiceProvider _antecedentTierServiceProvider;
+UNIX_TierPolicyService _antecedentTierPolicyService;
+UNIX_TierPolicyServiceProvider _antecedentTierPolicyServiceProvider;
+UNIX_IndicationService _antecedentIndicationService;
+UNIX_IndicationServiceProvider _antecedentIndicationServiceProvider;
+UNIX_FileImportService _antecedentFileImportService;
+UNIX_FileImportServiceProvider _antecedentFileImportServiceProvider;
+UNIX_VTLStatisticalDataService _antecedentVTLStatisticalDataService;
+UNIX_VTLStatisticalDataServiceProvider _antecedentVTLStatisticalDataServiceProvider;
+UNIX_DropThresholdCalculationService _antecedentDropThresholdCalculationService;
+UNIX_DropThresholdCalculationServiceProvider _antecedentDropThresholdCalculationServiceProvider;
+UNIX_TokenBucketMeterService _antecedentTokenBucketMeterService;
+UNIX_TokenBucketMeterServiceProvider _antecedentTokenBucketMeterServiceProvider;
+UNIX_EWMAMeterService _antecedentEWMAMeterService;
+UNIX_EWMAMeterServiceProvider _antecedentEWMAMeterServiceProvider;
+UNIX_AverageRateMeterService _antecedentAverageRateMeterService;
+UNIX_AverageRateMeterServiceProvider _antecedentAverageRateMeterServiceProvider;
+UNIX_ToSMarkerService _antecedentToSMarkerService;
+UNIX_ToSMarkerServiceProvider _antecedentToSMarkerServiceProvider;
+UNIX_Priority8021QMarkerService _antecedentPriority8021QMarkerService;
+UNIX_Priority8021QMarkerServiceProvider _antecedentPriority8021QMarkerServiceProvider;
+UNIX_DSCPMarkerService _antecedentDSCPMarkerService;
+UNIX_DSCPMarkerServiceProvider _antecedentDSCPMarkerServiceProvider;
+UNIX_PreambleMarkerService _antecedentPreambleMarkerService;
+UNIX_PreambleMarkerServiceProvider _antecedentPreambleMarkerServiceProvider;
+UNIX_ClassifierService _antecedentClassifierService;
+UNIX_ClassifierServiceProvider _antecedentClassifierServiceProvider;
+UNIX_ClassifierElement _antecedentClassifierElement;
+UNIX_ClassifierElementProvider _antecedentClassifierElementProvider;
+UNIX_PacketSchedulingService _antecedentPacketSchedulingService;
+UNIX_PacketSchedulingServiceProvider _antecedentPacketSchedulingServiceProvider;
+UNIX_NonWorkConservingSchedulingService _antecedentNonWorkConservingSchedulingService;
+UNIX_NonWorkConservingSchedulingServiceProvider _antecedentNonWorkConservingSchedulingServiceProvider;
+UNIX_REDDropperService _antecedentREDDropperService;
+UNIX_REDDropperServiceProvider _antecedentREDDropperServiceProvider;
+UNIX_HeadTailDropper _antecedentHeadTailDropper;
+UNIX_HeadTailDropperProvider _antecedentHeadTailDropperProvider;
+UNIX_WeightedREDDropperService _antecedentWeightedREDDropperService;
+UNIX_WeightedREDDropperServiceProvider _antecedentWeightedREDDropperServiceProvider;
+UNIX_QueuingService _antecedentQueuingService;
+UNIX_QueuingServiceProvider _antecedentQueuingServiceProvider;
+UNIX_BootService _antecedentBootService;
+UNIX_BootServiceProvider _antecedentBootServiceProvider;
+UNIX_AFService _antecedentAFService;
+UNIX_AFServiceProvider _antecedentAFServiceProvider;
+UNIX_EFService _antecedentEFService;
+UNIX_EFServiceProvider _antecedentEFServiceProvider;
+UNIX_FlowService _antecedentFlowService;
+UNIX_FlowServiceProvider _antecedentFlowServiceProvider;
+UNIX_Hdr8021PService _antecedentHdr8021PService;
+UNIX_Hdr8021PServiceProvider _antecedentHdr8021PServiceProvider;
+UNIX_PrecedenceService _antecedentPrecedenceService;
+UNIX_PrecedenceServiceProvider _antecedentPrecedenceServiceProvider;
+UNIX_PrintService _antecedentPrintService;
+UNIX_PrintServiceProvider _antecedentPrintServiceProvider;
+UNIX_TimeService _antecedentTimeService;
+UNIX_TimeServiceProvider _antecedentTimeServiceProvider;
+UNIX_SoftwareInstallationService _antecedentSoftwareInstallationService;
+UNIX_SoftwareInstallationServiceProvider _antecedentSoftwareInstallationServiceProvider;
+UNIX_VLANService _antecedentVLANService;
+UNIX_VLANServiceProvider _antecedentVLANServiceProvider;
+UNIX_Specific802dot1QVLANService _antecedentSpecific802dot1QVLANService;
+UNIX_Specific802dot1QVLANServiceProvider _antecedentSpecific802dot1QVLANServiceProvider;
+UNIX_PowerUtilizationManagementService _antecedentPowerUtilizationManagementService;
+UNIX_PowerUtilizationManagementServiceProvider _antecedentPowerUtilizationManagementServiceProvider;
+UNIX_ClusteringService _antecedentClusteringService;
+UNIX_ClusteringServiceProvider _antecedentClusteringServiceProvider;
+UNIX_SharedDeviceManagementService _antecedentSharedDeviceManagementService;
+UNIX_SharedDeviceManagementServiceProvider _antecedentSharedDeviceManagementServiceProvider;
+UNIX_BatchService _antecedentBatchService;
+UNIX_BatchServiceProvider _antecedentBatchServiceProvider;
+UNIX_iSCSIConfigurationService _antecedentiSCSIConfigurationService;
+UNIX_iSCSIConfigurationServiceProvider _antecedentiSCSIConfigurationServiceProvider;
+UNIX_OOBAlertService _antecedentOOBAlertService;
+UNIX_OOBAlertServiceProvider _antecedentOOBAlertServiceProvider;
+UNIX_StorageConfigurationService _antecedentStorageConfigurationService;
+UNIX_StorageConfigurationServiceProvider _antecedentStorageConfigurationServiceProvider;
+UNIX_IPConfigurationService _antecedentIPConfigurationService;
+UNIX_IPConfigurationServiceProvider _antecedentIPConfigurationServiceProvider;
+UNIX_VirtualSystemMigrationService _antecedentVirtualSystemMigrationService;
+UNIX_VirtualSystemMigrationServiceProvider _antecedentVirtualSystemMigrationServiceProvider;
+UNIX_MPLSCrossConnect _antecedentMPLSCrossConnect;
+UNIX_MPLSCrossConnectProvider _antecedentMPLSCrossConnectProvider;
+UNIX_PlatformWatchdogService _antecedentPlatformWatchdogService;
+UNIX_PlatformWatchdogServiceProvider _antecedentPlatformWatchdogServiceProvider;
+UNIX_FCHBADiagnosticTest _antecedentFCHBADiagnosticTest;
+UNIX_FCHBADiagnosticTestProvider _antecedentFCHBADiagnosticTestProvider;
+UNIX_RAIDDiagnosticTest _antecedentRAIDDiagnosticTest;
+UNIX_RAIDDiagnosticTestProvider _antecedentRAIDDiagnosticTestProvider;
+UNIX_CPUDiagnosticTest _antecedentCPUDiagnosticTest;
+UNIX_CPUDiagnosticTestProvider _antecedentCPUDiagnosticTestProvider;
+UNIX_EthernetNICDiagnosticTest _antecedentEthernetNICDiagnosticTest;
+UNIX_EthernetNICDiagnosticTestProvider _antecedentEthernetNICDiagnosticTestProvider;
+UNIX_OpticalDriveDiagnosticTest _antecedentOpticalDriveDiagnosticTest;
+UNIX_OpticalDriveDiagnosticTestProvider _antecedentOpticalDriveDiagnosticTestProvider;
+UNIX_OpticalDriveDiagnosticSettingData _antecedentOpticalDriveDiagnosticSettingData;
+UNIX_OpticalDriveDiagnosticSettingDataProvider _antecedentOpticalDriveDiagnosticSettingDataProvider;
+UNIX_DiskDriveDiagnosticTest _antecedentDiskDriveDiagnosticTest;
+UNIX_DiskDriveDiagnosticTestProvider _antecedentDiskDriveDiagnosticTestProvider;
+UNIX_IBSubnetManager _antecedentIBSubnetManager;
+UNIX_IBSubnetManagerProvider _antecedentIBSubnetManagerProvider;
+UNIX_ObjectManager _antecedentObjectManager;
+UNIX_ObjectManagerProvider _antecedentObjectManagerProvider;
+UNIX_ObjectManagerAdapter _antecedentObjectManagerAdapter;
+UNIX_ObjectManagerAdapterProvider _antecedentObjectManagerAdapterProvider;
+UNIX_ProviderObjectManagerAdapter _antecedentProviderObjectManagerAdapter;
+UNIX_ProviderObjectManagerAdapterProvider _antecedentProviderObjectManagerAdapterProvider;
+UNIX_ProtocolAdapter _antecedentProtocolAdapter;
+UNIX_ProtocolAdapterProvider _antecedentProtocolAdapterProvider;
+UNIX_FileSystemStatisticsService _antecedentFileSystemStatisticsService;
+UNIX_FileSystemStatisticsServiceProvider _antecedentFileSystemStatisticsServiceProvider;
+UNIX_BlockStatisticsService _antecedentBlockStatisticsService;
+UNIX_BlockStatisticsServiceProvider _antecedentBlockStatisticsServiceProvider;
+UNIX_USBRedirectionService _antecedentUSBRedirectionService;
+UNIX_USBRedirectionServiceProvider _antecedentUSBRedirectionServiceProvider;
+UNIX_TextRedirectionService _antecedentTextRedirectionService;
+UNIX_TextRedirectionServiceProvider _antecedentTextRedirectionServiceProvider;
+UNIX_BGPService _antecedentBGPService;
+UNIX_BGPServiceProvider _antecedentBGPServiceProvider;
+UNIX_OSPFService _antecedentOSPFService;
+UNIX_OSPFServiceProvider _antecedentOSPFServiceProvider;
+UNIX_NATService _antecedentNATService;
+UNIX_NATServiceProvider _antecedentNATServiceProvider;
+UNIX_TransparentBridgingService _antecedentTransparentBridgingService;
+UNIX_TransparentBridgingServiceProvider _antecedentTransparentBridgingServiceProvider;
+UNIX_SourceRoutingService _antecedentSourceRoutingService;
+UNIX_SourceRoutingServiceProvider _antecedentSourceRoutingServiceProvider;
+UNIX_SpanningTreeService _antecedentSpanningTreeService;
+UNIX_SpanningTreeServiceProvider _antecedentSpanningTreeServiceProvider;
+UNIX_SwitchService _antecedentSwitchService;
+UNIX_SwitchServiceProvider _antecedentSwitchServiceProvider;
+UNIX_FileExportService _antecedentFileExportService;
+UNIX_FileExportServiceProvider _antecedentFileExportServiceProvider;
+
+UNIX_DHCPProtocolEndpoint _dependentDHCPProtocolEndpoint;
+UNIX_DHCPProtocolEndpointProvider _dependentDHCPProtocolEndpointProvider;
+UNIX_SSHProtocolEndpoint _dependentSSHProtocolEndpoint;
+UNIX_SSHProtocolEndpointProvider _dependentSSHProtocolEndpointProvider;
+UNIX_SCSIProtocolEndpoint _dependentSCSIProtocolEndpoint;
+UNIX_SCSIProtocolEndpointProvider _dependentSCSIProtocolEndpointProvider;
+UNIX_iSCSIProtocolEndpoint _dependentiSCSIProtocolEndpoint;
+UNIX_iSCSIProtocolEndpointProvider _dependentiSCSIProtocolEndpointProvider;
+UNIX_CLPProtocolEndpoint _dependentCLPProtocolEndpoint;
+UNIX_CLPProtocolEndpointProvider _dependentCLPProtocolEndpointProvider;
+UNIX_IPXProtocolEndpoint _dependentIPXProtocolEndpoint;
+UNIX_IPXProtocolEndpointProvider _dependentIPXProtocolEndpointProvider;
+UNIX_IPsecSAEndpoint _dependentIPsecSAEndpoint;
+UNIX_IPsecSAEndpointProvider _dependentIPsecSAEndpointProvider;
+UNIX_IKESAEndpoint _dependentIKESAEndpoint;
+UNIX_IKESAEndpointProvider _dependentIKESAEndpointProvider;
+UNIX_LANEndpoint _dependentLANEndpoint;
+UNIX_LANEndpointProvider _dependentLANEndpointProvider;
+UNIX_WiFiEndpoint _dependentWiFiEndpoint;
+UNIX_WiFiEndpointProvider _dependentWiFiEndpointProvider;
+UNIX_MPLSProtocolEndpoint _dependentMPLSProtocolEndpoint;
+UNIX_MPLSProtocolEndpointProvider _dependentMPLSProtocolEndpointProvider;
+UNIX_WirelessLANEndpoint _dependentWirelessLANEndpoint;
+UNIX_WirelessLANEndpointProvider _dependentWirelessLANEndpointProvider;
+UNIX_UDPProtocolEndpoint _dependentUDPProtocolEndpoint;
+UNIX_UDPProtocolEndpointProvider _dependentUDPProtocolEndpointProvider;
+UNIX_TCPProtocolEndpoint _dependentTCPProtocolEndpoint;
+UNIX_TCPProtocolEndpointProvider _dependentTCPProtocolEndpointProvider;
+UNIX_OSPFVirtualInterface _dependentOSPFVirtualInterface;
+UNIX_OSPFVirtualInterfaceProvider _dependentOSPFVirtualInterfaceProvider;
+UNIX_OSPFProtocolEndpoint _dependentOSPFProtocolEndpoint;
+UNIX_OSPFProtocolEndpointProvider _dependentOSPFProtocolEndpointProvider;
+UNIX_VLANEndpoint _dependentVLANEndpoint;
+UNIX_VLANEndpointProvider _dependentVLANEndpointProvider;
+UNIX_LinkAggregator8023ad _dependentLinkAggregator8023ad;
+UNIX_LinkAggregator8023adProvider _dependentLinkAggregator8023adProvider;
+UNIX_ATAProtocolEndpoint _dependentATAProtocolEndpoint;
+UNIX_ATAProtocolEndpointProvider _dependentATAProtocolEndpointProvider;
+UNIX_IPEncapsulationInterface _dependentIPEncapsulationInterface;
+UNIX_IPEncapsulationInterfaceProvider _dependentIPEncapsulationInterfaceProvider;
+UNIX_IPSubinterface _dependentIPSubinterface;
+UNIX_IPSubinterfaceProvider _dependentIPSubinterfaceProvider;
+UNIX_SwitchVirtualInterface _dependentSwitchVirtualInterface;
+UNIX_SwitchVirtualInterfaceProvider _dependentSwitchVirtualInterfaceProvider;
+UNIX_IPLoopback _dependentIPLoopback;
+UNIX_IPLoopbackProvider _dependentIPLoopbackProvider;
+UNIX_BGPProtocolEndpoint _dependentBGPProtocolEndpoint;
+UNIX_BGPProtocolEndpointProvider _dependentBGPProtocolEndpointProvider;
+UNIX_SwitchPort _dependentSwitchPort;
+UNIX_SwitchPortProvider _dependentSwitchPortProvider;
+UNIX_DNSProtocolEndpoint _dependentDNSProtocolEndpoint;
+UNIX_DNSProtocolEndpointProvider _dependentDNSProtocolEndpointProvider;
+UNIX_LAGPort8023ad _dependentLAGPort8023ad;
+UNIX_LAGPort8023adProvider _dependentLAGPort8023adProvider;
+
+#	include "UNIX_ProvidesEndpointPrivate.h"
+
+
+};
+
+#endif /* UNIX_PROVIDESENDPOINT */

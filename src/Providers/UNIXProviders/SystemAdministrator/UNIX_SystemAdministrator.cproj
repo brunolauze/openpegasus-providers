@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6CA78550-809F-4F49-8159-23F02EB570B7}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ComputerSystem/UNIX_ComputerSystem.md.pc" name="UNIX_ComputerSystem" IsProject="True" />
+        <Package file="../UserContact/UNIX_UserContact.md.pc" name="UNIX_UserContact" IsProject="True" />
+        <Package file="../Person/UNIX_Person.md.pc" name="UNIX_Person" IsProject="True" />
+        <Package file="../UsersAccess/UNIX_UsersAccess.md.pc" name="UNIX_UsersAccess" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ComputerSystem/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../UserContact/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Person/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../UsersAccess/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_SystemAdministratorProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SystemAdministratorLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SystemAdministratorLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ComputerSystemProvider -lUNIX_UserContactProvider -lUNIX_PersonProvider -lUNIX_UsersAccessProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_SystemAdministratorProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SystemAdministratorLib" -DPROVIDER_LIB_NS="namespace UNIX_SystemAdministratorLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ComputerSystemProvider -lUNIX_UserContactProvider -lUNIX_PersonProvider -lUNIX_UsersAccessProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SystemAdministrator.cpp" />
+    <Compile Include="UNIX_SystemAdministratorMain.cpp" />
+    <Compile Include="UNIX_SystemAdministratorProvider.cpp" />
+    <Compile Include="UNIX_SystemAdministrator_AIX.cpp" />
+    <Compile Include="UNIX_SystemAdministrator_DARWIN.cpp" />
+    <Compile Include="UNIX_SystemAdministrator_FREEBSD.cpp" />
+    <Compile Include="UNIX_SystemAdministrator_HPUX.cpp" />
+    <Compile Include="UNIX_SystemAdministrator_LINUX.cpp" />
+    <Compile Include="UNIX_SystemAdministrator_SOLARIS.cpp" />
+    <Compile Include="UNIX_SystemAdministrator_STUB.cpp" />
+    <Compile Include="UNIX_SystemAdministrator_TRU64.cpp" />
+    <Compile Include="UNIX_SystemAdministrator_VMS.cpp" />
+    <Compile Include="UNIX_SystemAdministrator_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_SystemAdministrator.h" />
+    <Node Include="UNIX_SystemAdministratorDeps.h" />
+    <Node Include="UNIX_SystemAdministratorDeps_AIX.h" />
+    <Node Include="UNIX_SystemAdministratorDeps_DARWIN.h" />
+    <Node Include="UNIX_SystemAdministratorDeps_FREEBSD.h" />
+    <Node Include="UNIX_SystemAdministratorDeps_HPUX.h" />
+    <Node Include="UNIX_SystemAdministratorDeps_LINUX.h" />
+    <Node Include="UNIX_SystemAdministratorDeps_SOLARIS.h" />
+    <Node Include="UNIX_SystemAdministratorDeps_STUB.h" />
+    <Node Include="UNIX_SystemAdministratorDeps_TRU64.h" />
+    <Node Include="UNIX_SystemAdministratorDeps_VMS.h" />
+    <Node Include="UNIX_SystemAdministratorDeps_ZOS.h" />
+    <Node Include="UNIX_SystemAdministratorPrivate.h" />
+    <Node Include="UNIX_SystemAdministratorPrivate_AIX.h" />
+    <Node Include="UNIX_SystemAdministratorPrivate_DARWIN.h" />
+    <Node Include="UNIX_SystemAdministratorPrivate_FREEBSD.h" />
+    <Node Include="UNIX_SystemAdministratorPrivate_HPUX.h" />
+    <Node Include="UNIX_SystemAdministratorPrivate_LINUX.h" />
+    <Node Include="UNIX_SystemAdministratorPrivate_SOLARIS.h" />
+    <Node Include="UNIX_SystemAdministratorPrivate_STUB.h" />
+    <Node Include="UNIX_SystemAdministratorPrivate_TRU64.h" />
+    <Node Include="UNIX_SystemAdministratorPrivate_VMS.h" />
+    <Node Include="UNIX_SystemAdministratorPrivate_ZOS.h" />
+    <Node Include="UNIX_SystemAdministratorProvider.h" />
+    <Node Include="UNIX_SystemAdministrator_AIX.hpp" />
+    <Node Include="UNIX_SystemAdministrator_AIX.hxx" />
+    <Node Include="UNIX_SystemAdministrator_DARWIN.hpp" />
+    <Node Include="UNIX_SystemAdministrator_DARWIN.hxx" />
+    <Node Include="UNIX_SystemAdministrator_FREEBSD.hpp" />
+    <Node Include="UNIX_SystemAdministrator_FREEBSD.hxx" />
+    <Node Include="UNIX_SystemAdministrator_HPUX.hpp" />
+    <Node Include="UNIX_SystemAdministrator_HPUX.hxx" />
+    <Node Include="UNIX_SystemAdministrator_LINUX.hpp" />
+    <Node Include="UNIX_SystemAdministrator_LINUX.hxx" />
+    <Node Include="UNIX_SystemAdministrator_SOLARIS.hpp" />
+    <Node Include="UNIX_SystemAdministrator_SOLARIS.hxx" />
+    <Node Include="UNIX_SystemAdministrator_STUB.hpp" />
+    <Node Include="UNIX_SystemAdministrator_STUB.hxx" />
+    <Node Include="UNIX_SystemAdministrator_TRU64.hpp" />
+    <Node Include="UNIX_SystemAdministrator_TRU64.hxx" />
+    <Node Include="UNIX_SystemAdministrator_VMS.hpp" />
+    <Node Include="UNIX_SystemAdministrator_VMS.hxx" />
+    <Node Include="UNIX_SystemAdministrator_WIN32.hpp" />
+    <Node Include="UNIX_SystemAdministrator_ZOS.hpp" />
+    <Node Include="UNIX_SystemAdministrator_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CE140284-D97D-42CD-A758-C24522869545}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+        <Package file="../Privilege/UNIX_Privilege.md.pc" name="UNIX_Privilege" IsProject="True" />
+        <Package file="../ProtocolController/UNIX_ProtocolController.md.pc" name="UNIX_ProtocolController" IsProject="True" />
+        <Package file="../SCSIProtocolController/UNIX_SCSIProtocolController.md.pc" name="UNIX_SCSIProtocolController" IsProject="True" />
+        <Package file="../StorageClientSettingData/UNIX_StorageClientSettingData.md.pc" name="UNIX_StorageClientSettingData" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Privilege/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ProtocolController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SCSIProtocolController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageClientSettingData/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ControllerConfigurationServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ControllerConfigurationServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ControllerConfigurationServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider -lUNIX_PrivilegeProvider -lUNIX_ProtocolControllerProvider -lUNIX_SCSIProtocolControllerProvider -lUNIX_StorageClientSettingDataProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ControllerConfigurationServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ControllerConfigurationServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_ControllerConfigurationServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider -lUNIX_PrivilegeProvider -lUNIX_ProtocolControllerProvider -lUNIX_SCSIProtocolControllerProvider -lUNIX_StorageClientSettingDataProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ControllerConfigurationService.cpp" />
+    <Compile Include="UNIX_ControllerConfigurationServiceMain.cpp" />
+    <Compile Include="UNIX_ControllerConfigurationServiceProvider.cpp" />
+    <Compile Include="UNIX_ControllerConfigurationService_AIX.cpp" />
+    <Compile Include="UNIX_ControllerConfigurationService_DARWIN.cpp" />
+    <Compile Include="UNIX_ControllerConfigurationService_FREEBSD.cpp" />
+    <Compile Include="UNIX_ControllerConfigurationService_HPUX.cpp" />
+    <Compile Include="UNIX_ControllerConfigurationService_LINUX.cpp" />
+    <Compile Include="UNIX_ControllerConfigurationService_SOLARIS.cpp" />
+    <Compile Include="UNIX_ControllerConfigurationService_STUB.cpp" />
+    <Compile Include="UNIX_ControllerConfigurationService_TRU64.cpp" />
+    <Compile Include="UNIX_ControllerConfigurationService_VMS.cpp" />
+    <Compile Include="UNIX_ControllerConfigurationService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ControllerConfigurationService.h" />
+    <Node Include="UNIX_ControllerConfigurationServiceDeps.h" />
+    <Node Include="UNIX_ControllerConfigurationServiceDeps_AIX.h" />
+    <Node Include="UNIX_ControllerConfigurationServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_ControllerConfigurationServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_ControllerConfigurationServiceDeps_HPUX.h" />
+    <Node Include="UNIX_ControllerConfigurationServiceDeps_LINUX.h" />
+    <Node Include="UNIX_ControllerConfigurationServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_ControllerConfigurationServiceDeps_STUB.h" />
+    <Node Include="UNIX_ControllerConfigurationServiceDeps_TRU64.h" />
+    <Node Include="UNIX_ControllerConfigurationServiceDeps_VMS.h" />
+    <Node Include="UNIX_ControllerConfigurationServiceDeps_ZOS.h" />
+    <Node Include="UNIX_ControllerConfigurationServicePrivate.h" />
+    <Node Include="UNIX_ControllerConfigurationServicePrivate_AIX.h" />
+    <Node Include="UNIX_ControllerConfigurationServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_ControllerConfigurationServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_ControllerConfigurationServicePrivate_HPUX.h" />
+    <Node Include="UNIX_ControllerConfigurationServicePrivate_LINUX.h" />
+    <Node Include="UNIX_ControllerConfigurationServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_ControllerConfigurationServicePrivate_STUB.h" />
+    <Node Include="UNIX_ControllerConfigurationServicePrivate_TRU64.h" />
+    <Node Include="UNIX_ControllerConfigurationServicePrivate_VMS.h" />
+    <Node Include="UNIX_ControllerConfigurationServicePrivate_ZOS.h" />
+    <Node Include="UNIX_ControllerConfigurationServiceProvider.h" />
+    <Node Include="UNIX_ControllerConfigurationService_AIX.hpp" />
+    <Node Include="UNIX_ControllerConfigurationService_AIX.hxx" />
+    <Node Include="UNIX_ControllerConfigurationService_DARWIN.hpp" />
+    <Node Include="UNIX_ControllerConfigurationService_DARWIN.hxx" />
+    <Node Include="UNIX_ControllerConfigurationService_FREEBSD.hpp" />
+    <Node Include="UNIX_ControllerConfigurationService_FREEBSD.hxx" />
+    <Node Include="UNIX_ControllerConfigurationService_HPUX.hpp" />
+    <Node Include="UNIX_ControllerConfigurationService_HPUX.hxx" />
+    <Node Include="UNIX_ControllerConfigurationService_LINUX.hpp" />
+    <Node Include="UNIX_ControllerConfigurationService_LINUX.hxx" />
+    <Node Include="UNIX_ControllerConfigurationService_SOLARIS.hpp" />
+    <Node Include="UNIX_ControllerConfigurationService_SOLARIS.hxx" />
+    <Node Include="UNIX_ControllerConfigurationService_STUB.hpp" />
+    <Node Include="UNIX_ControllerConfigurationService_STUB.hxx" />
+    <Node Include="UNIX_ControllerConfigurationService_TRU64.hpp" />
+    <Node Include="UNIX_ControllerConfigurationService_TRU64.hxx" />
+    <Node Include="UNIX_ControllerConfigurationService_VMS.hpp" />
+    <Node Include="UNIX_ControllerConfigurationService_VMS.hxx" />
+    <Node Include="UNIX_ControllerConfigurationService_WIN32.hpp" />
+    <Node Include="UNIX_ControllerConfigurationService_ZOS.hpp" />
+    <Node Include="UNIX_ControllerConfigurationService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4D3068FF-061E-463B-9F39-7B01F5DB07CF}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_PacketFilterConditionProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PacketFilterConditionLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PacketFilterConditionLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_PacketFilterConditionProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PacketFilterConditionLib" -DPROVIDER_LIB_NS="namespace UNIX_PacketFilterConditionLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_PacketFilterCondition.cpp" />
+    <Compile Include="UNIX_PacketFilterConditionMain.cpp" />
+    <Compile Include="UNIX_PacketFilterConditionProvider.cpp" />
+    <Compile Include="UNIX_PacketFilterCondition_AIX.cpp" />
+    <Compile Include="UNIX_PacketFilterCondition_DARWIN.cpp" />
+    <Compile Include="UNIX_PacketFilterCondition_FREEBSD.cpp" />
+    <Compile Include="UNIX_PacketFilterCondition_HPUX.cpp" />
+    <Compile Include="UNIX_PacketFilterCondition_LINUX.cpp" />
+    <Compile Include="UNIX_PacketFilterCondition_SOLARIS.cpp" />
+    <Compile Include="UNIX_PacketFilterCondition_STUB.cpp" />
+    <Compile Include="UNIX_PacketFilterCondition_TRU64.cpp" />
+    <Compile Include="UNIX_PacketFilterCondition_VMS.cpp" />
+    <Compile Include="UNIX_PacketFilterCondition_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_PacketFilterCondition.h" />
+    <Node Include="UNIX_PacketFilterConditionDeps.h" />
+    <Node Include="UNIX_PacketFilterConditionDeps_AIX.h" />
+    <Node Include="UNIX_PacketFilterConditionDeps_DARWIN.h" />
+    <Node Include="UNIX_PacketFilterConditionDeps_FREEBSD.h" />
+    <Node Include="UNIX_PacketFilterConditionDeps_HPUX.h" />
+    <Node Include="UNIX_PacketFilterConditionDeps_LINUX.h" />
+    <Node Include="UNIX_PacketFilterConditionDeps_SOLARIS.h" />
+    <Node Include="UNIX_PacketFilterConditionDeps_STUB.h" />
+    <Node Include="UNIX_PacketFilterConditionDeps_TRU64.h" />
+    <Node Include="UNIX_PacketFilterConditionDeps_VMS.h" />
+    <Node Include="UNIX_PacketFilterConditionDeps_ZOS.h" />
+    <Node Include="UNIX_PacketFilterConditionPrivate.h" />
+    <Node Include="UNIX_PacketFilterConditionPrivate_AIX.h" />
+    <Node Include="UNIX_PacketFilterConditionPrivate_DARWIN.h" />
+    <Node Include="UNIX_PacketFilterConditionPrivate_FREEBSD.h" />
+    <Node Include="UNIX_PacketFilterConditionPrivate_HPUX.h" />
+    <Node Include="UNIX_PacketFilterConditionPrivate_LINUX.h" />
+    <Node Include="UNIX_PacketFilterConditionPrivate_SOLARIS.h" />
+    <Node Include="UNIX_PacketFilterConditionPrivate_STUB.h" />
+    <Node Include="UNIX_PacketFilterConditionPrivate_TRU64.h" />
+    <Node Include="UNIX_PacketFilterConditionPrivate_VMS.h" />
+    <Node Include="UNIX_PacketFilterConditionPrivate_ZOS.h" />
+    <Node Include="UNIX_PacketFilterConditionProvider.h" />
+    <Node Include="UNIX_PacketFilterCondition_AIX.hpp" />
+    <Node Include="UNIX_PacketFilterCondition_AIX.hxx" />
+    <Node Include="UNIX_PacketFilterCondition_DARWIN.hpp" />
+    <Node Include="UNIX_PacketFilterCondition_DARWIN.hxx" />
+    <Node Include="UNIX_PacketFilterCondition_FREEBSD.hpp" />
+    <Node Include="UNIX_PacketFilterCondition_FREEBSD.hxx" />
+    <Node Include="UNIX_PacketFilterCondition_HPUX.hpp" />
+    <Node Include="UNIX_PacketFilterCondition_HPUX.hxx" />
+    <Node Include="UNIX_PacketFilterCondition_LINUX.hpp" />
+    <Node Include="UNIX_PacketFilterCondition_LINUX.hxx" />
+    <Node Include="UNIX_PacketFilterCondition_SOLARIS.hpp" />
+    <Node Include="UNIX_PacketFilterCondition_SOLARIS.hxx" />
+    <Node Include="UNIX_PacketFilterCondition_STUB.hpp" />
+    <Node Include="UNIX_PacketFilterCondition_STUB.hxx" />
+    <Node Include="UNIX_PacketFilterCondition_TRU64.hpp" />
+    <Node Include="UNIX_PacketFilterCondition_TRU64.hxx" />
+    <Node Include="UNIX_PacketFilterCondition_VMS.hpp" />
+    <Node Include="UNIX_PacketFilterCondition_VMS.hxx" />
+    <Node Include="UNIX_PacketFilterCondition_WIN32.hpp" />
+    <Node Include="UNIX_PacketFilterCondition_ZOS.hpp" />
+    <Node Include="UNIX_PacketFilterCondition_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

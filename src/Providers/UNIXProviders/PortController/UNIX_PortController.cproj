@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9EE2C505-C8CE-4378-A655-B0396C4D1515}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_PortControllerProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PortControllerLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PortControllerLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_PortControllerProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PortControllerLib" -DPROVIDER_LIB_NS="namespace UNIX_PortControllerLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_PortController.cpp" />
+    <Compile Include="UNIX_PortControllerMain.cpp" />
+    <Compile Include="UNIX_PortControllerProvider.cpp" />
+    <Compile Include="UNIX_PortController_AIX.cpp" />
+    <Compile Include="UNIX_PortController_DARWIN.cpp" />
+    <Compile Include="UNIX_PortController_FREEBSD.cpp" />
+    <Compile Include="UNIX_PortController_HPUX.cpp" />
+    <Compile Include="UNIX_PortController_LINUX.cpp" />
+    <Compile Include="UNIX_PortController_SOLARIS.cpp" />
+    <Compile Include="UNIX_PortController_STUB.cpp" />
+    <Compile Include="UNIX_PortController_TRU64.cpp" />
+    <Compile Include="UNIX_PortController_VMS.cpp" />
+    <Compile Include="UNIX_PortController_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_PortController.h" />
+    <Node Include="UNIX_PortControllerDeps.h" />
+    <Node Include="UNIX_PortControllerDeps_AIX.h" />
+    <Node Include="UNIX_PortControllerDeps_DARWIN.h" />
+    <Node Include="UNIX_PortControllerDeps_FREEBSD.h" />
+    <Node Include="UNIX_PortControllerDeps_HPUX.h" />
+    <Node Include="UNIX_PortControllerDeps_LINUX.h" />
+    <Node Include="UNIX_PortControllerDeps_SOLARIS.h" />
+    <Node Include="UNIX_PortControllerDeps_STUB.h" />
+    <Node Include="UNIX_PortControllerDeps_TRU64.h" />
+    <Node Include="UNIX_PortControllerDeps_VMS.h" />
+    <Node Include="UNIX_PortControllerDeps_ZOS.h" />
+    <Node Include="UNIX_PortControllerPrivate.h" />
+    <Node Include="UNIX_PortControllerPrivate_AIX.h" />
+    <Node Include="UNIX_PortControllerPrivate_DARWIN.h" />
+    <Node Include="UNIX_PortControllerPrivate_FREEBSD.h" />
+    <Node Include="UNIX_PortControllerPrivate_HPUX.h" />
+    <Node Include="UNIX_PortControllerPrivate_LINUX.h" />
+    <Node Include="UNIX_PortControllerPrivate_SOLARIS.h" />
+    <Node Include="UNIX_PortControllerPrivate_STUB.h" />
+    <Node Include="UNIX_PortControllerPrivate_TRU64.h" />
+    <Node Include="UNIX_PortControllerPrivate_VMS.h" />
+    <Node Include="UNIX_PortControllerPrivate_ZOS.h" />
+    <Node Include="UNIX_PortControllerProvider.h" />
+    <Node Include="UNIX_PortController_AIX.hpp" />
+    <Node Include="UNIX_PortController_AIX.hxx" />
+    <Node Include="UNIX_PortController_DARWIN.hpp" />
+    <Node Include="UNIX_PortController_DARWIN.hxx" />
+    <Node Include="UNIX_PortController_FREEBSD.hpp" />
+    <Node Include="UNIX_PortController_FREEBSD.hxx" />
+    <Node Include="UNIX_PortController_HPUX.hpp" />
+    <Node Include="UNIX_PortController_HPUX.hxx" />
+    <Node Include="UNIX_PortController_LINUX.hpp" />
+    <Node Include="UNIX_PortController_LINUX.hxx" />
+    <Node Include="UNIX_PortController_SOLARIS.hpp" />
+    <Node Include="UNIX_PortController_SOLARIS.hxx" />
+    <Node Include="UNIX_PortController_STUB.hpp" />
+    <Node Include="UNIX_PortController_STUB.hxx" />
+    <Node Include="UNIX_PortController_TRU64.hpp" />
+    <Node Include="UNIX_PortController_TRU64.hxx" />
+    <Node Include="UNIX_PortController_VMS.hpp" />
+    <Node Include="UNIX_PortController_VMS.hxx" />
+    <Node Include="UNIX_PortController_WIN32.hpp" />
+    <Node Include="UNIX_PortController_ZOS.hpp" />
+    <Node Include="UNIX_PortController_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

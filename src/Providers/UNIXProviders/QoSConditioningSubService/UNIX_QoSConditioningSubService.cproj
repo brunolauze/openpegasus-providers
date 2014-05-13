@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{774359E3-2E4C-4713-8571-CBDB48596233}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../AFService/UNIX_AFService.md.pc" name="UNIX_AFService" IsProject="True" />
+        <Package file="../EFService/UNIX_EFService.md.pc" name="UNIX_EFService" IsProject="True" />
+        <Package file="../FlowService/UNIX_FlowService.md.pc" name="UNIX_FlowService" IsProject="True" />
+        <Package file="../Hdr8021PService/UNIX_Hdr8021PService.md.pc" name="UNIX_Hdr8021PService" IsProject="True" />
+        <Package file="../PrecedenceService/UNIX_PrecedenceService.md.pc" name="UNIX_PrecedenceService" IsProject="True" />
+        <Package file="../TokenBucketMeterService/UNIX_TokenBucketMeterService.md.pc" name="UNIX_TokenBucketMeterService" IsProject="True" />
+        <Package file="../EWMAMeterService/UNIX_EWMAMeterService.md.pc" name="UNIX_EWMAMeterService" IsProject="True" />
+        <Package file="../AverageRateMeterService/UNIX_AverageRateMeterService.md.pc" name="UNIX_AverageRateMeterService" IsProject="True" />
+        <Package file="../ToSMarkerService/UNIX_ToSMarkerService.md.pc" name="UNIX_ToSMarkerService" IsProject="True" />
+        <Package file="../Priority8021QMarkerService/UNIX_Priority8021QMarkerService.md.pc" name="UNIX_Priority8021QMarkerService" IsProject="True" />
+        <Package file="../DSCPMarkerService/UNIX_DSCPMarkerService.md.pc" name="UNIX_DSCPMarkerService" IsProject="True" />
+        <Package file="../PreambleMarkerService/UNIX_PreambleMarkerService.md.pc" name="UNIX_PreambleMarkerService" IsProject="True" />
+        <Package file="../ClassifierService/UNIX_ClassifierService.md.pc" name="UNIX_ClassifierService" IsProject="True" />
+        <Package file="../ClassifierElement/UNIX_ClassifierElement.md.pc" name="UNIX_ClassifierElement" IsProject="True" />
+        <Package file="../PacketSchedulingService/UNIX_PacketSchedulingService.md.pc" name="UNIX_PacketSchedulingService" IsProject="True" />
+        <Package file="../NonWorkConservingSchedulingService/UNIX_NonWorkConservingSchedulingService.md.pc" name="UNIX_NonWorkConservingSchedulingService" IsProject="True" />
+        <Package file="../REDDropperService/UNIX_REDDropperService.md.pc" name="UNIX_REDDropperService" IsProject="True" />
+        <Package file="../HeadTailDropper/UNIX_HeadTailDropper.md.pc" name="UNIX_HeadTailDropper" IsProject="True" />
+        <Package file="../WeightedREDDropperService/UNIX_WeightedREDDropperService.md.pc" name="UNIX_WeightedREDDropperService" IsProject="True" />
+        <Package file="../QueuingService/UNIX_QueuingService.md.pc" name="UNIX_QueuingService" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../AFService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EFService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../FlowService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Hdr8021PService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PrecedenceService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../TokenBucketMeterService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EWMAMeterService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../AverageRateMeterService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ToSMarkerService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Priority8021QMarkerService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DSCPMarkerService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PreambleMarkerService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ClassifierService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ClassifierElement/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PacketSchedulingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../NonWorkConservingSchedulingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../REDDropperService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../HeadTailDropper/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../WeightedREDDropperService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../QueuingService/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_QoSConditioningSubServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_QoSConditioningSubServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_QoSConditioningSubServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AFServiceProvider -lUNIX_EFServiceProvider -lUNIX_FlowServiceProvider -lUNIX_Hdr8021PServiceProvider -lUNIX_PrecedenceServiceProvider -lUNIX_TokenBucketMeterServiceProvider -lUNIX_EWMAMeterServiceProvider -lUNIX_AverageRateMeterServiceProvider -lUNIX_ToSMarkerServiceProvider -lUNIX_Priority8021QMarkerServiceProvider -lUNIX_DSCPMarkerServiceProvider -lUNIX_PreambleMarkerServiceProvider -lUNIX_ClassifierServiceProvider -lUNIX_ClassifierElementProvider -lUNIX_PacketSchedulingServiceProvider -lUNIX_NonWorkConservingSchedulingServiceProvider -lUNIX_REDDropperServiceProvider -lUNIX_HeadTailDropperProvider -lUNIX_WeightedREDDropperServiceProvider -lUNIX_QueuingServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_QoSConditioningSubServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_QoSConditioningSubServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_QoSConditioningSubServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AFServiceProvider -lUNIX_EFServiceProvider -lUNIX_FlowServiceProvider -lUNIX_Hdr8021PServiceProvider -lUNIX_PrecedenceServiceProvider -lUNIX_TokenBucketMeterServiceProvider -lUNIX_EWMAMeterServiceProvider -lUNIX_AverageRateMeterServiceProvider -lUNIX_ToSMarkerServiceProvider -lUNIX_Priority8021QMarkerServiceProvider -lUNIX_DSCPMarkerServiceProvider -lUNIX_PreambleMarkerServiceProvider -lUNIX_ClassifierServiceProvider -lUNIX_ClassifierElementProvider -lUNIX_PacketSchedulingServiceProvider -lUNIX_NonWorkConservingSchedulingServiceProvider -lUNIX_REDDropperServiceProvider -lUNIX_HeadTailDropperProvider -lUNIX_WeightedREDDropperServiceProvider -lUNIX_QueuingServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_QoSConditioningSubService.cpp" />
+    <Compile Include="UNIX_QoSConditioningSubServiceMain.cpp" />
+    <Compile Include="UNIX_QoSConditioningSubServiceProvider.cpp" />
+    <Compile Include="UNIX_QoSConditioningSubService_AIX.cpp" />
+    <Compile Include="UNIX_QoSConditioningSubService_DARWIN.cpp" />
+    <Compile Include="UNIX_QoSConditioningSubService_FREEBSD.cpp" />
+    <Compile Include="UNIX_QoSConditioningSubService_HPUX.cpp" />
+    <Compile Include="UNIX_QoSConditioningSubService_LINUX.cpp" />
+    <Compile Include="UNIX_QoSConditioningSubService_SOLARIS.cpp" />
+    <Compile Include="UNIX_QoSConditioningSubService_STUB.cpp" />
+    <Compile Include="UNIX_QoSConditioningSubService_TRU64.cpp" />
+    <Compile Include="UNIX_QoSConditioningSubService_VMS.cpp" />
+    <Compile Include="UNIX_QoSConditioningSubService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_QoSConditioningSubService.h" />
+    <Node Include="UNIX_QoSConditioningSubServiceDeps.h" />
+    <Node Include="UNIX_QoSConditioningSubServiceDeps_AIX.h" />
+    <Node Include="UNIX_QoSConditioningSubServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_QoSConditioningSubServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_QoSConditioningSubServiceDeps_HPUX.h" />
+    <Node Include="UNIX_QoSConditioningSubServiceDeps_LINUX.h" />
+    <Node Include="UNIX_QoSConditioningSubServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_QoSConditioningSubServiceDeps_STUB.h" />
+    <Node Include="UNIX_QoSConditioningSubServiceDeps_TRU64.h" />
+    <Node Include="UNIX_QoSConditioningSubServiceDeps_VMS.h" />
+    <Node Include="UNIX_QoSConditioningSubServiceDeps_ZOS.h" />
+    <Node Include="UNIX_QoSConditioningSubServicePrivate.h" />
+    <Node Include="UNIX_QoSConditioningSubServicePrivate_AIX.h" />
+    <Node Include="UNIX_QoSConditioningSubServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_QoSConditioningSubServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_QoSConditioningSubServicePrivate_HPUX.h" />
+    <Node Include="UNIX_QoSConditioningSubServicePrivate_LINUX.h" />
+    <Node Include="UNIX_QoSConditioningSubServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_QoSConditioningSubServicePrivate_STUB.h" />
+    <Node Include="UNIX_QoSConditioningSubServicePrivate_TRU64.h" />
+    <Node Include="UNIX_QoSConditioningSubServicePrivate_VMS.h" />
+    <Node Include="UNIX_QoSConditioningSubServicePrivate_ZOS.h" />
+    <Node Include="UNIX_QoSConditioningSubServiceProvider.h" />
+    <Node Include="UNIX_QoSConditioningSubService_AIX.hpp" />
+    <Node Include="UNIX_QoSConditioningSubService_AIX.hxx" />
+    <Node Include="UNIX_QoSConditioningSubService_DARWIN.hpp" />
+    <Node Include="UNIX_QoSConditioningSubService_DARWIN.hxx" />
+    <Node Include="UNIX_QoSConditioningSubService_FREEBSD.hpp" />
+    <Node Include="UNIX_QoSConditioningSubService_FREEBSD.hxx" />
+    <Node Include="UNIX_QoSConditioningSubService_HPUX.hpp" />
+    <Node Include="UNIX_QoSConditioningSubService_HPUX.hxx" />
+    <Node Include="UNIX_QoSConditioningSubService_LINUX.hpp" />
+    <Node Include="UNIX_QoSConditioningSubService_LINUX.hxx" />
+    <Node Include="UNIX_QoSConditioningSubService_SOLARIS.hpp" />
+    <Node Include="UNIX_QoSConditioningSubService_SOLARIS.hxx" />
+    <Node Include="UNIX_QoSConditioningSubService_STUB.hpp" />
+    <Node Include="UNIX_QoSConditioningSubService_STUB.hxx" />
+    <Node Include="UNIX_QoSConditioningSubService_TRU64.hpp" />
+    <Node Include="UNIX_QoSConditioningSubService_TRU64.hxx" />
+    <Node Include="UNIX_QoSConditioningSubService_VMS.hpp" />
+    <Node Include="UNIX_QoSConditioningSubService_VMS.hxx" />
+    <Node Include="UNIX_QoSConditioningSubService_WIN32.hpp" />
+    <Node Include="UNIX_QoSConditioningSubService_ZOS.hpp" />
+    <Node Include="UNIX_QoSConditioningSubService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

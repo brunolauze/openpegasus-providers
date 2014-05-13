@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9BB314BB-8B53-4D92-8810-2D1048BBD469}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../SCSIProtocolController/UNIX_SCSIProtocolController.md.pc" name="UNIX_SCSIProtocolController" IsProject="True" />
+        <Package file="../DeviceMaskingGroup/UNIX_DeviceMaskingGroup.md.pc" name="UNIX_DeviceMaskingGroup" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../SCSIProtocolController/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DeviceMaskingGroup/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_AssociatedDeviceMaskingGroupProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AssociatedDeviceMaskingGroupLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_AssociatedDeviceMaskingGroupLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_SCSIProtocolControllerProvider -lUNIX_DeviceMaskingGroupProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_AssociatedDeviceMaskingGroupProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AssociatedDeviceMaskingGroupLib" -DPROVIDER_LIB_NS="namespace UNIX_AssociatedDeviceMaskingGroupLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_SCSIProtocolControllerProvider -lUNIX_DeviceMaskingGroupProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_AssociatedDeviceMaskingGroup.cpp" />
+    <Compile Include="UNIX_AssociatedDeviceMaskingGroupMain.cpp" />
+    <Compile Include="UNIX_AssociatedDeviceMaskingGroupProvider.cpp" />
+    <Compile Include="UNIX_AssociatedDeviceMaskingGroup_AIX.cpp" />
+    <Compile Include="UNIX_AssociatedDeviceMaskingGroup_DARWIN.cpp" />
+    <Compile Include="UNIX_AssociatedDeviceMaskingGroup_FREEBSD.cpp" />
+    <Compile Include="UNIX_AssociatedDeviceMaskingGroup_HPUX.cpp" />
+    <Compile Include="UNIX_AssociatedDeviceMaskingGroup_LINUX.cpp" />
+    <Compile Include="UNIX_AssociatedDeviceMaskingGroup_SOLARIS.cpp" />
+    <Compile Include="UNIX_AssociatedDeviceMaskingGroup_STUB.cpp" />
+    <Compile Include="UNIX_AssociatedDeviceMaskingGroup_TRU64.cpp" />
+    <Compile Include="UNIX_AssociatedDeviceMaskingGroup_VMS.cpp" />
+    <Compile Include="UNIX_AssociatedDeviceMaskingGroup_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupDeps.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupDeps_AIX.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupDeps_DARWIN.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupDeps_FREEBSD.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupDeps_HPUX.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupDeps_LINUX.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupDeps_SOLARIS.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupDeps_STUB.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupDeps_TRU64.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupDeps_VMS.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupDeps_ZOS.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupPrivate.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupPrivate_AIX.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupPrivate_DARWIN.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupPrivate_FREEBSD.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupPrivate_HPUX.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupPrivate_LINUX.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupPrivate_SOLARIS.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupPrivate_STUB.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupPrivate_TRU64.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupPrivate_VMS.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupPrivate_ZOS.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroupProvider.h" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_AIX.hpp" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_AIX.hxx" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_DARWIN.hpp" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_DARWIN.hxx" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_FREEBSD.hpp" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_FREEBSD.hxx" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_HPUX.hpp" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_HPUX.hxx" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_LINUX.hpp" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_LINUX.hxx" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_SOLARIS.hpp" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_SOLARIS.hxx" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_STUB.hpp" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_STUB.hxx" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_TRU64.hpp" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_TRU64.hxx" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_VMS.hpp" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_VMS.hxx" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_WIN32.hpp" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_ZOS.hpp" />
+    <Node Include="UNIX_AssociatedDeviceMaskingGroup_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

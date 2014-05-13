@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C081DD7F-F2B9-41F9-89C8-C833CC0170A8}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../Card/UNIX_Card.md.pc" name="UNIX_Card" IsProject="True" />
+        <Package file="../SystemBusCard/UNIX_SystemBusCard.md.pc" name="UNIX_SystemBusCard" IsProject="True" />
+        <Package file="../Chassis/UNIX_Chassis.md.pc" name="UNIX_Chassis" IsProject="True" />
+        <Package file="../Rack/UNIX_Rack.md.pc" name="UNIX_Rack" IsProject="True" />
+        <Package file="../PackageLocation/UNIX_PackageLocation.md.pc" name="UNIX_PackageLocation" IsProject="True" />
+        <Package file="../StorageMediaLocation/UNIX_StorageMediaLocation.md.pc" name="UNIX_StorageMediaLocation" IsProject="True" />
+        <Package file="../Magazine/UNIX_Magazine.md.pc" name="UNIX_Magazine" IsProject="True" />
+        <Package file="../StorageLibrary/UNIX_StorageLibrary.md.pc" name="UNIX_StorageLibrary" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../Card/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SystemBusCard/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Chassis/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Rack/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PackageLocation/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageMediaLocation/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Magazine/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageLibrary/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_LibraryPackageProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LibraryPackageLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_LibraryPackageLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_CardProvider -lUNIX_SystemBusCardProvider -lUNIX_ChassisProvider -lUNIX_RackProvider -lUNIX_PackageLocationProvider -lUNIX_StorageMediaLocationProvider -lUNIX_MagazineProvider -lUNIX_StorageLibraryProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_LibraryPackageProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LibraryPackageLib" -DPROVIDER_LIB_NS="namespace UNIX_LibraryPackageLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_CardProvider -lUNIX_SystemBusCardProvider -lUNIX_ChassisProvider -lUNIX_RackProvider -lUNIX_PackageLocationProvider -lUNIX_StorageMediaLocationProvider -lUNIX_MagazineProvider -lUNIX_StorageLibraryProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_LibraryPackage.cpp" />
+    <Compile Include="UNIX_LibraryPackageMain.cpp" />
+    <Compile Include="UNIX_LibraryPackageProvider.cpp" />
+    <Compile Include="UNIX_LibraryPackage_AIX.cpp" />
+    <Compile Include="UNIX_LibraryPackage_DARWIN.cpp" />
+    <Compile Include="UNIX_LibraryPackage_FREEBSD.cpp" />
+    <Compile Include="UNIX_LibraryPackage_HPUX.cpp" />
+    <Compile Include="UNIX_LibraryPackage_LINUX.cpp" />
+    <Compile Include="UNIX_LibraryPackage_SOLARIS.cpp" />
+    <Compile Include="UNIX_LibraryPackage_STUB.cpp" />
+    <Compile Include="UNIX_LibraryPackage_TRU64.cpp" />
+    <Compile Include="UNIX_LibraryPackage_VMS.cpp" />
+    <Compile Include="UNIX_LibraryPackage_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_LibraryPackage.h" />
+    <Node Include="UNIX_LibraryPackageDeps.h" />
+    <Node Include="UNIX_LibraryPackageDeps_AIX.h" />
+    <Node Include="UNIX_LibraryPackageDeps_DARWIN.h" />
+    <Node Include="UNIX_LibraryPackageDeps_FREEBSD.h" />
+    <Node Include="UNIX_LibraryPackageDeps_HPUX.h" />
+    <Node Include="UNIX_LibraryPackageDeps_LINUX.h" />
+    <Node Include="UNIX_LibraryPackageDeps_SOLARIS.h" />
+    <Node Include="UNIX_LibraryPackageDeps_STUB.h" />
+    <Node Include="UNIX_LibraryPackageDeps_TRU64.h" />
+    <Node Include="UNIX_LibraryPackageDeps_VMS.h" />
+    <Node Include="UNIX_LibraryPackageDeps_ZOS.h" />
+    <Node Include="UNIX_LibraryPackagePrivate.h" />
+    <Node Include="UNIX_LibraryPackagePrivate_AIX.h" />
+    <Node Include="UNIX_LibraryPackagePrivate_DARWIN.h" />
+    <Node Include="UNIX_LibraryPackagePrivate_FREEBSD.h" />
+    <Node Include="UNIX_LibraryPackagePrivate_HPUX.h" />
+    <Node Include="UNIX_LibraryPackagePrivate_LINUX.h" />
+    <Node Include="UNIX_LibraryPackagePrivate_SOLARIS.h" />
+    <Node Include="UNIX_LibraryPackagePrivate_STUB.h" />
+    <Node Include="UNIX_LibraryPackagePrivate_TRU64.h" />
+    <Node Include="UNIX_LibraryPackagePrivate_VMS.h" />
+    <Node Include="UNIX_LibraryPackagePrivate_ZOS.h" />
+    <Node Include="UNIX_LibraryPackageProvider.h" />
+    <Node Include="UNIX_LibraryPackage_AIX.hpp" />
+    <Node Include="UNIX_LibraryPackage_AIX.hxx" />
+    <Node Include="UNIX_LibraryPackage_DARWIN.hpp" />
+    <Node Include="UNIX_LibraryPackage_DARWIN.hxx" />
+    <Node Include="UNIX_LibraryPackage_FREEBSD.hpp" />
+    <Node Include="UNIX_LibraryPackage_FREEBSD.hxx" />
+    <Node Include="UNIX_LibraryPackage_HPUX.hpp" />
+    <Node Include="UNIX_LibraryPackage_HPUX.hxx" />
+    <Node Include="UNIX_LibraryPackage_LINUX.hpp" />
+    <Node Include="UNIX_LibraryPackage_LINUX.hxx" />
+    <Node Include="UNIX_LibraryPackage_SOLARIS.hpp" />
+    <Node Include="UNIX_LibraryPackage_SOLARIS.hxx" />
+    <Node Include="UNIX_LibraryPackage_STUB.hpp" />
+    <Node Include="UNIX_LibraryPackage_STUB.hxx" />
+    <Node Include="UNIX_LibraryPackage_TRU64.hpp" />
+    <Node Include="UNIX_LibraryPackage_TRU64.hxx" />
+    <Node Include="UNIX_LibraryPackage_VMS.hpp" />
+    <Node Include="UNIX_LibraryPackage_VMS.hxx" />
+    <Node Include="UNIX_LibraryPackage_WIN32.hpp" />
+    <Node Include="UNIX_LibraryPackage_ZOS.hpp" />
+    <Node Include="UNIX_LibraryPackage_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

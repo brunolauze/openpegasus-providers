@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF42AB42-3734-4462-8E0B-747FC58A4151}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../LAGPort8023ad/UNIX_LAGPort8023ad.md.pc" name="UNIX_LAGPort8023ad" IsProject="True" />
+        <Package file="../PolicyTransferServiceAccessPoint/UNIX_PolicyTransferServiceAccessPoint.md.pc" name="UNIX_PolicyTransferServiceAccessPoint" IsProject="True" />
+        <Package file="../LaunchInContextSAP/UNIX_LaunchInContextSAP.md.pc" name="UNIX_LaunchInContextSAP" IsProject="True" />
+        <Package file="../RemotePort/UNIX_RemotePort.md.pc" name="UNIX_RemotePort" IsProject="True" />
+        <Package file="../MPLSTunnelHop/UNIX_MPLSTunnelHop.md.pc" name="UNIX_MPLSTunnelHop" IsProject="True" />
+        <Package file="../SoftwareIdentityResource/UNIX_SoftwareIdentityResource.md.pc" name="UNIX_SoftwareIdentityResource" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../LAGPort8023ad/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PolicyTransferServiceAccessPoint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../LaunchInContextSAP/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RemotePort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../MPLSTunnelHop/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SoftwareIdentityResource/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_LAGPortPartnerConnectionProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LAGPortPartnerConnectionLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_LAGPortPartnerConnectionLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_LAGPort8023adProvider -lUNIX_PolicyTransferServiceAccessPointProvider -lUNIX_LaunchInContextSAPProvider -lUNIX_RemotePortProvider -lUNIX_MPLSTunnelHopProvider -lUNIX_SoftwareIdentityResourceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_LAGPortPartnerConnectionProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LAGPortPartnerConnectionLib" -DPROVIDER_LIB_NS="namespace UNIX_LAGPortPartnerConnectionLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_LAGPort8023adProvider -lUNIX_PolicyTransferServiceAccessPointProvider -lUNIX_LaunchInContextSAPProvider -lUNIX_RemotePortProvider -lUNIX_MPLSTunnelHopProvider -lUNIX_SoftwareIdentityResourceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_LAGPortPartnerConnection.cpp" />
+    <Compile Include="UNIX_LAGPortPartnerConnectionMain.cpp" />
+    <Compile Include="UNIX_LAGPortPartnerConnectionProvider.cpp" />
+    <Compile Include="UNIX_LAGPortPartnerConnection_AIX.cpp" />
+    <Compile Include="UNIX_LAGPortPartnerConnection_DARWIN.cpp" />
+    <Compile Include="UNIX_LAGPortPartnerConnection_FREEBSD.cpp" />
+    <Compile Include="UNIX_LAGPortPartnerConnection_HPUX.cpp" />
+    <Compile Include="UNIX_LAGPortPartnerConnection_LINUX.cpp" />
+    <Compile Include="UNIX_LAGPortPartnerConnection_SOLARIS.cpp" />
+    <Compile Include="UNIX_LAGPortPartnerConnection_STUB.cpp" />
+    <Compile Include="UNIX_LAGPortPartnerConnection_TRU64.cpp" />
+    <Compile Include="UNIX_LAGPortPartnerConnection_VMS.cpp" />
+    <Compile Include="UNIX_LAGPortPartnerConnection_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_LAGPortPartnerConnection.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionDeps.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionDeps_AIX.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionDeps_DARWIN.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionDeps_FREEBSD.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionDeps_HPUX.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionDeps_LINUX.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionDeps_SOLARIS.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionDeps_STUB.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionDeps_TRU64.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionDeps_VMS.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionDeps_ZOS.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionPrivate.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionPrivate_AIX.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionPrivate_DARWIN.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionPrivate_FREEBSD.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionPrivate_HPUX.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionPrivate_LINUX.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionPrivate_SOLARIS.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionPrivate_STUB.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionPrivate_TRU64.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionPrivate_VMS.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionPrivate_ZOS.h" />
+    <Node Include="UNIX_LAGPortPartnerConnectionProvider.h" />
+    <Node Include="UNIX_LAGPortPartnerConnection_AIX.hpp" />
+    <Node Include="UNIX_LAGPortPartnerConnection_AIX.hxx" />
+    <Node Include="UNIX_LAGPortPartnerConnection_DARWIN.hpp" />
+    <Node Include="UNIX_LAGPortPartnerConnection_DARWIN.hxx" />
+    <Node Include="UNIX_LAGPortPartnerConnection_FREEBSD.hpp" />
+    <Node Include="UNIX_LAGPortPartnerConnection_FREEBSD.hxx" />
+    <Node Include="UNIX_LAGPortPartnerConnection_HPUX.hpp" />
+    <Node Include="UNIX_LAGPortPartnerConnection_HPUX.hxx" />
+    <Node Include="UNIX_LAGPortPartnerConnection_LINUX.hpp" />
+    <Node Include="UNIX_LAGPortPartnerConnection_LINUX.hxx" />
+    <Node Include="UNIX_LAGPortPartnerConnection_SOLARIS.hpp" />
+    <Node Include="UNIX_LAGPortPartnerConnection_SOLARIS.hxx" />
+    <Node Include="UNIX_LAGPortPartnerConnection_STUB.hpp" />
+    <Node Include="UNIX_LAGPortPartnerConnection_STUB.hxx" />
+    <Node Include="UNIX_LAGPortPartnerConnection_TRU64.hpp" />
+    <Node Include="UNIX_LAGPortPartnerConnection_TRU64.hxx" />
+    <Node Include="UNIX_LAGPortPartnerConnection_VMS.hpp" />
+    <Node Include="UNIX_LAGPortPartnerConnection_VMS.hxx" />
+    <Node Include="UNIX_LAGPortPartnerConnection_WIN32.hpp" />
+    <Node Include="UNIX_LAGPortPartnerConnection_ZOS.hpp" />
+    <Node Include="UNIX_LAGPortPartnerConnection_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

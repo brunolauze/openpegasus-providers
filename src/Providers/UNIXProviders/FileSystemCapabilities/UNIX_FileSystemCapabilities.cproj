@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{468569A7-CAC6-4E19-ABA7-6D8D88FC7938}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_FileSystemCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_FileSystemCapabilitiesLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_FileSystemCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_FileSystemCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_FileSystemCapabilitiesLib" -DPROVIDER_LIB_NS="namespace UNIX_FileSystemCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_FileSystemCapabilities.cpp" />
+    <Compile Include="UNIX_FileSystemCapabilitiesMain.cpp" />
+    <Compile Include="UNIX_FileSystemCapabilitiesProvider.cpp" />
+    <Compile Include="UNIX_FileSystemCapabilities_AIX.cpp" />
+    <Compile Include="UNIX_FileSystemCapabilities_DARWIN.cpp" />
+    <Compile Include="UNIX_FileSystemCapabilities_FREEBSD.cpp" />
+    <Compile Include="UNIX_FileSystemCapabilities_HPUX.cpp" />
+    <Compile Include="UNIX_FileSystemCapabilities_LINUX.cpp" />
+    <Compile Include="UNIX_FileSystemCapabilities_SOLARIS.cpp" />
+    <Compile Include="UNIX_FileSystemCapabilities_STUB.cpp" />
+    <Compile Include="UNIX_FileSystemCapabilities_TRU64.cpp" />
+    <Compile Include="UNIX_FileSystemCapabilities_VMS.cpp" />
+    <Compile Include="UNIX_FileSystemCapabilities_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_FileSystemCapabilities.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesDeps.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesDeps_AIX.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesDeps_DARWIN.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesDeps_FREEBSD.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesDeps_HPUX.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesDeps_LINUX.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesDeps_SOLARIS.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesDeps_STUB.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesDeps_TRU64.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesDeps_VMS.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesDeps_ZOS.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesPrivate.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesPrivate_AIX.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesPrivate_DARWIN.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesPrivate_FREEBSD.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesPrivate_HPUX.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesPrivate_LINUX.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesPrivate_SOLARIS.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesPrivate_STUB.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesPrivate_TRU64.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesPrivate_VMS.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesPrivate_ZOS.h" />
+    <Node Include="UNIX_FileSystemCapabilitiesProvider.h" />
+    <Node Include="UNIX_FileSystemCapabilities_AIX.hpp" />
+    <Node Include="UNIX_FileSystemCapabilities_AIX.hxx" />
+    <Node Include="UNIX_FileSystemCapabilities_DARWIN.hpp" />
+    <Node Include="UNIX_FileSystemCapabilities_DARWIN.hxx" />
+    <Node Include="UNIX_FileSystemCapabilities_FREEBSD.hpp" />
+    <Node Include="UNIX_FileSystemCapabilities_FREEBSD.hxx" />
+    <Node Include="UNIX_FileSystemCapabilities_HPUX.hpp" />
+    <Node Include="UNIX_FileSystemCapabilities_HPUX.hxx" />
+    <Node Include="UNIX_FileSystemCapabilities_LINUX.hpp" />
+    <Node Include="UNIX_FileSystemCapabilities_LINUX.hxx" />
+    <Node Include="UNIX_FileSystemCapabilities_SOLARIS.hpp" />
+    <Node Include="UNIX_FileSystemCapabilities_SOLARIS.hxx" />
+    <Node Include="UNIX_FileSystemCapabilities_STUB.hpp" />
+    <Node Include="UNIX_FileSystemCapabilities_STUB.hxx" />
+    <Node Include="UNIX_FileSystemCapabilities_TRU64.hpp" />
+    <Node Include="UNIX_FileSystemCapabilities_TRU64.hxx" />
+    <Node Include="UNIX_FileSystemCapabilities_VMS.hpp" />
+    <Node Include="UNIX_FileSystemCapabilities_VMS.hxx" />
+    <Node Include="UNIX_FileSystemCapabilities_WIN32.hpp" />
+    <Node Include="UNIX_FileSystemCapabilities_ZOS.hpp" />
+    <Node Include="UNIX_FileSystemCapabilities_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

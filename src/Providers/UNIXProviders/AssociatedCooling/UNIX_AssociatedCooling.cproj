@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F9ED214E-0709-4F48-A157-8A27CE6F55A8}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../Fan/UNIX_Fan.md.pc" name="UNIX_Fan" IsProject="True" />
+        <Package file="../Refrigeration/UNIX_Refrigeration.md.pc" name="UNIX_Refrigeration" IsProject="True" />
+        <Package file="../HeatPipe/UNIX_HeatPipe.md.pc" name="UNIX_HeatPipe" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../Fan/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Refrigeration/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../HeatPipe/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_AssociatedCoolingProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AssociatedCoolingLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_AssociatedCoolingLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_FanProvider -lUNIX_RefrigerationProvider -lUNIX_HeatPipeProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_AssociatedCoolingProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AssociatedCoolingLib" -DPROVIDER_LIB_NS="namespace UNIX_AssociatedCoolingLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_FanProvider -lUNIX_RefrigerationProvider -lUNIX_HeatPipeProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_AssociatedCooling.cpp" />
+    <Compile Include="UNIX_AssociatedCoolingMain.cpp" />
+    <Compile Include="UNIX_AssociatedCoolingProvider.cpp" />
+    <Compile Include="UNIX_AssociatedCooling_AIX.cpp" />
+    <Compile Include="UNIX_AssociatedCooling_DARWIN.cpp" />
+    <Compile Include="UNIX_AssociatedCooling_FREEBSD.cpp" />
+    <Compile Include="UNIX_AssociatedCooling_HPUX.cpp" />
+    <Compile Include="UNIX_AssociatedCooling_LINUX.cpp" />
+    <Compile Include="UNIX_AssociatedCooling_SOLARIS.cpp" />
+    <Compile Include="UNIX_AssociatedCooling_STUB.cpp" />
+    <Compile Include="UNIX_AssociatedCooling_TRU64.cpp" />
+    <Compile Include="UNIX_AssociatedCooling_VMS.cpp" />
+    <Compile Include="UNIX_AssociatedCooling_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_AssociatedCooling.h" />
+    <Node Include="UNIX_AssociatedCoolingDeps.h" />
+    <Node Include="UNIX_AssociatedCoolingDeps_AIX.h" />
+    <Node Include="UNIX_AssociatedCoolingDeps_DARWIN.h" />
+    <Node Include="UNIX_AssociatedCoolingDeps_FREEBSD.h" />
+    <Node Include="UNIX_AssociatedCoolingDeps_HPUX.h" />
+    <Node Include="UNIX_AssociatedCoolingDeps_LINUX.h" />
+    <Node Include="UNIX_AssociatedCoolingDeps_SOLARIS.h" />
+    <Node Include="UNIX_AssociatedCoolingDeps_STUB.h" />
+    <Node Include="UNIX_AssociatedCoolingDeps_TRU64.h" />
+    <Node Include="UNIX_AssociatedCoolingDeps_VMS.h" />
+    <Node Include="UNIX_AssociatedCoolingDeps_ZOS.h" />
+    <Node Include="UNIX_AssociatedCoolingPrivate.h" />
+    <Node Include="UNIX_AssociatedCoolingPrivate_AIX.h" />
+    <Node Include="UNIX_AssociatedCoolingPrivate_DARWIN.h" />
+    <Node Include="UNIX_AssociatedCoolingPrivate_FREEBSD.h" />
+    <Node Include="UNIX_AssociatedCoolingPrivate_HPUX.h" />
+    <Node Include="UNIX_AssociatedCoolingPrivate_LINUX.h" />
+    <Node Include="UNIX_AssociatedCoolingPrivate_SOLARIS.h" />
+    <Node Include="UNIX_AssociatedCoolingPrivate_STUB.h" />
+    <Node Include="UNIX_AssociatedCoolingPrivate_TRU64.h" />
+    <Node Include="UNIX_AssociatedCoolingPrivate_VMS.h" />
+    <Node Include="UNIX_AssociatedCoolingPrivate_ZOS.h" />
+    <Node Include="UNIX_AssociatedCoolingProvider.h" />
+    <Node Include="UNIX_AssociatedCooling_AIX.hpp" />
+    <Node Include="UNIX_AssociatedCooling_AIX.hxx" />
+    <Node Include="UNIX_AssociatedCooling_DARWIN.hpp" />
+    <Node Include="UNIX_AssociatedCooling_DARWIN.hxx" />
+    <Node Include="UNIX_AssociatedCooling_FREEBSD.hpp" />
+    <Node Include="UNIX_AssociatedCooling_FREEBSD.hxx" />
+    <Node Include="UNIX_AssociatedCooling_HPUX.hpp" />
+    <Node Include="UNIX_AssociatedCooling_HPUX.hxx" />
+    <Node Include="UNIX_AssociatedCooling_LINUX.hpp" />
+    <Node Include="UNIX_AssociatedCooling_LINUX.hxx" />
+    <Node Include="UNIX_AssociatedCooling_SOLARIS.hpp" />
+    <Node Include="UNIX_AssociatedCooling_SOLARIS.hxx" />
+    <Node Include="UNIX_AssociatedCooling_STUB.hpp" />
+    <Node Include="UNIX_AssociatedCooling_STUB.hxx" />
+    <Node Include="UNIX_AssociatedCooling_TRU64.hpp" />
+    <Node Include="UNIX_AssociatedCooling_TRU64.hxx" />
+    <Node Include="UNIX_AssociatedCooling_VMS.hpp" />
+    <Node Include="UNIX_AssociatedCooling_VMS.hxx" />
+    <Node Include="UNIX_AssociatedCooling_WIN32.hpp" />
+    <Node Include="UNIX_AssociatedCooling_ZOS.hpp" />
+    <Node Include="UNIX_AssociatedCooling_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

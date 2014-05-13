@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DC625345-1939-4D10-8BD9-C478DA2ACC39}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../PacketSchedulingService/UNIX_PacketSchedulingService.md.pc" name="UNIX_PacketSchedulingService" IsProject="True" />
+        <Package file="../QueuingService/UNIX_QueuingService.md.pc" name="UNIX_QueuingService" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../PacketSchedulingService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../QueuingService/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_SchedulerUsedProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SchedulerUsedLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SchedulerUsedLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PacketSchedulingServiceProvider -lUNIX_QueuingServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_SchedulerUsedProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SchedulerUsedLib" -DPROVIDER_LIB_NS="namespace UNIX_SchedulerUsedLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PacketSchedulingServiceProvider -lUNIX_QueuingServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SchedulerUsed.cpp" />
+    <Compile Include="UNIX_SchedulerUsedMain.cpp" />
+    <Compile Include="UNIX_SchedulerUsedProvider.cpp" />
+    <Compile Include="UNIX_SchedulerUsed_AIX.cpp" />
+    <Compile Include="UNIX_SchedulerUsed_DARWIN.cpp" />
+    <Compile Include="UNIX_SchedulerUsed_FREEBSD.cpp" />
+    <Compile Include="UNIX_SchedulerUsed_HPUX.cpp" />
+    <Compile Include="UNIX_SchedulerUsed_LINUX.cpp" />
+    <Compile Include="UNIX_SchedulerUsed_SOLARIS.cpp" />
+    <Compile Include="UNIX_SchedulerUsed_STUB.cpp" />
+    <Compile Include="UNIX_SchedulerUsed_TRU64.cpp" />
+    <Compile Include="UNIX_SchedulerUsed_VMS.cpp" />
+    <Compile Include="UNIX_SchedulerUsed_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_SchedulerUsed.h" />
+    <Node Include="UNIX_SchedulerUsedDeps.h" />
+    <Node Include="UNIX_SchedulerUsedDeps_AIX.h" />
+    <Node Include="UNIX_SchedulerUsedDeps_DARWIN.h" />
+    <Node Include="UNIX_SchedulerUsedDeps_FREEBSD.h" />
+    <Node Include="UNIX_SchedulerUsedDeps_HPUX.h" />
+    <Node Include="UNIX_SchedulerUsedDeps_LINUX.h" />
+    <Node Include="UNIX_SchedulerUsedDeps_SOLARIS.h" />
+    <Node Include="UNIX_SchedulerUsedDeps_STUB.h" />
+    <Node Include="UNIX_SchedulerUsedDeps_TRU64.h" />
+    <Node Include="UNIX_SchedulerUsedDeps_VMS.h" />
+    <Node Include="UNIX_SchedulerUsedDeps_ZOS.h" />
+    <Node Include="UNIX_SchedulerUsedPrivate.h" />
+    <Node Include="UNIX_SchedulerUsedPrivate_AIX.h" />
+    <Node Include="UNIX_SchedulerUsedPrivate_DARWIN.h" />
+    <Node Include="UNIX_SchedulerUsedPrivate_FREEBSD.h" />
+    <Node Include="UNIX_SchedulerUsedPrivate_HPUX.h" />
+    <Node Include="UNIX_SchedulerUsedPrivate_LINUX.h" />
+    <Node Include="UNIX_SchedulerUsedPrivate_SOLARIS.h" />
+    <Node Include="UNIX_SchedulerUsedPrivate_STUB.h" />
+    <Node Include="UNIX_SchedulerUsedPrivate_TRU64.h" />
+    <Node Include="UNIX_SchedulerUsedPrivate_VMS.h" />
+    <Node Include="UNIX_SchedulerUsedPrivate_ZOS.h" />
+    <Node Include="UNIX_SchedulerUsedProvider.h" />
+    <Node Include="UNIX_SchedulerUsed_AIX.hpp" />
+    <Node Include="UNIX_SchedulerUsed_AIX.hxx" />
+    <Node Include="UNIX_SchedulerUsed_DARWIN.hpp" />
+    <Node Include="UNIX_SchedulerUsed_DARWIN.hxx" />
+    <Node Include="UNIX_SchedulerUsed_FREEBSD.hpp" />
+    <Node Include="UNIX_SchedulerUsed_FREEBSD.hxx" />
+    <Node Include="UNIX_SchedulerUsed_HPUX.hpp" />
+    <Node Include="UNIX_SchedulerUsed_HPUX.hxx" />
+    <Node Include="UNIX_SchedulerUsed_LINUX.hpp" />
+    <Node Include="UNIX_SchedulerUsed_LINUX.hxx" />
+    <Node Include="UNIX_SchedulerUsed_SOLARIS.hpp" />
+    <Node Include="UNIX_SchedulerUsed_SOLARIS.hxx" />
+    <Node Include="UNIX_SchedulerUsed_STUB.hpp" />
+    <Node Include="UNIX_SchedulerUsed_STUB.hxx" />
+    <Node Include="UNIX_SchedulerUsed_TRU64.hpp" />
+    <Node Include="UNIX_SchedulerUsed_TRU64.hxx" />
+    <Node Include="UNIX_SchedulerUsed_VMS.hpp" />
+    <Node Include="UNIX_SchedulerUsed_VMS.hxx" />
+    <Node Include="UNIX_SchedulerUsed_WIN32.hpp" />
+    <Node Include="UNIX_SchedulerUsed_ZOS.hpp" />
+    <Node Include="UNIX_SchedulerUsed_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

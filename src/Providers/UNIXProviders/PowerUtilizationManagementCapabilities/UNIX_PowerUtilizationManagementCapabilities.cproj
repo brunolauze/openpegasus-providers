@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{75653FB6-5892-4067-A974-F1D5E3B6B93E}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_PowerUtilizationManagementCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PowerUtilizationManagementCapabilitiesLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_PowerUtilizationManagementCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_PowerUtilizationManagementCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_PowerUtilizationManagementCapabilitiesLib" -DPROVIDER_LIB_NS="namespace UNIX_PowerUtilizationManagementCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_PowerUtilizationManagementCapabilities.cpp" />
+    <Compile Include="UNIX_PowerUtilizationManagementCapabilitiesMain.cpp" />
+    <Compile Include="UNIX_PowerUtilizationManagementCapabilitiesProvider.cpp" />
+    <Compile Include="UNIX_PowerUtilizationManagementCapabilities_AIX.cpp" />
+    <Compile Include="UNIX_PowerUtilizationManagementCapabilities_DARWIN.cpp" />
+    <Compile Include="UNIX_PowerUtilizationManagementCapabilities_FREEBSD.cpp" />
+    <Compile Include="UNIX_PowerUtilizationManagementCapabilities_HPUX.cpp" />
+    <Compile Include="UNIX_PowerUtilizationManagementCapabilities_LINUX.cpp" />
+    <Compile Include="UNIX_PowerUtilizationManagementCapabilities_SOLARIS.cpp" />
+    <Compile Include="UNIX_PowerUtilizationManagementCapabilities_STUB.cpp" />
+    <Compile Include="UNIX_PowerUtilizationManagementCapabilities_TRU64.cpp" />
+    <Compile Include="UNIX_PowerUtilizationManagementCapabilities_VMS.cpp" />
+    <Compile Include="UNIX_PowerUtilizationManagementCapabilities_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesDeps.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesDeps_AIX.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesDeps_DARWIN.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesDeps_FREEBSD.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesDeps_HPUX.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesDeps_LINUX.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesDeps_SOLARIS.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesDeps_STUB.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesDeps_TRU64.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesDeps_VMS.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesDeps_ZOS.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesPrivate.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesPrivate_AIX.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesPrivate_DARWIN.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesPrivate_FREEBSD.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesPrivate_HPUX.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesPrivate_LINUX.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesPrivate_SOLARIS.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesPrivate_STUB.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesPrivate_TRU64.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesPrivate_VMS.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesPrivate_ZOS.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilitiesProvider.h" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_AIX.hpp" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_AIX.hxx" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_DARWIN.hpp" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_DARWIN.hxx" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_FREEBSD.hpp" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_FREEBSD.hxx" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_HPUX.hpp" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_HPUX.hxx" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_LINUX.hpp" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_LINUX.hxx" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_SOLARIS.hpp" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_SOLARIS.hxx" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_STUB.hpp" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_STUB.hxx" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_TRU64.hpp" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_TRU64.hxx" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_VMS.hpp" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_VMS.hxx" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_WIN32.hpp" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_ZOS.hpp" />
+    <Node Include="UNIX_PowerUtilizationManagementCapabilities_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

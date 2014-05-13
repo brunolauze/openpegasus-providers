@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD9ED19D-FCA8-4B4B-8368-77DB9CE1C386}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteDependency/UNIX_ConcreteDependency.md.pc" name="UNIX_ConcreteDependency" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteDependency/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_StorageHardwareIDManagementServiceDependencyProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_StorageHardwareIDManagementServiceDependencyLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_StorageHardwareIDManagementServiceDependencyLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteDependencyProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_StorageHardwareIDManagementServiceDependencyProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_StorageHardwareIDManagementServiceDependencyLib" -DPROVIDER_LIB_NS="namespace UNIX_StorageHardwareIDManagementServiceDependencyLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteDependencyProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_StorageHardwareIDManagementServiceDependency.cpp" />
+    <Compile Include="UNIX_StorageHardwareIDManagementServiceDependencyMain.cpp" />
+    <Compile Include="UNIX_StorageHardwareIDManagementServiceDependencyProvider.cpp" />
+    <Compile Include="UNIX_StorageHardwareIDManagementServiceDependency_AIX.cpp" />
+    <Compile Include="UNIX_StorageHardwareIDManagementServiceDependency_DARWIN.cpp" />
+    <Compile Include="UNIX_StorageHardwareIDManagementServiceDependency_FREEBSD.cpp" />
+    <Compile Include="UNIX_StorageHardwareIDManagementServiceDependency_HPUX.cpp" />
+    <Compile Include="UNIX_StorageHardwareIDManagementServiceDependency_LINUX.cpp" />
+    <Compile Include="UNIX_StorageHardwareIDManagementServiceDependency_SOLARIS.cpp" />
+    <Compile Include="UNIX_StorageHardwareIDManagementServiceDependency_STUB.cpp" />
+    <Compile Include="UNIX_StorageHardwareIDManagementServiceDependency_TRU64.cpp" />
+    <Compile Include="UNIX_StorageHardwareIDManagementServiceDependency_VMS.cpp" />
+    <Compile Include="UNIX_StorageHardwareIDManagementServiceDependency_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyDeps.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyDeps_AIX.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyDeps_DARWIN.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyDeps_FREEBSD.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyDeps_HPUX.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyDeps_LINUX.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyDeps_SOLARIS.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyDeps_STUB.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyDeps_TRU64.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyDeps_VMS.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyDeps_ZOS.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyPrivate.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyPrivate_AIX.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyPrivate_DARWIN.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyPrivate_FREEBSD.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyPrivate_HPUX.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyPrivate_LINUX.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyPrivate_SOLARIS.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyPrivate_STUB.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyPrivate_TRU64.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyPrivate_VMS.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyPrivate_ZOS.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependencyProvider.h" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_AIX.hpp" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_AIX.hxx" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_DARWIN.hpp" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_DARWIN.hxx" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_FREEBSD.hpp" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_FREEBSD.hxx" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_HPUX.hpp" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_HPUX.hxx" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_LINUX.hpp" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_LINUX.hxx" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_SOLARIS.hpp" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_SOLARIS.hxx" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_STUB.hpp" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_STUB.hxx" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_TRU64.hpp" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_TRU64.hxx" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_VMS.hpp" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_VMS.hxx" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_WIN32.hpp" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_ZOS.hpp" />
+    <Node Include="UNIX_StorageHardwareIDManagementServiceDependency_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

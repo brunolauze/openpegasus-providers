@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{82673495-2821-4EDD-911F-3D7ACF9BBF1B}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../CommonDatabase/UNIX_CommonDatabase.md.pc" name="UNIX_CommonDatabase" IsProject="True" />
+        <Package file="../SqlSchema/UNIX_SqlSchema.md.pc" name="UNIX_SqlSchema" IsProject="True" />
+        <Package file="../SqlTable/UNIX_SqlTable.md.pc" name="UNIX_SqlTable" IsProject="True" />
+        <Package file="../SqlTrigger/UNIX_SqlTrigger.md.pc" name="UNIX_SqlTrigger" IsProject="True" />
+        <Package file="../SqlDomain/UNIX_SqlDomain.md.pc" name="UNIX_SqlDomain" IsProject="True" />
+        <Package file="../SqlDomainConstraint/UNIX_SqlDomainConstraint.md.pc" name="UNIX_SqlDomainConstraint" IsProject="True" />
+        <Package file="../SqlUserDefinedType/UNIX_SqlUserDefinedType.md.pc" name="UNIX_SqlUserDefinedType" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../CommonDatabase/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SqlSchema/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SqlTable/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SqlTrigger/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SqlDomain/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SqlDomainConstraint/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../SqlUserDefinedType/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_SqlObjectForDatabaseProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SqlObjectForDatabaseLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SqlObjectForDatabaseLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_CommonDatabaseProvider -lUNIX_SqlSchemaProvider -lUNIX_SqlTableProvider -lUNIX_SqlTriggerProvider -lUNIX_SqlDomainProvider -lUNIX_SqlDomainConstraintProvider -lUNIX_SqlUserDefinedTypeProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_SqlObjectForDatabaseProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SqlObjectForDatabaseLib" -DPROVIDER_LIB_NS="namespace UNIX_SqlObjectForDatabaseLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_CommonDatabaseProvider -lUNIX_SqlSchemaProvider -lUNIX_SqlTableProvider -lUNIX_SqlTriggerProvider -lUNIX_SqlDomainProvider -lUNIX_SqlDomainConstraintProvider -lUNIX_SqlUserDefinedTypeProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SqlObjectForDatabase.cpp" />
+    <Compile Include="UNIX_SqlObjectForDatabaseMain.cpp" />
+    <Compile Include="UNIX_SqlObjectForDatabaseProvider.cpp" />
+    <Compile Include="UNIX_SqlObjectForDatabase_AIX.cpp" />
+    <Compile Include="UNIX_SqlObjectForDatabase_DARWIN.cpp" />
+    <Compile Include="UNIX_SqlObjectForDatabase_FREEBSD.cpp" />
+    <Compile Include="UNIX_SqlObjectForDatabase_HPUX.cpp" />
+    <Compile Include="UNIX_SqlObjectForDatabase_LINUX.cpp" />
+    <Compile Include="UNIX_SqlObjectForDatabase_SOLARIS.cpp" />
+    <Compile Include="UNIX_SqlObjectForDatabase_STUB.cpp" />
+    <Compile Include="UNIX_SqlObjectForDatabase_TRU64.cpp" />
+    <Compile Include="UNIX_SqlObjectForDatabase_VMS.cpp" />
+    <Compile Include="UNIX_SqlObjectForDatabase_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_SqlObjectForDatabase.h" />
+    <Node Include="UNIX_SqlObjectForDatabaseDeps.h" />
+    <Node Include="UNIX_SqlObjectForDatabaseDeps_AIX.h" />
+    <Node Include="UNIX_SqlObjectForDatabaseDeps_DARWIN.h" />
+    <Node Include="UNIX_SqlObjectForDatabaseDeps_FREEBSD.h" />
+    <Node Include="UNIX_SqlObjectForDatabaseDeps_HPUX.h" />
+    <Node Include="UNIX_SqlObjectForDatabaseDeps_LINUX.h" />
+    <Node Include="UNIX_SqlObjectForDatabaseDeps_SOLARIS.h" />
+    <Node Include="UNIX_SqlObjectForDatabaseDeps_STUB.h" />
+    <Node Include="UNIX_SqlObjectForDatabaseDeps_TRU64.h" />
+    <Node Include="UNIX_SqlObjectForDatabaseDeps_VMS.h" />
+    <Node Include="UNIX_SqlObjectForDatabaseDeps_ZOS.h" />
+    <Node Include="UNIX_SqlObjectForDatabasePrivate.h" />
+    <Node Include="UNIX_SqlObjectForDatabasePrivate_AIX.h" />
+    <Node Include="UNIX_SqlObjectForDatabasePrivate_DARWIN.h" />
+    <Node Include="UNIX_SqlObjectForDatabasePrivate_FREEBSD.h" />
+    <Node Include="UNIX_SqlObjectForDatabasePrivate_HPUX.h" />
+    <Node Include="UNIX_SqlObjectForDatabasePrivate_LINUX.h" />
+    <Node Include="UNIX_SqlObjectForDatabasePrivate_SOLARIS.h" />
+    <Node Include="UNIX_SqlObjectForDatabasePrivate_STUB.h" />
+    <Node Include="UNIX_SqlObjectForDatabasePrivate_TRU64.h" />
+    <Node Include="UNIX_SqlObjectForDatabasePrivate_VMS.h" />
+    <Node Include="UNIX_SqlObjectForDatabasePrivate_ZOS.h" />
+    <Node Include="UNIX_SqlObjectForDatabaseProvider.h" />
+    <Node Include="UNIX_SqlObjectForDatabase_AIX.hpp" />
+    <Node Include="UNIX_SqlObjectForDatabase_AIX.hxx" />
+    <Node Include="UNIX_SqlObjectForDatabase_DARWIN.hpp" />
+    <Node Include="UNIX_SqlObjectForDatabase_DARWIN.hxx" />
+    <Node Include="UNIX_SqlObjectForDatabase_FREEBSD.hpp" />
+    <Node Include="UNIX_SqlObjectForDatabase_FREEBSD.hxx" />
+    <Node Include="UNIX_SqlObjectForDatabase_HPUX.hpp" />
+    <Node Include="UNIX_SqlObjectForDatabase_HPUX.hxx" />
+    <Node Include="UNIX_SqlObjectForDatabase_LINUX.hpp" />
+    <Node Include="UNIX_SqlObjectForDatabase_LINUX.hxx" />
+    <Node Include="UNIX_SqlObjectForDatabase_SOLARIS.hpp" />
+    <Node Include="UNIX_SqlObjectForDatabase_SOLARIS.hxx" />
+    <Node Include="UNIX_SqlObjectForDatabase_STUB.hpp" />
+    <Node Include="UNIX_SqlObjectForDatabase_STUB.hxx" />
+    <Node Include="UNIX_SqlObjectForDatabase_TRU64.hpp" />
+    <Node Include="UNIX_SqlObjectForDatabase_TRU64.hxx" />
+    <Node Include="UNIX_SqlObjectForDatabase_VMS.hpp" />
+    <Node Include="UNIX_SqlObjectForDatabase_VMS.hxx" />
+    <Node Include="UNIX_SqlObjectForDatabase_WIN32.hpp" />
+    <Node Include="UNIX_SqlObjectForDatabase_ZOS.hpp" />
+    <Node Include="UNIX_SqlObjectForDatabase_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

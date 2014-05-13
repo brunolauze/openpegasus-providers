@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FDB0A25A-1D30-40D0-9491-E5C96F7ADB6E}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_LogManagesRecordProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LogManagesRecordLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_LogManagesRecordLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_LogManagesRecordProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_LogManagesRecordLib" -DPROVIDER_LIB_NS="namespace UNIX_LogManagesRecordLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_LogManagesRecord.cpp" />
+    <Compile Include="UNIX_LogManagesRecordMain.cpp" />
+    <Compile Include="UNIX_LogManagesRecordProvider.cpp" />
+    <Compile Include="UNIX_LogManagesRecord_AIX.cpp" />
+    <Compile Include="UNIX_LogManagesRecord_DARWIN.cpp" />
+    <Compile Include="UNIX_LogManagesRecord_FREEBSD.cpp" />
+    <Compile Include="UNIX_LogManagesRecord_HPUX.cpp" />
+    <Compile Include="UNIX_LogManagesRecord_LINUX.cpp" />
+    <Compile Include="UNIX_LogManagesRecord_SOLARIS.cpp" />
+    <Compile Include="UNIX_LogManagesRecord_STUB.cpp" />
+    <Compile Include="UNIX_LogManagesRecord_TRU64.cpp" />
+    <Compile Include="UNIX_LogManagesRecord_VMS.cpp" />
+    <Compile Include="UNIX_LogManagesRecord_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_LogManagesRecord.h" />
+    <Node Include="UNIX_LogManagesRecordDeps.h" />
+    <Node Include="UNIX_LogManagesRecordDeps_AIX.h" />
+    <Node Include="UNIX_LogManagesRecordDeps_DARWIN.h" />
+    <Node Include="UNIX_LogManagesRecordDeps_FREEBSD.h" />
+    <Node Include="UNIX_LogManagesRecordDeps_HPUX.h" />
+    <Node Include="UNIX_LogManagesRecordDeps_LINUX.h" />
+    <Node Include="UNIX_LogManagesRecordDeps_SOLARIS.h" />
+    <Node Include="UNIX_LogManagesRecordDeps_STUB.h" />
+    <Node Include="UNIX_LogManagesRecordDeps_TRU64.h" />
+    <Node Include="UNIX_LogManagesRecordDeps_VMS.h" />
+    <Node Include="UNIX_LogManagesRecordDeps_ZOS.h" />
+    <Node Include="UNIX_LogManagesRecordPrivate.h" />
+    <Node Include="UNIX_LogManagesRecordPrivate_AIX.h" />
+    <Node Include="UNIX_LogManagesRecordPrivate_DARWIN.h" />
+    <Node Include="UNIX_LogManagesRecordPrivate_FREEBSD.h" />
+    <Node Include="UNIX_LogManagesRecordPrivate_HPUX.h" />
+    <Node Include="UNIX_LogManagesRecordPrivate_LINUX.h" />
+    <Node Include="UNIX_LogManagesRecordPrivate_SOLARIS.h" />
+    <Node Include="UNIX_LogManagesRecordPrivate_STUB.h" />
+    <Node Include="UNIX_LogManagesRecordPrivate_TRU64.h" />
+    <Node Include="UNIX_LogManagesRecordPrivate_VMS.h" />
+    <Node Include="UNIX_LogManagesRecordPrivate_ZOS.h" />
+    <Node Include="UNIX_LogManagesRecordProvider.h" />
+    <Node Include="UNIX_LogManagesRecord_AIX.hpp" />
+    <Node Include="UNIX_LogManagesRecord_AIX.hxx" />
+    <Node Include="UNIX_LogManagesRecord_DARWIN.hpp" />
+    <Node Include="UNIX_LogManagesRecord_DARWIN.hxx" />
+    <Node Include="UNIX_LogManagesRecord_FREEBSD.hpp" />
+    <Node Include="UNIX_LogManagesRecord_FREEBSD.hxx" />
+    <Node Include="UNIX_LogManagesRecord_HPUX.hpp" />
+    <Node Include="UNIX_LogManagesRecord_HPUX.hxx" />
+    <Node Include="UNIX_LogManagesRecord_LINUX.hpp" />
+    <Node Include="UNIX_LogManagesRecord_LINUX.hxx" />
+    <Node Include="UNIX_LogManagesRecord_SOLARIS.hpp" />
+    <Node Include="UNIX_LogManagesRecord_SOLARIS.hxx" />
+    <Node Include="UNIX_LogManagesRecord_STUB.hpp" />
+    <Node Include="UNIX_LogManagesRecord_STUB.hxx" />
+    <Node Include="UNIX_LogManagesRecord_TRU64.hpp" />
+    <Node Include="UNIX_LogManagesRecord_TRU64.hxx" />
+    <Node Include="UNIX_LogManagesRecord_VMS.hpp" />
+    <Node Include="UNIX_LogManagesRecord_VMS.hxx" />
+    <Node Include="UNIX_LogManagesRecord_WIN32.hpp" />
+    <Node Include="UNIX_LogManagesRecord_ZOS.hpp" />
+    <Node Include="UNIX_LogManagesRecord_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B55259C2-C8B7-4104-A17C-1B394B8940C5}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_NamedAddressCollectionProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_NamedAddressCollectionLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_NamedAddressCollectionLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_NamedAddressCollectionProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_NamedAddressCollectionLib" -DPROVIDER_LIB_NS="namespace UNIX_NamedAddressCollectionLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_NamedAddressCollection.cpp" />
+    <Compile Include="UNIX_NamedAddressCollectionMain.cpp" />
+    <Compile Include="UNIX_NamedAddressCollectionProvider.cpp" />
+    <Compile Include="UNIX_NamedAddressCollection_AIX.cpp" />
+    <Compile Include="UNIX_NamedAddressCollection_DARWIN.cpp" />
+    <Compile Include="UNIX_NamedAddressCollection_FREEBSD.cpp" />
+    <Compile Include="UNIX_NamedAddressCollection_HPUX.cpp" />
+    <Compile Include="UNIX_NamedAddressCollection_LINUX.cpp" />
+    <Compile Include="UNIX_NamedAddressCollection_SOLARIS.cpp" />
+    <Compile Include="UNIX_NamedAddressCollection_STUB.cpp" />
+    <Compile Include="UNIX_NamedAddressCollection_TRU64.cpp" />
+    <Compile Include="UNIX_NamedAddressCollection_VMS.cpp" />
+    <Compile Include="UNIX_NamedAddressCollection_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_NamedAddressCollection.h" />
+    <Node Include="UNIX_NamedAddressCollectionDeps.h" />
+    <Node Include="UNIX_NamedAddressCollectionDeps_AIX.h" />
+    <Node Include="UNIX_NamedAddressCollectionDeps_DARWIN.h" />
+    <Node Include="UNIX_NamedAddressCollectionDeps_FREEBSD.h" />
+    <Node Include="UNIX_NamedAddressCollectionDeps_HPUX.h" />
+    <Node Include="UNIX_NamedAddressCollectionDeps_LINUX.h" />
+    <Node Include="UNIX_NamedAddressCollectionDeps_SOLARIS.h" />
+    <Node Include="UNIX_NamedAddressCollectionDeps_STUB.h" />
+    <Node Include="UNIX_NamedAddressCollectionDeps_TRU64.h" />
+    <Node Include="UNIX_NamedAddressCollectionDeps_VMS.h" />
+    <Node Include="UNIX_NamedAddressCollectionDeps_ZOS.h" />
+    <Node Include="UNIX_NamedAddressCollectionPrivate.h" />
+    <Node Include="UNIX_NamedAddressCollectionPrivate_AIX.h" />
+    <Node Include="UNIX_NamedAddressCollectionPrivate_DARWIN.h" />
+    <Node Include="UNIX_NamedAddressCollectionPrivate_FREEBSD.h" />
+    <Node Include="UNIX_NamedAddressCollectionPrivate_HPUX.h" />
+    <Node Include="UNIX_NamedAddressCollectionPrivate_LINUX.h" />
+    <Node Include="UNIX_NamedAddressCollectionPrivate_SOLARIS.h" />
+    <Node Include="UNIX_NamedAddressCollectionPrivate_STUB.h" />
+    <Node Include="UNIX_NamedAddressCollectionPrivate_TRU64.h" />
+    <Node Include="UNIX_NamedAddressCollectionPrivate_VMS.h" />
+    <Node Include="UNIX_NamedAddressCollectionPrivate_ZOS.h" />
+    <Node Include="UNIX_NamedAddressCollectionProvider.h" />
+    <Node Include="UNIX_NamedAddressCollection_AIX.hpp" />
+    <Node Include="UNIX_NamedAddressCollection_AIX.hxx" />
+    <Node Include="UNIX_NamedAddressCollection_DARWIN.hpp" />
+    <Node Include="UNIX_NamedAddressCollection_DARWIN.hxx" />
+    <Node Include="UNIX_NamedAddressCollection_FREEBSD.hpp" />
+    <Node Include="UNIX_NamedAddressCollection_FREEBSD.hxx" />
+    <Node Include="UNIX_NamedAddressCollection_HPUX.hpp" />
+    <Node Include="UNIX_NamedAddressCollection_HPUX.hxx" />
+    <Node Include="UNIX_NamedAddressCollection_LINUX.hpp" />
+    <Node Include="UNIX_NamedAddressCollection_LINUX.hxx" />
+    <Node Include="UNIX_NamedAddressCollection_SOLARIS.hpp" />
+    <Node Include="UNIX_NamedAddressCollection_SOLARIS.hxx" />
+    <Node Include="UNIX_NamedAddressCollection_STUB.hpp" />
+    <Node Include="UNIX_NamedAddressCollection_STUB.hxx" />
+    <Node Include="UNIX_NamedAddressCollection_TRU64.hpp" />
+    <Node Include="UNIX_NamedAddressCollection_TRU64.hxx" />
+    <Node Include="UNIX_NamedAddressCollection_VMS.hpp" />
+    <Node Include="UNIX_NamedAddressCollection_VMS.hxx" />
+    <Node Include="UNIX_NamedAddressCollection_WIN32.hpp" />
+    <Node Include="UNIX_NamedAddressCollection_ZOS.hpp" />
+    <Node Include="UNIX_NamedAddressCollection_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

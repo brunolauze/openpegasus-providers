@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5CA26DF0-05A2-48B9-82AA-D9E635E5EC85}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_SwitchPortTransparentBridgingStatisticsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SwitchPortTransparentBridgingStatisticsLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SwitchPortTransparentBridgingStatisticsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_SwitchPortTransparentBridgingStatisticsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SwitchPortTransparentBridgingStatisticsLib" -DPROVIDER_LIB_NS="namespace UNIX_SwitchPortTransparentBridgingStatisticsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SwitchPortTransparentBridgingStatistics.cpp" />
+    <Compile Include="UNIX_SwitchPortTransparentBridgingStatisticsMain.cpp" />
+    <Compile Include="UNIX_SwitchPortTransparentBridgingStatisticsProvider.cpp" />
+    <Compile Include="UNIX_SwitchPortTransparentBridgingStatistics_AIX.cpp" />
+    <Compile Include="UNIX_SwitchPortTransparentBridgingStatistics_DARWIN.cpp" />
+    <Compile Include="UNIX_SwitchPortTransparentBridgingStatistics_FREEBSD.cpp" />
+    <Compile Include="UNIX_SwitchPortTransparentBridgingStatistics_HPUX.cpp" />
+    <Compile Include="UNIX_SwitchPortTransparentBridgingStatistics_LINUX.cpp" />
+    <Compile Include="UNIX_SwitchPortTransparentBridgingStatistics_SOLARIS.cpp" />
+    <Compile Include="UNIX_SwitchPortTransparentBridgingStatistics_STUB.cpp" />
+    <Compile Include="UNIX_SwitchPortTransparentBridgingStatistics_TRU64.cpp" />
+    <Compile Include="UNIX_SwitchPortTransparentBridgingStatistics_VMS.cpp" />
+    <Compile Include="UNIX_SwitchPortTransparentBridgingStatistics_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsDeps.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsDeps_AIX.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsDeps_DARWIN.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsDeps_FREEBSD.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsDeps_HPUX.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsDeps_LINUX.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsDeps_SOLARIS.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsDeps_STUB.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsDeps_TRU64.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsDeps_VMS.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsDeps_ZOS.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsPrivate.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsPrivate_AIX.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsPrivate_DARWIN.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsPrivate_FREEBSD.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsPrivate_HPUX.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsPrivate_LINUX.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsPrivate_SOLARIS.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsPrivate_STUB.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsPrivate_TRU64.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsPrivate_VMS.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsPrivate_ZOS.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatisticsProvider.h" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_AIX.hpp" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_AIX.hxx" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_DARWIN.hpp" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_DARWIN.hxx" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_FREEBSD.hpp" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_FREEBSD.hxx" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_HPUX.hpp" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_HPUX.hxx" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_LINUX.hpp" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_LINUX.hxx" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_SOLARIS.hpp" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_SOLARIS.hxx" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_STUB.hpp" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_STUB.hxx" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_TRU64.hpp" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_TRU64.hxx" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_VMS.hpp" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_VMS.hxx" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_WIN32.hpp" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_ZOS.hpp" />
+    <Node Include="UNIX_SwitchPortTransparentBridgingStatistics_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

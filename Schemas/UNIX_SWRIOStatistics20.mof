@@ -1,0 +1,644 @@
+//%LICENSE////////////////////////////////////////////////////////////////
+//
+// Licensed to The Open Group (TOG) under one or more contributor license
+// agreements.  Refer to the OpenPegasusNOTICE.txt file distributed with
+// this work for additional information regarding copyright ownership.
+// Each contributor licenses this file to you under the OpenPegasus Open
+// Source License; you may not use this file except in compliance with the
+// License.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//////////////////////////////////////////////////////////////////////////
+//
+//%/////////////////////////////////////////////////////////////////////////
+
+
+
+// Copyright (c) 2009 DMTF.  All rights reserved.
+   [Abstract, Version ( "2.19.0" ), 
+    UMLPackagePath ( "CIM::Core::CoreElements" ), 
+    Description ( 
+       "ManagedElement is an abstract class that provides a common "
+       "superclass (or top of the inheritance tree) for the "
+       "non-association classes in the CIM Schema." )]
+class CIM_ManagedElement {
+
+      [Description ( 
+          "InstanceID is an optional property that may be used to "
+          "opaquely and uniquely identify an instance of this class "
+          "within the scope of the instantiating Namespace. Various "
+          "subclasses of this class may override this property to "
+          "make it required, or a key. Such subclasses may also "
+          "modify the preferred algorithms for ensuring uniqueness "
+          "that are defined below.\n"
+          "To ensure uniqueness within the NameSpace, the value of "
+          "InstanceID should be constructed using the following "
+          "\"preferred\" algorithm: \n"
+          "<OrgID>:<LocalID> \n"
+          "Where <OrgID> and <LocalID> are separated by a colon "
+          "(:), and where <OrgID> must include a copyrighted, "
+          "trademarked, or otherwise unique name that is owned by "
+          "the business entity that is creating or defining the "
+          "InstanceID or that is a registered ID assigned to the "
+          "business entity by a recognized global authority. (This "
+          "requirement is similar to the <Schema Name>_<Class Name> "
+          "structure of Schema class names.) In addition, to ensure "
+          "uniqueness, <OrgID> must not contain a colon (:). When "
+          "using this algorithm, the first colon to appear in "
+          "InstanceID must appear between <OrgID> and <LocalID>. \n"
+          "<LocalID> is chosen by the business entity and should "
+          "not be reused to identify different underlying "
+          "(real-world) elements. If not null and the above "
+          "\"preferred\" algorithm is not used, the defining entity "
+          "must assure that the resulting InstanceID is not reused "
+          "across any InstanceIDs produced by this or other "
+          "providers for the NameSpace of this instance. \n"
+          "If not set to null for DMTF-defined instances, the "
+          "\"preferred\" algorithm must be used with the <OrgID> "
+          "set to CIM." )]
+   string InstanceID;
+
+      [Description ( 
+          "The Caption property is a short textual description "
+          "(one- line string) of the object." ), 
+       MaxLen ( 64 )]
+   string Caption;
+
+      [Description ( 
+          "The Description property provides a textual description "
+          "of the object." )]
+   string Description;
+
+      [Description ( 
+          "A user-friendly name for the object. This property "
+          "allows each instance to define a user-friendly name in "
+          "addition to its key properties, identity data, and "
+          "description information. \n"
+          "Note that the Name property of ManagedSystemElement is "
+          "also defined as a user-friendly name. But, it is often "
+          "subclassed to be a Key. It is not reasonable that the "
+          "same property can convey both identity and a "
+          "user-friendly name, without inconsistencies. Where Name "
+          "exists and is not a Key (such as for instances of "
+          "LogicalDevice), the same information can be present in "
+          "both the Name and ElementName properties. Note that if "
+          "there is an associated instance of "
+          "CIM_EnabledLogicalElementCapabilities, restrictions on "
+          "this properties may exist as defined in ElementNameMask "
+          "and MaxElementNameLen properties defined in that class." )]
+   string ElementName;
+
+      [Experimental, Description ( 
+          "Generation is an optional, monotonically increasing "
+          "property that may be used to identify a particular "
+          "generation of the resource represented by this class.\n"
+          "If Generation is supported by the implementation, its "
+          "value shall not be null. \n"
+          "Except as otherwise specified, a value (including null) "
+          "of Generation specified at creation time shall be "
+          "replaced by null if Generation is not supported by the "
+          "implementation or shall be a, (possibly different), "
+          "non-null value if the implementation does support Generation.\n"
+          "After creation and if supported, Generation shall be "
+          "updated, at least once per access, whenever the "
+          "represented resource is modified, regardless of the "
+          "source of the modification.\n"
+          "Note: the Generation value only needs to be updated once "
+          "between references, even if the resource is updated many "
+          "times. The key point is to assure that it will be "
+          "different if there have been updates, not to count each update.\n"
+          "Note: unless otherwise specified, the value of "
+          "Generation within one instance is not required to be "
+          "coordinated with the value of Generation in any other instance.\n"
+          "Note:the semantics of the instance, (as defined by its "
+          "creation class), define the underlying resource. That "
+          "underlying resource may be a collection or aggregation "
+          "of resources. And, in that case, the semantics of the "
+          "instance further define when updates to constituent "
+          "resources also require updates to the Generation of the "
+          "collective resource. Default behavior of composite "
+          "aggregations should be to update the Generation of the "
+          "composite whenever the Generation of a component is updated.\n"
+          "Subclasses may define additional requirements for "
+          "updates on some or all of related instances.\n"
+          "For a particular instance, the value of Generation may "
+          "wrap through zero, but the elapsed time between wraps "
+          "shall be greater than 10\'s of years.\n"
+          "This class does not require Generation to be unique "
+          "across instances of other classes nor across instances "
+          "of the same class that have different keys. Generation "
+          "shall be different across power cycles, resets, or "
+          "reboots if any of those actions results in an update. "
+          "Generation may be different across power cycles, resets, "
+          "or reboots if those actions do not result in an update. "
+          "If the Generation property of an instance is non-null, "
+          "and if any attempt to update the instance includes the "
+          "Generation property, then if it doesn\'t match the "
+          "current value, the update shall fail.\n"
+          "The usage of this property is intended to be further "
+          "specified by applicable management profiles. \n"
+          "Typically, a client will read the value of this property "
+          "and then supply that value as input to an operation that "
+          "modifies the instance in some means. This may be via an "
+          "explicit parameter in an extrinsic method or via an "
+          "embedded value in an extrinsic method or intrinsic operation.\n"
+          "For example: a profile may require that an intrinsic "
+          "instance modification supply the Generation property and "
+          "that it must match for the modification to succeed." )]
+   uint64 Generation;
+
+
+};
+
+
+
+// Copyright (c) 2013 DMTF.  All rights reserved.
+   [Abstract, Version ( "2.39.0" ), 
+    UMLPackagePath ( "CIM::Core::Statistics" ), 
+    Description ( 
+       "CIM_StatisticalData is a root class for any arbitrary "
+       "collection of statistical data and/or metrics applicable to "
+       "one or more ManagedElements. These statistics MUST represent "
+       "the most recent observations and MUST NOT be provided if "
+       "irrelevant or stale. Note that this class uses a simplified "
+       "naming/identity algorithm as compared to "
+       "CIM_StatisticalInformation." )]
+class CIM_StatisticalData : CIM_ManagedElement {
+
+      [Key, Override ( "InstanceID" ), 
+       Description ( 
+          "Within the scope of the instantiating Namespace, "
+          "InstanceID opaquely and uniquely identifies an instance "
+          "of this class. In order to ensure uniqueness within the "
+          "NameSpace, the value of InstanceID SHOULD be constructed "
+          "using the following \'preferred\' algorithm: \n"
+          "<OrgID>:<LocalID> \n"
+          "Where <OrgID> and <LocalID> are separated by a colon "
+          "\':\', and where <OrgID> MUST include a copyrighted, "
+          "trademarked or otherwise unique name that is owned by "
+          "the business entity creating/defining the InstanceID, or "
+          "is a registered ID that is assigned to the business "
+          "entity by a recognized global authority (This is similar "
+          "to the <Schema Name>_<Class Name> structure of Schema "
+          "class names.) In addition, to ensure uniqueness <OrgID> "
+          "MUST NOT contain a colon (\':\'). When using this "
+          "algorithm, the first colon to appear in InstanceID MUST "
+          "appear between <OrgID> and <LocalID>. \n"
+          "<LocalID> is chosen by the business entity and SHOULD "
+          "not be re-used to identify different underlying "
+          "(real-world) elements. If the above \'preferred\' "
+          "algorithm is not used, the defining entity MUST assure "
+          "that the resultant InstanceID is not re-used across any "
+          "InstanceIDs produced by this or other providers for this "
+          "instance\'s NameSpace. \n"
+          "For DMTF defined instances, the \'preferred\' algorithm "
+          "MUST be used with the <OrgID> set to \'CIM\'." )]
+   string InstanceID;
+
+      [Required, Override ( "ElementName" ), 
+       Description ( 
+          "The user friendly name for this instance of "
+          "StatisticalData. In addition, the user friendly name can "
+          "be used as a index property for a search of query. "
+          "(Note: Name does not have to be unique within a "
+          "namespace.)" )]
+   string ElementName;
+
+      [Description ( 
+          "The time, relative to managed element where the "
+          "statistic was collected, when the first measurement was "
+          "taken. If the statistic is reset, the StartStatisticTime "
+          "is the time when the reset was performed." )]
+   datetime StartStatisticTime;
+
+      [Description ( 
+          "The time the most recent measurement was taken, relative "
+          "to the managed element where the statistic was "
+          "collected." )]
+   datetime StatisticTime;
+
+      [Description ( 
+          "Some statistics are sampled at consistent time "
+          "intervals. This property provides the sample interval so "
+          "that client applications can determine the minimum time "
+          "that new statistics should be pulled. If the statistics "
+          "are not sampled at consistent time intervals, this "
+          "property must be set to a zero time interval." )]
+   datetime SampleInterval = "00000000000000.000000:000";
+
+      [Description ( "The end time for the rate data interval." )]
+   datetime RateIntervalEndTime;
+
+      [Experimental, Description ( 
+          "The start time for the rate data interval. Rate "
+          "indicates the number of data points per second - for "
+          "example, number of read I/Os per second." )]
+   datetime RateIntervalStartTime;
+
+
+      [Description ( 
+          "Method to reset one or more of the instance\'s "
+          "statistics. The method takes one parameter as input - an "
+          "array of strings indicating which statistics to reset. "
+          "If all the statistics in the instance should be reset, "
+          "the first element of the array MUST be set to \"All\" or "
+          "\"ALL\". If one or more individual statistics should be "
+          "reset, the corresponding property names are entered into "
+          "the elements of the array. \n"
+          "The method returns 0 if successful, 1 if not supported, "
+          "and any other value if an error occurred. A method is "
+          "specified so that the StatisticalInformation\'s "
+          "provider/ instrumentation, which calculates the "
+          "statistics, can reset its internal processing, counters, "
+          "etc. \n"
+          "In a subclass, the set of possible return codes could be "
+          "specified, using a ValueMap qualifier on the method. The "
+          "strings to which the ValueMap contents are \'translated\' "
+          "may also be specified in the subclass as a Values array "
+          "qualifier." )]
+   uint32 ResetSelectedStats(
+         [IN, Description ( 
+             "Array of strings indicating which statistics to reset."
+              )]
+      string SelectedStatistics[]);
+
+};
+
+
+
+// Copyright (c) 2005 DMTF.  All rights reserved.
+   [Experimental, Version ( "2.8.1000" ), 
+    UMLPackagePath ( "CIM::Application::SWResources" ), 
+    Description ( 
+       "This is base class for the software resource statistics. "
+       "Depending on the implementation it can be of six types that "
+       "identify the unit type (technical or domain-specific) and the "
+       "behavioral characteristic of the software resource "
+       "(allocation, input or output). The statistics is also the "
+       "place at which the corresponding operational settings of the "
+       "software resource appear. These parameters are changeable "
+       "on-the-fly (i.e., they are writable). They bear the same "
+       "constraints regarding their interdependencies between "
+       "technical and domain-specific units as SWRLimitSettings. \n"
+       "Point metrics apply to the point in time of end of the sample, "
+       "interval metrics apply to the sample interval. It is up to the "
+       "implementation of the statistcs whether the sample interval "
+       "ends at the point in time of the request of the instance of "
+       "this class (working with internal ring buffers) or whether the "
+       "underlying instrumentation autonomously determines the "
+       "beginning and the end of the sample interval. \n"
+       "SWRStatistics is associated to SoftwareResource via "
+       "ElementStatisticalData. In general, one software resource is "
+       "expected to have three statistics. The statistics type covers "
+       "each behavior characteristics at most once. I.e., the software "
+       "resource has at most one allocation statistcs, one input "
+       "statistics and one output statistics. Nevertheless, the "
+       "implementation of the software resource may exhibit more "
+       "statistics SWRStatistics instances that cover more "
+       "context-specific behavior characteristics." )]
+class CIM_SWRStatistics : CIM_StatisticalData {
+
+      [Write, Description ( 
+          "This is an operational lower limit parameter of the "
+          "software resource. The limit applies to input, output or "
+          "allocation according to the statistics type. The "
+          "corresponding unit is found at the property Unit. A null "
+          "value indicates that no lower limit exists. The property "
+          "value can be modified. Whether changes are persisted on "
+          "saving the modification depends on the implementation of "
+          "the software resource. The default behavior is no "
+          "persistence." ), 
+       ModelCorrespondence { "CIM_SWRLimitSetting.LowerInputLimit", 
+          "CIM_SWRLimitSetting.LowerOutputLimit", 
+          "CIM_SWRLimitSetting.LowerAllocationLimit" }]
+   uint32 LowerLimit;
+
+      [Write, Description ( 
+          "This is an operational upper limit parameter of the "
+          "software resource. The limit applies to input, output or "
+          "allocation according to the statistics type. The "
+          "corresponding unit is found at the property Unit. A null "
+          "value indicates that no upper limit exists. The property "
+          "value can be modified. Whether changes are persisted on "
+          "saving the modification depends on the implementation of "
+          "the software resource. The default behavior is no "
+          "persistence." ), 
+       ModelCorrespondence { "CIM_SWRLimitSetting.UpperInputLimit", 
+          "CIM_SWRLimitSetting.UpperOutputLimit", 
+          "CIM_SWRLimitSetting.UpperAllocationLimit" }]
+   uint32 UpperLimit;
+
+      [Description ( 
+          "This is the unit of the numeric metrics and the set of "
+          "upper and lower limits of the software resource. The "
+          "property should always have a value, null should not "
+          "appear.The property value is read-only and assumed to "
+          "correspond to the implementation of the software "
+          "resource to which the operational parameters and metrics "
+          "apply. The default value is of the technical domain "
+          "(Kilobytes)." ), 
+       ModelCorrespondence { "CIM_SWRLimitSetting.InputUnit", 
+          "CIM_SWRLimitSetting.OutputUnit", 
+          "CIM_SWRLimitSetting.AllocationUnit" }]
+   string Unit = "kB";
+
+      [Description ( 
+          "This property is not null, if the operational lower "
+          "limit parameter of the software resource can be "
+          "calculated from the property LowerLimit. If LowerLimit "
+          "is described by technical units (i.e., InputUnit applies "
+          "to the technical domain), OtherLowerLimit is described "
+          "by domain-specific units." )]
+   uint32 OtherLowerLimit;
+
+      [Description ( 
+          "This property is not null, if the operational upper "
+          "limit parameter of the software resource can be "
+          "calculated from the property UpperLimit. If UpperLimit "
+          "is described by technical units (i.e., InputUnit applies "
+          "to the technical domain), OtherUpperLimit is described "
+          "by domain-specific units." )]
+   uint32 OtherUpperLimit;
+
+      [Description ( 
+          "This is the complementary unit of the operational limit "
+          "parameters. If Unit is a unit of the technical domain, "
+          "OtherUnit is a domain-specific unit." )]
+   string OtherUnit;
+
+      [Description ( 
+          "Characteristic allows for the distinction of the "
+          "software resource behavior characteristics. This is "
+          "either the allocation, input and output. \n"
+          "Values: \n"
+          "Allocation: Statistics about the size of the software "
+          "resource. \n"
+          "Input: Statistics about the data transfer into the "
+          "software resource. \n"
+          "Output: Statistics about the data transfer from the "
+          "software resource." ), 
+       ValueMap { "0", "2", "3", "4", "5..32767", "32768..65535" }, 
+       Values { "Unknown", "Allocation", "Input", "Output", 
+          "DMTF Reserved", "Vendor Reserved" }]
+   uint16 Characteristic;
+
+      [Description ( 
+          "StatisticsType describes whether the statistics is "
+          "specified in terms of technical units or domain-specific "
+          "units. Domain-specific is meant to be the items unit or "
+          "\'business\' unit of the usage the software resource. It "
+          "may range from objects or tables (in a buffer) to orders "
+          "in a queue. It depends on the implementation and usage "
+          "context of the software resource. The default is the "
+          "technical domain. \n"
+          "Values: \n"
+          "Technical: The writable operational parameters and the "
+          "affected metrics are assigned a technical unit e.g "
+          "Kilobytes. \n"
+          "Domain-Specific: The writable operational parameters and "
+          "the affected metrics are assigned a business-like, "
+          "item-oriented unit e.g messages, objects, orders, etc.." ), 
+       ValueMap { "0", "2", "3", "4..32767", "32768..65535" }, 
+       Values { "Unknown", "Technical", "Domain-Specific", 
+          "DMTF Reserved", "Vendor Reserved" }]
+   uint16 StatisticsType = 2;
+
+      [Description ( 
+          "This is the error code of the first error that occurs "
+          "during the sample interval. It is assumed that the first "
+          "error, detected throughout the sample interval, is the "
+          "first symptom of the root cause and therefore closer "
+          "than the last error. Unrelated, subsequent errors during "
+          "the sample interval of the statistics do not show up. "
+          "Such a behavior is tolerable compared to the relatively "
+          "short length of the sample interval. \n"
+          "Values: \n"
+          "Unspecified Error: No error code can be determined. \n"
+          "Violate Upper Limit: The upper limit of the behavior "
+          "characteristic (allocation, input, output) was exceeded. \n"
+          "Violate Lower Limit: The lower limit was underrun. \n"
+          "Erroneous Transfer: The transfer had to be aborted. This "
+          "message does not overlap with \'Erroneous Item\'. \n"
+          "Erroneous Item: The handling of at least one item was "
+          "problematic and the item had to be dropped, suspended or "
+          "rejected. \n"
+          "Access to Software Resource Denied: The access control "
+          "of software resource refused the use of the it." ), 
+       ValueMap { "0", "2", "3", "4", "5", "6", "7..32767", 
+          "32768..65535" }, 
+       Values { "Unspecified Error", "Violate Upper Limit", 
+          "Violate Lower Limit", "Erroneous Transfer", 
+          "Erroneous Item", "Access to Software Resource Denied", 
+          "DMTF Reserved", "Vendor Reserved" }]
+   uint16 FirstError;
+
+      [Description ( 
+          "FirstErrorTimeStamp is the point in time at which "
+          "FirstError was detected." )]
+   datetime FirstErrorTimeStamp;
+
+      [Description ( 
+          "This is the error code of the last error that occured. "
+          "The value of LastError remains from one sample interval "
+          "to the next even if a sample interval is error-free. \n"
+          "Values: \n"
+          "Unspecified Error: No error code can be determined. \n"
+          "Violate Upper Limit: The upper limit of the behavior "
+          "characteristic (allocation, input, output) was exceeded. \n"
+          "Violate Lower Limit: The lower limit was underrun. \n"
+          "Erroneous Transfer: The transfer had to be aborted. This "
+          "message does not overlap with \'Erroneous Item\'. \n"
+          "Erroneous Item: The handling of at least one item was "
+          "problematic and the item had to be dropped, suspended or "
+          "rejected. \n"
+          "Access to Software Resource Denied: The access control "
+          "of software resource refused the use of the it." ), 
+       ValueMap { "0", "2", "3", "4", "5", "6", "7..32767", 
+          "32768..65535" }, 
+       Values { "Unspecified Error", "Violate Upper Limit", 
+          "Violate Lower Limit", "Erroneous Transfer", 
+          "Erroneous Item", "Access to Software Resource Denied", 
+          "DMTF Reserved", "Vendor Reserved" }]
+   uint16 LastError;
+
+      [Description ( 
+          "LastErrorTimeStamp is the point in time at which "
+          "FirstError was detected." )]
+   datetime LastErrorTimeStamp;
+
+      [Description ( 
+          "ErrorCount is the count of errors that have been "
+          "detected throughout the sample interval." )]
+   uint32 ErrorCount;
+
+
+};
+
+
+
+// Copyright (c) 2005 DMTF.  All rights reserved.
+   [Experimental, Version ( "2.8.1000" ), 
+    UMLPackagePath ( "CIM::Application::SWResources" ), 
+    Description ( 
+       "The metrics of SWRIOStatistics describe the transfer behavior "
+       "of the software resource in one particular direction (input or "
+       "the output). The transfer is basically the amount of data "
+       "input to or output from the software resource during a sample "
+       "interval in terms of technical units (e.g., kB) or "
+       "domain-specific units (e.g., the number of items (e.g., the "
+       "number of messages if the software resource is of the type "
+       "\'queue\'). \n"
+       "The operational parameters regarding the allocation limits are "
+       "surfaced also. Further details can be found in the description "
+       "of the base class SWRStatistics. \n"
+       "The metrics found in this statistics are raw values that "
+       "describe the allocation behavior of the software resource as "
+       "simple as possible. Thus, the metric values can be used most "
+       "flexibly (e.g., cumulative, averaged, etc.). The drawback of "
+       "the flexibility is that the likelyhood of required "
+       "calculations - subsequent to retrieval of the values - "
+       "increases in order to result in rates or statistical data "
+       "needed for monitoring and reporting." )]
+class CIM_SWRIOStatistics : CIM_SWRStatistics {
+
+      [Description ( 
+          "TransferredQuantity describes the quantity transferred "
+          "to/from the software resource in units corresponding to "
+          "the type of the statistics (e.g., technical based on "
+          "Kilobytes). The unit can be found at the "
+          "CIM_SWRStatistics.Unit. The direction of the transfer "
+          "can be found at the type of the statistics. \n"
+          "The metric accumulates the transfer quantity over the "
+          "sample interval and is the gross amount of data "
+          "transferred to/from the software resource. \n"
+          "A value of null indicates that no quantity is available. "
+          "The value is 0 if no transfer happened or all transfers "
+          "where empty. (Note that this must be true for both the "
+          "request and the response). \n"
+          "The corresponding limits are expected to be a rate. One "
+          "method to detect limit violations require the division "
+          "of TransferredQuantity by the sample interval in order "
+          "to result in rate that then can be compared to the "
+          "corresponding limit. \n"
+          "The initial value is 0." ), 
+       ModelCorrespondence { "CIM_SWRStatistics.Unit", 
+          "CIM_SWRStatistics.StatisticsType" }]
+   uint32 TransferredQuantity;
+
+      [Description ( 
+          "OtherTransferredQuantity describes the transfer size of "
+          "the software resource in complementary units compared to "
+          "AllocationLevel (e.g., domain-specific units like the "
+          "number of items: buffered objects or pooled "
+          "connections). The unit can be found at "
+          "CIM_SWRStatistics.OtherUnit. \n"
+          "The metric accumulates the transfer quantity over the "
+          "sample interval. \n"
+          "A value of null indicates that no quantity is available. \n"
+          "The initial value is 0." ), 
+       ModelCorrespondence { "CIM_SWRStatistics.OtherUnit", 
+          "CIM_SWRIOStatistics.TransferredQuantity" }]
+   uint32 OtherTransferredQuantity;
+
+      [Description ( 
+          "Transfers is the count of all transfers (sucessful or "
+          "not) that happened during the sample interval. If the "
+          "value is null no number can be provided. \n"
+          "The initial value is 0." )]
+   uint32 Transfers;
+
+      [Description ( 
+          "AverageTransferTime is the average time all counted "
+          "transfers took during the sample interval. If the value "
+          "is null no average can be provided. \n"
+          "The initial value is 0." )]
+   datetime AverageTransferTime;
+
+      [Description ( 
+          "SuccessfulTransfers is the count of all transfers that "
+          "could be executing fully (i.e., transfer all items "
+          "requested) during the sample interval. If the value is "
+          "null no number can be provided. In case of errors, the "
+          "property can be used to quantify the quality with which "
+          "the software resource works. \n"
+          "The initial value is 0." )]
+   uint32 SuccessfulTransfers;
+
+      [Description ( 
+          "SuccessfulQuantity specifies the successfully "
+          "transferred amount of data to/from the software "
+          "resource. It is the net amount in contrast to "
+          "TransferredQuantity. \n"
+          "The unit can be found at the CIM_SWRStatistics.Unit. The "
+          "direction of the transfer can be found at the type of "
+          "the statistics. \n"
+          "If the value is null no number can be provided. \n"
+          "The initial value is 0." ), 
+       ModelCorrespondence { "CIM_SWRStatistics.Unit" }]
+   uint32 SuccessfulQuantity;
+
+      [Description ( 
+          "CountOfActiveTransfers is a point metric and applies to "
+          "the point in time of the end of the sample interval. It "
+          "describes the number of in-progress transfers. This also "
+          "includes pending, suspended, open and asynchronous "
+          "requests that obviously have not been acknowledged to "
+          "the requestor of the transfer. If the implementation of "
+          "the resource is single process, single thread and "
+          "synchronous (i.e., no internal queue), the number cannot "
+          "be greater than 1 since no parallel requests can occur. \n"
+          "A value of null indicates that no count is available. A "
+          "value of 0 indicates no active requests. An increasing "
+          "number indicates that the software resource hangs and a "
+          "reinitialize() can solve the problem. \n"
+          "The initial value is 0." )]
+   uint32 CountOfActiveTransfers;
+
+      [Description ( 
+          "LastActivity is the point in time at which the last "
+          "transfer ended. The timestamp is 0 if "
+          "CountOfActiveTransfers is greater than 0, i.e., at least "
+          "one transfer is still in progress and, thus, the "
+          "software resource is still active. Even if a transfer is "
+          "still in progress, LastActivity can be a valid point in "
+          "time, if the software resource is currently idle due to "
+          "internal wait states or deadlocks. Thus, activity is "
+          "defined as the software resource is actively carrying "
+          "out inputs and outputs. LastActivity may refer to a "
+          "point in time that is outside the sample interval. This "
+          "is, the instrumentation internally keeps the timestamp "
+          "during the lifetime of the software resource. The metric "
+          "can be used to better quantify what happens at the "
+          "interfaces of the software resource. \n"
+          "The initial value is 0." )]
+   datetime LastActivity;
+
+
+};
+
+
+
+   [Version( "2.40.0" ), Description("{0}")]
+class UNIX_SWRIOStatistics : CIM_SWRIOStatistics
+{
+
+
+};
+

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1AE1667B-7805-42F0-955D-5B37D67EB792}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../NetworkPort/UNIX_NetworkPort.md.pc" name="UNIX_NetworkPort" IsProject="True" />
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../NetworkPort/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_WirelessPortProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_WirelessPortLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_WirelessPortLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_NetworkPortProvider -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_WirelessPortProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_WirelessPortLib" -DPROVIDER_LIB_NS="namespace UNIX_WirelessPortLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_NetworkPortProvider -lUNIX_ConcreteJobProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_WirelessPort.cpp" />
+    <Compile Include="UNIX_WirelessPortMain.cpp" />
+    <Compile Include="UNIX_WirelessPortProvider.cpp" />
+    <Compile Include="UNIX_WirelessPort_AIX.cpp" />
+    <Compile Include="UNIX_WirelessPort_DARWIN.cpp" />
+    <Compile Include="UNIX_WirelessPort_FREEBSD.cpp" />
+    <Compile Include="UNIX_WirelessPort_HPUX.cpp" />
+    <Compile Include="UNIX_WirelessPort_LINUX.cpp" />
+    <Compile Include="UNIX_WirelessPort_SOLARIS.cpp" />
+    <Compile Include="UNIX_WirelessPort_STUB.cpp" />
+    <Compile Include="UNIX_WirelessPort_TRU64.cpp" />
+    <Compile Include="UNIX_WirelessPort_VMS.cpp" />
+    <Compile Include="UNIX_WirelessPort_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_WirelessPort.h" />
+    <Node Include="UNIX_WirelessPortDeps.h" />
+    <Node Include="UNIX_WirelessPortDeps_AIX.h" />
+    <Node Include="UNIX_WirelessPortDeps_DARWIN.h" />
+    <Node Include="UNIX_WirelessPortDeps_FREEBSD.h" />
+    <Node Include="UNIX_WirelessPortDeps_HPUX.h" />
+    <Node Include="UNIX_WirelessPortDeps_LINUX.h" />
+    <Node Include="UNIX_WirelessPortDeps_SOLARIS.h" />
+    <Node Include="UNIX_WirelessPortDeps_STUB.h" />
+    <Node Include="UNIX_WirelessPortDeps_TRU64.h" />
+    <Node Include="UNIX_WirelessPortDeps_VMS.h" />
+    <Node Include="UNIX_WirelessPortDeps_ZOS.h" />
+    <Node Include="UNIX_WirelessPortPrivate.h" />
+    <Node Include="UNIX_WirelessPortPrivate_AIX.h" />
+    <Node Include="UNIX_WirelessPortPrivate_DARWIN.h" />
+    <Node Include="UNIX_WirelessPortPrivate_FREEBSD.h" />
+    <Node Include="UNIX_WirelessPortPrivate_HPUX.h" />
+    <Node Include="UNIX_WirelessPortPrivate_LINUX.h" />
+    <Node Include="UNIX_WirelessPortPrivate_SOLARIS.h" />
+    <Node Include="UNIX_WirelessPortPrivate_STUB.h" />
+    <Node Include="UNIX_WirelessPortPrivate_TRU64.h" />
+    <Node Include="UNIX_WirelessPortPrivate_VMS.h" />
+    <Node Include="UNIX_WirelessPortPrivate_ZOS.h" />
+    <Node Include="UNIX_WirelessPortProvider.h" />
+    <Node Include="UNIX_WirelessPort_AIX.hpp" />
+    <Node Include="UNIX_WirelessPort_AIX.hxx" />
+    <Node Include="UNIX_WirelessPort_DARWIN.hpp" />
+    <Node Include="UNIX_WirelessPort_DARWIN.hxx" />
+    <Node Include="UNIX_WirelessPort_FREEBSD.hpp" />
+    <Node Include="UNIX_WirelessPort_FREEBSD.hxx" />
+    <Node Include="UNIX_WirelessPort_HPUX.hpp" />
+    <Node Include="UNIX_WirelessPort_HPUX.hxx" />
+    <Node Include="UNIX_WirelessPort_LINUX.hpp" />
+    <Node Include="UNIX_WirelessPort_LINUX.hxx" />
+    <Node Include="UNIX_WirelessPort_SOLARIS.hpp" />
+    <Node Include="UNIX_WirelessPort_SOLARIS.hxx" />
+    <Node Include="UNIX_WirelessPort_STUB.hpp" />
+    <Node Include="UNIX_WirelessPort_STUB.hxx" />
+    <Node Include="UNIX_WirelessPort_TRU64.hpp" />
+    <Node Include="UNIX_WirelessPort_TRU64.hxx" />
+    <Node Include="UNIX_WirelessPort_VMS.hpp" />
+    <Node Include="UNIX_WirelessPort_VMS.hxx" />
+    <Node Include="UNIX_WirelessPort_WIN32.hpp" />
+    <Node Include="UNIX_WirelessPort_ZOS.hpp" />
+    <Node Include="UNIX_WirelessPort_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

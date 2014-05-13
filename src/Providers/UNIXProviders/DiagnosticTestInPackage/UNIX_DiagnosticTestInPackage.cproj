@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6D5B573A-9DA9-4707-B38C-F455C2660F5B}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../FCHBADiagnosticTest/UNIX_FCHBADiagnosticTest.md.pc" name="UNIX_FCHBADiagnosticTest" IsProject="True" />
+        <Package file="../RAIDDiagnosticTest/UNIX_RAIDDiagnosticTest.md.pc" name="UNIX_RAIDDiagnosticTest" IsProject="True" />
+        <Package file="../CPUDiagnosticTest/UNIX_CPUDiagnosticTest.md.pc" name="UNIX_CPUDiagnosticTest" IsProject="True" />
+        <Package file="../EthernetNICDiagnosticTest/UNIX_EthernetNICDiagnosticTest.md.pc" name="UNIX_EthernetNICDiagnosticTest" IsProject="True" />
+        <Package file="../OpticalDriveDiagnosticTest/UNIX_OpticalDriveDiagnosticTest.md.pc" name="UNIX_OpticalDriveDiagnosticTest" IsProject="True" />
+        <Package file="../OpticalDriveDiagnosticSettingData/UNIX_OpticalDriveDiagnosticSettingData.md.pc" name="UNIX_OpticalDriveDiagnosticSettingData" IsProject="True" />
+        <Package file="../DiskDriveDiagnosticTest/UNIX_DiskDriveDiagnosticTest.md.pc" name="UNIX_DiskDriveDiagnosticTest" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../FCHBADiagnosticTest/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../RAIDDiagnosticTest/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../CPUDiagnosticTest/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EthernetNICDiagnosticTest/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OpticalDriveDiagnosticTest/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OpticalDriveDiagnosticSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../DiskDriveDiagnosticTest/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_DiagnosticTestInPackageProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DiagnosticTestInPackageLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_DiagnosticTestInPackageLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_FCHBADiagnosticTestProvider -lUNIX_RAIDDiagnosticTestProvider -lUNIX_CPUDiagnosticTestProvider -lUNIX_EthernetNICDiagnosticTestProvider -lUNIX_OpticalDriveDiagnosticTestProvider -lUNIX_OpticalDriveDiagnosticSettingDataProvider -lUNIX_DiskDriveDiagnosticTestProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_DiagnosticTestInPackageProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_DiagnosticTestInPackageLib" -DPROVIDER_LIB_NS="namespace UNIX_DiagnosticTestInPackageLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_FCHBADiagnosticTestProvider -lUNIX_RAIDDiagnosticTestProvider -lUNIX_CPUDiagnosticTestProvider -lUNIX_EthernetNICDiagnosticTestProvider -lUNIX_OpticalDriveDiagnosticTestProvider -lUNIX_OpticalDriveDiagnosticSettingDataProvider -lUNIX_DiskDriveDiagnosticTestProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_DiagnosticTestInPackage.cpp" />
+    <Compile Include="UNIX_DiagnosticTestInPackageMain.cpp" />
+    <Compile Include="UNIX_DiagnosticTestInPackageProvider.cpp" />
+    <Compile Include="UNIX_DiagnosticTestInPackage_AIX.cpp" />
+    <Compile Include="UNIX_DiagnosticTestInPackage_DARWIN.cpp" />
+    <Compile Include="UNIX_DiagnosticTestInPackage_FREEBSD.cpp" />
+    <Compile Include="UNIX_DiagnosticTestInPackage_HPUX.cpp" />
+    <Compile Include="UNIX_DiagnosticTestInPackage_LINUX.cpp" />
+    <Compile Include="UNIX_DiagnosticTestInPackage_SOLARIS.cpp" />
+    <Compile Include="UNIX_DiagnosticTestInPackage_STUB.cpp" />
+    <Compile Include="UNIX_DiagnosticTestInPackage_TRU64.cpp" />
+    <Compile Include="UNIX_DiagnosticTestInPackage_VMS.cpp" />
+    <Compile Include="UNIX_DiagnosticTestInPackage_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_DiagnosticTestInPackage.h" />
+    <Node Include="UNIX_DiagnosticTestInPackageDeps.h" />
+    <Node Include="UNIX_DiagnosticTestInPackageDeps_AIX.h" />
+    <Node Include="UNIX_DiagnosticTestInPackageDeps_DARWIN.h" />
+    <Node Include="UNIX_DiagnosticTestInPackageDeps_FREEBSD.h" />
+    <Node Include="UNIX_DiagnosticTestInPackageDeps_HPUX.h" />
+    <Node Include="UNIX_DiagnosticTestInPackageDeps_LINUX.h" />
+    <Node Include="UNIX_DiagnosticTestInPackageDeps_SOLARIS.h" />
+    <Node Include="UNIX_DiagnosticTestInPackageDeps_STUB.h" />
+    <Node Include="UNIX_DiagnosticTestInPackageDeps_TRU64.h" />
+    <Node Include="UNIX_DiagnosticTestInPackageDeps_VMS.h" />
+    <Node Include="UNIX_DiagnosticTestInPackageDeps_ZOS.h" />
+    <Node Include="UNIX_DiagnosticTestInPackagePrivate.h" />
+    <Node Include="UNIX_DiagnosticTestInPackagePrivate_AIX.h" />
+    <Node Include="UNIX_DiagnosticTestInPackagePrivate_DARWIN.h" />
+    <Node Include="UNIX_DiagnosticTestInPackagePrivate_FREEBSD.h" />
+    <Node Include="UNIX_DiagnosticTestInPackagePrivate_HPUX.h" />
+    <Node Include="UNIX_DiagnosticTestInPackagePrivate_LINUX.h" />
+    <Node Include="UNIX_DiagnosticTestInPackagePrivate_SOLARIS.h" />
+    <Node Include="UNIX_DiagnosticTestInPackagePrivate_STUB.h" />
+    <Node Include="UNIX_DiagnosticTestInPackagePrivate_TRU64.h" />
+    <Node Include="UNIX_DiagnosticTestInPackagePrivate_VMS.h" />
+    <Node Include="UNIX_DiagnosticTestInPackagePrivate_ZOS.h" />
+    <Node Include="UNIX_DiagnosticTestInPackageProvider.h" />
+    <Node Include="UNIX_DiagnosticTestInPackage_AIX.hpp" />
+    <Node Include="UNIX_DiagnosticTestInPackage_AIX.hxx" />
+    <Node Include="UNIX_DiagnosticTestInPackage_DARWIN.hpp" />
+    <Node Include="UNIX_DiagnosticTestInPackage_DARWIN.hxx" />
+    <Node Include="UNIX_DiagnosticTestInPackage_FREEBSD.hpp" />
+    <Node Include="UNIX_DiagnosticTestInPackage_FREEBSD.hxx" />
+    <Node Include="UNIX_DiagnosticTestInPackage_HPUX.hpp" />
+    <Node Include="UNIX_DiagnosticTestInPackage_HPUX.hxx" />
+    <Node Include="UNIX_DiagnosticTestInPackage_LINUX.hpp" />
+    <Node Include="UNIX_DiagnosticTestInPackage_LINUX.hxx" />
+    <Node Include="UNIX_DiagnosticTestInPackage_SOLARIS.hpp" />
+    <Node Include="UNIX_DiagnosticTestInPackage_SOLARIS.hxx" />
+    <Node Include="UNIX_DiagnosticTestInPackage_STUB.hpp" />
+    <Node Include="UNIX_DiagnosticTestInPackage_STUB.hxx" />
+    <Node Include="UNIX_DiagnosticTestInPackage_TRU64.hpp" />
+    <Node Include="UNIX_DiagnosticTestInPackage_TRU64.hxx" />
+    <Node Include="UNIX_DiagnosticTestInPackage_VMS.hpp" />
+    <Node Include="UNIX_DiagnosticTestInPackage_VMS.hxx" />
+    <Node Include="UNIX_DiagnosticTestInPackage_WIN32.hpp" />
+    <Node Include="UNIX_DiagnosticTestInPackage_ZOS.hpp" />
+    <Node Include="UNIX_DiagnosticTestInPackage_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

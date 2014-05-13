@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{22ECB911-0B37-41F1-BAAB-6E603DC64559}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../AccountManagementService/UNIX_AccountManagementService.md.pc" name="UNIX_AccountManagementService" IsProject="True" />
+        <Package file="../Account/UNIX_Account.md.pc" name="UNIX_Account" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../AccountManagementService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Account/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ManagesAccountProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ManagesAccountLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ManagesAccountLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AccountManagementServiceProvider -lUNIX_AccountProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ManagesAccountProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ManagesAccountLib" -DPROVIDER_LIB_NS="namespace UNIX_ManagesAccountLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AccountManagementServiceProvider -lUNIX_AccountProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ManagesAccount.cpp" />
+    <Compile Include="UNIX_ManagesAccountMain.cpp" />
+    <Compile Include="UNIX_ManagesAccountProvider.cpp" />
+    <Compile Include="UNIX_ManagesAccount_AIX.cpp" />
+    <Compile Include="UNIX_ManagesAccount_DARWIN.cpp" />
+    <Compile Include="UNIX_ManagesAccount_FREEBSD.cpp" />
+    <Compile Include="UNIX_ManagesAccount_HPUX.cpp" />
+    <Compile Include="UNIX_ManagesAccount_LINUX.cpp" />
+    <Compile Include="UNIX_ManagesAccount_SOLARIS.cpp" />
+    <Compile Include="UNIX_ManagesAccount_STUB.cpp" />
+    <Compile Include="UNIX_ManagesAccount_TRU64.cpp" />
+    <Compile Include="UNIX_ManagesAccount_VMS.cpp" />
+    <Compile Include="UNIX_ManagesAccount_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ManagesAccount.h" />
+    <Node Include="UNIX_ManagesAccountDeps.h" />
+    <Node Include="UNIX_ManagesAccountDeps_AIX.h" />
+    <Node Include="UNIX_ManagesAccountDeps_DARWIN.h" />
+    <Node Include="UNIX_ManagesAccountDeps_FREEBSD.h" />
+    <Node Include="UNIX_ManagesAccountDeps_HPUX.h" />
+    <Node Include="UNIX_ManagesAccountDeps_LINUX.h" />
+    <Node Include="UNIX_ManagesAccountDeps_SOLARIS.h" />
+    <Node Include="UNIX_ManagesAccountDeps_STUB.h" />
+    <Node Include="UNIX_ManagesAccountDeps_TRU64.h" />
+    <Node Include="UNIX_ManagesAccountDeps_VMS.h" />
+    <Node Include="UNIX_ManagesAccountDeps_ZOS.h" />
+    <Node Include="UNIX_ManagesAccountPrivate.h" />
+    <Node Include="UNIX_ManagesAccountPrivate_AIX.h" />
+    <Node Include="UNIX_ManagesAccountPrivate_DARWIN.h" />
+    <Node Include="UNIX_ManagesAccountPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ManagesAccountPrivate_HPUX.h" />
+    <Node Include="UNIX_ManagesAccountPrivate_LINUX.h" />
+    <Node Include="UNIX_ManagesAccountPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ManagesAccountPrivate_STUB.h" />
+    <Node Include="UNIX_ManagesAccountPrivate_TRU64.h" />
+    <Node Include="UNIX_ManagesAccountPrivate_VMS.h" />
+    <Node Include="UNIX_ManagesAccountPrivate_ZOS.h" />
+    <Node Include="UNIX_ManagesAccountProvider.h" />
+    <Node Include="UNIX_ManagesAccount_AIX.hpp" />
+    <Node Include="UNIX_ManagesAccount_AIX.hxx" />
+    <Node Include="UNIX_ManagesAccount_DARWIN.hpp" />
+    <Node Include="UNIX_ManagesAccount_DARWIN.hxx" />
+    <Node Include="UNIX_ManagesAccount_FREEBSD.hpp" />
+    <Node Include="UNIX_ManagesAccount_FREEBSD.hxx" />
+    <Node Include="UNIX_ManagesAccount_HPUX.hpp" />
+    <Node Include="UNIX_ManagesAccount_HPUX.hxx" />
+    <Node Include="UNIX_ManagesAccount_LINUX.hpp" />
+    <Node Include="UNIX_ManagesAccount_LINUX.hxx" />
+    <Node Include="UNIX_ManagesAccount_SOLARIS.hpp" />
+    <Node Include="UNIX_ManagesAccount_SOLARIS.hxx" />
+    <Node Include="UNIX_ManagesAccount_STUB.hpp" />
+    <Node Include="UNIX_ManagesAccount_STUB.hxx" />
+    <Node Include="UNIX_ManagesAccount_TRU64.hpp" />
+    <Node Include="UNIX_ManagesAccount_TRU64.hxx" />
+    <Node Include="UNIX_ManagesAccount_VMS.hpp" />
+    <Node Include="UNIX_ManagesAccount_VMS.hxx" />
+    <Node Include="UNIX_ManagesAccount_WIN32.hpp" />
+    <Node Include="UNIX_ManagesAccount_ZOS.hpp" />
+    <Node Include="UNIX_ManagesAccount_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

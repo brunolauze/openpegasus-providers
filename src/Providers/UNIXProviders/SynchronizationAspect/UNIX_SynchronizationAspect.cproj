@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{747A56C1-7E3E-4FF9-9421-153EC9319BDE}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_SynchronizationAspectProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SynchronizationAspectLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SynchronizationAspectLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_SynchronizationAspectProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SynchronizationAspectLib" -DPROVIDER_LIB_NS="namespace UNIX_SynchronizationAspectLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SynchronizationAspect.cpp" />
+    <Compile Include="UNIX_SynchronizationAspectMain.cpp" />
+    <Compile Include="UNIX_SynchronizationAspectProvider.cpp" />
+    <Compile Include="UNIX_SynchronizationAspect_AIX.cpp" />
+    <Compile Include="UNIX_SynchronizationAspect_DARWIN.cpp" />
+    <Compile Include="UNIX_SynchronizationAspect_FREEBSD.cpp" />
+    <Compile Include="UNIX_SynchronizationAspect_HPUX.cpp" />
+    <Compile Include="UNIX_SynchronizationAspect_LINUX.cpp" />
+    <Compile Include="UNIX_SynchronizationAspect_SOLARIS.cpp" />
+    <Compile Include="UNIX_SynchronizationAspect_STUB.cpp" />
+    <Compile Include="UNIX_SynchronizationAspect_TRU64.cpp" />
+    <Compile Include="UNIX_SynchronizationAspect_VMS.cpp" />
+    <Compile Include="UNIX_SynchronizationAspect_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_SynchronizationAspect.h" />
+    <Node Include="UNIX_SynchronizationAspectDeps.h" />
+    <Node Include="UNIX_SynchronizationAspectDeps_AIX.h" />
+    <Node Include="UNIX_SynchronizationAspectDeps_DARWIN.h" />
+    <Node Include="UNIX_SynchronizationAspectDeps_FREEBSD.h" />
+    <Node Include="UNIX_SynchronizationAspectDeps_HPUX.h" />
+    <Node Include="UNIX_SynchronizationAspectDeps_LINUX.h" />
+    <Node Include="UNIX_SynchronizationAspectDeps_SOLARIS.h" />
+    <Node Include="UNIX_SynchronizationAspectDeps_STUB.h" />
+    <Node Include="UNIX_SynchronizationAspectDeps_TRU64.h" />
+    <Node Include="UNIX_SynchronizationAspectDeps_VMS.h" />
+    <Node Include="UNIX_SynchronizationAspectDeps_ZOS.h" />
+    <Node Include="UNIX_SynchronizationAspectPrivate.h" />
+    <Node Include="UNIX_SynchronizationAspectPrivate_AIX.h" />
+    <Node Include="UNIX_SynchronizationAspectPrivate_DARWIN.h" />
+    <Node Include="UNIX_SynchronizationAspectPrivate_FREEBSD.h" />
+    <Node Include="UNIX_SynchronizationAspectPrivate_HPUX.h" />
+    <Node Include="UNIX_SynchronizationAspectPrivate_LINUX.h" />
+    <Node Include="UNIX_SynchronizationAspectPrivate_SOLARIS.h" />
+    <Node Include="UNIX_SynchronizationAspectPrivate_STUB.h" />
+    <Node Include="UNIX_SynchronizationAspectPrivate_TRU64.h" />
+    <Node Include="UNIX_SynchronizationAspectPrivate_VMS.h" />
+    <Node Include="UNIX_SynchronizationAspectPrivate_ZOS.h" />
+    <Node Include="UNIX_SynchronizationAspectProvider.h" />
+    <Node Include="UNIX_SynchronizationAspect_AIX.hpp" />
+    <Node Include="UNIX_SynchronizationAspect_AIX.hxx" />
+    <Node Include="UNIX_SynchronizationAspect_DARWIN.hpp" />
+    <Node Include="UNIX_SynchronizationAspect_DARWIN.hxx" />
+    <Node Include="UNIX_SynchronizationAspect_FREEBSD.hpp" />
+    <Node Include="UNIX_SynchronizationAspect_FREEBSD.hxx" />
+    <Node Include="UNIX_SynchronizationAspect_HPUX.hpp" />
+    <Node Include="UNIX_SynchronizationAspect_HPUX.hxx" />
+    <Node Include="UNIX_SynchronizationAspect_LINUX.hpp" />
+    <Node Include="UNIX_SynchronizationAspect_LINUX.hxx" />
+    <Node Include="UNIX_SynchronizationAspect_SOLARIS.hpp" />
+    <Node Include="UNIX_SynchronizationAspect_SOLARIS.hxx" />
+    <Node Include="UNIX_SynchronizationAspect_STUB.hpp" />
+    <Node Include="UNIX_SynchronizationAspect_STUB.hxx" />
+    <Node Include="UNIX_SynchronizationAspect_TRU64.hpp" />
+    <Node Include="UNIX_SynchronizationAspect_TRU64.hxx" />
+    <Node Include="UNIX_SynchronizationAspect_VMS.hpp" />
+    <Node Include="UNIX_SynchronizationAspect_VMS.hxx" />
+    <Node Include="UNIX_SynchronizationAspect_WIN32.hpp" />
+    <Node Include="UNIX_SynchronizationAspect_ZOS.hpp" />
+    <Node Include="UNIX_SynchronizationAspect_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

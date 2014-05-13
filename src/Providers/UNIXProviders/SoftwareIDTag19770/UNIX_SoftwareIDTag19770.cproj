@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E88239D5-353E-4E78-850B-ECFF8DAFBAF0}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_SoftwareIDTag19770Provider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SoftwareIDTag19770Lib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SoftwareIDTag19770Lib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_SoftwareIDTag19770Provider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SoftwareIDTag19770Lib" -DPROVIDER_LIB_NS="namespace UNIX_SoftwareIDTag19770Lib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SoftwareIDTag19770.cpp" />
+    <Compile Include="UNIX_SoftwareIDTag19770Main.cpp" />
+    <Compile Include="UNIX_SoftwareIDTag19770Provider.cpp" />
+    <Compile Include="UNIX_SoftwareIDTag19770_AIX.cpp" />
+    <Compile Include="UNIX_SoftwareIDTag19770_DARWIN.cpp" />
+    <Compile Include="UNIX_SoftwareIDTag19770_FREEBSD.cpp" />
+    <Compile Include="UNIX_SoftwareIDTag19770_HPUX.cpp" />
+    <Compile Include="UNIX_SoftwareIDTag19770_LINUX.cpp" />
+    <Compile Include="UNIX_SoftwareIDTag19770_SOLARIS.cpp" />
+    <Compile Include="UNIX_SoftwareIDTag19770_STUB.cpp" />
+    <Compile Include="UNIX_SoftwareIDTag19770_TRU64.cpp" />
+    <Compile Include="UNIX_SoftwareIDTag19770_VMS.cpp" />
+    <Compile Include="UNIX_SoftwareIDTag19770_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_SoftwareIDTag19770.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Deps.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Deps_AIX.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Deps_DARWIN.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Deps_FREEBSD.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Deps_HPUX.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Deps_LINUX.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Deps_SOLARIS.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Deps_STUB.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Deps_TRU64.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Deps_VMS.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Deps_ZOS.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Private.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Private_AIX.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Private_DARWIN.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Private_FREEBSD.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Private_HPUX.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Private_LINUX.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Private_SOLARIS.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Private_STUB.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Private_TRU64.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Private_VMS.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Private_ZOS.h" />
+    <Node Include="UNIX_SoftwareIDTag19770Provider.h" />
+    <Node Include="UNIX_SoftwareIDTag19770_AIX.hpp" />
+    <Node Include="UNIX_SoftwareIDTag19770_AIX.hxx" />
+    <Node Include="UNIX_SoftwareIDTag19770_DARWIN.hpp" />
+    <Node Include="UNIX_SoftwareIDTag19770_DARWIN.hxx" />
+    <Node Include="UNIX_SoftwareIDTag19770_FREEBSD.hpp" />
+    <Node Include="UNIX_SoftwareIDTag19770_FREEBSD.hxx" />
+    <Node Include="UNIX_SoftwareIDTag19770_HPUX.hpp" />
+    <Node Include="UNIX_SoftwareIDTag19770_HPUX.hxx" />
+    <Node Include="UNIX_SoftwareIDTag19770_LINUX.hpp" />
+    <Node Include="UNIX_SoftwareIDTag19770_LINUX.hxx" />
+    <Node Include="UNIX_SoftwareIDTag19770_SOLARIS.hpp" />
+    <Node Include="UNIX_SoftwareIDTag19770_SOLARIS.hxx" />
+    <Node Include="UNIX_SoftwareIDTag19770_STUB.hpp" />
+    <Node Include="UNIX_SoftwareIDTag19770_STUB.hxx" />
+    <Node Include="UNIX_SoftwareIDTag19770_TRU64.hpp" />
+    <Node Include="UNIX_SoftwareIDTag19770_TRU64.hxx" />
+    <Node Include="UNIX_SoftwareIDTag19770_VMS.hpp" />
+    <Node Include="UNIX_SoftwareIDTag19770_VMS.hxx" />
+    <Node Include="UNIX_SoftwareIDTag19770_WIN32.hpp" />
+    <Node Include="UNIX_SoftwareIDTag19770_ZOS.hpp" />
+    <Node Include="UNIX_SoftwareIDTag19770_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6363F385-0825-43E6-B19F-480E1913BC01}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../PackageInSlot/UNIX_PackageInSlot.md.pc" name="UNIX_PackageInSlot" IsProject="True" />
+        <Package file="../Slot/UNIX_Slot.md.pc" name="UNIX_Slot" IsProject="True" />
+        <Package file="../Card/UNIX_Card.md.pc" name="UNIX_Card" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../PackageInSlot/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Slot/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../Card/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_CardInSlotProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_CardInSlotLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_CardInSlotLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PackageInSlotProvider -lUNIX_SlotProvider -lUNIX_CardProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_CardInSlotProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_CardInSlotLib" -DPROVIDER_LIB_NS="namespace UNIX_CardInSlotLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_PackageInSlotProvider -lUNIX_SlotProvider -lUNIX_CardProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_CardInSlot.cpp" />
+    <Compile Include="UNIX_CardInSlotMain.cpp" />
+    <Compile Include="UNIX_CardInSlotProvider.cpp" />
+    <Compile Include="UNIX_CardInSlot_AIX.cpp" />
+    <Compile Include="UNIX_CardInSlot_DARWIN.cpp" />
+    <Compile Include="UNIX_CardInSlot_FREEBSD.cpp" />
+    <Compile Include="UNIX_CardInSlot_HPUX.cpp" />
+    <Compile Include="UNIX_CardInSlot_LINUX.cpp" />
+    <Compile Include="UNIX_CardInSlot_SOLARIS.cpp" />
+    <Compile Include="UNIX_CardInSlot_STUB.cpp" />
+    <Compile Include="UNIX_CardInSlot_TRU64.cpp" />
+    <Compile Include="UNIX_CardInSlot_VMS.cpp" />
+    <Compile Include="UNIX_CardInSlot_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_CardInSlot.h" />
+    <Node Include="UNIX_CardInSlotDeps.h" />
+    <Node Include="UNIX_CardInSlotDeps_AIX.h" />
+    <Node Include="UNIX_CardInSlotDeps_DARWIN.h" />
+    <Node Include="UNIX_CardInSlotDeps_FREEBSD.h" />
+    <Node Include="UNIX_CardInSlotDeps_HPUX.h" />
+    <Node Include="UNIX_CardInSlotDeps_LINUX.h" />
+    <Node Include="UNIX_CardInSlotDeps_SOLARIS.h" />
+    <Node Include="UNIX_CardInSlotDeps_STUB.h" />
+    <Node Include="UNIX_CardInSlotDeps_TRU64.h" />
+    <Node Include="UNIX_CardInSlotDeps_VMS.h" />
+    <Node Include="UNIX_CardInSlotDeps_ZOS.h" />
+    <Node Include="UNIX_CardInSlotPrivate.h" />
+    <Node Include="UNIX_CardInSlotPrivate_AIX.h" />
+    <Node Include="UNIX_CardInSlotPrivate_DARWIN.h" />
+    <Node Include="UNIX_CardInSlotPrivate_FREEBSD.h" />
+    <Node Include="UNIX_CardInSlotPrivate_HPUX.h" />
+    <Node Include="UNIX_CardInSlotPrivate_LINUX.h" />
+    <Node Include="UNIX_CardInSlotPrivate_SOLARIS.h" />
+    <Node Include="UNIX_CardInSlotPrivate_STUB.h" />
+    <Node Include="UNIX_CardInSlotPrivate_TRU64.h" />
+    <Node Include="UNIX_CardInSlotPrivate_VMS.h" />
+    <Node Include="UNIX_CardInSlotPrivate_ZOS.h" />
+    <Node Include="UNIX_CardInSlotProvider.h" />
+    <Node Include="UNIX_CardInSlot_AIX.hpp" />
+    <Node Include="UNIX_CardInSlot_AIX.hxx" />
+    <Node Include="UNIX_CardInSlot_DARWIN.hpp" />
+    <Node Include="UNIX_CardInSlot_DARWIN.hxx" />
+    <Node Include="UNIX_CardInSlot_FREEBSD.hpp" />
+    <Node Include="UNIX_CardInSlot_FREEBSD.hxx" />
+    <Node Include="UNIX_CardInSlot_HPUX.hpp" />
+    <Node Include="UNIX_CardInSlot_HPUX.hxx" />
+    <Node Include="UNIX_CardInSlot_LINUX.hpp" />
+    <Node Include="UNIX_CardInSlot_LINUX.hxx" />
+    <Node Include="UNIX_CardInSlot_SOLARIS.hpp" />
+    <Node Include="UNIX_CardInSlot_SOLARIS.hxx" />
+    <Node Include="UNIX_CardInSlot_STUB.hpp" />
+    <Node Include="UNIX_CardInSlot_STUB.hxx" />
+    <Node Include="UNIX_CardInSlot_TRU64.hpp" />
+    <Node Include="UNIX_CardInSlot_TRU64.hxx" />
+    <Node Include="UNIX_CardInSlot_VMS.hpp" />
+    <Node Include="UNIX_CardInSlot_VMS.hxx" />
+    <Node Include="UNIX_CardInSlot_WIN32.hpp" />
+    <Node Include="UNIX_CardInSlot_ZOS.hpp" />
+    <Node Include="UNIX_CardInSlot_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

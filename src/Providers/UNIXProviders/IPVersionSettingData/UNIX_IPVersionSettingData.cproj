@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{301F342A-904D-4DF9-8D93-C8FBE374E248}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_IPVersionSettingDataProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_IPVersionSettingDataLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_IPVersionSettingDataLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_IPVersionSettingDataProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_IPVersionSettingDataLib" -DPROVIDER_LIB_NS="namespace UNIX_IPVersionSettingDataLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_IPVersionSettingData.cpp" />
+    <Compile Include="UNIX_IPVersionSettingDataMain.cpp" />
+    <Compile Include="UNIX_IPVersionSettingDataProvider.cpp" />
+    <Compile Include="UNIX_IPVersionSettingData_AIX.cpp" />
+    <Compile Include="UNIX_IPVersionSettingData_DARWIN.cpp" />
+    <Compile Include="UNIX_IPVersionSettingData_FREEBSD.cpp" />
+    <Compile Include="UNIX_IPVersionSettingData_HPUX.cpp" />
+    <Compile Include="UNIX_IPVersionSettingData_LINUX.cpp" />
+    <Compile Include="UNIX_IPVersionSettingData_SOLARIS.cpp" />
+    <Compile Include="UNIX_IPVersionSettingData_STUB.cpp" />
+    <Compile Include="UNIX_IPVersionSettingData_TRU64.cpp" />
+    <Compile Include="UNIX_IPVersionSettingData_VMS.cpp" />
+    <Compile Include="UNIX_IPVersionSettingData_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_IPVersionSettingData.h" />
+    <Node Include="UNIX_IPVersionSettingDataDeps.h" />
+    <Node Include="UNIX_IPVersionSettingDataDeps_AIX.h" />
+    <Node Include="UNIX_IPVersionSettingDataDeps_DARWIN.h" />
+    <Node Include="UNIX_IPVersionSettingDataDeps_FREEBSD.h" />
+    <Node Include="UNIX_IPVersionSettingDataDeps_HPUX.h" />
+    <Node Include="UNIX_IPVersionSettingDataDeps_LINUX.h" />
+    <Node Include="UNIX_IPVersionSettingDataDeps_SOLARIS.h" />
+    <Node Include="UNIX_IPVersionSettingDataDeps_STUB.h" />
+    <Node Include="UNIX_IPVersionSettingDataDeps_TRU64.h" />
+    <Node Include="UNIX_IPVersionSettingDataDeps_VMS.h" />
+    <Node Include="UNIX_IPVersionSettingDataDeps_ZOS.h" />
+    <Node Include="UNIX_IPVersionSettingDataPrivate.h" />
+    <Node Include="UNIX_IPVersionSettingDataPrivate_AIX.h" />
+    <Node Include="UNIX_IPVersionSettingDataPrivate_DARWIN.h" />
+    <Node Include="UNIX_IPVersionSettingDataPrivate_FREEBSD.h" />
+    <Node Include="UNIX_IPVersionSettingDataPrivate_HPUX.h" />
+    <Node Include="UNIX_IPVersionSettingDataPrivate_LINUX.h" />
+    <Node Include="UNIX_IPVersionSettingDataPrivate_SOLARIS.h" />
+    <Node Include="UNIX_IPVersionSettingDataPrivate_STUB.h" />
+    <Node Include="UNIX_IPVersionSettingDataPrivate_TRU64.h" />
+    <Node Include="UNIX_IPVersionSettingDataPrivate_VMS.h" />
+    <Node Include="UNIX_IPVersionSettingDataPrivate_ZOS.h" />
+    <Node Include="UNIX_IPVersionSettingDataProvider.h" />
+    <Node Include="UNIX_IPVersionSettingData_AIX.hpp" />
+    <Node Include="UNIX_IPVersionSettingData_AIX.hxx" />
+    <Node Include="UNIX_IPVersionSettingData_DARWIN.hpp" />
+    <Node Include="UNIX_IPVersionSettingData_DARWIN.hxx" />
+    <Node Include="UNIX_IPVersionSettingData_FREEBSD.hpp" />
+    <Node Include="UNIX_IPVersionSettingData_FREEBSD.hxx" />
+    <Node Include="UNIX_IPVersionSettingData_HPUX.hpp" />
+    <Node Include="UNIX_IPVersionSettingData_HPUX.hxx" />
+    <Node Include="UNIX_IPVersionSettingData_LINUX.hpp" />
+    <Node Include="UNIX_IPVersionSettingData_LINUX.hxx" />
+    <Node Include="UNIX_IPVersionSettingData_SOLARIS.hpp" />
+    <Node Include="UNIX_IPVersionSettingData_SOLARIS.hxx" />
+    <Node Include="UNIX_IPVersionSettingData_STUB.hpp" />
+    <Node Include="UNIX_IPVersionSettingData_STUB.hxx" />
+    <Node Include="UNIX_IPVersionSettingData_TRU64.hpp" />
+    <Node Include="UNIX_IPVersionSettingData_TRU64.hxx" />
+    <Node Include="UNIX_IPVersionSettingData_VMS.hpp" />
+    <Node Include="UNIX_IPVersionSettingData_VMS.hxx" />
+    <Node Include="UNIX_IPVersionSettingData_WIN32.hpp" />
+    <Node Include="UNIX_IPVersionSettingData_ZOS.hpp" />
+    <Node Include="UNIX_IPVersionSettingData_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

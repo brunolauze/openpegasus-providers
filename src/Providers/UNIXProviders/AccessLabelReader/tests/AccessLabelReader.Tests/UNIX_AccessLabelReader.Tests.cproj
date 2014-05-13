@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>348cb888-7bb9-44df-824a-e8634fb3619e</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../../UNIX_AccessLabelReader.md.pc" name="UNIX_AccessLabelReader" IsProject="True" />
+        <Package file="../../../LabelReader/UNIX_LabelReader.md.pc" name="UNIX_LabelReader" IsProject="True" />
+        <Package file="../../../TapeDrive/UNIX_TapeDrive.md.pc" name="UNIX_TapeDrive" IsProject="True" />
+        <Package file="../../../CDROMDrive/UNIX_CDROMDrive.md.pc" name="UNIX_CDROMDrive" IsProject="True" />
+        <Package file="../../../WORMDrive/UNIX_WORMDrive.md.pc" name="UNIX_WORMDrive" IsProject="True" />
+        <Package file="../../../DiskDrive/UNIX_DiskDrive.md.pc" name="UNIX_DiskDrive" IsProject="True" />
+        <Package file="../../../DVDDrive/UNIX_DVDDrive.md.pc" name="UNIX_DVDDrive" IsProject="True" />
+        <Package file="../../../DisketteDrive/UNIX_DisketteDrive.md.pc" name="UNIX_DisketteDrive" IsProject="True" />
+        <Package file="../../../MagnetoOpticalDrive/UNIX_MagnetoOpticalDrive.md.pc" name="UNIX_MagnetoOpticalDrive" IsProject="True" />
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>TestUNIX_AccessLabelReader</OutputName>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/*</Include>
+        <Include>${ProjectDir}/../../..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AccessLabelReaderLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_AccessLabelReaderLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AccessLabelReaderProvider -lUNIX_LabelReaderProvider -lUNIX_TapeDriveProvider -lUNIX_CDROMDriveProvider -lUNIX_WORMDriveProvider -lUNIX_DiskDriveProvider -lUNIX_DVDDriveProvider -lUNIX_DisketteDriveProvider -lUNIX_MagnetoOpticalDriveProvider</ExtraLinkerArguments>
+    <EnvironmentVariables>
+      <EnvironmentVariables>
+        <Variable name="LD_LIBRARY_PATH" value="../../../../bin/Debug:../../../../../LabelReader/bin/Debug:../../../../../TapeDrive/bin/Debug:../../../../../CDROMDrive/bin/Debug:../../../../../WORMDrive/bin/Debug:../../../../../DiskDrive/bin/Debug:../../../../../DVDDrive/bin/Debug:../../../../../DisketteDrive/bin/Debug:../../../../../MagnetoOpticalDrive/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib" />
+      </EnvironmentVariables>
+    </EnvironmentVariables>
+    <Commandlineparameters></Commandlineparameters>
+    <ConsolePause>false</ConsolePause>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../../bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../LabelReader/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../TapeDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../CDROMDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../WORMDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DiskDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DVDDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../DisketteDrive/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../../../MagnetoOpticalDrive/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>TestUNIX_AccessLabelReader</OutputName>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AccessLabelReaderLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_AccessLabelReaderLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AccessLabelReaderProvider -lUNIX_LabelReaderProvider -lUNIX_TapeDriveProvider -lUNIX_CDROMDriveProvider -lUNIX_WORMDriveProvider -lUNIX_DiskDriveProvider -lUNIX_DVDDriveProvider -lUNIX_DisketteDriveProvider -lUNIX_MagnetoOpticalDriveProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../MockResponseHandler.cpp">
+        <Link>MockResponseHandler.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_AccessLabelReaderFixture.cpp" />
+    <Compile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="RunTestUNIX_AccessLabelReader.sh" />
+    <Node Include="UNIX_AccessLabelReaderFixture.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

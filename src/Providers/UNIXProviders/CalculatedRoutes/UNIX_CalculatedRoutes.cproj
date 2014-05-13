@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C8D2E2E6-D234-414C-9720-57F9E71C0753}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../BGPService/UNIX_BGPService.md.pc" name="UNIX_BGPService" IsProject="True" />
+        <Package file="../OSPFService/UNIX_OSPFService.md.pc" name="UNIX_OSPFService" IsProject="True" />
+        <Package file="../IPRoute/UNIX_IPRoute.md.pc" name="UNIX_IPRoute" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../BGPService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OSPFService/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../IPRoute/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_CalculatedRoutesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_CalculatedRoutesLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_CalculatedRoutesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_BGPServiceProvider -lUNIX_OSPFServiceProvider -lUNIX_IPRouteProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_CalculatedRoutesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_CalculatedRoutesLib" -DPROVIDER_LIB_NS="namespace UNIX_CalculatedRoutesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_BGPServiceProvider -lUNIX_OSPFServiceProvider -lUNIX_IPRouteProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_CalculatedRoutes.cpp" />
+    <Compile Include="UNIX_CalculatedRoutesMain.cpp" />
+    <Compile Include="UNIX_CalculatedRoutesProvider.cpp" />
+    <Compile Include="UNIX_CalculatedRoutes_AIX.cpp" />
+    <Compile Include="UNIX_CalculatedRoutes_DARWIN.cpp" />
+    <Compile Include="UNIX_CalculatedRoutes_FREEBSD.cpp" />
+    <Compile Include="UNIX_CalculatedRoutes_HPUX.cpp" />
+    <Compile Include="UNIX_CalculatedRoutes_LINUX.cpp" />
+    <Compile Include="UNIX_CalculatedRoutes_SOLARIS.cpp" />
+    <Compile Include="UNIX_CalculatedRoutes_STUB.cpp" />
+    <Compile Include="UNIX_CalculatedRoutes_TRU64.cpp" />
+    <Compile Include="UNIX_CalculatedRoutes_VMS.cpp" />
+    <Compile Include="UNIX_CalculatedRoutes_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_CalculatedRoutes.h" />
+    <Node Include="UNIX_CalculatedRoutesDeps.h" />
+    <Node Include="UNIX_CalculatedRoutesDeps_AIX.h" />
+    <Node Include="UNIX_CalculatedRoutesDeps_DARWIN.h" />
+    <Node Include="UNIX_CalculatedRoutesDeps_FREEBSD.h" />
+    <Node Include="UNIX_CalculatedRoutesDeps_HPUX.h" />
+    <Node Include="UNIX_CalculatedRoutesDeps_LINUX.h" />
+    <Node Include="UNIX_CalculatedRoutesDeps_SOLARIS.h" />
+    <Node Include="UNIX_CalculatedRoutesDeps_STUB.h" />
+    <Node Include="UNIX_CalculatedRoutesDeps_TRU64.h" />
+    <Node Include="UNIX_CalculatedRoutesDeps_VMS.h" />
+    <Node Include="UNIX_CalculatedRoutesDeps_ZOS.h" />
+    <Node Include="UNIX_CalculatedRoutesPrivate.h" />
+    <Node Include="UNIX_CalculatedRoutesPrivate_AIX.h" />
+    <Node Include="UNIX_CalculatedRoutesPrivate_DARWIN.h" />
+    <Node Include="UNIX_CalculatedRoutesPrivate_FREEBSD.h" />
+    <Node Include="UNIX_CalculatedRoutesPrivate_HPUX.h" />
+    <Node Include="UNIX_CalculatedRoutesPrivate_LINUX.h" />
+    <Node Include="UNIX_CalculatedRoutesPrivate_SOLARIS.h" />
+    <Node Include="UNIX_CalculatedRoutesPrivate_STUB.h" />
+    <Node Include="UNIX_CalculatedRoutesPrivate_TRU64.h" />
+    <Node Include="UNIX_CalculatedRoutesPrivate_VMS.h" />
+    <Node Include="UNIX_CalculatedRoutesPrivate_ZOS.h" />
+    <Node Include="UNIX_CalculatedRoutesProvider.h" />
+    <Node Include="UNIX_CalculatedRoutes_AIX.hpp" />
+    <Node Include="UNIX_CalculatedRoutes_AIX.hxx" />
+    <Node Include="UNIX_CalculatedRoutes_DARWIN.hpp" />
+    <Node Include="UNIX_CalculatedRoutes_DARWIN.hxx" />
+    <Node Include="UNIX_CalculatedRoutes_FREEBSD.hpp" />
+    <Node Include="UNIX_CalculatedRoutes_FREEBSD.hxx" />
+    <Node Include="UNIX_CalculatedRoutes_HPUX.hpp" />
+    <Node Include="UNIX_CalculatedRoutes_HPUX.hxx" />
+    <Node Include="UNIX_CalculatedRoutes_LINUX.hpp" />
+    <Node Include="UNIX_CalculatedRoutes_LINUX.hxx" />
+    <Node Include="UNIX_CalculatedRoutes_SOLARIS.hpp" />
+    <Node Include="UNIX_CalculatedRoutes_SOLARIS.hxx" />
+    <Node Include="UNIX_CalculatedRoutes_STUB.hpp" />
+    <Node Include="UNIX_CalculatedRoutes_STUB.hxx" />
+    <Node Include="UNIX_CalculatedRoutes_TRU64.hpp" />
+    <Node Include="UNIX_CalculatedRoutes_TRU64.hxx" />
+    <Node Include="UNIX_CalculatedRoutes_VMS.hpp" />
+    <Node Include="UNIX_CalculatedRoutes_VMS.hxx" />
+    <Node Include="UNIX_CalculatedRoutes_WIN32.hpp" />
+    <Node Include="UNIX_CalculatedRoutes_ZOS.hpp" />
+    <Node Include="UNIX_CalculatedRoutes_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

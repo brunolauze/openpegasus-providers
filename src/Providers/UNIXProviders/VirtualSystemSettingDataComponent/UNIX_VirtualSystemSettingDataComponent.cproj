@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7D20C47A-79E0-4D8A-B28A-933C97F8B993}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../VirtualSystemSettingData/UNIX_VirtualSystemSettingData.md.pc" name="UNIX_VirtualSystemSettingData" IsProject="True" />
+        <Package file="../StorageAllocationSettingData/UNIX_StorageAllocationSettingData.md.pc" name="UNIX_StorageAllocationSettingData" IsProject="True" />
+        <Package file="../ProcessorAllocationSettingData/UNIX_ProcessorAllocationSettingData.md.pc" name="UNIX_ProcessorAllocationSettingData" IsProject="True" />
+        <Package file="../EthernetPortAllocationSettingData/UNIX_EthernetPortAllocationSettingData.md.pc" name="UNIX_EthernetPortAllocationSettingData" IsProject="True" />
+        <Package file="../PowerAllocationSettingData/UNIX_PowerAllocationSettingData.md.pc" name="UNIX_PowerAllocationSettingData" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../VirtualSystemSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../StorageAllocationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ProcessorAllocationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../EthernetPortAllocationSettingData/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../PowerAllocationSettingData/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_VirtualSystemSettingDataComponentProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_VirtualSystemSettingDataComponentLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_VirtualSystemSettingDataComponentLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualSystemSettingDataProvider -lUNIX_StorageAllocationSettingDataProvider -lUNIX_ProcessorAllocationSettingDataProvider -lUNIX_EthernetPortAllocationSettingDataProvider -lUNIX_PowerAllocationSettingDataProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_VirtualSystemSettingDataComponentProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_VirtualSystemSettingDataComponentLib" -DPROVIDER_LIB_NS="namespace UNIX_VirtualSystemSettingDataComponentLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VirtualSystemSettingDataProvider -lUNIX_StorageAllocationSettingDataProvider -lUNIX_ProcessorAllocationSettingDataProvider -lUNIX_EthernetPortAllocationSettingDataProvider -lUNIX_PowerAllocationSettingDataProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_VirtualSystemSettingDataComponent.cpp" />
+    <Compile Include="UNIX_VirtualSystemSettingDataComponentMain.cpp" />
+    <Compile Include="UNIX_VirtualSystemSettingDataComponentProvider.cpp" />
+    <Compile Include="UNIX_VirtualSystemSettingDataComponent_AIX.cpp" />
+    <Compile Include="UNIX_VirtualSystemSettingDataComponent_DARWIN.cpp" />
+    <Compile Include="UNIX_VirtualSystemSettingDataComponent_FREEBSD.cpp" />
+    <Compile Include="UNIX_VirtualSystemSettingDataComponent_HPUX.cpp" />
+    <Compile Include="UNIX_VirtualSystemSettingDataComponent_LINUX.cpp" />
+    <Compile Include="UNIX_VirtualSystemSettingDataComponent_SOLARIS.cpp" />
+    <Compile Include="UNIX_VirtualSystemSettingDataComponent_STUB.cpp" />
+    <Compile Include="UNIX_VirtualSystemSettingDataComponent_TRU64.cpp" />
+    <Compile Include="UNIX_VirtualSystemSettingDataComponent_VMS.cpp" />
+    <Compile Include="UNIX_VirtualSystemSettingDataComponent_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentDeps.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentDeps_AIX.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentDeps_DARWIN.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentDeps_FREEBSD.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentDeps_HPUX.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentDeps_LINUX.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentDeps_SOLARIS.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentDeps_STUB.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentDeps_TRU64.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentDeps_VMS.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentDeps_ZOS.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentPrivate.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentPrivate_AIX.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentPrivate_DARWIN.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentPrivate_FREEBSD.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentPrivate_HPUX.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentPrivate_LINUX.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentPrivate_SOLARIS.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentPrivate_STUB.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentPrivate_TRU64.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentPrivate_VMS.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentPrivate_ZOS.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponentProvider.h" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_AIX.hpp" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_AIX.hxx" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_DARWIN.hpp" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_DARWIN.hxx" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_FREEBSD.hpp" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_FREEBSD.hxx" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_HPUX.hpp" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_HPUX.hxx" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_LINUX.hpp" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_LINUX.hxx" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_SOLARIS.hpp" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_SOLARIS.hxx" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_STUB.hpp" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_STUB.hxx" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_TRU64.hpp" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_TRU64.hxx" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_VMS.hpp" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_VMS.hxx" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_WIN32.hpp" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_ZOS.hpp" />
+    <Node Include="UNIX_VirtualSystemSettingDataComponent_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

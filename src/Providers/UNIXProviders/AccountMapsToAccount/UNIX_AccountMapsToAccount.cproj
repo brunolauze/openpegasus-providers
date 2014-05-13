@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{265DEDE0-7CC5-412C-9B9D-6E719F520B85}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../Account/UNIX_Account.md.pc" name="UNIX_Account" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../Account/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_AccountMapsToAccountProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AccountMapsToAccountLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_AccountMapsToAccountLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AccountProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_AccountMapsToAccountProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_AccountMapsToAccountLib" -DPROVIDER_LIB_NS="namespace UNIX_AccountMapsToAccountLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_AccountProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_AccountMapsToAccount.cpp" />
+    <Compile Include="UNIX_AccountMapsToAccountMain.cpp" />
+    <Compile Include="UNIX_AccountMapsToAccountProvider.cpp" />
+    <Compile Include="UNIX_AccountMapsToAccount_AIX.cpp" />
+    <Compile Include="UNIX_AccountMapsToAccount_DARWIN.cpp" />
+    <Compile Include="UNIX_AccountMapsToAccount_FREEBSD.cpp" />
+    <Compile Include="UNIX_AccountMapsToAccount_HPUX.cpp" />
+    <Compile Include="UNIX_AccountMapsToAccount_LINUX.cpp" />
+    <Compile Include="UNIX_AccountMapsToAccount_SOLARIS.cpp" />
+    <Compile Include="UNIX_AccountMapsToAccount_STUB.cpp" />
+    <Compile Include="UNIX_AccountMapsToAccount_TRU64.cpp" />
+    <Compile Include="UNIX_AccountMapsToAccount_VMS.cpp" />
+    <Compile Include="UNIX_AccountMapsToAccount_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_AccountMapsToAccount.h" />
+    <Node Include="UNIX_AccountMapsToAccountDeps.h" />
+    <Node Include="UNIX_AccountMapsToAccountDeps_AIX.h" />
+    <Node Include="UNIX_AccountMapsToAccountDeps_DARWIN.h" />
+    <Node Include="UNIX_AccountMapsToAccountDeps_FREEBSD.h" />
+    <Node Include="UNIX_AccountMapsToAccountDeps_HPUX.h" />
+    <Node Include="UNIX_AccountMapsToAccountDeps_LINUX.h" />
+    <Node Include="UNIX_AccountMapsToAccountDeps_SOLARIS.h" />
+    <Node Include="UNIX_AccountMapsToAccountDeps_STUB.h" />
+    <Node Include="UNIX_AccountMapsToAccountDeps_TRU64.h" />
+    <Node Include="UNIX_AccountMapsToAccountDeps_VMS.h" />
+    <Node Include="UNIX_AccountMapsToAccountDeps_ZOS.h" />
+    <Node Include="UNIX_AccountMapsToAccountPrivate.h" />
+    <Node Include="UNIX_AccountMapsToAccountPrivate_AIX.h" />
+    <Node Include="UNIX_AccountMapsToAccountPrivate_DARWIN.h" />
+    <Node Include="UNIX_AccountMapsToAccountPrivate_FREEBSD.h" />
+    <Node Include="UNIX_AccountMapsToAccountPrivate_HPUX.h" />
+    <Node Include="UNIX_AccountMapsToAccountPrivate_LINUX.h" />
+    <Node Include="UNIX_AccountMapsToAccountPrivate_SOLARIS.h" />
+    <Node Include="UNIX_AccountMapsToAccountPrivate_STUB.h" />
+    <Node Include="UNIX_AccountMapsToAccountPrivate_TRU64.h" />
+    <Node Include="UNIX_AccountMapsToAccountPrivate_VMS.h" />
+    <Node Include="UNIX_AccountMapsToAccountPrivate_ZOS.h" />
+    <Node Include="UNIX_AccountMapsToAccountProvider.h" />
+    <Node Include="UNIX_AccountMapsToAccount_AIX.hpp" />
+    <Node Include="UNIX_AccountMapsToAccount_AIX.hxx" />
+    <Node Include="UNIX_AccountMapsToAccount_DARWIN.hpp" />
+    <Node Include="UNIX_AccountMapsToAccount_DARWIN.hxx" />
+    <Node Include="UNIX_AccountMapsToAccount_FREEBSD.hpp" />
+    <Node Include="UNIX_AccountMapsToAccount_FREEBSD.hxx" />
+    <Node Include="UNIX_AccountMapsToAccount_HPUX.hpp" />
+    <Node Include="UNIX_AccountMapsToAccount_HPUX.hxx" />
+    <Node Include="UNIX_AccountMapsToAccount_LINUX.hpp" />
+    <Node Include="UNIX_AccountMapsToAccount_LINUX.hxx" />
+    <Node Include="UNIX_AccountMapsToAccount_SOLARIS.hpp" />
+    <Node Include="UNIX_AccountMapsToAccount_SOLARIS.hxx" />
+    <Node Include="UNIX_AccountMapsToAccount_STUB.hpp" />
+    <Node Include="UNIX_AccountMapsToAccount_STUB.hxx" />
+    <Node Include="UNIX_AccountMapsToAccount_TRU64.hpp" />
+    <Node Include="UNIX_AccountMapsToAccount_TRU64.hxx" />
+    <Node Include="UNIX_AccountMapsToAccount_VMS.hpp" />
+    <Node Include="UNIX_AccountMapsToAccount_VMS.hxx" />
+    <Node Include="UNIX_AccountMapsToAccount_WIN32.hpp" />
+    <Node Include="UNIX_AccountMapsToAccount_ZOS.hpp" />
+    <Node Include="UNIX_AccountMapsToAccount_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

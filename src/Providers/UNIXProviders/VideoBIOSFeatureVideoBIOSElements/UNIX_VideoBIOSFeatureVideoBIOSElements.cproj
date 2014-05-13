@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0BA45D8F-379F-4E98-8EF3-423CF31D319B}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../VideoBIOSFeature/UNIX_VideoBIOSFeature.md.pc" name="UNIX_VideoBIOSFeature" IsProject="True" />
+        <Package file="../VideoBIOSElement/UNIX_VideoBIOSElement.md.pc" name="UNIX_VideoBIOSElement" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../VideoBIOSFeature/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../VideoBIOSElement/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_VideoBIOSFeatureVideoBIOSElementsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_VideoBIOSFeatureVideoBIOSElementsLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_VideoBIOSFeatureVideoBIOSElementsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VideoBIOSFeatureProvider -lUNIX_VideoBIOSElementProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_VideoBIOSFeatureVideoBIOSElementsProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_VideoBIOSFeatureVideoBIOSElementsLib" -DPROVIDER_LIB_NS="namespace UNIX_VideoBIOSFeatureVideoBIOSElementsLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_VideoBIOSFeatureProvider -lUNIX_VideoBIOSElementProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_VideoBIOSFeatureVideoBIOSElements.cpp" />
+    <Compile Include="UNIX_VideoBIOSFeatureVideoBIOSElementsMain.cpp" />
+    <Compile Include="UNIX_VideoBIOSFeatureVideoBIOSElementsProvider.cpp" />
+    <Compile Include="UNIX_VideoBIOSFeatureVideoBIOSElements_AIX.cpp" />
+    <Compile Include="UNIX_VideoBIOSFeatureVideoBIOSElements_DARWIN.cpp" />
+    <Compile Include="UNIX_VideoBIOSFeatureVideoBIOSElements_FREEBSD.cpp" />
+    <Compile Include="UNIX_VideoBIOSFeatureVideoBIOSElements_HPUX.cpp" />
+    <Compile Include="UNIX_VideoBIOSFeatureVideoBIOSElements_LINUX.cpp" />
+    <Compile Include="UNIX_VideoBIOSFeatureVideoBIOSElements_SOLARIS.cpp" />
+    <Compile Include="UNIX_VideoBIOSFeatureVideoBIOSElements_STUB.cpp" />
+    <Compile Include="UNIX_VideoBIOSFeatureVideoBIOSElements_TRU64.cpp" />
+    <Compile Include="UNIX_VideoBIOSFeatureVideoBIOSElements_VMS.cpp" />
+    <Compile Include="UNIX_VideoBIOSFeatureVideoBIOSElements_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsDeps.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsDeps_AIX.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsDeps_DARWIN.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsDeps_FREEBSD.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsDeps_HPUX.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsDeps_LINUX.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsDeps_SOLARIS.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsDeps_STUB.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsDeps_TRU64.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsDeps_VMS.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsDeps_ZOS.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsPrivate.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsPrivate_AIX.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsPrivate_DARWIN.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsPrivate_FREEBSD.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsPrivate_HPUX.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsPrivate_LINUX.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsPrivate_SOLARIS.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsPrivate_STUB.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsPrivate_TRU64.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsPrivate_VMS.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsPrivate_ZOS.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElementsProvider.h" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_AIX.hpp" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_AIX.hxx" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_DARWIN.hpp" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_DARWIN.hxx" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_FREEBSD.hpp" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_FREEBSD.hxx" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_HPUX.hpp" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_HPUX.hxx" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_LINUX.hpp" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_LINUX.hxx" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_SOLARIS.hpp" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_SOLARIS.hxx" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_STUB.hpp" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_STUB.hxx" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_TRU64.hpp" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_TRU64.hxx" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_VMS.hpp" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_VMS.hxx" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_WIN32.hpp" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_ZOS.hpp" />
+    <Node Include="UNIX_VideoBIOSFeatureVideoBIOSElements_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

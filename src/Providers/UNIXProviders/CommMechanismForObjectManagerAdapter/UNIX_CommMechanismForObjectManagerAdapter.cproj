@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{87106944-47F5-4B14-B81E-103BB51F57E6}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ObjectManagerAdapter/UNIX_ObjectManagerAdapter.md.pc" name="UNIX_ObjectManagerAdapter" IsProject="True" />
+        <Package file="../ObjectManagerCommunicationMechanism/UNIX_ObjectManagerCommunicationMechanism.md.pc" name="UNIX_ObjectManagerCommunicationMechanism" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ObjectManagerAdapter/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ObjectManagerCommunicationMechanism/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_CommMechanismForObjectManagerAdapterProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_CommMechanismForObjectManagerAdapterLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_CommMechanismForObjectManagerAdapterLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ObjectManagerAdapterProvider -lUNIX_ObjectManagerCommunicationMechanismProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_CommMechanismForObjectManagerAdapterProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_CommMechanismForObjectManagerAdapterLib" -DPROVIDER_LIB_NS="namespace UNIX_CommMechanismForObjectManagerAdapterLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ObjectManagerAdapterProvider -lUNIX_ObjectManagerCommunicationMechanismProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_CommMechanismForObjectManagerAdapter.cpp" />
+    <Compile Include="UNIX_CommMechanismForObjectManagerAdapterMain.cpp" />
+    <Compile Include="UNIX_CommMechanismForObjectManagerAdapterProvider.cpp" />
+    <Compile Include="UNIX_CommMechanismForObjectManagerAdapter_AIX.cpp" />
+    <Compile Include="UNIX_CommMechanismForObjectManagerAdapter_DARWIN.cpp" />
+    <Compile Include="UNIX_CommMechanismForObjectManagerAdapter_FREEBSD.cpp" />
+    <Compile Include="UNIX_CommMechanismForObjectManagerAdapter_HPUX.cpp" />
+    <Compile Include="UNIX_CommMechanismForObjectManagerAdapter_LINUX.cpp" />
+    <Compile Include="UNIX_CommMechanismForObjectManagerAdapter_SOLARIS.cpp" />
+    <Compile Include="UNIX_CommMechanismForObjectManagerAdapter_STUB.cpp" />
+    <Compile Include="UNIX_CommMechanismForObjectManagerAdapter_TRU64.cpp" />
+    <Compile Include="UNIX_CommMechanismForObjectManagerAdapter_VMS.cpp" />
+    <Compile Include="UNIX_CommMechanismForObjectManagerAdapter_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterDeps.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterDeps_AIX.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterDeps_DARWIN.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterDeps_FREEBSD.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterDeps_HPUX.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterDeps_LINUX.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterDeps_SOLARIS.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterDeps_STUB.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterDeps_TRU64.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterDeps_VMS.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterDeps_ZOS.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterPrivate.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterPrivate_AIX.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterPrivate_DARWIN.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterPrivate_FREEBSD.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterPrivate_HPUX.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterPrivate_LINUX.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterPrivate_SOLARIS.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterPrivate_STUB.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterPrivate_TRU64.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterPrivate_VMS.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterPrivate_ZOS.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapterProvider.h" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_AIX.hpp" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_AIX.hxx" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_DARWIN.hpp" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_DARWIN.hxx" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_FREEBSD.hpp" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_FREEBSD.hxx" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_HPUX.hpp" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_HPUX.hxx" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_LINUX.hpp" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_LINUX.hxx" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_SOLARIS.hpp" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_SOLARIS.hxx" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_STUB.hpp" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_STUB.hxx" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_TRU64.hpp" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_TRU64.hxx" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_VMS.hpp" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_VMS.hxx" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_WIN32.hpp" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_ZOS.hpp" />
+    <Node Include="UNIX_CommMechanismForObjectManagerAdapter_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

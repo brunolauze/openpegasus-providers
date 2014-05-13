@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8EDF2B29-C7B4-4B54-A380-A473EAFC325A}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../FilterList/UNIX_FilterList.md.pc" name="UNIX_FilterList" IsProject="True" />
+        <Package file="../ClassifierService/UNIX_ClassifierService.md.pc" name="UNIX_ClassifierService" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../FilterList/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../ClassifierService/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_ClassifierFilterSetProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ClassifierFilterSetLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_ClassifierFilterSetLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_FilterListProvider -lUNIX_ClassifierServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_ClassifierFilterSetProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_ClassifierFilterSetLib" -DPROVIDER_LIB_NS="namespace UNIX_ClassifierFilterSetLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_FilterListProvider -lUNIX_ClassifierServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_ClassifierFilterSet.cpp" />
+    <Compile Include="UNIX_ClassifierFilterSetMain.cpp" />
+    <Compile Include="UNIX_ClassifierFilterSetProvider.cpp" />
+    <Compile Include="UNIX_ClassifierFilterSet_AIX.cpp" />
+    <Compile Include="UNIX_ClassifierFilterSet_DARWIN.cpp" />
+    <Compile Include="UNIX_ClassifierFilterSet_FREEBSD.cpp" />
+    <Compile Include="UNIX_ClassifierFilterSet_HPUX.cpp" />
+    <Compile Include="UNIX_ClassifierFilterSet_LINUX.cpp" />
+    <Compile Include="UNIX_ClassifierFilterSet_SOLARIS.cpp" />
+    <Compile Include="UNIX_ClassifierFilterSet_STUB.cpp" />
+    <Compile Include="UNIX_ClassifierFilterSet_TRU64.cpp" />
+    <Compile Include="UNIX_ClassifierFilterSet_VMS.cpp" />
+    <Compile Include="UNIX_ClassifierFilterSet_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_ClassifierFilterSet.h" />
+    <Node Include="UNIX_ClassifierFilterSetDeps.h" />
+    <Node Include="UNIX_ClassifierFilterSetDeps_AIX.h" />
+    <Node Include="UNIX_ClassifierFilterSetDeps_DARWIN.h" />
+    <Node Include="UNIX_ClassifierFilterSetDeps_FREEBSD.h" />
+    <Node Include="UNIX_ClassifierFilterSetDeps_HPUX.h" />
+    <Node Include="UNIX_ClassifierFilterSetDeps_LINUX.h" />
+    <Node Include="UNIX_ClassifierFilterSetDeps_SOLARIS.h" />
+    <Node Include="UNIX_ClassifierFilterSetDeps_STUB.h" />
+    <Node Include="UNIX_ClassifierFilterSetDeps_TRU64.h" />
+    <Node Include="UNIX_ClassifierFilterSetDeps_VMS.h" />
+    <Node Include="UNIX_ClassifierFilterSetDeps_ZOS.h" />
+    <Node Include="UNIX_ClassifierFilterSetPrivate.h" />
+    <Node Include="UNIX_ClassifierFilterSetPrivate_AIX.h" />
+    <Node Include="UNIX_ClassifierFilterSetPrivate_DARWIN.h" />
+    <Node Include="UNIX_ClassifierFilterSetPrivate_FREEBSD.h" />
+    <Node Include="UNIX_ClassifierFilterSetPrivate_HPUX.h" />
+    <Node Include="UNIX_ClassifierFilterSetPrivate_LINUX.h" />
+    <Node Include="UNIX_ClassifierFilterSetPrivate_SOLARIS.h" />
+    <Node Include="UNIX_ClassifierFilterSetPrivate_STUB.h" />
+    <Node Include="UNIX_ClassifierFilterSetPrivate_TRU64.h" />
+    <Node Include="UNIX_ClassifierFilterSetPrivate_VMS.h" />
+    <Node Include="UNIX_ClassifierFilterSetPrivate_ZOS.h" />
+    <Node Include="UNIX_ClassifierFilterSetProvider.h" />
+    <Node Include="UNIX_ClassifierFilterSet_AIX.hpp" />
+    <Node Include="UNIX_ClassifierFilterSet_AIX.hxx" />
+    <Node Include="UNIX_ClassifierFilterSet_DARWIN.hpp" />
+    <Node Include="UNIX_ClassifierFilterSet_DARWIN.hxx" />
+    <Node Include="UNIX_ClassifierFilterSet_FREEBSD.hpp" />
+    <Node Include="UNIX_ClassifierFilterSet_FREEBSD.hxx" />
+    <Node Include="UNIX_ClassifierFilterSet_HPUX.hpp" />
+    <Node Include="UNIX_ClassifierFilterSet_HPUX.hxx" />
+    <Node Include="UNIX_ClassifierFilterSet_LINUX.hpp" />
+    <Node Include="UNIX_ClassifierFilterSet_LINUX.hxx" />
+    <Node Include="UNIX_ClassifierFilterSet_SOLARIS.hpp" />
+    <Node Include="UNIX_ClassifierFilterSet_SOLARIS.hxx" />
+    <Node Include="UNIX_ClassifierFilterSet_STUB.hpp" />
+    <Node Include="UNIX_ClassifierFilterSet_STUB.hxx" />
+    <Node Include="UNIX_ClassifierFilterSet_TRU64.hpp" />
+    <Node Include="UNIX_ClassifierFilterSet_TRU64.hxx" />
+    <Node Include="UNIX_ClassifierFilterSet_VMS.hpp" />
+    <Node Include="UNIX_ClassifierFilterSet_VMS.hxx" />
+    <Node Include="UNIX_ClassifierFilterSet_WIN32.hpp" />
+    <Node Include="UNIX_ClassifierFilterSet_ZOS.hpp" />
+    <Node Include="UNIX_ClassifierFilterSet_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

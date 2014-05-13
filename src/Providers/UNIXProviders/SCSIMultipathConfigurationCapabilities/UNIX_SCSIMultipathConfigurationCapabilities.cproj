@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E2B85D9-86EE-4235-A8F5-E9B2ED20987D}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_SCSIMultipathConfigurationCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SCSIMultipathConfigurationCapabilitiesLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_SCSIMultipathConfigurationCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_SCSIMultipathConfigurationCapabilitiesProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_SCSIMultipathConfigurationCapabilitiesLib" -DPROVIDER_LIB_NS="namespace UNIX_SCSIMultipathConfigurationCapabilitiesLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_SCSIMultipathConfigurationCapabilities.cpp" />
+    <Compile Include="UNIX_SCSIMultipathConfigurationCapabilitiesMain.cpp" />
+    <Compile Include="UNIX_SCSIMultipathConfigurationCapabilitiesProvider.cpp" />
+    <Compile Include="UNIX_SCSIMultipathConfigurationCapabilities_AIX.cpp" />
+    <Compile Include="UNIX_SCSIMultipathConfigurationCapabilities_DARWIN.cpp" />
+    <Compile Include="UNIX_SCSIMultipathConfigurationCapabilities_FREEBSD.cpp" />
+    <Compile Include="UNIX_SCSIMultipathConfigurationCapabilities_HPUX.cpp" />
+    <Compile Include="UNIX_SCSIMultipathConfigurationCapabilities_LINUX.cpp" />
+    <Compile Include="UNIX_SCSIMultipathConfigurationCapabilities_SOLARIS.cpp" />
+    <Compile Include="UNIX_SCSIMultipathConfigurationCapabilities_STUB.cpp" />
+    <Compile Include="UNIX_SCSIMultipathConfigurationCapabilities_TRU64.cpp" />
+    <Compile Include="UNIX_SCSIMultipathConfigurationCapabilities_VMS.cpp" />
+    <Compile Include="UNIX_SCSIMultipathConfigurationCapabilities_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesDeps.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesDeps_AIX.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesDeps_DARWIN.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesDeps_FREEBSD.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesDeps_HPUX.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesDeps_LINUX.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesDeps_SOLARIS.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesDeps_STUB.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesDeps_TRU64.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesDeps_VMS.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesDeps_ZOS.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesPrivate.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesPrivate_AIX.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesPrivate_DARWIN.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesPrivate_FREEBSD.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesPrivate_HPUX.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesPrivate_LINUX.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesPrivate_SOLARIS.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesPrivate_STUB.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesPrivate_TRU64.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesPrivate_VMS.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesPrivate_ZOS.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilitiesProvider.h" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_AIX.hpp" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_AIX.hxx" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_DARWIN.hpp" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_DARWIN.hxx" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_FREEBSD.hpp" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_FREEBSD.hxx" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_HPUX.hpp" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_HPUX.hxx" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_LINUX.hpp" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_LINUX.hxx" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_SOLARIS.hpp" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_SOLARIS.hxx" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_STUB.hpp" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_STUB.hxx" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_TRU64.hpp" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_TRU64.hxx" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_VMS.hpp" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_VMS.hxx" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_WIN32.hpp" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_ZOS.hpp" />
+    <Node Include="UNIX_SCSIMultipathConfigurationCapabilities_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

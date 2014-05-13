@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01CAB047-5828-44D4-A461-112AC6112F22}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../JobQueue/UNIX_JobQueue.md.pc" name="UNIX_JobQueue" IsProject="True" />
+        <Package file="../BatchService/UNIX_BatchService.md.pc" name="UNIX_BatchService" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../JobQueue/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../BatchService/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_QueueForBatchServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_QueueForBatchServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_QueueForBatchServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_JobQueueProvider -lUNIX_BatchServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_QueueForBatchServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_QueueForBatchServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_QueueForBatchServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_JobQueueProvider -lUNIX_BatchServiceProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_QueueForBatchService.cpp" />
+    <Compile Include="UNIX_QueueForBatchServiceMain.cpp" />
+    <Compile Include="UNIX_QueueForBatchServiceProvider.cpp" />
+    <Compile Include="UNIX_QueueForBatchService_AIX.cpp" />
+    <Compile Include="UNIX_QueueForBatchService_DARWIN.cpp" />
+    <Compile Include="UNIX_QueueForBatchService_FREEBSD.cpp" />
+    <Compile Include="UNIX_QueueForBatchService_HPUX.cpp" />
+    <Compile Include="UNIX_QueueForBatchService_LINUX.cpp" />
+    <Compile Include="UNIX_QueueForBatchService_SOLARIS.cpp" />
+    <Compile Include="UNIX_QueueForBatchService_STUB.cpp" />
+    <Compile Include="UNIX_QueueForBatchService_TRU64.cpp" />
+    <Compile Include="UNIX_QueueForBatchService_VMS.cpp" />
+    <Compile Include="UNIX_QueueForBatchService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_QueueForBatchService.h" />
+    <Node Include="UNIX_QueueForBatchServiceDeps.h" />
+    <Node Include="UNIX_QueueForBatchServiceDeps_AIX.h" />
+    <Node Include="UNIX_QueueForBatchServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_QueueForBatchServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_QueueForBatchServiceDeps_HPUX.h" />
+    <Node Include="UNIX_QueueForBatchServiceDeps_LINUX.h" />
+    <Node Include="UNIX_QueueForBatchServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_QueueForBatchServiceDeps_STUB.h" />
+    <Node Include="UNIX_QueueForBatchServiceDeps_TRU64.h" />
+    <Node Include="UNIX_QueueForBatchServiceDeps_VMS.h" />
+    <Node Include="UNIX_QueueForBatchServiceDeps_ZOS.h" />
+    <Node Include="UNIX_QueueForBatchServicePrivate.h" />
+    <Node Include="UNIX_QueueForBatchServicePrivate_AIX.h" />
+    <Node Include="UNIX_QueueForBatchServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_QueueForBatchServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_QueueForBatchServicePrivate_HPUX.h" />
+    <Node Include="UNIX_QueueForBatchServicePrivate_LINUX.h" />
+    <Node Include="UNIX_QueueForBatchServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_QueueForBatchServicePrivate_STUB.h" />
+    <Node Include="UNIX_QueueForBatchServicePrivate_TRU64.h" />
+    <Node Include="UNIX_QueueForBatchServicePrivate_VMS.h" />
+    <Node Include="UNIX_QueueForBatchServicePrivate_ZOS.h" />
+    <Node Include="UNIX_QueueForBatchServiceProvider.h" />
+    <Node Include="UNIX_QueueForBatchService_AIX.hpp" />
+    <Node Include="UNIX_QueueForBatchService_AIX.hxx" />
+    <Node Include="UNIX_QueueForBatchService_DARWIN.hpp" />
+    <Node Include="UNIX_QueueForBatchService_DARWIN.hxx" />
+    <Node Include="UNIX_QueueForBatchService_FREEBSD.hpp" />
+    <Node Include="UNIX_QueueForBatchService_FREEBSD.hxx" />
+    <Node Include="UNIX_QueueForBatchService_HPUX.hpp" />
+    <Node Include="UNIX_QueueForBatchService_HPUX.hxx" />
+    <Node Include="UNIX_QueueForBatchService_LINUX.hpp" />
+    <Node Include="UNIX_QueueForBatchService_LINUX.hxx" />
+    <Node Include="UNIX_QueueForBatchService_SOLARIS.hpp" />
+    <Node Include="UNIX_QueueForBatchService_SOLARIS.hxx" />
+    <Node Include="UNIX_QueueForBatchService_STUB.hpp" />
+    <Node Include="UNIX_QueueForBatchService_STUB.hxx" />
+    <Node Include="UNIX_QueueForBatchService_TRU64.hpp" />
+    <Node Include="UNIX_QueueForBatchService_TRU64.hxx" />
+    <Node Include="UNIX_QueueForBatchService_VMS.hpp" />
+    <Node Include="UNIX_QueueForBatchService_VMS.hxx" />
+    <Node Include="UNIX_QueueForBatchService_WIN32.hpp" />
+    <Node Include="UNIX_QueueForBatchService_ZOS.hpp" />
+    <Node Include="UNIX_QueueForBatchService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

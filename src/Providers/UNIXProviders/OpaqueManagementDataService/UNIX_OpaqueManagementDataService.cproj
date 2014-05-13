@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{69E13110-0EA4-417E-91A8-F26A2F8A4F44}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="ClangppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+    <Packages>
+      <Packages>
+        <Package file="../ConcreteJob/UNIX_ConcreteJob.md.pc" name="UNIX_ConcreteJob" IsProject="True" />
+        <Package file="../OpaqueManagementData/UNIX_OpaqueManagementData.md.pc" name="UNIX_OpaqueManagementData" IsProject="True" />
+      </Packages>
+    </Packages>
+    <LibPaths>
+      <LibPaths>
+        <LibPath>${ProjectDir}/../ConcreteJob/bin/Debug</LibPath>
+        <LibPath>${ProjectDir}/../OpaqueManagementData/bin/Debug</LibPath>
+    </LibPaths>
+    </LibPaths>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <OutputName>UNIX_OpaqueManagementDataServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <Includes>
+      <Includes>
+        <Include>/usr/local/include</Include>
+        <Include>${ProjectDir}</Include>
+        <Include>${ProjectDir}/..</Include>
+      </Includes>
+    </Includes>
+    <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_OpaqueManagementDataServiceLib" -DPROVIDER_LIB_NS_BEGIN="namespace UNIX_OpaqueManagementDataServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider -lUNIX_OpaqueManagementDataProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <OutputName>UNIX_OpaqueManagementDataServiceProvider</OutputName>
+    <CompileTarget>SharedLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+	   <ExtraCompilerArguments>-W -Wall -Wno-unused-parameter  -Wno-unused-value -D_GNU_SOURCE -DTHREAD_SAFE -D_REENTRANT -Werror=unused-variable	-DPEGASUS_COMMON_INTERNAL  -DPEGASUS_PLATFORM_FREEBSD_GENERIC_GNU -DPEGASUS_OS_FREEBSD -DPEGASUS_PLATFORM_FREEBSD_X86_64_CLANG -DPEGASUS_USE_SYSLOGS -DPEGASUS_ARCH_LIB="lib" -DPEGASUS_ENABLE_USERGROUP_AUTHORIZATION -DPEGASUS_ENABLE_CQL -DPEGASUS_DEFAULT_ENABLE_OOP -DPEGASUS_ENABLE_EXECQUERY -DPEGASUS_HAS_SSL -DPEGASUS_SSL_RANDOMFILE -DPEGASUS_ENABLE_SSL_CRL_VERIFICATION -DPEGASUS_ENABLE_AUDIT_LOGGER -DPEGASUS_ENABLE_IPV6 -DPEGASUS_ENABLE_INDICATION_COUNT -DPEGASUS_ENABLE_SLP -DPEGASUS_USE_EXTERNAL_SLP_TYPE=1 -DPEGASUS_ENABLE_INTEROP_PROVIDER -DPEGASUS_USE_EXPERIMENTAL_INTERFACES -DPEGASUS_ENABLE_CMPI_PROVIDER_MANAGER -DPEGASUS_DEST_LIB_DIR="lib" -DPEGASUS_ENABLE_PROTOCOL_WSMAN -DPEGASUS_PAM_AUTHENTICATION -DPEGASUS_NO_PASSWORDFILE -DPEGASUS_ENABLE_PROTOCOL_BINARY -DPEGASUS_EXTRA_PROVIDER_LIB_DIR="" -DPROVIDER_LIB_NS="UNIX_OpaqueManagementDataServiceLib" -DPROVIDER_LIB_NS="namespace UNIX_OpaqueManagementDataServiceLib {"</ExtraCompilerArguments>
+    <ExtraLinkerArguments>-L/usr/local/lib/pegasus/lib -L/usr/local/lib -lpegcommon -lpegprovider -lpegclient -lpegslp_client -lpegquerycommon -lpegqueryexpression -lpegcql -lpegwql -lpegrepository -lutil -lgeom -ljail -lkvm -pthread -lcam -lpkg -lUNIX_ConcreteJobProvider -lUNIX_OpaqueManagementDataProvider</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../CIMHelper.cpp">
+        <Link>CIMHelper.cpp</Link>
+    </Compile>
+    <Compile Include="UNIX_OpaqueManagementDataService.cpp" />
+    <Compile Include="UNIX_OpaqueManagementDataServiceMain.cpp" />
+    <Compile Include="UNIX_OpaqueManagementDataServiceProvider.cpp" />
+    <Compile Include="UNIX_OpaqueManagementDataService_AIX.cpp" />
+    <Compile Include="UNIX_OpaqueManagementDataService_DARWIN.cpp" />
+    <Compile Include="UNIX_OpaqueManagementDataService_FREEBSD.cpp" />
+    <Compile Include="UNIX_OpaqueManagementDataService_HPUX.cpp" />
+    <Compile Include="UNIX_OpaqueManagementDataService_LINUX.cpp" />
+    <Compile Include="UNIX_OpaqueManagementDataService_SOLARIS.cpp" />
+    <Compile Include="UNIX_OpaqueManagementDataService_STUB.cpp" />
+    <Compile Include="UNIX_OpaqueManagementDataService_TRU64.cpp" />
+    <Compile Include="UNIX_OpaqueManagementDataService_VMS.cpp" />
+    <Compile Include="UNIX_OpaqueManagementDataService_ZOS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Node Include="Makefile" />
+    <Node Include="UNIX_OpaqueManagementDataService.h" />
+    <Node Include="UNIX_OpaqueManagementDataServiceDeps.h" />
+    <Node Include="UNIX_OpaqueManagementDataServiceDeps_AIX.h" />
+    <Node Include="UNIX_OpaqueManagementDataServiceDeps_DARWIN.h" />
+    <Node Include="UNIX_OpaqueManagementDataServiceDeps_FREEBSD.h" />
+    <Node Include="UNIX_OpaqueManagementDataServiceDeps_HPUX.h" />
+    <Node Include="UNIX_OpaqueManagementDataServiceDeps_LINUX.h" />
+    <Node Include="UNIX_OpaqueManagementDataServiceDeps_SOLARIS.h" />
+    <Node Include="UNIX_OpaqueManagementDataServiceDeps_STUB.h" />
+    <Node Include="UNIX_OpaqueManagementDataServiceDeps_TRU64.h" />
+    <Node Include="UNIX_OpaqueManagementDataServiceDeps_VMS.h" />
+    <Node Include="UNIX_OpaqueManagementDataServiceDeps_ZOS.h" />
+    <Node Include="UNIX_OpaqueManagementDataServicePrivate.h" />
+    <Node Include="UNIX_OpaqueManagementDataServicePrivate_AIX.h" />
+    <Node Include="UNIX_OpaqueManagementDataServicePrivate_DARWIN.h" />
+    <Node Include="UNIX_OpaqueManagementDataServicePrivate_FREEBSD.h" />
+    <Node Include="UNIX_OpaqueManagementDataServicePrivate_HPUX.h" />
+    <Node Include="UNIX_OpaqueManagementDataServicePrivate_LINUX.h" />
+    <Node Include="UNIX_OpaqueManagementDataServicePrivate_SOLARIS.h" />
+    <Node Include="UNIX_OpaqueManagementDataServicePrivate_STUB.h" />
+    <Node Include="UNIX_OpaqueManagementDataServicePrivate_TRU64.h" />
+    <Node Include="UNIX_OpaqueManagementDataServicePrivate_VMS.h" />
+    <Node Include="UNIX_OpaqueManagementDataServicePrivate_ZOS.h" />
+    <Node Include="UNIX_OpaqueManagementDataServiceProvider.h" />
+    <Node Include="UNIX_OpaqueManagementDataService_AIX.hpp" />
+    <Node Include="UNIX_OpaqueManagementDataService_AIX.hxx" />
+    <Node Include="UNIX_OpaqueManagementDataService_DARWIN.hpp" />
+    <Node Include="UNIX_OpaqueManagementDataService_DARWIN.hxx" />
+    <Node Include="UNIX_OpaqueManagementDataService_FREEBSD.hpp" />
+    <Node Include="UNIX_OpaqueManagementDataService_FREEBSD.hxx" />
+    <Node Include="UNIX_OpaqueManagementDataService_HPUX.hpp" />
+    <Node Include="UNIX_OpaqueManagementDataService_HPUX.hxx" />
+    <Node Include="UNIX_OpaqueManagementDataService_LINUX.hpp" />
+    <Node Include="UNIX_OpaqueManagementDataService_LINUX.hxx" />
+    <Node Include="UNIX_OpaqueManagementDataService_SOLARIS.hpp" />
+    <Node Include="UNIX_OpaqueManagementDataService_SOLARIS.hxx" />
+    <Node Include="UNIX_OpaqueManagementDataService_STUB.hpp" />
+    <Node Include="UNIX_OpaqueManagementDataService_STUB.hxx" />
+    <Node Include="UNIX_OpaqueManagementDataService_TRU64.hpp" />
+    <Node Include="UNIX_OpaqueManagementDataService_TRU64.hxx" />
+    <Node Include="UNIX_OpaqueManagementDataService_VMS.hpp" />
+    <Node Include="UNIX_OpaqueManagementDataService_VMS.hxx" />
+    <Node Include="UNIX_OpaqueManagementDataService_WIN32.hpp" />
+    <Node Include="UNIX_OpaqueManagementDataService_ZOS.hpp" />
+    <Node Include="UNIX_OpaqueManagementDataService_ZOS.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
