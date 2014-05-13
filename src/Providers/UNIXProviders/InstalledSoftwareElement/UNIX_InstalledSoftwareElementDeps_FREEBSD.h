@@ -30,6 +30,7 @@
 //%/////////////////////////////////////////////////////////////////////////
 #if defined(PEGASUS_OS_FREEBSD)
 
-
+#include <SoftwareElement/UNIX_SoftwareElementProvider.h>
+#include <ComputerSystem/UNIX_ComputerSystemProvider.h>
 
 #endif

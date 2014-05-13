@@ -30,5 +30,11 @@
 //%/////////////////////////////////////////////////////////////////////////
 #if defined(PEGASUS_OS_FREEBSD)
 
+	UNIX_SoftwareElement _softwareElement;
+	UNIX_SoftwareElementProvider _softwareProvider;
+	UNIX_ComputerSystem _computerSystem;
+	UNIX_ComputerSystemProvider _computerProvider;
+	int groupIndex;
+	int partIndex;
 
 #endif

@@ -1,4 +1,5 @@
-Name: UNIX_SoftwareElementProvider
+Name: UNIX_SoftwareElement
 Description: 
 Version: 0.1
-Libs: 
+Libs: -L"/home/bruno/openpegasus-providers/src/Providers/UNIXProviders/SoftwareElement/bin/Debug" -lUNIX_SoftwareElementProvider
+Cflags: -I"/home/bruno/openpegasus-providers/src/Providers/UNIXProviders/SoftwareElement"

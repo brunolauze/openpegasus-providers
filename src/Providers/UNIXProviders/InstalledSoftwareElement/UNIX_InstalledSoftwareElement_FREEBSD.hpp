@@ -76,10 +76,8 @@ void UNIX_InstalledSoftwareElement::setSystem(CIMInstance &value)
 
 void UNIX_InstalledSoftwareElement::clearInstance()
 {
-
-	// _software = CIMInstance(CIMName("CIM_SoftwareElement"));
-	_system = CIMInstance(CIMName("CIM_VirtualComputerSystem"));
-
+	_software = CIMInstance(CIMName("CIM_SoftwareElement"));
+	_system = CIMInstance(CIMName("CIM_ComputerSystem"));
 }
 
 Boolean UNIX_InstalledSoftwareElement::loadInstance(const CIMInstance &instance)
@@ -107,21 +105,21 @@ Boolean UNIX_InstalledSoftwareElement::loadInstance(const CIMInstance &instance)
 
 Boolean UNIX_InstalledSoftwareElement::initialize()
 {
+
 	return false;
 }
 
 Boolean UNIX_InstalledSoftwareElement::load(int &pIndex)
 {
 	
-	// _software = CIMInstance(CIMName("CIM_SoftwareElement"));
-	_system = CIMInstance(CIMName("CIM_VirtualComputerSystem"));
-	
 	return false;
 }
 
 Boolean UNIX_InstalledSoftwareElement::finalize()
 {
-	return false;
+	_softwareElement.finalize();
+	_computerSystem.finalize();
+	return true;
 }
 
 

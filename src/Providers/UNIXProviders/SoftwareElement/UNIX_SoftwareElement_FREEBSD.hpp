@@ -32,6 +32,181 @@
 
 using PROVIDER_LIB_NS::CIMHelper;
 
+#include <stdlib.h>
+
+/* These are the fields of the Full output, in order */
+#define INFO_NAME               (1LL<<0)
+#define INFO_VERSION            (1LL<<1)
+#define INFO_INSTALLED          (1LL<<2)
+#define INFO_ORIGIN             (1LL<<3)
+#define INFO_ARCH               (1LL<<4)
+#define INFO_PREFIX             (1LL<<5)
+#define INFO_REPOSITORY         (1LL<<6)
+#define INFO_CATEGORIES         (1LL<<7)
+#define INFO_LICENSES           (1LL<<8)
+#define INFO_MAINTAINER         (1LL<<9)
+#define INFO_WWW                (1LL<<10)
+#define INFO_COMMENT            (1LL<<11)
+#define INFO_OPTIONS            (1LL<<12)
+#define INFO_SHLIBS_REQUIRED    (1LL<<13)
+#define INFO_SHLIBS_PROVIDED    (1LL<<14)
+#define INFO_ANNOTATIONS        (1LL<<15)
+#define INFO_FLATSIZE           (1LL<<16)
+#define INFO_PKGSIZE            (1LL<<17)
+#define INFO_DESCR              (1LL<<18)
+
+/* Other fields not part of the Full output */
+#define INFO_MESSAGE            (1LL<<19)
+#define INFO_DEPS               (1LL<<20)
+#define INFO_RDEPS              (1LL<<21)
+#define INFO_FILES              (1LL<<22)
+#define INFO_DIRS               (1LL<<23)
+#define INFO_USERS              (1LL<<24)
+#define INFO_GROUPS             (1LL<<25)
+#define INFO_REPOURL            (1LL<<26)
+#define INFO_LOCKED             (1LL<<27)
+#define INFO_OPTION_DEFAULTS    (1LL<<28)
+#define INFO_OPTION_DESCRIPTIONS (1LL<<29)
+
+#define INFO_LASTFIELD  INFO_LOCKED
+#define INFO_ALL        (((INFO_LASTFIELD) << 1) - 1)
+
+/* Identifying tags */
+#define INFO_TAG_NAME           (1LL<<60)
+#define INFO_TAG_ORIGIN         (1LL<<61)
+#define INFO_TAG_NAMEVER        (1LL<<62)
+
+/* Output YAML format */
+#define INFO_RAW        (-1LL<<63)
+
+/* Everything in the 'full' package output */
+#define INFO_FULL       (INFO_NAME|INFO_VERSION|INFO_ORIGIN|INFO_ARCH|INFO_PREFIX| \
+                         INFO_REPOSITORY|INFO_CATEGORIES|INFO_LICENSES|  \
+                         INFO_MAINTAINER|INFO_WWW|INFO_COMMENT|          \
+                         INFO_OPTIONS|INFO_SHLIBS_REQUIRED|              \
+                         INFO_SHLIBS_PROVIDED|INFO_ANNOTATIONS|          \
+                         INFO_FLATSIZE|INFO_PKGSIZE|INFO_DESCR)
+
+/* Everything that can take more than one line to print */
+#define INFO_MULTILINE  (INFO_OPTIONS|INFO_SHLIBS_REQUIRED|            \
+                         INFO_SHLIBS_PROVIDED|INFO_ANNOTATIONS|        \
+                         INFO_DESCR|INFO_MESSAGE|INFO_DEPS|INFO_RDEPS| \
+                         INFO_FILES|INFO_DIRS)
+
+
+
+/**
+ * Fetch repository calalogues.
+ */
+static int
+pkgcli_update(bool force) {
+        int retcode = EPKG_FATAL;
+        struct pkg_repo *r = NULL;
+
+        /* Only auto update if the user has write access. */
+        if (pkgdb_access(PKGDB_MODE_READ|PKGDB_MODE_WRITE|PKGDB_MODE_CREATE,
+            PKGDB_DB_REPO) == EPKG_ENOACCESS)
+                return (EPKG_OK);
+
+        //if (!quiet)
+                //printf("Updating repository catalogue\n");
+
+        while (pkg_repos(&r) == EPKG_OK) {
+                if (!pkg_repo_enabled(r))
+                        continue;
+                retcode = pkg_update(r, force);
+                if (retcode == EPKG_UPTODATE) {
+                        //if (!quiet)
+                        //        printf("%s repository catalogue is "
+                        //             "up-to-date, no need to fetch "
+                        //             "fresh copy\n", pkg_repo_ident(r));
+                                retcode = EPKG_OK;
+                }
+                if (retcode != EPKG_OK)
+                        break;
+        }
+
+        return (retcode);
+}
+
+
+/* what the pkg needs to load in order to display the requested info */
+int UNIX_SoftwareElement::getPkgFlag(uint64_t opt, bool remote)
+{
+        int flags = PKG_LOAD_BASIC;
+
+        if (opt & INFO_CATEGORIES)
+                flags |= PKG_LOAD_CATEGORIES;
+        if (opt & INFO_LICENSES)
+                flags |= PKG_LOAD_LICENSES;
+        if (opt & (INFO_OPTIONS|INFO_OPTION_DEFAULTS|INFO_OPTION_DESCRIPTIONS))
+                flags |= PKG_LOAD_OPTIONS;
+        if (opt & INFO_SHLIBS_REQUIRED)
+                flags |= PKG_LOAD_SHLIBS_REQUIRED;
+        if (opt & INFO_SHLIBS_PROVIDED)
+                flags |= PKG_LOAD_SHLIBS_PROVIDED;
+        if (opt & INFO_ANNOTATIONS)
+                flags |= PKG_LOAD_ANNOTATIONS;
+        if (opt & INFO_DEPS)
+                flags |= PKG_LOAD_DEPS;
+        if (opt & INFO_RDEPS)
+                flags |= PKG_LOAD_RDEPS;
+        if (opt & INFO_FILES)
+                flags |= PKG_LOAD_FILES;
+        if (opt & INFO_DIRS)
+                flags |= PKG_LOAD_DIRS;
+        if (opt & INFO_USERS)
+                flags |= PKG_LOAD_USERS;
+        if (opt & INFO_GROUPS)
+                flags |= PKG_LOAD_GROUPS;
+        if (opt & INFO_RAW) {
+                flags |= PKG_LOAD_CATEGORIES      |
+                         PKG_LOAD_LICENSES        |
+                         PKG_LOAD_OPTIONS         |
+                         PKG_LOAD_SHLIBS_REQUIRED |
+                         PKG_LOAD_SHLIBS_PROVIDED |
+                         PKG_LOAD_ANNOTATIONS     |
+                        PKG_LOAD_DEPS;
+                if (!remote) {
+                        flags |= PKG_LOAD_FILES  |
+                                PKG_LOAD_DIRS    |
+                                PKG_LOAD_USERS   |
+                                PKG_LOAD_GROUPS  |
+                                PKG_LOAD_SCRIPTS;
+                }
+        }
+
+        return flags;
+}
+
+String UNIX_SoftwareElement::getPackageProperty(const char * name, ...) const
+{
+    int              count;
+    struct sbuf     *sbuf;
+    String val;
+    sbuf  = sbuf_new_auto();
+    if (sbuf)
+            sbuf = pkg_sbuf_printf(sbuf, name, pkg);
+    if (sbuf && sbuf_len(sbuf) >= 0) {
+            sbuf_finish(sbuf);
+            if (strcmp(name, "%e") == 0)
+            {
+            	std::string tmp = CIMHelper::encode(sbuf_data(sbuf));
+            	val.assign(tmp.c_str());
+        	}
+            else 
+            {
+				val.assign(sbuf_data(sbuf));
+			}
+    } else {
+            count = -1;
+            val.assign("");
+    }
+	if (sbuf)
+		sbuf_delete(sbuf);
+	return val;
+}
+
 
 UNIX_SoftwareElement::UNIX_SoftwareElement(void)
 {
@@ -659,49 +834,197 @@ Boolean UNIX_SoftwareElement::loadInstance(const CIMInstance &instance)
 
 Boolean UNIX_SoftwareElement::initialize()
 {
-	return false;
+	db = NULL;
+    it = NULL;
+    pkg = NULL;
+    int ret;
+    if (!pkg_initialized())
+		if (pkg_init(NULL, NULL) != EPKG_OK)
+			throw new CIMException(CIM_ERR_FAILED, "Cannot init software manager");
+		
+	if (currentScope.equal(String("UNIX_ComputerSystem")))
+	{
+		remote = true;
+		ret = pkgdb_access(PKGDB_MODE_READ, PKGDB_DB_LOCAL);
+	}
+	else {
+		remote = true;
+		ret = pkgdb_access(PKGDB_MODE_READ, PKGDB_DB_REPO);
+	}
+	if (ret == EPKG_ENOACCESS) {
+	        //warnx("Insufficient privileges to query the package database");
+	        throw new CIMException(CIM_ERR_FAILED, "Insufficient privileges to query the package database");
+	        //return false; /* (EX_NOPERM); */
+	} else if (ret == EPKG_ENODB) {
+	        //if (match == MATCH_ALL)
+	        //        return false; /* (EX_OK); */
+	        //if (origin_search)
+	        //        return false; /* (EX_OK); */
+	        throw new CIMException(CIM_ERR_FAILED, "Sofware database not present");
+	        //return false; /* (EX_UNAVAILABLE); */
+	} else if (ret != EPKG_OK)
+	        throw new CIMException(CIM_ERR_FAILED, "Sofware database is corrupted");
+	        //return false; /* (EX_IOERR); */
+	return true;
 }
 
 Boolean UNIX_SoftwareElement::load(int &pIndex)
 {
-	
-	_instanceID = String ("");
-	_caption = String ("");
-	_description = String ("");
-	_elementName = String("SoftwareElement");
-	_generation = Uint64(0);
-	_installDate = CIMHelper::getCurrentTime();
-	_name = String ("");
-	_operationalStatus.clear();
-	_statusDescriptions.clear();
-	_status = String(DEFAULT_STATUS);
-	_healthState = Uint16(DEFAULT_HEALTH_STATE);
-	_communicationStatus = Uint16(0);
-	_detailedStatus = Uint16(0);
-	_operatingStatus = Uint16(DEFAULT_OPERATING_STATUS);
-	_primaryStatus = Uint16(DEFAULT_PRIMARY_STATUS);
-	_version = String ("");
-	_softwareElementState = Uint16(0);
-	_softwareElementID = String ("");
-	_targetOperatingSystem = Uint16(0);
-	_otherTargetOS = String ("");
-	_manufacturer = String ("");
-	_buildNumber = String ("");
-	_serialNumber = String ("");
-	_codeSet = String ("");
-	_identificationCode = String ("");
-	_languageEdition = String ("");
-	
+	int ret;
+	char *pkgname;
+	const char *reponame = NULL;
+	pkgname = NULL;
+	if (db == NULL)
+	{
+		if (!remote)
+		{
+			ret = pkgdb_open(&db, PKGDB_DEFAULT);
+			if (ret != EPKG_OK)
+	    	return false;
+			if ((it = pkgdb_query(db, pkgname, MATCH_ALL)) == NULL) {
+			        throw new CIMException(CIM_ERR_FAILED, "Software Manager query failed");
+			        //return false; //(EX_IOERR);
+			}
+			query_flags = PKG_LOAD_BASIC; //getPkgFlag(INFO_ALL, false);
+		}
+		else {
+			bool auto_update = true; // TODO: Review
+			if (auto_update && (ret = pkgcli_update(false)) != EPKG_OK)
+                return false;
+			ret = pkgdb_open(&db, PKGDB_REMOTE);	
+			if (ret != EPKG_OK)
+	    		throw new CIMException(CIM_ERR_FAILED, "Cannot open software database");
+			if ((it = pkgdb_rquery(db, pkgname, MATCH_ALL, reponame)) == NULL) {
+			    throw new CIMException(CIM_ERR_FAILED, "Software Manager remote query failed");
+			    //return false; //(EX_IOERR);
+			}
+			query_flags = PKG_LOAD_BASIC; //getPkgFlag(INFO_ALL, true);
+		}
+	}
+	if ((ret = pkgdb_it_next(it, &pkg, query_flags)) == EPKG_OK) {
+		String s(getPackageProperty("%n"));
+		s.append("-");
+		s.append(getPackageProperty("%v"));
+		_instanceID = s;
+		_caption = s;
+		_description = getPackageProperty ("%e");
+		_elementName = String("SoftwareElement");
+		_generation = Uint64(0);
+		int64_t instDate;
+		pkg_get(pkg, PKG_TIME, &instDate);
+		time_t tt = (time_t)instDate;
+		struct tm* clock;			// create a time structure
+		clock = gmtime(&(tt));	// Get the last modified time and put it into the time structure
+		_installDate = CIMDateTime(
+		  	clock->tm_year + 1900, 
+			clock->tm_mon + 1, 
+			clock->tm_mday,
+			clock->tm_hour,
+			clock->tm_min,
+			clock->tm_sec,
+			0,0,
+			clock->tm_gmtoff	
+		);
+		_name = getPackageProperty ("%n");
+		_operationalStatus.clear();
+		_statusDescriptions.clear();
+		_status = String(DEFAULT_STATUS);
+		_healthState = Uint16(DEFAULT_HEALTH_STATE);
+		_communicationStatus = Uint16(0);
+		_detailedStatus = Uint16(0);
+		_operatingStatus = Uint16(DEFAULT_OPERATING_STATUS);
+		_primaryStatus = Uint16(DEFAULT_PRIMARY_STATUS);
+		_version = getPackageProperty("%v");
+		_softwareElementState = Uint16(0);
+		_softwareElementID = String ("");
+		_targetOperatingSystem = Uint16(42);
+		_otherTargetOS = String ("");
+		_manufacturer = getPackageProperty ("%m");
+		_buildNumber = String ("");
+		_serialNumber = String ("");
+		_codeSet = String ("UTF-8");
+		_identificationCode = s;
+		_languageEdition = String ("Multilanguage");
+		return true;
+	}
 	return false;
 }
 
 Boolean UNIX_SoftwareElement::finalize()
 {
-	return false;
+	pkgdb_it_free(it);
+	pkg_free(pkg);
+    pkgdb_close(db);
+    pkg = NULL;
+	db = NULL;
+    it = NULL;
+	return true;
 }
 
 Boolean UNIX_SoftwareElement::loadByName(const String name)
 {
+	String pkgName(name);
+	pkgName.append("*");
+	int ret;
+	if (db != NULL)
+	{
+		pkg_free(pkg);
+    	pkgdb_close(db);
+	}
+
+	ret = pkgdb_open(&db, PKGDB_DEFAULT);
+    if (ret != EPKG_OK)
+    	return false;
+	if ((it = pkgdb_query(db, pkgName.getCString(), MATCH_GLOB)) == NULL) {
+	        return false; //(EX_IOERR);
+	}
+	query_flags = getPkgFlag(INFO_ALL, false);
+	if ((ret = pkgdb_it_next(it, &pkg, query_flags)) == EPKG_OK) {
+		String s(getPackageProperty("%n"));
+		s.append("-");
+		s.append(getPackageProperty("%v"));
+		_instanceID = s;
+		_caption = s;
+		_description = getPackageProperty ("%e");
+		_elementName = String("SoftwareElement");
+		_generation = Uint64(0);
+		int64_t instDate;
+		pkg_get(pkg, PKG_TIME, &instDate);
+		time_t tt = (time_t)instDate;
+		struct tm* clock;			// create a time structure
+		clock = gmtime(&(tt));	// Get the last modified time and put it into the time structure
+		_installDate = CIMDateTime(
+		  	clock->tm_year + 1900, 
+			clock->tm_mon + 1,
+			clock->tm_mday,
+			clock->tm_hour,
+			clock->tm_min,
+			clock->tm_sec,
+			0,0,
+			clock->tm_gmtoff	
+		);
+		_name = getPackageProperty ("%n");
+		_operationalStatus.clear();
+		_statusDescriptions.clear();
+		_status = String(DEFAULT_STATUS);
+		_healthState = Uint16(DEFAULT_HEALTH_STATE);
+		_communicationStatus = Uint16(0);
+		_detailedStatus = Uint16(0);
+		_operatingStatus = Uint16(DEFAULT_OPERATING_STATUS);
+		_primaryStatus = Uint16(DEFAULT_PRIMARY_STATUS);
+		_version = getPackageProperty("%v");
+		_softwareElementState = Uint16(0);
+		_softwareElementID = String ("");
+		_targetOperatingSystem = Uint16(42);
+		_otherTargetOS = String ("");
+		_manufacturer = getPackageProperty ("%m");
+		_buildNumber = String ("");
+		_serialNumber = String ("");
+		_codeSet = String ("UTF-8");
+		_identificationCode = s;
+		_languageEdition = String ("Multilanguage");
+		return true;
+	}
 	return false;
 }
 
