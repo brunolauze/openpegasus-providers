@@ -1,4 +1,5 @@
-Name: UNIX_ProcessorProvider
+Name: UNIX_Processor
 Description: 
 Version: 0.1
-Libs: 
+Libs: -L"/home/bruno/openpegasus-providers/src/Providers/UNIXProviders/Processor/bin/Debug" -lUNIX_ProcessorProvider
+Cflags: -I"/home/bruno/openpegasus-providers/src/Providers/UNIXProviders/Processor"

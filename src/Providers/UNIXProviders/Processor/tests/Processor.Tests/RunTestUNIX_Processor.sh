@@ -31,4 +31,4 @@
 #//
 #//%/////////////////////////////////////////////////////////////////////////
 
-cd bin/Debug && LD_LIBRARY_PATH=../../../../../Processor/bin/Debug:../../../../../ConcreteJob/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib ./TestUNIX_Processor
+cd bin/Debug && LD_LIBRARY_PATH=../../../../../Processor/bin/Debug:../../../../../ConcreteJob/bin/Debug:/usr/local/lib/pegasus/lib:/usr/local/lib:/usr/lib:/lib gdb ./TestUNIX_Processor

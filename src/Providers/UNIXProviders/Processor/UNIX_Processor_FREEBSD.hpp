@@ -32,6 +32,7 @@
 
 using PROVIDER_LIB_NS::CIMHelper;
 
+#include <sys/sysctl.h>
 
 UNIX_Processor::UNIX_Processor(void)
 {
@@ -953,7 +954,6 @@ void UNIX_Processor::setNumberOfEnabledCores(Uint16 &value)
 	_numberOfEnabledCores = value;
 }
 
-
 void UNIX_Processor::clearInstance()
 {
 
@@ -1476,19 +1476,25 @@ Uint32 UNIX_Processor::invokeRestoreProperties()
 
 Boolean UNIX_Processor::initialize()
 {
+	dmidecode decoder;
+	processors = decoder.getProcessors();
+	processors_iterator = processors->begin();
 	return false;
 }
 
 Boolean UNIX_Processor::load(int &pIndex)
 {
-	
-	_instanceID = String ("");
-	_caption = String ("");
-	_description = String ("");
+	if (processors_iterator == processors->end()) return false;
+	dmi_proc p = *processors_iterator;
+
+	_instanceID = String(p.version);
+	_caption = String(p.familydesc);
+	_description = String(p.version);
 	_elementName = String("Processor");
+
 	_generation = Uint64(0);
-	_installDate = CIMHelper::getCurrentTime();
-	_name = String ("");
+	_installDate = CIMHelper::getOSInstallDate();
+	_name = String(p.familydesc);
 	_operationalStatus.clear();
 	_statusDescriptions.clear();
 	_status = String(DEFAULT_STATUS);
@@ -1498,54 +1504,61 @@ Boolean UNIX_Processor::load(int &pIndex)
 	_operatingStatus = Uint16(DEFAULT_OPERATING_STATUS);
 	_primaryStatus = Uint16(DEFAULT_PRIMARY_STATUS);
 	_enabledState = Uint16(DEFAULT_ENABLED_STATE);
-	_otherEnabledState = String ("");
+	_otherEnabledState = String("");
 	_requestedState = Uint16(0);
 	_enabledDefault = Uint16(0);
 	_timeOfLastStateChange = CIMHelper::getCurrentTime();
 	_availableRequestedStates.clear();
 	_transitioningToState = Uint16(0);
-	_allocationState = String ("");
+	_allocationState = String("");
 	_systemCreationClassName = String("UNIX_ComputerSystem");
 	_systemName = CIMHelper::HostName;
 	_creationClassName = String("UNIX_Processor");
-	_deviceID = String ("");
+	_deviceID = String(p.id);
 	_powerManagementSupported = Boolean(false);
 	_powerManagementCapabilities.clear();
 	_availability = Uint16(0);
 	_statusInfo = Uint16(0);
 	_lastErrorCode = Uint32(0);
-	_errorDescription = String ("");
+	_errorDescription = String("");
 	_errorCleared = Boolean(false);
 	_otherIdentifyingInfo.clear();
-	_powerOnHours = Uint64(0);
-	_totalPowerOnHours = Uint64(0);
+	int mib[2] = { CTL_KERN, KERN_BOOTTIME };
+	struct timeval tv;
+	size_t len = sizeof(tv);
+	if (sysctl(mib, 2, &tv, &len, NULL, 0) == -1)
+	{
+		_powerOnHours = Uint64(0);
+	}
+	else _powerOnHours = Uint64((tv.tv_sec / 60) / 60);
+	_totalPowerOnHours = _powerOnHours;
 	_identifyingDescriptions.clear();
 	_additionalAvailability.clear();
 	_maxQuiesceTime = Uint64(0);
 	_locationIndicator = Uint16(0);
-	_role = String ("");
-	_family = Uint16(0);
-	_otherFamilyDescription = String ("");
-	_upgradeMethod = Uint16(0);
-	_maxClockSpeed = Uint32(0);
-	_currentClockSpeed = Uint32(0);
+	_role = String(p.role);
+	_family = Uint16(p.family);
+	_otherFamilyDescription = String(p.familydesc);
+	_upgradeMethod = Uint16(p.upgradeMethod);
+	_maxClockSpeed = Uint32(p.maxClockSpeed);
+	_currentClockSpeed = Uint32(p.currentClockSpeed);
 	_dataWidth = Uint16(0);
 	_addressWidth = Uint16(0);
 	_loadPercentage = Uint16(0);
-	_stepping = String ("");
-	_uniqueID = String ("");
-	_cPUStatus = Uint16(0);
-	_externalBusClockSpeed = Uint32(0);
+	_stepping = String(p.stepping);
+	_uniqueID = String(p.id);
+	_cPUStatus = Uint16(2); //Uint16(p.status);
+	_externalBusClockSpeed = Uint32(p.externalBusClockSpeed);
 	_characteristics.clear();
 	_enabledProcessorCharacteristics.clear();
-	_numberOfEnabledCores = Uint16(0);
-	
-	return false;
+	_numberOfEnabledCores = Uint16(p.enabledcores);
+	++processors_iterator;
+	return true;
 }
 
 Boolean UNIX_Processor::finalize()
 {
-	return false;
+	return true;
 }
 
 Boolean UNIX_Processor::loadByName(const String name)

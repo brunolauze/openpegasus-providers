@@ -30,5 +30,7 @@
 //%/////////////////////////////////////////////////////////////////////////
 #if defined(PEGASUS_OS_FREEBSD)
 
-
+	std::list<dmi_proc> *processors;
+	std::list<dmi_proc>::iterator processors_iterator;
+	
 #endif

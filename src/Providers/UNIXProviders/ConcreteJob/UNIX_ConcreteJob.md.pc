@@ -1,4 +1,5 @@
-Name: UNIX_ConcreteJobProvider
+Name: UNIX_ConcreteJob
 Description: 
 Version: 0.1
-Libs: 
+Libs: -L"/home/bruno/openpegasus-providers/src/Providers/UNIXProviders/ConcreteJob/bin/Debug" -lUNIX_ConcreteJobProvider
+Cflags: -I"/home/bruno/openpegasus-providers/src/Providers/UNIXProviders/ConcreteJob"
